@@ -1,6 +1,11 @@
 import Home from 'pages/Home';
 import Login from 'pages/Login';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from 'react-router-dom';
 
 function CustomRoute({ isPrivate, ...rest }) {
   // const { loading, authenticated } = useContext(Context);
@@ -18,10 +23,12 @@ function CustomRoute({ isPrivate, ...rest }) {
 }
 
 const Routes = () => (
-  <Switch>
-    <CustomRoute isPrivate exact path="/" component={Home} />
-    <CustomRoute exact path="/login" component={Login} />
-  </Switch>
+  <Router>
+    <Switch>
+      <CustomRoute isPrivate exact path="/" component={Home} />
+      <CustomRoute exact path="/login" component={Login} />
+    </Switch>
+  </Router>
 );
 
 export default Routes;
