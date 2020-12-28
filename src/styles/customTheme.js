@@ -60,7 +60,10 @@ const customTheme = extendTheme({
           borderRadius: '10px',
           boxShadow: '0px 3px 6px #00000029',
           _hover: {
-            bg: 'linear-gradient(180deg, #F2D6A3 0%, #F2D6A3 100%)'
+            bg: 'linear-gradient(180deg, #F2D6A3 0%, #F2D6A3 100%)',
+            _disabled: {
+              bg: 'linear-gradient(180deg, #F2D6A3 0%, #F2D6A3 100%)'
+            }
           }
         },
         primary: {
@@ -73,7 +76,10 @@ const customTheme = extendTheme({
           borderRadius: '10px',
           boxShadow: '0px 3px 6px #00000029',
           _hover: {
-            bg: 'linear-gradient(180deg, #4EE2DE 0%, #4EE2DE 100%)'
+            bg: 'linear-gradient(180deg, #4EE2DE 0%, #4EE2DE 100%)',
+            _disabled: {
+              bg: 'linear-gradient(180deg, #4EE2DE 0%, #4EE2DE 100%)'
+            }
           }
         }
       }
