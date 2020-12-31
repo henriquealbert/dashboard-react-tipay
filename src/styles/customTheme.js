@@ -10,6 +10,7 @@ const customTheme = extendTheme({
     black: '#0A172D',
     white: '#FFFFFF',
     gray: {
+      200: '#F3F3F3',
       300: '#00000029',
       400: '#000078',
       500: '#606060',

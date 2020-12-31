@@ -9,7 +9,6 @@ export default function useAuth() {
   const [user, setUser] = useState(null);
 
   const history = useHistory();
-  console.log(history);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
