@@ -11,6 +11,8 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 
+import { useAuthContext } from 'hooks/useAuthContext';
+
 const schema = Yup.object().shape({
   email: Yup.string()
     .email('E-mail com formato inválido.')
@@ -21,6 +23,8 @@ const schema = Yup.object().shape({
 });
 
 export default function LoginForm() {
+  const { handleLogin } = useAuthContext();
+
   const {
     register,
     handleSubmit,
@@ -31,14 +35,9 @@ export default function LoginForm() {
     resolver: yupResolver(schema)
   });
 
-  const onSubmit = ({ email, password }) => {
-    console.log(email, password);
-    return new Promise((resolve) => {
-      setTimeout(() => resolve(), 1000);
-    });
+  const onSubmit = ({ email }) => {
+    handleLogin(email);
   };
-
-  console.log(isSubmitting);
 
   return (
     <Box w="100%" as="form" onSubmit={handleSubmit(onSubmit)}>
