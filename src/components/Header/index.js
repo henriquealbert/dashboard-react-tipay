@@ -1,4 +1,5 @@
 import { Flex, Image } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 
 import Menu from 'components/Menu';
 
@@ -15,13 +16,15 @@ export default function Header() {
       alignItems="center"
       pr="75px"
     >
-      <Image
-        src="/images/logo.svg"
-        alt="Logo Tipay"
-        w="116px"
-        h="68px"
-        ml="75px"
-      />
+      <Link to="/">
+        <Image
+          src="/images/logo.svg"
+          alt="Logo Tipay"
+          w="116px"
+          h="68px"
+          ml="75px"
+        />
+      </Link>
       <Menu />
     </Flex>
   );

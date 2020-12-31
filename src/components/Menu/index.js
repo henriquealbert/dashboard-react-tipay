@@ -1,11 +1,16 @@
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import { Box, Fade, Flex, Image, Text } from '@chakra-ui/react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+
+import useAuth from 'hooks/useAuth';
 
 export default function Menu() {
   const user = { img: '/images/user-img.png', name: 'Fulano de Tal' };
 
   const [isOpen, setIsOpen] = useState(false);
+
+  const { handleLogout } = useAuth();
 
   return (
     <Flex position="relative" h="100%">
@@ -49,31 +54,59 @@ export default function Menu() {
               w="100%"
               my="13px"
             >
-              <Flex as="li" py="13px" ml="38px" alignItems="center" w="100%">
-                <Image
-                  src="/images/meu-perfil.svg"
-                  alt="Meu Perfil"
-                  mr="15px"
-                />
-                <Text>Meu Perfil</Text>
-              </Flex>
-              <Flex as="li" py="13px" ml="38px" alignItems="center" w="100%">
-                <Image src="/images/dashboard.svg" alt="Dashboard" mr="20px" />
-                <Text>Dashboard</Text>
-              </Flex>
-              <Flex as="li" py="13px" ml="38px" alignItems="center" w="100%">
-                <Image
-                  src="/images/atendimento.svg"
-                  alt="Atendimento"
-                  mr="15px"
-                />
-                <Text>Atendimento</Text>
-              </Flex>
-              <Flex as="li" py="13px" ml="38px" alignItems="center" w="100%">
-                <Image src="/images/meu-plano.svg" alt="Meu Plano" mr="12px" />
-                <Text>Meu Plano</Text>
-              </Flex>
-              <Flex as="li" py="13px" ml="38px" alignItems="center" w="100%">
+              <Link to="/meu-perfil">
+                <Flex as="li" py="13px" ml="38px" alignItems="center" w="100%">
+                  <Image
+                    src="/images/meu-perfil.svg"
+                    alt="Meu Perfil"
+                    mr="15px"
+                  />
+                  <Text>Meu Perfil</Text>
+                </Flex>
+              </Link>
+
+              <Link to="/">
+                <Flex as="li" py="13px" ml="38px" alignItems="center" w="100%">
+                  <Image
+                    src="/images/dashboard.svg"
+                    alt="Dashboard"
+                    mr="20px"
+                  />
+                  <Text>Dashboard</Text>
+                </Flex>
+              </Link>
+
+              <Link to="/atendimento">
+                <Flex as="li" py="13px" ml="38px" alignItems="center" w="100%">
+                  <Image
+                    src="/images/atendimento.svg"
+                    alt="Atendimento"
+                    mr="15px"
+                  />
+                  <Text>Atendimento</Text>
+                </Flex>
+              </Link>
+
+              <Link to="/meu-plano">
+                <Flex as="li" py="13px" ml="38px" alignItems="center" w="100%">
+                  <Image
+                    src="/images/meu-plano.svg"
+                    alt="Meu Plano"
+                    mr="12px"
+                  />
+                  <Text>Meu Plano</Text>
+                </Flex>
+              </Link>
+
+              <Flex
+                as="li"
+                py="13px"
+                ml="38px"
+                alignItems="center"
+                w="100%"
+                cursor="pointer"
+                onClick={handleLogout}
+              >
                 <Image src="/images/logout.svg" alt="Logout" mr="16px" />
                 <Text>Logout</Text>
               </Flex>
