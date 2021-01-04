@@ -11,7 +11,7 @@ export default function Header() {
       bg="linear-gradient(180deg, #0A172D 0%, #40474F 100%)"
       pl="118px"
       position="fixed"
-      zIndex="base"
+      zIndex="dropdown"
       justifyContent="space-between"
       alignItems="center"
       pr="75px"

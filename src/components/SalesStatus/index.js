@@ -8,6 +8,7 @@ export default function SalesStatus() {
   return (
     <Box
       maxW="1008px"
+      w="100%"
       bg="white"
       boxShadow="0px 3px 10px #0000000A"
       borderRadius="10px"
@@ -15,10 +16,11 @@ export default function SalesStatus() {
       mt="45px"
     >
       <Flex justifyContent="space-between">
-        <Text color="gray.500" fontSize="20px" lineHeight="24px">
+        <Text as="h4" color="gray.500" fontSize="20px" lineHeight="24px">
           Aprovadas
         </Text>
         <Text
+          as="span"
           mr="90px"
           color="gray.500"
           fontWeight="bold"
@@ -30,10 +32,11 @@ export default function SalesStatus() {
       </Flex>
       <Box maxW="872px" h="1px" bg="#ECECEC" m="19.5px 48px 19.5px 18px" />
       <Flex justifyContent="space-between">
-        <Text color="gray.500" fontSize="20px" lineHeight="24px">
+        <Text as="h4" color="gray.500" fontSize="20px" lineHeight="24px">
           Canceladas
         </Text>
         <Text
+          as="span"
           mr="90px"
           color="gray.500"
           fontWeight="bold"
@@ -45,10 +48,11 @@ export default function SalesStatus() {
       </Flex>
       <Box maxW="872px" h="1px" bg="#ECECEC" m="19.5px 48px 19.5px 18px" />
       <Flex justifyContent="space-between">
-        <Text color="gray.500" fontSize="20px" lineHeight="24px">
+        <Text as="h4" color="gray.500" fontSize="20px" lineHeight="24px">
           Pendentes
         </Text>
         <Text
+          as="span"
           mr="90px"
           color="gray.500"
           fontWeight="bold"

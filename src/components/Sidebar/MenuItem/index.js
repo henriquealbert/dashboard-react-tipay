@@ -21,8 +21,14 @@ export default function MenuItem({ pathname, text, icon, w, h }) {
         alignItems="center"
         justifyContent="center"
         cursor="pointer"
+        _hover={{
+          nav: { bg: 'brand.100' },
+          svg: { color: 'white' },
+          p: { color: 'brand.100' }
+        }}
       >
         <Flex
+          as="nav"
           bg={currentPage() ? 'brand.100' : 'gray.200'}
           w="60px"
           h="60px"

@@ -27,7 +27,7 @@ export default function Menu() {
           <Img src={user.img} alt={user.name} />
         </Box>
 
-        <Text color="white" fontSize="18px" mx="22px">
+        <Text color="white" fontSize="18px" mx="22px" as="span">
           {user.name}
         </Text>
 
@@ -61,14 +61,14 @@ export default function Menu() {
                     alt="Meu Perfil"
                     mr="15px"
                   />
-                  <Text>Meu Perfil</Text>
+                  Meu Perfil
                 </Flex>
               </Link>
 
               <Link to="/">
                 <Flex as="li" py="13px" ml="38px" alignItems="center" w="100%">
                   <Img src="/images/dashboard.svg" alt="Dashboard" mr="20px" />
-                  <Text>Dashboard</Text>
+                  Dashboard
                 </Flex>
               </Link>
 
@@ -79,14 +79,14 @@ export default function Menu() {
                     alt="Atendimento"
                     mr="15px"
                   />
-                  <Text>Atendimento</Text>
+                  Atendimento
                 </Flex>
               </Link>
 
               <Link to="/meu-plano">
                 <Flex as="li" py="13px" ml="38px" alignItems="center" w="100%">
                   <Img src="/images/meu-plano.svg" alt="Meu Plano" mr="12px" />
-                  <Text>Meu Plano</Text>
+                  Meu Plano
                 </Flex>
               </Link>
 
@@ -100,7 +100,7 @@ export default function Menu() {
                 onClick={handleLogout}
               >
                 <Img src="/images/logout.svg" alt="Logout" mr="16px" />
-                <Text>Logout</Text>
+                Logout
               </Flex>
             </Box>
           </Flex>

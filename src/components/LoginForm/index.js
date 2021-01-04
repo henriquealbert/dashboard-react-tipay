@@ -76,6 +76,7 @@ export default function LoginForm() {
         fontWeight="semibold"
         color="white"
         textAlign="right"
+        as="span"
       >
         Esqueci minha senha
       </Text>
