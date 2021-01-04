@@ -166,3 +166,32 @@ export const CalendarioIcon = createIcon({
     </g>
   )
 });
+
+export const ExportarIcon = createIcon({
+  displayName: 'ExportarIcon',
+  viewBox: '0 0 14.279 16.29',
+  path: (
+    <g
+      data-name="Group 1395"
+      fill="none"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeMiterlimit="10"
+      strokeWidth="1.5"
+    >
+      <path
+        data-name="Path 1172"
+        d="M9.832 6.135h3.7v9.4H.75v-9.4h3.7"
+        strokeLinejoin="round"
+      />
+      <g data-name="Group 1394">
+        <path
+          data-name="Path 1173"
+          d="M4.569 3.32L7.139.75l2.57 2.57"
+          strokeLinejoin="round"
+        />
+        <path data-name="Line 305" d="M7.722 9.727v-8" />
+      </g>
+    </g>
+  )
+});
