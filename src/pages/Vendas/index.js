@@ -1,5 +1,10 @@
+import Container from 'components/Container';
 import Layout from 'components/Layout';
 
 export default function Vendas() {
-  return <Layout>vendas</Layout>;
+  return (
+    <Layout>
+      <Container>Vendas</Container>
+    </Layout>
+  );
 }

@@ -1,4 +1,4 @@
-import { Flex, Image } from '@chakra-ui/react';
+import { Flex, Img } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 
 import Menu from 'components/Menu';
@@ -17,7 +17,7 @@ export default function Header() {
       pr="75px"
     >
       <Link to="/">
-        <Image
+        <Img
           src="/images/logo.svg"
           alt="Logo Tipay"
           w="116px"

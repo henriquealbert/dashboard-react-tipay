@@ -1,5 +1,5 @@
 import { ChevronDownIcon } from '@chakra-ui/icons';
-import { Box, Fade, Flex, Image, Text } from '@chakra-ui/react';
+import { Box, Fade, Flex, Img, Text } from '@chakra-ui/react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -24,7 +24,7 @@ export default function Menu() {
         }}
       >
         <Box border="2px solid #23DAC9" borderRadius="50%" w="51px" h="51px">
-          <Image src={user.img} alt={user.name} />
+          <Img src={user.img} alt={user.name} />
         </Box>
 
         <Text color="white" fontSize="18px" mx="22px">
@@ -56,7 +56,7 @@ export default function Menu() {
             >
               <Link to="/meu-perfil">
                 <Flex as="li" py="13px" ml="38px" alignItems="center" w="100%">
-                  <Image
+                  <Img
                     src="/images/meu-perfil.svg"
                     alt="Meu Perfil"
                     mr="15px"
@@ -67,18 +67,14 @@ export default function Menu() {
 
               <Link to="/">
                 <Flex as="li" py="13px" ml="38px" alignItems="center" w="100%">
-                  <Image
-                    src="/images/dashboard.svg"
-                    alt="Dashboard"
-                    mr="20px"
-                  />
+                  <Img src="/images/dashboard.svg" alt="Dashboard" mr="20px" />
                   <Text>Dashboard</Text>
                 </Flex>
               </Link>
 
               <Link to="/atendimento">
                 <Flex as="li" py="13px" ml="38px" alignItems="center" w="100%">
-                  <Image
+                  <Img
                     src="/images/atendimento.svg"
                     alt="Atendimento"
                     mr="15px"
@@ -89,11 +85,7 @@ export default function Menu() {
 
               <Link to="/meu-plano">
                 <Flex as="li" py="13px" ml="38px" alignItems="center" w="100%">
-                  <Image
-                    src="/images/meu-plano.svg"
-                    alt="Meu Plano"
-                    mr="12px"
-                  />
+                  <Img src="/images/meu-plano.svg" alt="Meu Plano" mr="12px" />
                   <Text>Meu Plano</Text>
                 </Flex>
               </Link>
@@ -107,7 +99,7 @@ export default function Menu() {
                 cursor="pointer"
                 onClick={handleLogout}
               >
-                <Image src="/images/logout.svg" alt="Logout" mr="16px" />
+                <Img src="/images/logout.svg" alt="Logout" mr="16px" />
                 <Text>Logout</Text>
               </Flex>
             </Box>
