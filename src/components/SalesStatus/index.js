@@ -13,7 +13,6 @@ export default function SalesStatus() {
       boxShadow="0px 3px 10px #0000000A"
       borderRadius="10px"
       p="31px 35px"
-      mt="45px"
     >
       <Flex justifyContent="space-between">
         <Text as="h4" color="gray.500" fontSize="20px" lineHeight="24px">

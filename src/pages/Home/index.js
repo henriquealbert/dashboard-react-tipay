@@ -11,7 +11,7 @@ export default function Home() {
     <Layout>
       <Container>
         <HomeInnerMenu />
-        <Flex w="100%">
+        <Flex w="100%" mt="45px">
           <SalesStatus />
           <SalesPercentages />
         </Flex>

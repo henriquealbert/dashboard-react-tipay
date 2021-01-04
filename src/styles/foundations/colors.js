@@ -16,6 +16,9 @@ const colors = {
     primaryDarker: '#60C4B9',
     secondary: '#F2D6A3',
     secondaryDarker: '#E6B864',
+    yellow: '#FACD79',
+    waterBlue: '#5BCCC3',
+    darkBlue: '#252F3E',
     100: '#1A2537'
   }
 };
