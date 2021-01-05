@@ -7,7 +7,7 @@ export default function SalesStatus() {
 
   return (
     <Box
-      maxW="1008px"
+      maxW="1002px"
       w="100%"
       bg="white"
       boxShadow="0px 3px 10px #0000000A"
