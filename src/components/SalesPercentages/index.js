@@ -8,8 +8,18 @@ export default function SalesPercentages() {
 
   return (
     <Flex>
-      <PercentageItem value={debito} label="Débito" color="brand.yellow" />
-      <PercentageItem value={credito} label="Crédito" color="brand.waterBlue" />
+      <PercentageItem
+        value={debito}
+        label="Débito"
+        color="brand.yellow"
+        mr="21px"
+      />
+      <PercentageItem
+        value={credito}
+        label="Crédito"
+        color="brand.waterBlue"
+        mr="21px"
+      />
       <PercentageItem value={boleto} label="Boleto" color="brand.darkBlue" />
     </Flex>
   );

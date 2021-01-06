@@ -7,7 +7,14 @@ export default function Layout({ children }) {
     <Flex>
       <Header />
       <Sidebar />
-      <Flex as="main" bg="gray.200" w="100vw" h="100vh" pt="118px" pl="129px">
+      <Flex
+        as="main"
+        bg="gray.200"
+        w="100vw"
+        minH="100vh"
+        pt="118px"
+        pl="129px"
+      >
         {children}
       </Flex>
     </Flex>

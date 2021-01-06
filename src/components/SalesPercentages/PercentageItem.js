@@ -1,12 +1,12 @@
 import { Flex, Text } from '@chakra-ui/react';
 
-export default function PercentageItem({ value, label, color }) {
+export default function PercentageItem({ value, label, color, mr }) {
   return (
     <Flex
       bg={color}
       borderRadius="10px"
       boxShadow="0px 3px 10px #0000000A"
-      ml="21px"
+      mr={mr}
       w="192px"
       direction="column"
     >
