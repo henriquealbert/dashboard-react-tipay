@@ -1,22 +1,25 @@
-import { Flex } from '@chakra-ui/react';
+import { Box, Flex } from '@chakra-ui/react';
+
 import Header from 'components/Header';
 import Sidebar from 'components/Sidebar';
+import SidebarPerfil from 'components/SidebarPerfil';
 
-export default function Layout({ children }) {
+export default function Layout({ children, perfil }) {
   return (
-    <Flex>
-      <Header />
-      <Sidebar />
+    <Box>
+      <Header perfil={perfil} />
+      {perfil ? <SidebarPerfil /> : <Sidebar />}
+
       <Flex
         as="main"
         bg="gray.200"
-        w="100vw"
+        w="100%"
         minH="100vh"
         pt="118px"
-        pl="129px"
+        pl={perfil ? '348px' : '129px'}
       >
         {children}
       </Flex>
-    </Flex>
+    </Box>
   );
 }
