@@ -1,5 +1,5 @@
 import { ChevronDownIcon } from '@chakra-ui/icons';
-import { Box, Fade, Flex, Img, Text } from '@chakra-ui/react';
+import { Avatar, Box, Fade, Flex, Img, Text } from '@chakra-ui/react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -24,7 +24,12 @@ export default function Menu() {
         }}
       >
         <Box border="2px solid #23DAC9" borderRadius="50%" w="51px" h="51px">
-          <Img src={user.img} alt={user.name} />
+          <Avatar
+            src={user?.img}
+            alt={user?.name}
+            borderRadius="50%"
+            bg="gray.100"
+          />
         </Box>
 
         <Text color="white" fontSize="18px" mx="22px" as="span">

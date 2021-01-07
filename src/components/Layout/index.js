@@ -15,6 +15,7 @@ export default function Layout({ children, perfil }) {
         bg="gray.200"
         w="100%"
         minH="100vh"
+        h="100%"
         pt="118px"
         pl={perfil ? '348px' : '129px'}
       >

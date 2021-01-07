@@ -55,6 +55,21 @@ const Button = {
         color: 'gray.800',
         borderColor: 'gray.800'
       }
+    },
+    green: {
+      bg: 'linear-gradient(180deg, #80D196 0%, #00B819 100%)',
+      color: 'white',
+      fontWeight: 'semibold',
+      fontSize: '20px',
+      h: '60px',
+      w: '195px',
+      borderRadius: '5px',
+      _hover: {
+        bg: 'linear-gradient(180deg, #80D196 0%, #80D196 100%)',
+        _disabled: {
+          bg: 'linear-gradient(180deg, #80D196 0%, #80D196 100%)'
+        }
+      }
     }
   }
 };

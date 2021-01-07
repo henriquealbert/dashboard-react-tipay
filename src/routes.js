@@ -14,6 +14,10 @@ import { useAuthContext } from 'hooks/useAuthContext';
 import MeuPerfil from 'pages/MeuPerfil';
 import MeuPlano from 'pages/MeuPlano';
 import Atendimento from 'pages/Atendimento';
+import ClientesAmigos from 'pages/ClientesAmigos';
+import Documentos from 'pages/Documentos';
+import TermosContrato from 'pages/TermosContrato';
+import Sobre from 'pages/Sobre';
 
 function CustomRoute({ isPrivate, ...rest }) {
   const { loading, authenticated } = useAuthContext();
@@ -45,6 +49,20 @@ const Routes = () => (
     <CustomRoute isPrivate exact path="/meu-perfil" component={MeuPerfil} />
     <CustomRoute isPrivate exact path="/meu-plano" component={MeuPlano} />
     <CustomRoute isPrivate exact path="/atendimento" component={Atendimento} />
+    <CustomRoute
+      isPrivate
+      exact
+      path="/clientes-amigos"
+      component={ClientesAmigos}
+    />
+    <CustomRoute isPrivate exact path="/documentos" component={Documentos} />
+    <CustomRoute
+      isPrivate
+      exact
+      path="/termos-e-contrato"
+      component={TermosContrato}
+    />
+    <CustomRoute isPrivate exact path="/sobre" component={Sobre} />
     <CustomRoute exact path="/login" component={Login} />
   </Switch>
 );
