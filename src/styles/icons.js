@@ -423,3 +423,124 @@ export const FriendsIcon = createIcon({
     </g>
   )
 });
+
+export const CopyIcon = createIcon({
+  displayName: 'CopyIcon',
+  viewBox: '0 0 18.09 21.228',
+  path: (
+    <g
+      id="Group_1393"
+      data-name="Group 1393"
+      transform="translate(-948.994 -4837.25)"
+    >
+      <rect
+        id="Rectangle_189"
+        data-name="Rectangle 189"
+        width="11.284"
+        height="14.756"
+        transform="translate(949.744 4842.972)"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeMiterlimit="10"
+        strokeWidth="1.5"
+      />
+      <path
+        id="Path_1171"
+        data-name="Path 1171"
+        d="M989,4843.014V4838h11.117v14.714h-4.251"
+        transform="translate(-33.783 0)"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeMiterlimit="10"
+        strokeWidth="1.5"
+      />
+    </g>
+  )
+});
+
+export const PrintIcon = createIcon({
+  displayName: 'PrintIcon',
+  viewBox: '0 0 25.349 22.5',
+  path: (
+    <g
+      id="Group_1396"
+      data-name="Group 1396"
+      transform="translate(-1180.25 -5053.71)"
+    >
+      <path
+        id="Path_1174"
+        data-name="Path 1174"
+        d="M1185,5122.125h-4V5112h4"
+        transform="translate(0 -50.129)"
+        fill="none"
+        stroke="currentColor"
+        strokeLinejoin="round"
+        strokeMiterlimit="10"
+        strokeWidth="1.5"
+      />
+      <path
+        id="Path_1175"
+        data-name="Path 1175"
+        d="M1334,5112h3.464v10.125h-3.132"
+        transform="translate(-132.615 -50.129)"
+        fill="none"
+        stroke="currentColor"
+        strokeLinejoin="round"
+        strokeMiterlimit="10"
+        strokeWidth="1.5"
+      />
+      <rect
+        id="Rectangle_190"
+        data-name="Rectangle 190"
+        width="16"
+        height="12"
+        transform="translate(1184.849 5054.46)"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeMiterlimit="10"
+        strokeWidth="1.5"
+      />
+      <rect
+        id="Rectangle_191"
+        data-name="Rectangle 191"
+        width="16"
+        height="6"
+        transform="translate(1184.849 5069.46)"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeMiterlimit="10"
+        strokeWidth="1.5"
+      />
+      <line
+        id="Line_307"
+        data-name="Line 307"
+        x2="9"
+        transform="translate(1188.849 5058.46)"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeMiterlimit="10"
+        strokeWidth="1.5"
+      />
+      <line
+        id="Line_308"
+        data-name="Line 308"
+        x2="6"
+        transform="translate(1188.849 5061.46)"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeMiterlimit="10"
+        strokeWidth="1.5"
+      />
+    </g>
+  )
+});

@@ -10,7 +10,11 @@ const colors = {
     600: '#40474F',
     700: '#B8B8B8',
     800: '#9B9B9B',
-    900: '#686868'
+    900: '#686868',
+    1000: '#AFAFAF',
+    1100: '#ECECEC',
+    1200: '#F8F8F8',
+    1300: '#C8C8C8'
   },
   brand: {
     primary: '#4EE2DE',
@@ -20,7 +24,8 @@ const colors = {
     yellow: '#FACD79',
     waterBlue: '#5BCCC3',
     darkBlue: '#252F3E',
-    100: '#1A2537'
+    100: '#1A2537',
+    200: '#6B6B6B'
   }
 };
 
