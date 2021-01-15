@@ -1,4 +1,4 @@
-import { Box, Button, Flex } from '@chakra-ui/react';
+import { Button, Flex } from '@chakra-ui/react';
 import Container from 'components/Container';
 import InnerMenu from 'components/InnerMenu';
 import Layout from 'components/Layout';
@@ -19,9 +19,9 @@ export default function Boletos() {
             <BoletoIcon ml="16px" w="34px" h="25px" color="white" />
           </Button>
         </Flex>
-        <Box my="36px">
+        <Flex my="36px">
           <SalesStatus />
-        </Box>
+        </Flex>
         <ToolsMenu />
         <SalesTable boleto />
         <PaginationTable />

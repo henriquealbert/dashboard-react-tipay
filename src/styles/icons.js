@@ -590,3 +590,101 @@ export const BoletoIcon = createIcon({
     </g>
   )
 });
+
+export const CheckTipayIcon = createIcon({
+  displayName: 'CheckTipayIcon',
+  viewBox: '0 0 22 22',
+  path: (
+    <svg>
+      <defs>
+        <linearGradient
+          id="linear-gradient-check"
+          x1="0.5"
+          x2="0.5"
+          y2="1"
+          gradientUnits="objectBoundingBox"
+        >
+          <stop offset="0" stopColor="#80d196" />
+          <stop offset="1" stopColor="#00b819" />
+        </linearGradient>
+      </defs>
+      <g
+        id="CheckTipayIcon"
+        data-name="CheckTipayIcon"
+        transform="translate(-1221 -708)"
+      >
+        <rect
+          id="Rectangle_860"
+          data-name="Rectangle 860"
+          width="22"
+          height="22"
+          rx="11"
+          transform="translate(1221 708)"
+          fill="url(#linear-gradient-check)"
+        />
+        <path
+          id="Path_1389"
+          data-name="Path 1389"
+          d="M9541.916-2111.631l4.092,4.092,6.131-6.131"
+          transform="translate(-8315 2830)"
+          fill="none"
+          stroke="#fff"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="3"
+        />
+      </g>
+    </svg>
+  )
+});
+
+export const QuestionTipayIcon = createIcon({
+  displayName: 'QuestionTipayIcon',
+  viewBox: '0 0 22 22',
+  path: (
+    <svg>
+      <defs>
+        <linearGradient
+          id="linear-gradient-QuestionTipayIcon"
+          x1="0.5"
+          x2="0.5"
+          y2="1"
+          gradientUnits="objectBoundingBox"
+        >
+          <stop offset="0" stopColor="#EA9800" />
+          <stop offset="1" stopColor="#FFC965" />
+        </linearGradient>
+      </defs>
+      <g
+        id="Group_1593"
+        data-name="Group 1593"
+        transform="translate(-1517 -712)"
+      >
+        <g id="Group_1592" data-name="Group 1592" transform="translate(296 4)">
+          <rect
+            id="Rectangle_860"
+            data-name="Rectangle 860"
+            width="22"
+            height="22"
+            rx="11"
+            transform="translate(1243 730) rotate(-180)"
+            fill="url(#linear-gradient-QuestionTipayIcon)"
+          />
+        </g>
+        <text
+          id="_"
+          data-name="?"
+          transform="translate(1528.5 729)"
+          fill="#fff"
+          fontSize="16"
+          fontFamily="Montserrat-Bold, Montserrat"
+          fontWeight="700"
+        >
+          <tspan x="-4.712" y="0">
+            ?
+          </tspan>
+        </text>
+      </g>
+    </svg>
+  )
+});
