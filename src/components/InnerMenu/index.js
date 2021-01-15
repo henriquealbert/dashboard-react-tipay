@@ -1,4 +1,5 @@
-import { Button, Flex, Text } from '@chakra-ui/react';
+import { Button, Flex } from '@chakra-ui/react';
+import PageTitle from 'components/PageTitle';
 import { useState } from 'react';
 
 import { CalendarioIcon } from 'styles/icons';
@@ -16,17 +17,7 @@ export default function InnerMenu({ pageTitle }) {
 
   return (
     <Flex direction={pageTitle === 'Home' ? 'row' : 'column'}>
-      <Text
-        as="h1"
-        color="gray.500"
-        fontWeight="bold"
-        lineHeight="39px"
-        fontSize="40px"
-        mb="14px"
-        mr="22px"
-      >
-        {pageTitle}
-      </Text>
+      <PageTitle>{pageTitle}</PageTitle>
       <Flex>
         <Button
           variant="outline"
