@@ -688,3 +688,59 @@ export const QuestionTipayIcon = createIcon({
     </svg>
   )
 });
+
+export const ErrorTipayIcon = createIcon({
+  displayName: 'ErrorTipayIcon',
+  viewBox: '0 0 22 22',
+  path: (
+    <>
+      <defs>
+        <linearGradient
+          id="linear-gradient-error"
+          x1="0.5"
+          x2="0.5"
+          y2="1"
+          gradientUnits="objectBoundingBox"
+        >
+          <stop offset="0" stopColor="#e66464" />
+          <stop offset="1" stopColor="#ce0000" />
+        </linearGradient>
+      </defs>
+      <g
+        id="Group_1577"
+        data-name="Group 1577"
+        transform="translate(-1221 -708)"
+      >
+        <rect
+          id="Rectangle_860"
+          data-name="Rectangle 860"
+          width="22"
+          height="22"
+          rx="11"
+          transform="translate(1221 708)"
+          fill="url(#linear-gradient-error)"
+        />
+        <path
+          id="Path_1390"
+          data-name="Path 1390"
+          d="M1228.749,715.046l7.4,7.4"
+          transform="translate(-0.799 -0.095)"
+          fill="none"
+          stroke="#fff"
+          strokeLinecap="round"
+          strokeWidth="3"
+        />
+        <path
+          id="Path_1391"
+          data-name="Path 1391"
+          d="M0,0,7.4,7.4"
+          transform="translate(1235.353 714.951) rotate(90)"
+          fill="none"
+          stroke="#fff"
+          strokeLinecap="round"
+          strokeWidth="3"
+        />
+      </g>
+    </>
+  )
+});

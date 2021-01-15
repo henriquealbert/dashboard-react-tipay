@@ -1,8 +1,8 @@
 import { Table, Thead, Tr, Th, Td, Tbody, Box, Button } from '@chakra-ui/react';
 import PaginationTable from 'components/PaginationTable';
-import { CheckTipayIcon, QuestionTipayIcon } from 'styles/icons';
+import { BoletoIcon } from 'styles/icons';
 
-export default function TableQRCode({ data }) {
+export default function TableSales({ boleto, data }) {
   return (
     <>
       <Box
@@ -19,7 +19,8 @@ export default function TableQRCode({ data }) {
               <Th>Pagador</Th>
               <Th>Data</Th>
               <Th>Valor</Th>
-              <Th>Pagamento por link</Th>
+              <Th>Status</Th>
+              <Th>Pagamento</Th>
               <Th></Th>
             </Tr>
           </Thead>
@@ -31,13 +32,19 @@ export default function TableQRCode({ data }) {
                   <Td maxW="365px">{item.payer}</Td>
                   <Td>{item.date}</Td>
                   <Td>{item.value}</Td>
+                  <Td color={statusColor(item.status)}>{item.status}</Td>
                   <Td>
-                    {item.check ? (
-                      <CheckTipayIcon mr="16px" />
-                    ) : (
-                      <QuestionTipayIcon mr="16px" />
-                    )}
                     {item.payment}
+                    {boleto ? (
+                      <BoletoIcon
+                        ml="16px"
+                        w="25px"
+                        h="18px"
+                        color="gray.800"
+                      />
+                    ) : (
+                      ''
+                    )}
                   </Td>
                   <Td pr="0" textAlign="right">
                     <Button variant="green" maxW="150px" h="50px">
@@ -54,3 +61,16 @@ export default function TableQRCode({ data }) {
     </>
   );
 }
+
+const statusColor = (status) => {
+  switch (status) {
+    case 'Aprovado':
+      return '#05BE5B';
+
+    case 'Cancelada':
+      return '#FF4E7E';
+
+    case 'Pendente':
+      return '#FEAE1A';
+  }
+};
