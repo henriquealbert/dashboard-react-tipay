@@ -58,7 +58,7 @@ export default function ModalDetailSale({ data }) {
                 <Tr>
                   <Td>{data?.id}</Td>
                   <Td maxW="280px">{data?.payer}</Td>
-                  <Td>{data?.date}</Td>
+                  <Td>{data?.created_at}</Td>
                   <Td>{data?.value}</Td>
                   <Td>{data?.finalValue}</Td>
                   <Td>{isBoleto(data?.payment)}</Td>
@@ -91,8 +91,8 @@ export default function ModalDetailSale({ data }) {
                 </Thead>
                 <Tbody>
                   <Tr>
-                    <Td>27/05/2020 21:18:52</Td>
-                    <Td>Autorização</Td>
+                    <Td>{data?.updated_at}</Td>
+                    <Td>{data?.operation}</Td>
                     <Td color={formatStatusColor(data?.status)} pr="0">
                       {data?.status}
                     </Td>

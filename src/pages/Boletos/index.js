@@ -12,26 +12,32 @@ export default function Boletos() {
     {
       id: 152218268,
       payer: 'Pede Bolo Agência De confeitarias E Panificadoras On-line LTDA',
-      date: '15/10/2020 19:11',
+      created_at: '15/10/2020 19:11',
+      updated_at: '27/05/2020 21:18:52',
       value: 'R$ 300,00',
       status: 'Aprovado',
-      payment: 'Boleto'
+      payment: 'Boleto',
+      operation: 'Autorização'
     },
     {
       id: 152218267,
       payer: 'Pede Bolo Agência De confeitarias E Panificadoras On-line LTDA',
-      date: '15/10/2020 19:11',
+      created_at: '15/10/2020 19:11',
+      updated_at: '27/05/2020 21:18:52',
       value: 'R$ 300,00',
       status: 'Cancelada',
-      payment: 'Boleto'
+      payment: 'Boleto',
+      operation: 'Autorização'
     },
     {
       id: 152218266,
       payer: 'Pede Bolo Agência De confeitarias E Panificadoras On-line LTDA',
-      date: '15/10/2020 19:11',
+      created_at: '15/10/2020 19:11',
+      updated_at: '27/05/2020 21:18:52',
       value: 'R$ 300,00',
       status: 'Pendente',
-      payment: 'Boleto'
+      payment: 'Boleto',
+      operation: 'Autorização'
     }
   ];
 

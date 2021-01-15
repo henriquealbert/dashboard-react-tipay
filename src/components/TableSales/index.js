@@ -30,13 +30,15 @@ export default function TableSales({ data }) {
           <Tbody>
             {data.map((item) => {
               return (
-                <Tr key={item.id}>
-                  <Td>{item.id}</Td>
-                  <Td maxW="365px">{item.payer}</Td>
-                  <Td>{item.date}</Td>
-                  <Td>{item.value}</Td>
-                  <Td color={formatStatusColor(item.status)}>{item.status}</Td>
-                  <Td>{isBoleto(item.payment)}</Td>
+                <Tr key={item?.id}>
+                  <Td>{item?.id}</Td>
+                  <Td maxW="365px">{item?.payer}</Td>
+                  <Td>{item?.created_at}</Td>
+                  <Td>{item?.value}</Td>
+                  <Td color={formatStatusColor(item?.status)}>
+                    {item?.status}
+                  </Td>
+                  <Td>{isBoleto(item?.payment)}</Td>
                   <Td pr="0" textAlign="right">
                     <ModalDetailSale data={item} />
                   </Td>
