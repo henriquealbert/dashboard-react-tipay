@@ -1,8 +1,11 @@
-import { Table, Thead, Tr, Th, Td, Tbody, Box, Button } from '@chakra-ui/react';
-import PaginationTable from 'components/PaginationTable';
-import { BoletoIcon } from 'styles/icons';
+import { Table, Thead, Tr, Th, Td, Tbody, Box } from '@chakra-ui/react';
 
-export default function TableSales({ boleto, data }) {
+import ModalDetailSale from 'components/ModalDetailSale';
+import PaginationTable from 'components/PaginationTable';
+import { formatStatusColor } from 'utils/formatStatusColor';
+import { isBoleto } from 'utils/isBoleto';
+
+export default function TableSales({ data }) {
   return (
     <>
       <Box
@@ -32,24 +35,10 @@ export default function TableSales({ boleto, data }) {
                   <Td maxW="365px">{item.payer}</Td>
                   <Td>{item.date}</Td>
                   <Td>{item.value}</Td>
-                  <Td color={statusColor(item.status)}>{item.status}</Td>
-                  <Td>
-                    {item.payment}
-                    {boleto ? (
-                      <BoletoIcon
-                        ml="16px"
-                        w="25px"
-                        h="18px"
-                        color="gray.800"
-                      />
-                    ) : (
-                      ''
-                    )}
-                  </Td>
+                  <Td color={formatStatusColor(item.status)}>{item.status}</Td>
+                  <Td>{isBoleto(item.payment)}</Td>
                   <Td pr="0" textAlign="right">
-                    <Button variant="green" maxW="150px" h="50px">
-                      Detalhes
-                    </Button>
+                    <ModalDetailSale data={item} />
                   </Td>
                 </Tr>
               );
@@ -61,16 +50,3 @@ export default function TableSales({ boleto, data }) {
     </>
   );
 }
-
-const statusColor = (status) => {
-  switch (status) {
-    case 'Aprovado':
-      return '#05BE5B';
-
-    case 'Cancelada':
-      return '#FF4E7E';
-
-    case 'Pendente':
-      return '#FEAE1A';
-  }
-};

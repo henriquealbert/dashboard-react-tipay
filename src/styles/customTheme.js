@@ -6,6 +6,7 @@ import fonts from './foundations/fonts';
 import Input from './components/input';
 import Button from './components/button';
 import Table from './components/table';
+import Modal from './components/modal';
 
 const customTheme = extendTheme({
   fonts: fonts,
@@ -13,7 +14,8 @@ const customTheme = extendTheme({
   components: {
     Input: Input,
     Button: Button,
-    Table: Table
+    Table: Table,
+    Modal: Modal
   }
 });
 

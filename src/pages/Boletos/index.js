@@ -49,7 +49,7 @@ export default function Boletos() {
           <SalesStatus />
         </Flex>
         <ToolsMenu />
-        <TableSales boleto data={data} />
+        <TableSales data={data} />
       </Container>
     </Layout>
   );

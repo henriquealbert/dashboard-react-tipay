@@ -70,6 +70,36 @@ const Button = {
           bg: 'linear-gradient(180deg, #80D196 0%, #80D196 100%)'
         }
       }
+    },
+    red: {
+      bg: 'linear-gradient(180deg, #E66464 0%, #CE0000 100%)',
+      color: 'white',
+      fontWeight: 'semibold',
+      fontSize: '20px',
+      h: '65px',
+      w: '255px',
+      borderRadius: '5px',
+      _hover: {
+        bg: 'linear-gradient(180deg, #E66464 0%, #E66464 100%)',
+        _disabled: {
+          bg: 'linear-gradient(180deg, #E66464 0%, #E66464 100%)'
+        }
+      }
+    },
+    black: {
+      bg: 'linear-gradient(180deg, #0A172D 0%, #40474F 100%)',
+      color: 'white',
+      fontWeight: 'semibold',
+      fontSize: '20px',
+      h: '65px',
+      w: '172px',
+      borderRadius: '5px',
+      _hover: {
+        bg: 'linear-gradient(180deg, #40474F 0%, #40474F 100%)',
+        _disabled: {
+          bg: 'linear-gradient(180deg, #40474F 0%, #40474F 100%)'
+        }
+      }
     }
   }
 };

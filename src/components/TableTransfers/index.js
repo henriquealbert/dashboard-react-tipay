@@ -30,7 +30,9 @@ export default function TableTransfers({ data }) {
                   <Td display="flex" alignItems="center">
                     {statusIcon(item.status)}
                   </Td>
-                  <Td fontWeight="semibold">{item.value}</Td>
+                  <Td fontWeight="semibold" px="0">
+                    {item.value}
+                  </Td>
                 </Tr>
               );
             })}
