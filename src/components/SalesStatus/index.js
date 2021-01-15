@@ -7,7 +7,6 @@ export default function SalesStatus() {
 
   return (
     <Box
-      maxW="1002px"
       w="100%"
       bg="white"
       boxShadow="0px 3px 10px #0000000A"
@@ -29,7 +28,7 @@ export default function SalesStatus() {
           {aprovadas}
         </Text>
       </Flex>
-      <Box maxW="872px" h="1px" bg="#ECECEC" m="19.5px 48px 19.5px 18px" />
+      <Box h="1px" bg="#ECECEC" m="19.5px 48px 19.5px 18px" />
       <Flex justifyContent="space-between">
         <Text as="h4" color="gray.500" fontSize="20px" lineHeight="24px">
           Canceladas
@@ -45,7 +44,7 @@ export default function SalesStatus() {
           {canceladas}
         </Text>
       </Flex>
-      <Box maxW="872px" h="1px" bg="#ECECEC" m="19.5px 48px 19.5px 18px" />
+      <Box h="1px" bg="#ECECEC" m="19.5px 48px 19.5px 18px" />
       <Flex justifyContent="space-between">
         <Text as="h4" color="gray.500" fontSize="20px" lineHeight="24px">
           Pendentes

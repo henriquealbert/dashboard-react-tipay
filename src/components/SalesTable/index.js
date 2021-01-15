@@ -1,6 +1,7 @@
 import { Table, Thead, Tr, Th, Td, Tbody, Box, Button } from '@chakra-ui/react';
+import { BoletoIcon } from 'styles/icons';
 
-export default function SalesTable() {
+export default function SalesTable({ boleto }) {
   const data = [
     {
       id: 152218268,
@@ -56,7 +57,14 @@ export default function SalesTable() {
                 <Td>{item.date}</Td>
                 <Td>{item.value}</Td>
                 <Td color={statusColor(item.status)}>{item.status}</Td>
-                <Td>{item.payment}</Td>
+                <Td>
+                  {item.payment}
+                  {boleto ? (
+                    <BoletoIcon ml="16px" w="25px" h="18px" color="gray.800" />
+                  ) : (
+                    ''
+                  )}
+                </Td>
                 <Td pr="0" textAlign="right">
                   <Button variant="green" maxW="150px" h="50px">
                     Detalhes
