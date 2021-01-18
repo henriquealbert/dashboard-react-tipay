@@ -10,9 +10,15 @@ import {
   RadioGroup,
   Radio
 } from '@chakra-ui/react';
+import { useState } from 'react';
 import { BoletoIcon } from 'styles/icons';
+import Juros from './Juros';
+import NewClient from './NewClient';
 
 export default function GerarBoletoInfo() {
+  const [hasJuros, setJuros] = useState('0');
+  const [hasNewClient, setNewClient] = useState('0');
+
   return (
     <Box mt="36px" w="100%">
       <Text
@@ -95,11 +101,11 @@ export default function GerarBoletoInfo() {
             >
               Deseja incluir juros de mora?
             </FormLabel>
-            <RadioGroup>
-              <Radio value="true" size="lg" mr="52px" cursor="pointer">
+            <RadioGroup onChange={setJuros} value={hasJuros}>
+              <Radio value="1" size="lg" mr="52px" cursor="pointer">
                 Sim
               </Radio>
-              <Radio value="false" size="lg" cursor="pointer">
+              <Radio value="0" size="lg" cursor="pointer">
                 Não
               </Radio>
             </RadioGroup>
@@ -114,17 +120,20 @@ export default function GerarBoletoInfo() {
             >
               Cadastrar novo usuário
             </FormLabel>
-            <RadioGroup>
-              <Radio value="true" size="lg" mr="52px" cursor="pointer">
+            <RadioGroup onChange={setNewClient} value={hasNewClient}>
+              <Radio value="1" size="lg" mr="52px" cursor="pointer">
                 Sim
               </Radio>
-              <Radio value="false" size="lg" cursor="pointer">
+              <Radio value="0" size="lg" cursor="pointer">
                 Não
               </Radio>
             </RadioGroup>
           </FormControl>
         </Flex>
       </Box>
+
+      {hasJuros === '1' && <Juros />}
+      {hasNewClient === '1' && <NewClient />}
 
       <Button
         variant="green"
