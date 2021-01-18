@@ -25,7 +25,7 @@ export default function SidebarPerfil() {
       alignItems="center"
       pt="34px"
     >
-      <Link to="/">
+      <Link to="/dashboard">
         <Button variant="secondary" w="250px" h="50px">
           <ChevronLeftIcon h={8} w={8} position="absolute" left="15px" />
           Voltar

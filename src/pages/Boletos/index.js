@@ -5,6 +5,7 @@ import Layout from 'components/Layout';
 import SalesStatus from 'components/SalesStatus';
 import TableSales from 'components/TableSales';
 import ToolsMenu from 'components/ToolsMenu';
+import { Link } from 'react-router-dom';
 import { BoletoIcon } from 'styles/icons';
 
 export default function Boletos() {
@@ -46,10 +47,12 @@ export default function Boletos() {
       <Container>
         <Flex justifyContent="space-between">
           <InnerMenu pageTitle="Boletos" />
-          <Button variant="green" alignSelf="flex-end" w="260px" h="60px">
-            Gerar Boleto
-            <BoletoIcon ml="16px" w="34px" h="25px" color="white" />
-          </Button>
+          <Link to="/boletos/gerar-boleto">
+            <Button variant="green" alignSelf="flex-end" w="260px" h="60px">
+              Gerar Boleto
+              <BoletoIcon ml="16px" w="34px" h="25px" color="white" />
+            </Button>
+          </Link>
         </Flex>
         <Flex my="36px">
           <SalesStatus />

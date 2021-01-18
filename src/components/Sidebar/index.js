@@ -23,7 +23,13 @@ export default function Sidebar() {
       boxShadow="0px 3px 20px #0000003D"
       alignItems="center"
     >
-      <MenuItem icon={HomeIcon} w="25px" h="20px" text="Home" pathname="/" />
+      <MenuItem
+        icon={HomeIcon}
+        w="25px"
+        h="20px"
+        text="Home"
+        pathname="/dashboard"
+      />
       <MenuItem
         icon={VendasIcon}
         w="21px"

@@ -8,9 +8,6 @@ import Boletos from 'pages/Boletos';
 import LinkQRcode from 'pages/LinkQRcode';
 import Transferencias from 'pages/Transferencias';
 import Calendario from 'pages/Calendario';
-
-// auth
-import { useAuthContext } from 'hooks/useAuthContext';
 import MeuPerfil from 'pages/MeuPerfil';
 import MeuPlano from 'pages/MeuPlano';
 import Atendimento from 'pages/Atendimento';
@@ -18,6 +15,10 @@ import ClientesAmigos from 'pages/ClientesAmigos';
 import Documentos from 'pages/Documentos';
 import TermosContrato from 'pages/TermosContrato';
 import Sobre from 'pages/Sobre';
+import GerarBoleto from 'pages/Boletos/GerarBoleto';
+
+// auth
+import { useAuthContext } from 'hooks/useAuthContext';
 
 function CustomRoute({ isPrivate, ...rest }) {
   const { loading, authenticated } = useAuthContext();
@@ -35,9 +36,15 @@ function CustomRoute({ isPrivate, ...rest }) {
 
 const Routes = () => (
   <Switch>
-    <CustomRoute isPrivate exact path="/" component={Home} />
+    <CustomRoute isPrivate exact path="/dashboard" component={Home} />
     <CustomRoute isPrivate exact path="/vendas" component={Vendas} />
     <CustomRoute isPrivate exact path="/boletos" component={Boletos} />
+    <CustomRoute
+      isPrivate
+      exact
+      path="/boletos/gerar-boleto"
+      component={GerarBoleto}
+    />
     <CustomRoute isPrivate exact path="/link-qrcode" component={LinkQRcode} />
     <CustomRoute
       isPrivate

@@ -16,7 +16,7 @@ export default function Header({ perfil }) {
       position="fixed"
       right="0"
     >
-      <Link to="/">
+      <Link to="/dashboard">
         <Img
           src="/images/logo.svg"
           alt="Logo Tipay"

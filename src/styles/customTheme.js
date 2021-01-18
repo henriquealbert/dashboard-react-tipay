@@ -7,6 +7,8 @@ import Input from './components/input';
 import Button from './components/button';
 import Table from './components/table';
 import Modal from './components/modal';
+import Textarea from './components/textarea';
+import Radio from './components/radio';
 
 const customTheme = extendTheme({
   fonts: fonts,
@@ -15,7 +17,9 @@ const customTheme = extendTheme({
     Input: Input,
     Button: Button,
     Table: Table,
-    Modal: Modal
+    Modal: Modal,
+    Textarea: Textarea,
+    Radio: Radio
   }
 });
 

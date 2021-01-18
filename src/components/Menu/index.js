@@ -70,7 +70,7 @@ export default function Menu() {
                 </Flex>
               </Link>
 
-              <Link to="/">
+              <Link to="/dashboard">
                 <Flex as="li" py="13px" ml="38px" alignItems="center" w="100%">
                   <Img src="/images/dashboard.svg" alt="Dashboard" mr="20px" />
                   Dashboard

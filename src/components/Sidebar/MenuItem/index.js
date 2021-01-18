@@ -5,7 +5,7 @@ export default function MenuItem({ pathname, text, icon, w, h }) {
   const history = useHistory();
 
   const currentPage = () => {
-    if (history.location.pathname === pathname) {
+    if (history.location.pathname.includes(pathname)) {
       return true;
     } else {
       return false;
