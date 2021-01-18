@@ -1,11 +1,12 @@
 import { Button, Flex } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
+
 import Container from 'components/Container';
 import InnerMenu from 'components/InnerMenu';
 import Layout from 'components/Layout';
 import SalesStatus from 'components/SalesStatus';
 import TableSales from 'components/TableSales';
 import ToolsMenu from 'components/ToolsMenu';
-import { Link } from 'react-router-dom';
 import { BoletoIcon } from 'styles/icons';
 
 export default function Boletos() {

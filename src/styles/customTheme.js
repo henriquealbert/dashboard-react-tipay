@@ -9,6 +9,7 @@ import Table from './components/table';
 import Modal from './components/modal';
 import Textarea from './components/textarea';
 import Radio from './components/radio';
+import Switch from './components/switch';
 
 const customTheme = extendTheme({
   fonts: fonts,
@@ -19,7 +20,8 @@ const customTheme = extendTheme({
     Table: Table,
     Modal: Modal,
     Textarea: Textarea,
-    Radio: Radio
+    Radio: Radio,
+    Switch: Switch
   }
 });
 

@@ -6,13 +6,19 @@ import {
   BreadcrumbLink,
   Button,
   Flex,
-  Img
+  Icon
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 
 import PageTitle from 'components/PageTitle';
 
-export default function GerarBoletoHeader() {
+export default function GerarHeader({
+  pageTitle,
+  breadcrumb,
+  breadcrumbItem,
+  backUrl,
+  icon
+}) {
   return (
     <Flex
       justifyContent="space-between"
@@ -22,14 +28,8 @@ export default function GerarBoletoHeader() {
     >
       <Box>
         <PageTitle>
-          <Img
-            src="/images/boleto.png"
-            w="52px"
-            h="52px"
-            display="inline-block"
-            mr="22px"
-          />
-          Gerar Boleto
+          <Icon as={icon} w="52px" h="52px" display="inline-block" mr="22px" />
+          {pageTitle}
         </PageTitle>
         <Breadcrumb
           spacing="8px"
@@ -39,17 +39,17 @@ export default function GerarBoletoHeader() {
           fontSize="20px"
         >
           <BreadcrumbItem>
-            <BreadcrumbLink as={Link} to="/boletos">
-              Boletos
+            <BreadcrumbLink as={Link} to={backUrl}>
+              {breadcrumb}
             </BreadcrumbLink>
           </BreadcrumbItem>
 
           <BreadcrumbItem isCurrentPage fontWeight="bold">
-            <BreadcrumbLink>Gerar Boleto</BreadcrumbLink>
+            <BreadcrumbLink>{breadcrumbItem}</BreadcrumbLink>
           </BreadcrumbItem>
         </Breadcrumb>
       </Box>
-      <Link to="/boletos">
+      <Link to={backUrl}>
         <Button variant="red">Cancelar</Button>
       </Link>
     </Flex>

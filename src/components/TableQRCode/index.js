@@ -1,6 +1,8 @@
-import { Table, Thead, Tr, Th, Td, Tbody, Box, Button } from '@chakra-ui/react';
+import { Table, Thead, Tr, Th, Td, Tbody, Box } from '@chakra-ui/react';
 import PaginationTable from 'components/PaginationTable';
 import { CheckTipayIcon, QuestionTipayIcon } from 'styles/icons';
+
+import ModalDetailLinkSale from 'components/ModalDetailLinkSale';
 
 export default function TableQRCode({ data }) {
   return (
@@ -40,9 +42,7 @@ export default function TableQRCode({ data }) {
                     {item.payment}
                   </Td>
                   <Td pr="0" textAlign="right">
-                    <Button variant="green" maxW="150px" h="50px">
-                      Detalhes
-                    </Button>
+                    <ModalDetailLinkSale data={item} />
                   </Td>
                 </Tr>
               );

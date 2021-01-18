@@ -19,6 +19,7 @@ import GerarBoleto from 'pages/Boletos/GerarBoleto';
 
 // auth
 import { useAuthContext } from 'hooks/useAuthContext';
+import GerarCobranca from 'pages/LinkQRcode/GerarCobranca';
 
 function CustomRoute({ isPrivate, ...rest }) {
   const { loading, authenticated } = useAuthContext();
@@ -46,6 +47,12 @@ const Routes = () => (
       component={GerarBoleto}
     />
     <CustomRoute isPrivate exact path="/link-qrcode" component={LinkQRcode} />
+    <CustomRoute
+      isPrivate
+      exact
+      path="/link-qrcode/gerar-cobranca"
+      component={GerarCobranca}
+    />
     <CustomRoute
       isPrivate
       exact
