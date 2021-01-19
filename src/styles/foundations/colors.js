@@ -26,6 +26,10 @@ const colors = {
     darkBlue: '#252F3E',
     100: '#1A2537',
     200: '#6B6B6B'
+  },
+  teal: {
+    200: '#5ACFC6',
+    500: '#5ACFC6'
   }
 };
 

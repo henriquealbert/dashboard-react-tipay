@@ -20,12 +20,9 @@ import {
   Flex,
   Switch,
   FormControl,
-  FormLabel,
-  InputGroup,
-  Input,
-  InputRightAddon
+  FormLabel
 } from '@chakra-ui/react';
-import { CopyIcon } from 'styles/icons';
+import InputLinkQRcode from 'components/InputLinkQRcode';
 import { formatStatusColor } from 'utils/formatStatusColor';
 
 export default function ModalDetailLinkSale({ data }) {
@@ -65,48 +62,7 @@ export default function ModalDetailLinkSale({ data }) {
                     <Switch size="lg" isChecked={data?.active_url} />
                   </FormControl>
 
-                  <InputGroup w="100%">
-                    <FormLabel
-                      position="absolute"
-                      left="26px"
-                      top="-15px"
-                      bg="white"
-                      zIndex="1"
-                      p="5px"
-                      textTransform="uppercase"
-                      color="#A9A9A9"
-                    >
-                      Link
-                    </FormLabel>
-                    <Input
-                      placeholder="mysite"
-                      h="80px"
-                      border="2px solid"
-                      borderColor="gray.1100"
-                      borderRadius="10px"
-                      value={data?.url}
-                      isReadOnly
-                      fontSize="18px"
-                      lineHeight="22px"
-                      textDecoration="underline"
-                      color="#002387"
-                      cursor="default"
-                      pl="26px"
-                    />
-                    <InputRightAddon
-                      h="80px"
-                      w="80px"
-                      bg="#F6F6F6"
-                      display="flex"
-                      justifyContent="center"
-                      border="2px solid"
-                      borderColor="gray.1100"
-                      borderRadius="10px"
-                      as="button"
-                    >
-                      <CopyIcon w="32px" h="32px" color="#9B9B9B" />
-                    </InputRightAddon>
-                  </InputGroup>
+                  <InputLinkQRcode url={data?.url} />
                 </Box>
               </Flex>
             </Box>
