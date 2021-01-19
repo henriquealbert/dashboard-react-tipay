@@ -25,7 +25,9 @@ const colors = {
     waterBlue: '#5BCCC3',
     darkBlue: '#252F3E',
     100: '#1A2537',
-    200: '#6B6B6B'
+    200: '#6B6B6B',
+    300: '#3B424C',
+    400: '#FDCB6E'
   },
   teal: {
     200: '#5ACFC6',
