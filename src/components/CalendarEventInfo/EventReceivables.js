@@ -13,11 +13,13 @@ import {
   Tbody,
   Button
 } from '@chakra-ui/react';
+import { formatDateTime } from 'utils/formatDate';
 
-export default function CalendarReceivables() {
+export default function EventReceivables({ data }) {
   return (
     <Accordion
       allowMultiple
+      defaultIndex={[0]}
       borderRadius="5px"
       bg="brand.400"
       maxW="575px"
@@ -48,13 +50,19 @@ export default function CalendarReceivables() {
               </Tr>
             </Thead>
             <Tbody>
-              <Tr>
-                <Td>15/10/2020 - 16:11:41</Td>
-                <Td>R$ 300,00</Td>
-                <Th pr="0" textAlign="right">
-                  <Button variant="calendar-receivables-btn">Detalhes</Button>
-                </Th>
-              </Tr>
+              {data?.map((item) => {
+                return (
+                  <Tr key={item?.id}>
+                    <Td>{item?.date ? formatDateTime(item?.date) : ''}</Td>
+                    <Td>{item?.title}</Td>
+                    <Th pr="0" textAlign="right">
+                      <Button variant="calendar-receivables-btn">
+                        Detalhes
+                      </Button>
+                    </Th>
+                  </Tr>
+                );
+              })}
             </Tbody>
           </Table>
         </AccordionPanel>

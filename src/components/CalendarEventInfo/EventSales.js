@@ -13,8 +13,9 @@ import {
   Tbody,
   Button
 } from '@chakra-ui/react';
+import { formatDateTime } from 'utils/formatDate';
 
-export default function CalendarSales() {
+export default function EventSales({ data }) {
   return (
     <Accordion
       defaultIndex={[0]}
@@ -48,13 +49,17 @@ export default function CalendarSales() {
               </Tr>
             </Thead>
             <Tbody>
-              <Tr>
-                <Td>15/10/2020 - 16:11:41</Td>
-                <Td>R$ 300,00</Td>
-                <Th pr="0" textAlign="right">
-                  <Button variant="calendar-sales-btn">Detalhes</Button>
-                </Th>
-              </Tr>
+              {data?.map((item) => {
+                return (
+                  <Tr key={item?.id}>
+                    <Td>{item?.date ? formatDateTime(item?.date) : ''}</Td>
+                    <Td>{item?.title}</Td>
+                    <Th pr="0" textAlign="right">
+                      <Button variant="calendar-sales-btn">Detalhes</Button>
+                    </Th>
+                  </Tr>
+                );
+              })}
             </Tbody>
           </Table>
         </AccordionPanel>

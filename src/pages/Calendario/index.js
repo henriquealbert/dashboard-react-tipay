@@ -5,45 +5,56 @@ import Layout from 'components/Layout';
 import PageTitle from 'components/PageTitle';
 import CalendarComponent from 'components/CalendarComponent';
 import CalendarEventInfo from 'components/CalendarEventInfo';
+import { useState } from 'react';
 
 export default function Calendario() {
   const data = [
     {
-      groupId: 'Vendas',
+      id: 1,
+      groupId: 'sales',
       title: 'R$ 300,00',
-      date: '2021-01-01'
+      date: '2021-01-01 16:11:41'
     },
     {
-      groupId: 'Vendas',
+      id: 2,
+      groupId: 'sales',
       title: 'R$ 700,00',
-      date: '2021-01-21'
+      date: '2021-01-21 16:11:41'
     },
     {
-      groupId: 'Vendas',
+      id: 3,
+      groupId: 'sales',
       title: 'R$ 50,00',
-      date: '2021-01-22'
+      date: '2021-01-22 16:11:41'
     },
     {
-      groupId: 'Vendas',
+      id: 5,
+      groupId: 'sales',
       title: 'R$ 138,00',
-      date: '2021-01-30'
+      date: '2021-01-30 16:11:41'
     },
     {
-      groupId: 'Recebíveis',
+      id: 4,
+      groupId: 'receivables',
       title: 'R$ 130,00',
-      date: '2021-01-01'
+      date: '2021-01-01 16:11:41'
     },
     {
-      groupId: 'Recebíveis',
+      id: 6,
+      groupId: 'receivables',
       title: 'R$ 1800,00',
-      date: '2021-01-03'
+      date: '2021-01-03 16:11:41'
     },
     {
-      groupId: 'Recebíveis',
+      id: 7,
+      groupId: 'receivables',
       title: 'R$ 30,00',
-      date: '2021-02-01'
+      date: '2021-02-01 16:11:41'
     }
   ];
+
+  const [eventDate, setEventDate] = useState('');
+
   return (
     <Layout>
       <Container>
@@ -53,8 +64,8 @@ export default function Calendario() {
           justifyContent="space-between"
           w="100%"
         >
-          <CalendarComponent data={data} />
-          <CalendarEventInfo />
+          <CalendarComponent data={data} setEventDate={setEventDate} />
+          <CalendarEventInfo data={data} eventDate={eventDate} />
         </Flex>
       </Container>
     </Layout>
