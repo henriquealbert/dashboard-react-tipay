@@ -113,6 +113,19 @@ const Button = {
       color: 'white',
       fontSize: '14px',
       fontWeight: 'normal'
+    },
+    'calendar-receivables-btn': {
+      bg: 'linear-gradient(180deg, #dbad58 0%, #FDCB6E 100%)',
+      _hover: {
+        bg: 'linear-gradient(180deg, #FDCB6E 0%, #FDCB6E 100%)'
+      },
+      boxShadow: '0px 3px 6px #00000017',
+      border: '2px solid',
+      borderColor: 'white',
+      borderRadius: '6px',
+      color: 'white',
+      fontSize: '14px',
+      fontWeight: 'normal'
     }
   }
 };

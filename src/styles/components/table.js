@@ -70,6 +70,24 @@ const Table = {
         borderColor: '#2F343A',
         pl: '0'
       }
+    },
+    'calendar-receivables': {
+      th: {
+        color: 'white',
+        fontSize: '14px',
+        fontWeight: 'normal',
+        borderTop: '1px solid',
+        borderBottom: '1px solid',
+        borderColor: '#f0c067',
+        pl: '0'
+      },
+      td: {
+        fontWeight: 'semibold',
+        color: 'white',
+        borderBottom: '1px solid',
+        borderColor: '#f0c067',
+        pl: '0'
+      }
     }
   }
 };

@@ -1,4 +1,5 @@
 import { Box, Text } from '@chakra-ui/react';
+import CalendarReceivables from './CalendarReceivables';
 import CalendarSales from './CalendarSales';
 
 export default function CalendarEventInfo() {
@@ -17,18 +18,9 @@ export default function CalendarEventInfo() {
       <Text color="gray.700" fontSize="16px" fontWeight="semibold" mb="18px">
         Detalhes 25/11/2020
       </Text>
-      <CalendarSales />
 
-      <Box mt="22px" borderRadius="5px" bg="brand.400" maxH="225px" p="30px">
-        <Text
-          fontSize="18px"
-          color="white"
-          fontWeight="semibold"
-          textTransform="uppercase"
-        >
-          Recebíveis
-        </Text>
-      </Box>
+      <CalendarSales />
+      <CalendarReceivables />
     </Box>
   );
 }
