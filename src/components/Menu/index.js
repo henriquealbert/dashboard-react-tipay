@@ -57,12 +57,12 @@ export default function Menu() {
               fontSize="1.25rem"
               lineHeight="1.375rem"
               w="100%"
-              my="10.188rem"
+              my="0.813rem"
             >
               <Link to="/meu-perfil">
                 <Flex
                   as="li"
-                  py="10.188rem"
+                  py="0.813rem"
                   ml="38px"
                   alignItems="center"
                   w="100%"
@@ -79,7 +79,7 @@ export default function Menu() {
               <Link to="/dashboard">
                 <Flex
                   as="li"
-                  py="10.188rem"
+                  py="0.813rem"
                   ml="38px"
                   alignItems="center"
                   w="100%"
@@ -96,7 +96,7 @@ export default function Menu() {
               <Link to="/atendimento">
                 <Flex
                   as="li"
-                  py="10.188rem"
+                  py="0.813rem"
                   ml="38px"
                   alignItems="center"
                   w="100%"
@@ -113,7 +113,7 @@ export default function Menu() {
               <Link to="/meu-plano">
                 <Flex
                   as="li"
-                  py="10.188rem"
+                  py="0.813rem"
                   ml="38px"
                   alignItems="center"
                   w="100%"
@@ -125,7 +125,7 @@ export default function Menu() {
 
               <Flex
                 as="li"
-                py="10.188rem"
+                py="0.813rem"
                 ml="38px"
                 alignItems="center"
                 w="100%"
