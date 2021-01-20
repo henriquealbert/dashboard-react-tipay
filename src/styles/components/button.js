@@ -100,6 +100,19 @@ const Button = {
           bg: 'linear-gradient(180deg, #40474F 0%, #40474F 100%)'
         }
       }
+    },
+    'calendar-sales-btn': {
+      bg: 'linear-gradient(180deg, #0A172D 0%, #40474F 100%)',
+      _hover: {
+        bg: 'linear-gradient(180deg, #40474F 0%, #40474F 100%)'
+      },
+      boxShadow: '0px 3px 6px #00000017',
+      border: '2px solid',
+      borderColor: 'white',
+      borderRadius: '6px',
+      color: 'white',
+      fontSize: '14px',
+      fontWeight: 'normal'
     }
   }
 };

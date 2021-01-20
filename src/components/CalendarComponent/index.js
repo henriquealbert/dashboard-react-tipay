@@ -34,7 +34,6 @@ export default function CalendarComponent() {
 }
 
 const Wrapper = styled.div`
-  max-width: 50%;
   height: 830px;
   margin-top: 38px;
   margin-bottom: 52px;

@@ -52,6 +52,24 @@ const Table = {
         borderBottom: '1px solid',
         borderColor: 'gray.1100'
       }
+    },
+    'calendar-sales': {
+      th: {
+        color: 'white',
+        fontSize: '14px',
+        fontWeight: 'normal',
+        borderTop: '1px solid',
+        borderBottom: '1px solid',
+        borderColor: '#2F343A',
+        pl: '0'
+      },
+      td: {
+        fontWeight: 'semibold',
+        color: 'white',
+        borderBottom: '1px solid',
+        borderColor: '#2F343A',
+        pl: '0'
+      }
     }
   }
 };
