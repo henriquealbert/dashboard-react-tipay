@@ -51,7 +51,7 @@ export default function Boletos() {
           <Link to="/boletos/gerar-boleto">
             <Button variant="green" alignSelf="flex-end" w="260px" h="60px">
               Gerar Boleto
-              <BoletoIcon ml="16px" w="34px" h="25px" color="white" />
+              <BoletoIcon ml="1rem" w="2.125rem" h="1.563rem" color="white" />
             </Button>
           </Link>
         </Flex>

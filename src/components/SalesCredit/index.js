@@ -20,11 +20,11 @@ export default function SalesCredit() {
   return (
     <Flex
       bg="white"
-      py="28px"
-      px="60.75px"
-      maxW="1000px"
-      mt="18px"
-      boxShadow="0px 3px 10px #0000000A"
+      py="1.75rem"
+      px="3.75rem"
+      maxW="62.5rem"
+      mt="1.125rem"
+      boxShadow="0rem 0.188rem 10px #0000000A"
       borderRadius="10px"
     >
       <TotalCreditSales theme={theme} />

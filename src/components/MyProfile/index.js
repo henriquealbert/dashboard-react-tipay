@@ -48,13 +48,13 @@ export default function MyProfile() {
   ];
   return (
     <Box
-      boxShadow="0px 3px 10px #0000000A"
+      boxShadow="0rem 0.188rem 10px #0000000A"
       borderRadius="10px"
       bg="white"
       h="100%"
       w="100%"
       px="58px"
-      py="32px"
+      py="2rem"
     >
       <Table size="lg">
         <Tbody>

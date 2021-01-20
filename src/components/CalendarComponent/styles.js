@@ -4,11 +4,12 @@ export const Wrapper = styled.div`
   height: 830px;
   margin-top: 38px;
   margin-bottom: 52px;
+  max-width: 970px;
   flex-grow: 1;
 
   .fc-view-harness {
     background: white;
-    box-shadow: 0px 3px 10px #0000000a;
+    box-shadow: 0rem 0.188rem 10px #0000000a;
     border-radius: 10px;
   }
   .fc-scrollgrid-liquid {
@@ -22,11 +23,11 @@ export const Wrapper = styled.div`
     }
   }
   .fc-col-header-cell {
-    padding: 20px 48px;
+    padding: 1.25rem 48px;
     color: #b8b8b8;
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 1rem;
     font-family: 'Montserrat';
   }
   .fc-scrollgrid-section-body {
@@ -38,7 +39,7 @@ export const Wrapper = styled.div`
   }
   .fc-toolbar-title {
     font-size: 26px;
-    line-height: 32px;
+    line-height: 2rem;
     font-family: 'Montserrat';
     font-weight: normal;
     text-transform: capitalize;
@@ -56,7 +57,7 @@ export const Wrapper = styled.div`
   .fc-today-button {
     width: 137px;
     height: 49px;
-    font-size: 20px;
+    font-size: 1.25rem;
   }
   .fc .fc-button-primary:hover {
     background-color: #9b9b9b;
@@ -78,10 +79,10 @@ export const Wrapper = styled.div`
   }
 
   .fc .fc-daygrid-day-number {
-    padding: 22px 22px 8px;
+    padding: 1.375rem 1.375rem 8px;
     text-transform: uppercase;
     color: #b8b8b8;
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 19px;
     font-family: 'Montserrat';
     font-weight: 600;
@@ -89,14 +90,14 @@ export const Wrapper = styled.div`
   .fc-h-event .fc-event-main {
     text-align: center;
     border-radius: 5px;
-    padding-top: 3px;
-    padding-bottom: 3px;
+    padding-top: 0.188rem;
+    padding-bottom: 0.188rem;
     font-family: 'Montserrat';
     font-size: 14px;
   }
 
   .fc .fc-toolbar.fc-header-toolbar {
-    margin-bottom: 32px;
+    margin-bottom: 2rem;
   }
 
   .fc-daygrid-day-frame {

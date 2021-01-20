@@ -53,18 +53,18 @@ export default function SalesByHour() {
   return (
     <Flex
       bg="white"
-      py="28px"
-      px="60.75px"
-      mt="18px"
+      py="1.75rem"
+      px="3.75rem"
+      mt="1.125rem"
       w="100%"
-      boxShadow="0px 3px 10px #0000000A"
+      boxShadow="0rem 0.188rem 10px #0000000A"
       borderRadius="10px"
       direction="column"
     >
       <Text
         as="h4"
         fontWeight="bold"
-        fontSize="20px"
+        fontSize="1.25rem"
         lineHeight="24px"
         color="gray.500"
         mb="14px"

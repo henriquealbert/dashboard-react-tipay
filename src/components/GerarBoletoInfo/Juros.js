@@ -12,7 +12,7 @@ export default function Juros() {
     <Box mt="36px" w="100%">
       <Text
         color="gray.500"
-        fontSize="20px"
+        fontSize="1.25rem"
         lineHeight="24px"
         fontWeight="bold"
       >
@@ -20,17 +20,17 @@ export default function Juros() {
       </Text>
       <Box
         mt="12px"
-        boxShadow="0px 3px 10px #0000000A"
+        boxShadow="0rem 0.188rem 10px #0000000A"
         borderRadius="10px"
         w="100%"
         bg="white"
-        p="58px 68px"
+        p="58px 4.25rem"
       >
         <Flex>
-          <FormControl id="mora" mb="28px" mr="112px">
+          <FormControl id="mora" mb="1.75rem" mr="112px">
             <FormLabel
               color="gray.1000"
-              fontSize="20px"
+              fontSize="1.25rem"
               lineHeight="24px"
               fontWeight="semibold"
             >
@@ -43,10 +43,10 @@ export default function Juros() {
             />
           </FormControl>
 
-          <FormControl id="multa" mb="28px">
+          <FormControl id="multa" mb="1.75rem">
             <FormLabel
               color="gray.1000"
-              fontSize="20px"
+              fontSize="1.25rem"
               lineHeight="24px"
               fontWeight="semibold"
             >
@@ -63,7 +63,7 @@ export default function Juros() {
           <FormControl id="limit_date">
             <FormLabel
               color="gray.1000"
-              fontSize="20px"
+              fontSize="1.25rem"
               lineHeight="24px"
               fontWeight="semibold"
             >

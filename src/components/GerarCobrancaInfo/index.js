@@ -25,7 +25,7 @@ export default function GerarCobrancaInfo() {
     <Box mt="36px" w="100%">
       <Text
         color="gray.500"
-        fontSize="20px"
+        fontSize="1.25rem"
         lineHeight="24px"
         fontWeight="bold"
       >
@@ -33,17 +33,17 @@ export default function GerarCobrancaInfo() {
       </Text>
       <Box
         mt="12px"
-        boxShadow="0px 3px 10px #0000000A"
+        boxShadow="0rem 0.188rem 10px #0000000A"
         borderRadius="10px"
         w="100%"
         bg="white"
-        p="58px 68px"
+        p="58px 4.25rem"
       >
         <Flex>
-          <FormControl mb="28px" mr="112px">
+          <FormControl mb="1.75rem" mr="112px">
             <FormLabel
               color="gray.1000"
-              fontSize="20px"
+              fontSize="1.25rem"
               lineHeight="24px"
               fontWeight="semibold"
             >
@@ -51,10 +51,10 @@ export default function GerarCobrancaInfo() {
             </FormLabel>
             <Input variant="innerSolid" placeholder="Digite o valor" />
           </FormControl>
-          <FormControl mb="28px">
+          <FormControl mb="1.75rem">
             <FormLabel
               color="gray.1000"
-              fontSize="20px"
+              fontSize="1.25rem"
               lineHeight="24px"
               fontWeight="semibold"
             >
@@ -68,10 +68,10 @@ export default function GerarCobrancaInfo() {
         </Flex>
 
         <Flex>
-          <FormControl mb="28px" mr="112px">
+          <FormControl mb="1.75rem" mr="112px">
             <FormLabel
               color="gray.1000"
-              fontSize="20px"
+              fontSize="1.25rem"
               lineHeight="24px"
               fontWeight="semibold"
               mb="0"
@@ -80,8 +80,8 @@ export default function GerarCobrancaInfo() {
             </FormLabel>
             <Text
               textAlign="center"
-              mb="16px  "
-              fontSize="20px"
+              mb="1rem  "
+              fontSize="1.25rem"
               color="gray.800"
               fontWeight="semibold"
             >
@@ -97,15 +97,15 @@ export default function GerarCobrancaInfo() {
                 <SliderFilledTrack bg="teal.200" />
               </SliderTrack>
               <SliderThumb
-                boxSize="28px"
+                boxSize="1.75rem"
                 bg="linear-gradient(180deg, #60C4B9 0%, #4EE2DE 100%)"
               />
             </Slider>
           </FormControl>
-          <FormControl mb="28px">
+          <FormControl mb="1.75rem">
             <FormLabel
               color="gray.1000"
-              fontSize="20px"
+              fontSize="1.25rem"
               lineHeight="24px"
               fontWeight="semibold"
               mb="0"
@@ -114,8 +114,8 @@ export default function GerarCobrancaInfo() {
             </FormLabel>
             <Text
               textAlign="center"
-              mb="16px  "
-              fontSize="20px"
+              mb="1rem  "
+              fontSize="1.25rem"
               color="gray.800"
               fontWeight="semibold"
             >
@@ -134,7 +134,7 @@ export default function GerarCobrancaInfo() {
                 <SliderFilledTrack bg="teal.200" />
               </SliderTrack>
               <SliderThumb
-                boxSize="28px"
+                boxSize="1.75rem"
                 bg="linear-gradient(180deg, #60C4B9 0%, #4EE2DE 100%)"
               />
             </Slider>
@@ -145,10 +145,10 @@ export default function GerarCobrancaInfo() {
           <FormControl>
             <FormLabel
               color="gray.1000"
-              fontSize="20px"
+              fontSize="1.25rem"
               lineHeight="24px"
               fontWeight="semibold"
-              mb="16px"
+              mb="1rem"
             >
               Repassar taxa para o cliente?
             </FormLabel>

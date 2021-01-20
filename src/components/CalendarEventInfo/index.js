@@ -22,24 +22,24 @@ export default function CalendarEventInfo({ data, eventDate }) {
       <Flex
         flexGrow="1"
         maxW="630px"
-        maxH="750px"
+        maxH="73.125rem"
         bg="white"
-        boxShadow="0px 3px 10px #0000000A"
+        boxShadow="0rem 0.188rem 10px #0000000A"
         ml="42px"
-        mt="118px"
-        p="22px 26px"
+        mt="7.375rem"
+        p="1.375rem 26px"
         borderRadius="10px"
         justifyContent="center"
         alignItems="center"
       >
         <Flex direction="column" justifyContent="center" alignItems="center">
-          <CalendarioIcon color="gray.1100" width="114px" height="100px" />
+          <CalendarioIcon color="gray.1100" width="114px" height="6.25rem" />
           <Text
             color="gray.1100"
             fontSize="30px"
             lineHeight="37px"
             fontWeight="bold"
-            maxW="328px"
+            maxW="31.75rem"
             textAlign="center"
             mt="35px"
           >
@@ -54,15 +54,20 @@ export default function CalendarEventInfo({ data, eventDate }) {
     <Box
       flexGrow="1"
       maxW="630px"
-      maxH="750px"
+      maxH="73.125rem"
       bg="white"
-      boxShadow="0px 3px 10px #0000000A"
+      boxShadow="0rem 0.188rem 10px #0000000A"
       ml="42px"
-      mt="118px"
-      p="22px 26px"
+      mt="7.375rem"
+      p="1.375rem 26px"
       borderRadius="10px"
     >
-      <Text color="gray.700" fontSize="16px" fontWeight="semibold" mb="18px">
+      <Text
+        color="gray.700"
+        fontSize="1rem"
+        fontWeight="semibold"
+        mb="1.125rem"
+      >
         Detalhes {eventDate ? formatDate(eventDate) : ''}
       </Text>
 

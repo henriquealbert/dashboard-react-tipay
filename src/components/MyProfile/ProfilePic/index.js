@@ -5,18 +5,18 @@ export default function ProfilePic({ data }) {
     <Box>
       <Button
         variant="link"
-        fontSize="20px"
+        fontSize="1.25rem"
         color="brand.yellow"
         display="block"
       >
         Editar
       </Button>
       <Avatar
-        ml="20px"
+        ml="1.25rem"
         src={data?.img}
         alt={data?.name}
-        w="170px"
-        h="170px"
+        w="10.625rem"
+        h="10.625rem"
         borderRadius="50%"
         bg="gray.100"
       />

@@ -10,7 +10,7 @@ const Input = {
     filled: {
       field: {
         bg: '#FFFFFF',
-        fontSize: '20px',
+        fontSize: '1.25rem',
         borderRadius: '10px',
         _focus: {
           bg: '#FFFFFF'
@@ -23,7 +23,7 @@ const Input = {
     innerSolid: {
       field: {
         bg: '#F2F2F2',
-        fontSize: '20px',
+        fontSize: '1.25rem',
         borderRadius: '5px',
         h: '72px',
         maxW: '695px',

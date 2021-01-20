@@ -18,7 +18,7 @@ export default function Home() {
           <Box
             display="grid"
             gridTemplateColumns="minmax(200px, 987px) 1fr"
-            gridGap="21px"
+            gridGap="1.313rem"
             w="100%"
             mt="45px"
           >
@@ -28,7 +28,7 @@ export default function Home() {
           <Box
             display="grid"
             gridTemplateColumns="minmax(200px, 987px) 1fr"
-            gridGap="21px"
+            gridGap="1.313rem"
             w="100%"
           >
             <Box>

@@ -11,7 +11,7 @@ export default function TableSales({ data }) {
       <Box
         bg="white"
         borderRadius="10px"
-        boxShadow="0px 3px 10px #0000000A"
+        boxShadow="0rem 0.188rem 10px #0000000A"
         mb="40px"
         px="35px"
       >

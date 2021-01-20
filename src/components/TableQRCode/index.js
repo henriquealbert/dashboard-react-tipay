@@ -10,7 +10,7 @@ export default function TableQRCode({ data }) {
       <Box
         bg="white"
         borderRadius="10px"
-        boxShadow="0px 3px 10px #0000000A"
+        boxShadow="0rem 0.188rem 10px #0000000A"
         mb="40px"
         px="35px"
       >
@@ -35,9 +35,9 @@ export default function TableQRCode({ data }) {
                   <Td>{item.value}</Td>
                   <Td>
                     {item.check ? (
-                      <CheckTipayIcon mr="16px" />
+                      <CheckTipayIcon mr="1rem" />
                     ) : (
-                      <QuestionTipayIcon mr="16px" />
+                      <QuestionTipayIcon mr="1rem" />
                     )}
                     {item.payment}
                   </Td>

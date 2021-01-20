@@ -8,16 +8,16 @@ const ImgTr = ({ item }) => {
         p="30px 0"
         w="260px"
         fontWeight="bold"
-        fontSize="20px"
+        fontSize="1.25rem"
         color="gray.900"
         textTransform="uppercase"
       >
         <ProfilePic data={item} />
       </Td>
-      <Td p="30px 0" fontSize="22px">
+      <Td p="30px 0" fontSize="1.375rem">
         <Text
           color="gray.900"
-          fontSize="20px"
+          fontSize="1.25rem"
           lineHeight="24px"
           fontWeight="bold"
           textTransform="uppercase"
@@ -34,7 +34,7 @@ const ImgTr = ({ item }) => {
         </Text>
       </Td>
       <Td p="30px 0" textAlign="right">
-        <Button variant="link" fontSize="20px" color="brand.yellow">
+        <Button variant="link" fontSize="1.25rem" color="brand.yellow">
           Editar
         </Button>
       </Td>

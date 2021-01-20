@@ -3,7 +3,7 @@ const Radio = {
     lg: {
       control: { w: '44px', h: '44px' },
       label: {
-        fontSize: '20px',
+        fontSize: '1.25rem',
         color: 'gray.1000'
       }
     }
@@ -26,7 +26,7 @@ const Radio = {
         }
       },
       _focus: {
-        boxShadow: '0 0 0 3px #4EE2DE'
+        boxShadow: '0 0 0 0.188rem #4EE2DE'
       }
     }
   }

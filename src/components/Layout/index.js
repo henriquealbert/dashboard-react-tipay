@@ -16,8 +16,8 @@ export default function Layout({ children, perfil }) {
         w="100%"
         minH="100vh"
         h="100%"
-        pt="118px"
-        pl={perfil ? '348px' : '129px'}
+        pt="7.375rem"
+        pl={perfil ? '21.75rem' : '8.063rem'}
       >
         {children}
       </Flex>

@@ -5,7 +5,7 @@ export const isBoleto = (payment) => {
     return (
       <>
         Boleto
-        <BoletoIcon ml="16px" w="25px" h="18px" color="gray.800" />
+        <BoletoIcon ml="1rem" w="1.563rem" h="1.125rem" color="gray.800" />
       </>
     );
   } else {

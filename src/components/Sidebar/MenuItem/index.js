@@ -16,7 +16,7 @@ export default function MenuItem({ pathname, text, icon, w, h }) {
     <Link to={pathname}>
       <Flex
         w="100%"
-        h="129px"
+        h="8.063rem"
         direction="column"
         alignItems="center"
         justifyContent="center"

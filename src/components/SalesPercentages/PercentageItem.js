@@ -5,18 +5,18 @@ export default function PercentageItem({ value, label, color, mr }) {
     <Flex
       bg={color}
       borderRadius="10px"
-      boxShadow="0px 3px 10px #0000000A"
+      boxShadow="0rem 0.188rem 10px #0000000A"
       mr={mr}
       w="192px"
       direction="column"
     >
       <Text
         as="h4"
-        fontSize="20px"
+        fontSize="1.25rem"
         fontWeight="bold"
         lineHeight="24px"
-        pl="20px"
-        pt="15px"
+        pl="1.25rem"
+        pt="0.938rem"
         color="white"
       >
         {label}
@@ -28,7 +28,7 @@ export default function PercentageItem({ value, label, color, mr }) {
         pb="35px"
         fontWeight="bold"
         fontSize="60px"
-        lineHeight="73px"
+        lineHeight="4.563rem"
         color="white"
       >
         {value}

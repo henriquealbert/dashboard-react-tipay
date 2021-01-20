@@ -9,7 +9,7 @@ export default function CopyBtn({ size, m }) {
       loadingText="Copiando..."
       size={size}
       m={m}
-      fontSize="20px"
+      fontSize="1.25rem"
     >
       <CopyIcon mr="8px" />
       Copiar

@@ -32,7 +32,7 @@ export default function Menu() {
           />
         </Box>
 
-        <Text color="white" fontSize="18px" mx="22px" as="span">
+        <Text color="white" fontSize="1.125rem" mx="1.375rem" as="span">
           {user.name}
         </Text>
 
@@ -41,11 +41,11 @@ export default function Menu() {
       {isOpen && (
         <Fade in={isOpen}>
           <Flex
-            w="318px"
+            w="31.125rem"
             bg="white"
-            boxShadow="0px 3px 6px #00000029"
+            boxShadow="0rem 0.188rem 6px #00000029"
             position="absolute"
-            top="118px"
+            top="7.375rem"
             left="0"
             as="nav"
           >
@@ -54,42 +54,70 @@ export default function Menu() {
               listStyleType="none"
               textAlign="left"
               color="gray.500"
-              fontSize="20px"
-              lineHeight="22px"
+              fontSize="1.25rem"
+              lineHeight="1.375rem"
               w="100%"
-              my="13px"
+              my="10.188rem"
             >
               <Link to="/meu-perfil">
-                <Flex as="li" py="13px" ml="38px" alignItems="center" w="100%">
+                <Flex
+                  as="li"
+                  py="10.188rem"
+                  ml="38px"
+                  alignItems="center"
+                  w="100%"
+                >
                   <Img
                     src="/images/meu-perfil.svg"
                     alt="Meu Perfil"
-                    mr="15px"
+                    mr="0.938rem"
                   />
                   Meu Perfil
                 </Flex>
               </Link>
 
               <Link to="/dashboard">
-                <Flex as="li" py="13px" ml="38px" alignItems="center" w="100%">
-                  <Img src="/images/dashboard.svg" alt="Dashboard" mr="20px" />
+                <Flex
+                  as="li"
+                  py="10.188rem"
+                  ml="38px"
+                  alignItems="center"
+                  w="100%"
+                >
+                  <Img
+                    src="/images/dashboard.svg"
+                    alt="Dashboard"
+                    mr="1.25rem"
+                  />
                   Dashboard
                 </Flex>
               </Link>
 
               <Link to="/atendimento">
-                <Flex as="li" py="13px" ml="38px" alignItems="center" w="100%">
+                <Flex
+                  as="li"
+                  py="10.188rem"
+                  ml="38px"
+                  alignItems="center"
+                  w="100%"
+                >
                   <Img
                     src="/images/atendimento.svg"
                     alt="Atendimento"
-                    mr="15px"
+                    mr="0.938rem"
                   />
                   Atendimento
                 </Flex>
               </Link>
 
               <Link to="/meu-plano">
-                <Flex as="li" py="13px" ml="38px" alignItems="center" w="100%">
+                <Flex
+                  as="li"
+                  py="10.188rem"
+                  ml="38px"
+                  alignItems="center"
+                  w="100%"
+                >
                   <Img src="/images/meu-plano.svg" alt="Meu Plano" mr="12px" />
                   Meu Plano
                 </Flex>
@@ -97,14 +125,14 @@ export default function Menu() {
 
               <Flex
                 as="li"
-                py="13px"
+                py="10.188rem"
                 ml="38px"
                 alignItems="center"
                 w="100%"
                 cursor="pointer"
                 onClick={handleLogout}
               >
-                <Img src="/images/logout.svg" alt="Logout" mr="16px" />
+                <Img src="/images/logout.svg" alt="Logout" mr="1rem" />
                 Logout
               </Flex>
             </Box>

@@ -23,7 +23,7 @@ export default function GerarBoletoInfo() {
     <Box mt="36px" w="100%">
       <Text
         color="gray.500"
-        fontSize="20px"
+        fontSize="1.25rem"
         lineHeight="24px"
         fontWeight="bold"
       >
@@ -31,18 +31,18 @@ export default function GerarBoletoInfo() {
       </Text>
       <Box
         mt="12px"
-        boxShadow="0px 3px 10px #0000000A"
+        boxShadow="0rem 0.188rem 10px #0000000A"
         borderRadius="10px"
         w="100%"
         bg="white"
-        p="58px 68px"
+        p="58px 4.25rem"
       >
         <Flex>
           <Box w="50%" mr="56px">
-            <FormControl id="price" mb="28px">
+            <FormControl id="price" mb="1.75rem">
               <FormLabel
                 color="gray.1000"
-                fontSize="20px"
+                fontSize="1.25rem"
                 lineHeight="24px"
                 fontWeight="semibold"
               >
@@ -55,10 +55,10 @@ export default function GerarBoletoInfo() {
               />
             </FormControl>
 
-            <FormControl id="date" mb="28px">
+            <FormControl id="date" mb="1.75rem">
               <FormLabel
                 color="gray.1000"
-                fontSize="20px"
+                fontSize="1.25rem"
                 lineHeight="24px"
                 fontWeight="semibold"
               >
@@ -76,7 +76,7 @@ export default function GerarBoletoInfo() {
             <FormControl id="description">
               <FormLabel
                 color="gray.1000"
-                fontSize="20px"
+                fontSize="1.25rem"
                 lineHeight="24px"
                 fontWeight="semibold"
               >
@@ -95,7 +95,7 @@ export default function GerarBoletoInfo() {
           <FormControl id="juros" w="50%" mr="56px">
             <FormLabel
               color="gray.1000"
-              fontSize="20px"
+              fontSize="1.25rem"
               lineHeight="24px"
               fontWeight="semibold"
             >
@@ -114,7 +114,7 @@ export default function GerarBoletoInfo() {
           <FormControl id="user" w="50%" ml="56px">
             <FormLabel
               color="gray.1000"
-              fontSize="20px"
+              fontSize="1.25rem"
               lineHeight="24px"
               fontWeight="semibold"
             >
@@ -143,7 +143,7 @@ export default function GerarBoletoInfo() {
         mt="48px"
         mb="56px"
       >
-        Gerar Boleto <BoletoIcon ml="16px" w="45px" h="32px" />
+        Gerar Boleto <BoletoIcon ml="1rem" w="45px" h="2rem" />
       </Button>
     </Box>
   );

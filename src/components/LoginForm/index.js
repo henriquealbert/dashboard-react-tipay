@@ -41,7 +41,7 @@ export default function LoginForm() {
 
   return (
     <Box w="100%" as="form" onSubmit={handleSubmit(onSubmit)}>
-      <FormControl mb="25px" isInvalid={errors.email}>
+      <FormControl mb="1.563rem" isInvalid={errors.email}>
         <Input
           type="email"
           name="email"
@@ -72,7 +72,7 @@ export default function LoginForm() {
       </FormControl>
 
       <Text
-        fontSize="20px"
+        fontSize="1.25rem"
         fontWeight="semibold"
         color="white"
         textAlign="right"

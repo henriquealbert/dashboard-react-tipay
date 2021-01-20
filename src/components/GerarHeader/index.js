@@ -24,19 +24,25 @@ export default function GerarHeader({
       justifyContent="space-between"
       borderBottom="1px solid"
       borderColor="#CECECE"
-      pb="28px"
+      pb="1.75rem"
     >
       <Box>
         <PageTitle>
-          <Icon as={icon} w="52px" h="52px" display="inline-block" mr="22px" />
+          <Icon
+            as={icon}
+            w="52px"
+            h="52px"
+            display="inline-block"
+            mr="1.375rem"
+          />
           {pageTitle}
         </PageTitle>
         <Breadcrumb
           spacing="8px"
           separator={<ChevronRightIcon color="gray.500" />}
           color="gray.500"
-          mt="18px"
-          fontSize="20px"
+          mt="1.125rem"
+          fontSize="1.25rem"
         >
           <BreadcrumbItem>
             <BreadcrumbLink as={Link} to={backUrl}>

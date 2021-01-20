@@ -9,7 +9,7 @@ export default function ResultsPerPage({ ml }) {
       h="60px"
       borderRadius="5px"
       _placeholder={{ color: 'gray.1000' }}
-      fontSize="18px"
+      fontSize="1.125rem"
       ml={ml}
     >
       <option value="25">Resultado por pag: 25</option>

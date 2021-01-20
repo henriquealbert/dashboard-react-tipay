@@ -25,7 +25,7 @@ export default function ModalDetailSale({ data }) {
 
   return (
     <>
-      <Button variant="green" maxW="150px" h="50px" onClick={onOpen}>
+      <Button variant="green" maxW="13.125rem" h="3.125rem" onClick={onOpen}>
         Detalhes
       </Button>
       <Modal isOpen={isOpen} onClose={onClose} isCentered size="7xl">
@@ -36,7 +36,7 @@ export default function ModalDetailSale({ data }) {
             color="gray.900"
             lineHeight="37px"
             fontWeight="bold"
-            pb="22px"
+            pb="1.375rem"
           >
             Detalhe da Venda
           </ModalHeader>
@@ -75,7 +75,7 @@ export default function ModalDetailSale({ data }) {
                 color="gray.900"
                 lineHeight="37px"
                 fontWeight="bold"
-                pb="22px"
+                pb="1.375rem"
               >
                 Histórico das vendas
               </Text>
@@ -103,7 +103,7 @@ export default function ModalDetailSale({ data }) {
           </ModalBody>
 
           <ModalFooter>
-            <Button variant="red" mr="16px">
+            <Button variant="red" mr="1rem">
               Estornar Venda
             </Button>
             <Button variant="black" mr={3} onClick={onClose}>

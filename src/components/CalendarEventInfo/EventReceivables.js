@@ -22,14 +22,14 @@ export default function EventReceivables({ data }) {
       defaultIndex={[0]}
       borderRadius="5px"
       bg="brand.400"
-      maxW="575px"
+      maxW="54.688rem"
       border="none"
-      mt="22px"
+      mt="1.375rem"
     >
       <AccordionItem border="none">
         <AccordionButton p="30px">
           <Text
-            fontSize="18px"
+            fontSize="1.125rem"
             color="white"
             fontWeight="semibold"
             textTransform="uppercase"
@@ -41,7 +41,7 @@ export default function EventReceivables({ data }) {
           <AccordionIcon color="white" w={7} h={7} />
         </AccordionButton>
         <AccordionPanel px="30px">
-          <Table variant="calendar-receivables" mb="32px">
+          <Table variant="calendar-receivables" mb="2rem">
             <Thead>
               <Tr>
                 <Th>DATA/HORA</Th>

@@ -11,7 +11,7 @@ export default function ToolsMenu() {
     <Flex my="40px" justifyContent="space-between">
       <Flex>
         <Filter />
-        <ResultsPerPage ml="32px" />
+        <ResultsPerPage ml="2rem" />
       </Flex>
       <Flex>
         <CopyBtn size="lg" m="0 12px 0 0" />

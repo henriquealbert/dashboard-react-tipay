@@ -59,11 +59,7 @@ export default function Calendario() {
     <Layout>
       <Container>
         <PageTitle>Calendário de Recebíveis</PageTitle>
-        <Flex
-          direction={{ base: 'column', lg: 'row' }}
-          justifyContent="space-between"
-          w="100%"
-        >
+        <Flex direction={{ base: 'column', lg: 'row' }} w="100%">
           <CalendarComponent data={data} setEventDate={setEventDate} />
           <CalendarEventInfo data={data} eventDate={eventDate} />
         </Flex>

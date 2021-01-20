@@ -9,12 +9,12 @@ export default function SalesStatus() {
     <Box
       w="100%"
       bg="white"
-      boxShadow="0px 3px 10px #0000000A"
+      boxShadow="0rem 0.188rem 10px #0000000A"
       borderRadius="10px"
       p="31px 35px"
     >
       <Flex justifyContent="space-between">
-        <Text as="h4" color="gray.500" fontSize="20px" lineHeight="24px">
+        <Text as="h4" color="gray.500" fontSize="1.25rem" lineHeight="24px">
           Aprovadas
         </Text>
         <Text
@@ -22,15 +22,15 @@ export default function SalesStatus() {
           mr="90px"
           color="gray.500"
           fontWeight="bold"
-          fontSize="22px"
-          lineHeight="27px"
+          fontSize="1.375rem"
+          lineHeight="1.688rem"
         >
           {aprovadas}
         </Text>
       </Flex>
-      <Box h="1px" bg="#ECECEC" m="19.5px 48px 19.5px 18px" />
+      <Box h="1px" bg="#ECECEC" m="19.5px 48px 19.5px 1.125rem" />
       <Flex justifyContent="space-between">
-        <Text as="h4" color="gray.500" fontSize="20px" lineHeight="24px">
+        <Text as="h4" color="gray.500" fontSize="1.25rem" lineHeight="24px">
           Canceladas
         </Text>
         <Text
@@ -38,15 +38,15 @@ export default function SalesStatus() {
           mr="90px"
           color="gray.500"
           fontWeight="bold"
-          fontSize="22px"
-          lineHeight="27px"
+          fontSize="1.375rem"
+          lineHeight="1.688rem"
         >
           {canceladas}
         </Text>
       </Flex>
-      <Box h="1px" bg="#ECECEC" m="19.5px 48px 19.5px 18px" />
+      <Box h="1px" bg="#ECECEC" m="19.5px 48px 19.5px 1.125rem" />
       <Flex justifyContent="space-between">
-        <Text as="h4" color="gray.500" fontSize="20px" lineHeight="24px">
+        <Text as="h4" color="gray.500" fontSize="1.25rem" lineHeight="24px">
           Pendentes
         </Text>
         <Text
@@ -54,8 +54,8 @@ export default function SalesStatus() {
           mr="90px"
           color="gray.500"
           fontWeight="bold"
-          fontSize="22px"
-          lineHeight="27px"
+          fontSize="1.375rem"
+          lineHeight="1.688rem"
         >
           {pendentes}
         </Text>

@@ -18,7 +18,7 @@ export default function PaginationTable() {
     bg: 'gray.1200',
     border: '1px solid',
     borderColor: 'gray.1300',
-    padding: '18px 26px',
+    padding: '1.125rem 26px',
     width: '60px',
     height: '60px',
     borderRadius: '0',
@@ -32,7 +32,7 @@ export default function PaginationTable() {
   const activeStyles = {
     color: 'white',
     bg: 'linear-gradient(180deg, #0A172D 0%, #40474F 100%)',
-    padding: '18px 26px',
+    padding: '1.125rem 26px',
     width: '60px',
     height: '60px',
     borderRadius: '0',
@@ -56,7 +56,7 @@ export default function PaginationTable() {
       >
         <Previous
           h="60px"
-          px="16px"
+          px="1rem"
           bg="gray.1200"
           border="1px solid"
           borderColor="gray.1300"
@@ -78,7 +78,7 @@ export default function PaginationTable() {
         </PageGroup>
         <Next
           h="60px"
-          px="16px"
+          px="1rem"
           bg="gray.1200"
           border="1px solid"
           borderColor="gray.1300"

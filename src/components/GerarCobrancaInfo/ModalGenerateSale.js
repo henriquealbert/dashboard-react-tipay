@@ -28,7 +28,7 @@ export default function ModalGenerateSale() {
         mb="56px"
         onClick={onOpen}
       >
-        Gerar Link <LinkQRCodeIcon ml="16px" w="45px" h="32px" />
+        Gerar Link <LinkQRCodeIcon ml="1rem" w="45px" h="2rem" />
       </Button>
 
       <Modal
@@ -39,7 +39,7 @@ export default function ModalGenerateSale() {
         scrollBehavior="inside"
       >
         <ModalOverlay />
-        <ModalContent p="52px 32px">
+        <ModalContent p="52px 2rem">
           <ModalCloseButton />
           <ModalBody>
             <Img src="/images/qrcode.png" m="0 auto 26px" />
@@ -47,7 +47,7 @@ export default function ModalGenerateSale() {
           </ModalBody>
 
           <ModalFooter mt="40px">
-            <Box w="50%" mr="16px">
+            <Box w="50%" mr="1rem">
               <Link to="/link-qrcode">
                 <Button variant="red" h="90px" w="100%" fontSize="30px">
                   Fechar

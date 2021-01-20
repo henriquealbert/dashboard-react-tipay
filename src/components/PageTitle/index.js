@@ -6,10 +6,10 @@ export default function PageTitle({ children }) {
       as="h1"
       color="gray.500"
       fontWeight="bold"
-      lineHeight="39px"
-      fontSize="40px"
-      mb="14px"
-      mr="22px"
+      lineHeight="2.438rem"
+      fontSize="2.5rem"
+      mb="0.875rem"
+      mr="1.375rem"
     >
       {children}
     </Text>

@@ -16,7 +16,7 @@ export default function MenuItemPerfil({ pathname, text, icon, w, h }) {
     <Link to={pathname}>
       <Flex
         w="100%"
-        p="20px"
+        p="1.25rem"
         cursor="pointer"
         alignItems="center"
         _hover={{
@@ -31,7 +31,7 @@ export default function MenuItemPerfil({ pathname, text, icon, w, h }) {
           h={h}
         />
         <Text
-          ml="16px"
+          ml="1rem"
           fontWeight={currentPage() ? 'bold' : 'normal'}
           fontSize="19px"
           color={currentPage() ? 'brand.100' : 'gray.700'}

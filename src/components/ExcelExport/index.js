@@ -9,7 +9,7 @@ export default function ExcelExport({ size, m }) {
       loadingText="Exportando..."
       size={size}
       m={m}
-      fontSize="20px"
+      fontSize="1.25rem"
     >
       <ExportarIcon mr="8px" />
       Exportar Excel

@@ -12,7 +12,7 @@ export default function InputLinkQRcode({ url }) {
       <FormLabel
         position="absolute"
         left="26px"
-        top="-15px"
+        top="-0.938rem"
         bg="white"
         zIndex="1"
         p="5px"
@@ -29,8 +29,8 @@ export default function InputLinkQRcode({ url }) {
         borderRadius="10px"
         isReadOnly
         value={url}
-        fontSize="18px"
-        lineHeight="22px"
+        fontSize="1.125rem"
+        lineHeight="1.375rem"
         textDecoration="underline"
         color="#002387"
         cursor="default"
@@ -47,7 +47,7 @@ export default function InputLinkQRcode({ url }) {
         borderRadius="10px"
         as="button"
       >
-        <CopyIcon w="32px" h="32px" color="#9B9B9B" />
+        <CopyIcon w="2rem" h="2rem" color="#9B9B9B" />
       </InputRightAddon>
     </InputGroup>
   );

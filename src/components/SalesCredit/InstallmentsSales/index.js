@@ -22,7 +22,7 @@ export default function InstallmentsSales({ theme }) {
       <Text
         as="h4"
         fontWeight="bold"
-        fontSize="20px"
+        fontSize="1.25rem"
         lineHeight="24px"
         color="gray.500"
         mb="14px"
@@ -70,8 +70,8 @@ export default function InstallmentsSales({ theme }) {
           tooltip={({ color, value, id }) => {
             return (
               <Flex justifyContent="center" alignItems="center">
-                <Box w="16px" h="16px" bg={color} mb="2px" borderRadius="5px" />
-                <Text lineHeight="16px" fontSize="16px" ml="5px">
+                <Box w="1rem" h="1rem" bg={color} mb="2px" borderRadius="5px" />
+                <Text lineHeight="1rem" fontSize="1rem" ml="5px">
                   {value}% - {id}
                 </Text>
               </Flex>

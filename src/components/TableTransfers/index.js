@@ -8,7 +8,7 @@ export default function TableTransfers({ data }) {
       <Box
         bg="white"
         borderRadius="10px"
-        boxShadow="0px 3px 10px #0000000A"
+        boxShadow="0rem 0.188rem 10px #0000000A"
         mb="40px"
         px="35px"
       >
@@ -49,7 +49,7 @@ const statusIcon = (status) => {
     case 0:
       return (
         <>
-          <ErrorTipayIcon mr="16px" />
+          <ErrorTipayIcon mr="1rem" />
           <Text display="inline" as="span">
             Transferência Recusada.
           </Text>
@@ -59,7 +59,7 @@ const statusIcon = (status) => {
     case 1:
       return (
         <>
-          <CheckTipayIcon mr="16px" />
+          <CheckTipayIcon mr="1rem" />
           <Text display="inline" as="span">
             Transferência Efetuada Com Sucesso.
           </Text>

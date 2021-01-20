@@ -62,7 +62,12 @@ export default function LinkQRcode() {
           <Link to="/link-qrcode/gerar-cobranca">
             <Button variant="green" alignSelf="flex-end" w="260px" h="60px">
               Gerar Cobrança
-              <LinkQRCodeIcon ml="16px" w="29px" h="29px" color="white" />
+              <LinkQRCodeIcon
+                ml="1rem"
+                w="1.813rem"
+                h="1.813rem"
+                color="white"
+              />
             </Button>
           </Link>
         </Flex>

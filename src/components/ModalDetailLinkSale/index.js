@@ -30,7 +30,7 @@ export default function ModalDetailLinkSale({ data }) {
 
   return (
     <>
-      <Button variant="green" maxW="150px" h="50px" onClick={onOpen}>
+      <Button variant="green" maxW="13.125rem" h="3.125rem" onClick={onOpen}>
         Detalhes
       </Button>
       <Modal
@@ -47,7 +47,7 @@ export default function ModalDetailLinkSale({ data }) {
             color="gray.900"
             lineHeight="37px"
             fontWeight="bold"
-            pb="22px"
+            pb="1.375rem"
           >
             Detalhe da Venda
           </ModalHeader>
@@ -72,7 +72,7 @@ export default function ModalDetailLinkSale({ data }) {
                 color="gray.900"
                 lineHeight="37px"
                 fontWeight="bold"
-                pb="22px"
+                pb="1.375rem"
               >
                 Histórico das vendas
               </Text>

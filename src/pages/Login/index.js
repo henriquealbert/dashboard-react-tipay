@@ -9,8 +9,8 @@ export default function Login() {
         src="/images/logo.svg"
         alt="Logo Tipay"
         position="absolute"
-        top="63px"
-        left="116px"
+        top="60.188rem"
+        left="7.25rem"
         w="140px"
         h="82px"
       />
@@ -39,8 +39,8 @@ export default function Login() {
             as="h1"
             color="white"
             fontWeight="bold"
-            fontSize="33px"
-            mb="50px"
+            fontSize="2.063rem"
+            mb="3.125rem"
           >
             Bem vindo a Tipay acesse agora
           </Text>

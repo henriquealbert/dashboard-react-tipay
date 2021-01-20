@@ -1,7 +1,7 @@
 const Switch = {
   baseStyle: {
     track: {
-      borderRadius: '22px',
+      borderRadius: '1.375rem',
       _checked: {
         bg: 'linear-gradient(180deg, #60C4B9 0%, #4EE2DE 100%)'
       }

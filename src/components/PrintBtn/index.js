@@ -9,7 +9,7 @@ export default function PrintBtn({ size, m }) {
       loadingText="Imprimindo..."
       size={size}
       m={m}
-      fontSize="20px"
+      fontSize="1.25rem"
     >
       <PrintIcon mr="8px" />
       Imprimir

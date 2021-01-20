@@ -31,20 +31,20 @@ export default function SalesByIssuer() {
   return (
     <Flex
       bg="white"
-      py="28px"
-      px="60.75px"
-      mt="18px"
+      py="1.75rem"
+      px="3.75rem"
+      mt="1.125rem"
       w="100%"
       h="100%"
       maxH="586px"
-      boxShadow="0px 3px 10px #0000000A"
+      boxShadow="0rem 0.188rem 10px #0000000A"
       borderRadius="10px"
       direction="column"
     >
       <Text
         as="h4"
         fontWeight="bold"
-        fontSize="20px"
+        fontSize="1.25rem"
         lineHeight="24px"
         color="gray.500"
         mb="48px"
@@ -73,11 +73,15 @@ export default function SalesByIssuer() {
                   bg={item.color}
                   mr="30px"
                 />
-                <Text fontSize="20px" color="gray.500" display="inline-block">
+                <Text
+                  fontSize="1.25rem"
+                  color="gray.500"
+                  display="inline-block"
+                >
                   {item.label}
                 </Text>
               </Flex>
-              <Text fontSize="20px" color="gray.500">
+              <Text fontSize="1.25rem" color="gray.500">
                 {item.value}
               </Text>
             </Flex>

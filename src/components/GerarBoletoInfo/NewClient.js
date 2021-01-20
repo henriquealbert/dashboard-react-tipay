@@ -12,7 +12,7 @@ export default function NewClient() {
     <Box mt="36px" w="100%">
       <Text
         color="gray.500"
-        fontSize="20px"
+        fontSize="1.25rem"
         lineHeight="24px"
         fontWeight="bold"
       >
@@ -20,18 +20,18 @@ export default function NewClient() {
       </Text>
       <Box
         mt="12px"
-        boxShadow="0px 3px 10px #0000000A"
+        boxShadow="0rem 0.188rem 10px #0000000A"
         borderRadius="10px"
         w="100%"
         bg="white"
-        p="58px 68px"
+        p="58px 4.25rem"
       >
         <Flex>
           <Box w="50%" mr="112px">
-            <FormControl id="name" mb="28px">
+            <FormControl id="name" mb="1.75rem">
               <FormLabel
                 color="gray.1000"
-                fontSize="20px"
+                fontSize="1.25rem"
                 lineHeight="24px"
                 fontWeight="semibold"
               >
@@ -44,10 +44,10 @@ export default function NewClient() {
               />
             </FormControl>
 
-            <FormControl id="doc" mb="28px">
+            <FormControl id="doc" mb="1.75rem">
               <FormLabel
                 color="gray.1000"
-                fontSize="20px"
+                fontSize="1.25rem"
                 lineHeight="24px"
                 fontWeight="semibold"
               >
@@ -63,7 +63,7 @@ export default function NewClient() {
             <FormControl id="email">
               <FormLabel
                 color="gray.1000"
-                fontSize="20px"
+                fontSize="1.25rem"
                 lineHeight="24px"
                 fontWeight="semibold"
               >
@@ -78,10 +78,10 @@ export default function NewClient() {
           </Box>
           <Box w="50%">
             <Flex>
-              <FormControl id="street" mb="28px" mr="22px">
+              <FormControl id="street" mb="1.75rem" mr="1.375rem">
                 <FormLabel
                   color="gray.1000"
-                  fontSize="20px"
+                  fontSize="1.25rem"
                   lineHeight="24px"
                   fontWeight="semibold"
                 >
@@ -94,10 +94,10 @@ export default function NewClient() {
                 />
               </FormControl>
 
-              <FormControl id="streetNumber" mb="28px" maxW="135px">
+              <FormControl id="streetNumber" mb="1.75rem" maxW="135px">
                 <FormLabel
                   color="gray.1000"
-                  fontSize="20px"
+                  fontSize="1.25rem"
                   lineHeight="24px"
                   fontWeight="semibold"
                 >
@@ -108,10 +108,15 @@ export default function NewClient() {
             </Flex>
 
             <Flex>
-              <FormControl id="neighborhood" mb="28px" mr="22px" maxW="50%">
+              <FormControl
+                id="neighborhood"
+                mb="1.75rem"
+                mr="1.375rem"
+                maxW="50%"
+              >
                 <FormLabel
                   color="gray.1000"
-                  fontSize="20px"
+                  fontSize="1.25rem"
                   lineHeight="24px"
                   fontWeight="semibold"
                 >
@@ -119,10 +124,10 @@ export default function NewClient() {
                 </FormLabel>
                 <Input type="text" variant="innerSolid" placeholder="Bairro" />
               </FormControl>
-              <FormControl id="city" mb="28px" maxW="50%">
+              <FormControl id="city" mb="1.75rem" maxW="50%">
                 <FormLabel
                   color="gray.1000"
-                  fontSize="20px"
+                  fontSize="1.25rem"
                   lineHeight="24px"
                   fontWeight="semibold"
                 >
@@ -133,10 +138,10 @@ export default function NewClient() {
             </Flex>
 
             <Flex>
-              <FormControl id="state" mr="22px" maxW="50%">
+              <FormControl id="state" mr="1.375rem" maxW="50%">
                 <FormLabel
                   color="gray.1000"
-                  fontSize="20px"
+                  fontSize="1.25rem"
                   lineHeight="24px"
                   fontWeight="semibold"
                 >
@@ -147,7 +152,7 @@ export default function NewClient() {
               <FormControl id="complement" maxW="50%">
                 <FormLabel
                   color="gray.1000"
-                  fontSize="20px"
+                  fontSize="1.25rem"
                   lineHeight="24px"
                   fontWeight="semibold"
                 >
