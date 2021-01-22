@@ -17,7 +17,7 @@ export default function Home() {
           <HomeInnerMenu />
           <Box
             display="grid"
-            gridTemplateColumns="minmax(200px, 987px) 1fr"
+            gridTemplateColumns="2fr 1fr"
             gridGap="1.313rem"
             w="100%"
             mt="45px"
@@ -27,7 +27,7 @@ export default function Home() {
           </Box>
           <Box
             display="grid"
-            gridTemplateColumns="minmax(200px, 987px) 1fr"
+            gridTemplateColumns="2fr 1fr"
             gridGap="1.313rem"
             w="100%"
           >

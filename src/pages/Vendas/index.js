@@ -48,7 +48,7 @@ export default function Vendas() {
         <InnerMenu pageTitle="Vendas" />
         <Box
           display="grid"
-          gridTemplateColumns="minmax(200px, 987px) 1fr"
+          gridTemplateColumns="2fr 1fr"
           gridGap="1.313rem"
           w="100%"
           mt="36px"

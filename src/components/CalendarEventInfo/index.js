@@ -20,17 +20,14 @@ export default function CalendarEventInfo({ data, eventDate }) {
   if (sales?.length === 0 && receivables?.length === 0) {
     return (
       <Flex
-        flexGrow="1"
-        maxW="630px"
-        maxH="73.125rem"
+        h="calc(100vh - 5rem)"
         bg="white"
         boxShadow="0rem 0.188rem 10px #0000000A"
-        ml="42px"
-        mt="7.375rem"
         p="1.375rem 26px"
         borderRadius="10px"
         justifyContent="center"
         alignItems="center"
+        mt="7.375rem"
       >
         <Flex direction="column" justifyContent="center" alignItems="center">
           <CalendarioIcon color="gray.1100" width="114px" height="6.25rem" />
@@ -52,15 +49,14 @@ export default function CalendarEventInfo({ data, eventDate }) {
 
   return (
     <Box
-      flexGrow="1"
-      maxW="630px"
-      maxH="73.125rem"
+      h="calc(100vh - 5rem)"
       bg="white"
       boxShadow="0rem 0.188rem 10px #0000000A"
-      ml="42px"
-      mt="7.375rem"
       p="1.375rem 26px"
       borderRadius="10px"
+      justifyContent="center"
+      alignItems="center"
+      mt="7.375rem"
     >
       <Text
         color="gray.700"

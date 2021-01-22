@@ -1,11 +1,10 @@
 import styled from '@emotion/styled';
 
 export const Wrapper = styled.div`
-  height: 830px;
+  height: 100vh;
+  width: 100%;
   margin-top: 38px;
   margin-bottom: 52px;
-  max-width: 970px;
-  flex-grow: 1;
 
   .fc-view-harness {
     background: white;

@@ -72,7 +72,7 @@ export default function SalesByHour() {
         Hora das Vendas
       </Text>
       <Flex
-        height="190px"
+        h="190px"
         w="100%"
         border="1px solid"
         borderColor="#DFDFDF"

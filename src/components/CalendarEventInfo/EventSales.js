@@ -54,9 +54,9 @@ export default function EventSales({ data }) {
                   <Tr key={item?.id}>
                     <Td>{item?.date ? formatDateTime(item?.date) : ''}</Td>
                     <Td>{item?.title}</Td>
-                    <Th pr="0" textAlign="right">
+                    <Td pr="0" textAlign="right">
                       <Button variant="calendar-sales-btn">Detalhes</Button>
-                    </Th>
+                    </Td>
                   </Tr>
                 );
               })}

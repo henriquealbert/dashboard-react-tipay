@@ -1,4 +1,4 @@
-import { Flex } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 
 import Container from 'components/Container';
 import Layout from 'components/Layout';
@@ -59,10 +59,10 @@ export default function Calendario() {
     <Layout>
       <Container>
         <PageTitle>Calendário de Recebíveis</PageTitle>
-        <Flex direction={{ base: 'column', lg: 'row' }} w="100%">
+        <Box display="grid" gridTemplateColumns="2fr 1fr" gridColumnGap="42px">
           <CalendarComponent data={data} setEventDate={setEventDate} />
           <CalendarEventInfo data={data} eventDate={eventDate} />
-        </Flex>
+        </Box>
       </Container>
     </Layout>
   );

@@ -25,6 +25,7 @@ export default function SalesCredit() {
       mt="1.125rem"
       boxShadow="0rem 0.188rem 10px #0000000A"
       borderRadius="10px"
+      w="100%"
     >
       <TotalCreditSales theme={theme} />
       <InstallmentsSales theme={theme} />

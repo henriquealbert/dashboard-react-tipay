@@ -29,7 +29,7 @@ export default function InstallmentsSales({ theme }) {
       >
         Vendas Parceladas
       </Text>
-      <Flex height="190px">
+      <Flex height="190px" w="100%">
         <ResponsiveBar
           data={data}
           keys={[

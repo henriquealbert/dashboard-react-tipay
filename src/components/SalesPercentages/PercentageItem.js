@@ -7,7 +7,7 @@ export default function PercentageItem({ value, label, color, mr }) {
       borderRadius="10px"
       boxShadow="0rem 0.188rem 10px #0000000A"
       mr={mr}
-      w="192px"
+      w="100%"
       direction="column"
     >
       <Text
