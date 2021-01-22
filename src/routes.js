@@ -16,13 +16,13 @@ import Documentos from 'pages/Documentos';
 import TermosContrato from 'pages/TermosContrato';
 import Sobre from 'pages/Sobre';
 import GerarBoleto from 'pages/Boletos/GerarBoleto';
-
-// auth
-import { useAuthContext } from 'hooks/useAuthContext';
 import GerarCobranca from 'pages/LinkQRcode/GerarCobranca';
 
+// auth
+import { useAuth } from 'hooks/useAuth';
+
 function CustomRoute({ isPrivate, ...rest }) {
-  const { loading, authenticated } = useAuthContext();
+  const { loading, authenticated } = useAuth();
 
   if (loading) {
     return <h1>Loading...</h1>;
@@ -37,6 +37,7 @@ function CustomRoute({ isPrivate, ...rest }) {
 
 const Routes = () => (
   <Switch>
+    <Redirect exact from="/" to="/dashboard" />
     <CustomRoute isPrivate exact path="/dashboard" component={Home} />
     <CustomRoute isPrivate exact path="/vendas" component={Vendas} />
     <CustomRoute isPrivate exact path="/boletos" component={Boletos} />

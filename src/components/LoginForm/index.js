@@ -11,7 +11,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 
-import { useAuthContext } from 'hooks/useAuthContext';
+import { useAuth } from 'hooks/useAuth';
 
 const schema = Yup.object().shape({
   email: Yup.string()
@@ -23,7 +23,7 @@ const schema = Yup.object().shape({
 });
 
 export default function LoginForm() {
-  const { handleLogin } = useAuthContext();
+  const { handleLogin } = useAuth();
 
   const {
     register,
@@ -35,8 +35,8 @@ export default function LoginForm() {
     resolver: yupResolver(schema)
   });
 
-  const onSubmit = ({ email }) => {
-    handleLogin(email);
+  const onSubmit = ({ email, password }) => {
+    handleLogin(email, password);
   };
 
   return (

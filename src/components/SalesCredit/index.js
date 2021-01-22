@@ -22,7 +22,6 @@ export default function SalesCredit() {
       bg="white"
       py="1.75rem"
       px="3.75rem"
-      maxW="62.5rem"
       mt="1.125rem"
       boxShadow="0rem 0.188rem 10px #0000000A"
       borderRadius="10px"

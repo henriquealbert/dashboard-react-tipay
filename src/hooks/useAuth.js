@@ -1,46 +1,62 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, createContext, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
-
 import api from 'api';
 
-export default function useAuth() {
+const AuthContext = createContext();
+
+const AuthProvider = ({ children }) => {
   const [authenticated, setAuthenticated] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [user, setUser] = useState(null);
 
   const history = useHistory();
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('@tipay:token');
 
     if (token) {
       api.defaults.headers.Authorization = `Bearer ${JSON.parse(token)}`;
       setAuthenticated(true);
-      setUser(token);
     }
 
     setLoading(false);
   }, []);
 
-  async function handleLogin(email) {
-    // fazer chamada pra api para pegar o token e substituir aqui essa variavel.
-    const token = { email };
-    // fazer chamada pra api para pegar o token e substituir aqui essa variavel.
+  async function handleLogin(email, password) {
+    const response = await api.post('stores/sign_in.json', {
+      store: { email, password, id_partner: 1 }
+    });
+    const { token } = response.data;
 
-    localStorage.setItem('token', JSON.stringify(token));
+    localStorage.setItem('@tipay:token', JSON.stringify(token));
     api.defaults.headers.Authorization = `Bearer ${token}`;
     setAuthenticated(true);
-    setUser(token);
-    history.push('/');
+    history.push('/dashboard');
   }
 
   function handleLogout() {
-    setAuthenticated(false);
-    setUser(null);
-    localStorage.removeItem('token');
     api.defaults.headers.Authorization = undefined;
+    localStorage.removeItem('@tipay:token');
+    setAuthenticated(false);
     history.push('/login');
   }
 
-  return { authenticated, loading, handleLogin, handleLogout, user, setUser };
+  return (
+    <AuthContext.Provider
+      value={{ authenticated, loading, handleLogin, handleLogout }}
+    >
+      {children}
+    </AuthContext.Provider>
+  );
+};
+
+function useAuth() {
+  const context = useContext(AuthContext);
+
+  if (!context) {
+    throw new Error('useAuth must be used within an AuthProvider');
+  }
+
+  return context;
 }
+
+export { useAuth, AuthProvider };
