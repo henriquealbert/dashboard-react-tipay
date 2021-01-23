@@ -17,8 +17,9 @@ import {
   Box,
   Text
 } from '@chakra-ui/react';
-import { formatStatusColor } from 'utils/formatStatusColor';
-import { isBoleto } from 'utils/isBoleto';
+import { formatStatusColor, formatStatusLabel } from 'utils/formatStatusColor';
+import { formatPaymentType } from 'utils/formatPaymentType';
+import { formatDate } from 'utils/formatDate';
 
 export default function ModalDetailSale({ data }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -57,13 +58,13 @@ export default function ModalDetailSale({ data }) {
               <Tbody>
                 <Tr>
                   <Td>{data?.id}</Td>
-                  <Td maxW="280px">{data?.payer}</Td>
-                  <Td>{data?.created_at}</Td>
+                  <Td maxW="280px">{data?.holder_name}</Td>
+                  <Td>{formatDate(data?.dt_payment_br)}</Td>
                   <Td>{data?.value}</Td>
                   <Td>{data?.finalValue}</Td>
-                  <Td>{isBoleto(data?.payment)}</Td>
+                  <Td>{formatPaymentType(data?.payment_type)}</Td>
                   <Td color={formatStatusColor(data?.status)} pr="0">
-                    {data?.status}
+                    {formatStatusLabel(data?.status)}
                   </Td>
                 </Tr>
               </Tbody>

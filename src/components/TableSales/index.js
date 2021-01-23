@@ -2,8 +2,9 @@ import { Table, Thead, Tr, Th, Td, Tbody, Box } from '@chakra-ui/react';
 
 import ModalDetailSale from 'components/ModalDetailSale';
 import PaginationTable from 'components/PaginationTable';
-import { formatStatusColor } from 'utils/formatStatusColor';
-import { isBoleto } from 'utils/isBoleto';
+import { formatDateTime } from 'utils/formatDate';
+import { formatStatusColor, formatStatusLabel } from 'utils/formatStatusColor';
+import { formatPaymentType } from 'utils/formatPaymentType';
 
 export default function TableSales({ data }) {
   return (
@@ -28,17 +29,17 @@ export default function TableSales({ data }) {
             </Tr>
           </Thead>
           <Tbody>
-            {data.map((item) => {
+            {data?.map((item) => {
               return (
                 <Tr key={item?.id}>
                   <Td>{item?.id}</Td>
-                  <Td maxW="365px">{item?.payer}</Td>
-                  <Td>{item?.created_at}</Td>
+                  <Td maxW="365px">{item?.holder_name}</Td>
+                  <Td>{formatDateTime(item?.dt_payment_br)}</Td>
                   <Td>{item?.value}</Td>
                   <Td color={formatStatusColor(item?.status)}>
-                    {item?.status}
+                    {formatStatusLabel(item?.status)}
                   </Td>
-                  <Td>{isBoleto(item?.payment)}</Td>
+                  <Td>{formatPaymentType(item?.payment_type)}</Td>
                   <Td pr="0" textAlign="right">
                     <ModalDetailSale data={item} />
                   </Td>

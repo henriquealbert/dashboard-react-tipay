@@ -1,14 +1,18 @@
 import { BoletoIcon } from 'styles/icons';
 
-export const isBoleto = (payment) => {
-  if (payment === 'Boleto') {
+export const formatPaymentType = (payment) => {
+  if (payment === 3) {
     return (
       <>
         Boleto
         <BoletoIcon ml="1rem" w="1.563rem" h="1.125rem" color="gray.800" />
       </>
     );
-  } else {
-    return payment;
+  }
+  if (payment === 2) {
+    return 'Crédito';
+  }
+  if (payment === 1) {
+    return 'Débito';
   }
 };

@@ -14,7 +14,7 @@ const AuthProvider = ({ children }) => {
     const token = localStorage.getItem('@tipay:token');
 
     if (token) {
-      api.defaults.headers.Authorization = `Bearer ${JSON.parse(token)}`;
+      api.defaults.headers.Authorization = `Bearer ${token}`;
       setAuthenticated(true);
     }
 
@@ -27,7 +27,7 @@ const AuthProvider = ({ children }) => {
     });
     const { token } = response.data;
 
-    localStorage.setItem('@tipay:token', JSON.stringify(token));
+    localStorage.setItem('@tipay:token', token);
     api.defaults.headers.Authorization = `Bearer ${token}`;
     setAuthenticated(true);
     history.push('/dashboard');
