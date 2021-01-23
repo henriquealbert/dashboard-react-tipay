@@ -1,6 +1,7 @@
 import { Table, Thead, Tr, Th, Td, Tbody, Box, Text } from '@chakra-ui/react';
 import PaginationTable from 'components/PaginationTable';
 import { CheckTipayIcon, ErrorTipayIcon } from 'styles/icons';
+import { formatDateTime } from 'utils/formatDate';
 
 export default function TableTransfers({ data }) {
   return (
@@ -22,16 +23,16 @@ export default function TableTransfers({ data }) {
             </Tr>
           </Thead>
           <Tbody>
-            {data.map((item) => {
+            {data?.map((item) => {
               return (
                 <Tr key={item.id}>
                   <Td>{item.id}</Td>
-                  <Td>{item.date}</Td>
+                  <Td>{formatDateTime(item.transfer_date)}</Td>
                   <Td display="flex" alignItems="center">
-                    {statusIcon(item.status)}
+                    {statusIcon(item.status, item.status_detail)}
                   </Td>
                   <Td fontWeight="semibold" px="0">
-                    {item.value}
+                    {item.amount}
                   </Td>
                 </Tr>
               );
@@ -44,7 +45,7 @@ export default function TableTransfers({ data }) {
   );
 }
 
-const statusIcon = (status) => {
+const statusIcon = (status, status_detail) => {
   switch (status) {
     case 0:
       return (
@@ -61,7 +62,7 @@ const statusIcon = (status) => {
         <>
           <CheckTipayIcon mr="1rem" />
           <Text display="inline" as="span">
-            Transferência Efetuada Com Sucesso.
+            {status_detail}
           </Text>
         </>
       );

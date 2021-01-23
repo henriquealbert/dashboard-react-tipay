@@ -95,7 +95,7 @@ export default function ModalDetailSale({ data }) {
                     <Td>{data?.updated_at}</Td>
                     <Td>{data?.operation}</Td>
                     <Td color={formatStatusColor(data?.status)} pr="0">
-                      {data?.status}
+                      {formatStatusLabel(data?.status)}
                     </Td>
                   </Tr>
                 </Tbody>

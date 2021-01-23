@@ -8,40 +8,12 @@ import SalesStatus from 'components/SalesStatus';
 import TableSales from 'components/TableSales';
 import ToolsMenu from 'components/ToolsMenu';
 import { BoletoIcon } from 'styles/icons';
+import useTransactions from 'hooks/useTransactions';
 
 export default function Boletos() {
-  const data = [
-    {
-      id: 152218268,
-      payer: 'Pede Bolo Agência De confeitarias E Panificadoras On-line LTDA',
-      created_at: '15/10/2020 19:11',
-      updated_at: '27/05/2020 21:18:52',
-      value: 'R$ 300,00',
-      status: 'Aprovado',
-      payment: 'Boleto',
-      operation: 'Autorização'
-    },
-    {
-      id: 152218267,
-      payer: 'Pede Bolo Agência De confeitarias E Panificadoras On-line LTDA',
-      created_at: '15/10/2020 19:11',
-      updated_at: '27/05/2020 21:18:52',
-      value: 'R$ 300,00',
-      status: 'Cancelada',
-      payment: 'Boleto',
-      operation: 'Autorização'
-    },
-    {
-      id: 152218266,
-      payer: 'Pede Bolo Agência De confeitarias E Panificadoras On-line LTDA',
-      created_at: '15/10/2020 19:11',
-      updated_at: '27/05/2020 21:18:52',
-      value: 'R$ 300,00',
-      status: 'Pendente',
-      payment: 'Boleto',
-      operation: 'Autorização'
-    }
-  ];
+  const { data } = useTransactions('/payment_type=3');
+
+  console.log(data);
 
   return (
     <Layout>
@@ -59,7 +31,7 @@ export default function Boletos() {
           <SalesStatus />
         </Flex>
         <ToolsMenu />
-        <TableSales data={data} />
+        <TableSales data={data?.entries} />
       </Container>
     </Layout>
   );
