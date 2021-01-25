@@ -1,5 +1,6 @@
 import { useState, useEffect, createContext, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
+import Cookies from 'js-cookie';
 import api from 'api';
 
 const AuthContext = createContext();
@@ -11,7 +12,7 @@ const AuthProvider = ({ children }) => {
   const history = useHistory();
 
   useEffect(() => {
-    const token = localStorage.getItem('@tipay:token');
+    const token = Cookies.get('tipay_token');
 
     if (token) {
       api.defaults.headers.Authorization = `Bearer ${token}`;
@@ -27,22 +28,31 @@ const AuthProvider = ({ children }) => {
     });
     const { token } = response.data;
 
-    localStorage.setItem('@tipay:token', token);
-    api.defaults.headers.Authorization = `Bearer ${token}`;
+    const inTenMinutes = new Date(new Date().getTime() + 1 * 60 * 1000);
+    Cookies.set('tipay_token', token, {
+      expires: inTenMinutes
+    });
+
     setAuthenticated(true);
     history.push('/dashboard');
   }
 
   function handleLogout() {
-    api.defaults.headers.Authorization = undefined;
-    localStorage.removeItem('@tipay:token');
+    Cookies.remove('tipay_token');
     setAuthenticated(false);
     history.push('/login');
   }
 
   return (
     <AuthContext.Provider
-      value={{ authenticated, loading, handleLogin, handleLogout }}
+      value={{
+        authenticated,
+        setAuthenticated,
+        loading,
+        setLoading,
+        handleLogin,
+        handleLogout
+      }}
     >
       {children}
     </AuthContext.Provider>

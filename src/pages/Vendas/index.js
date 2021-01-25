@@ -10,9 +10,7 @@ import TableSales from 'components/TableSales';
 import useTransactions from 'hooks/useTransactions';
 
 export default function Vendas() {
-  const { data, isLoading, error } = useTransactions();
-
-  console.log(data);
+  const { data } = useTransactions();
 
   return (
     <Layout>

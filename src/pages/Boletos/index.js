@@ -13,8 +13,6 @@ import useTransactions from 'hooks/useTransactions';
 export default function Boletos() {
   const { data } = useTransactions('/payment_type=3');
 
-  console.log(data);
-
   return (
     <Layout>
       <Container>

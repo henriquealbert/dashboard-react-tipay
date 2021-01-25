@@ -18,8 +18,8 @@ import { AuthProvider } from 'hooks/useAuth';
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <BrowserRouter>
+  <BrowserRouter>
+    <QueryClientProvider client={queryClient}>
       <AuthProvider>
         <ChakraProvider theme={customTheme}>
           <CSSReset />
@@ -30,8 +30,8 @@ const App = () => (
           <ReactQueryDevtools initialIsOpen={false} />
         </ChakraProvider>
       </AuthProvider>
-    </BrowserRouter>
-  </QueryClientProvider>
+    </QueryClientProvider>
+  </BrowserRouter>
 );
 
 export default App;

@@ -45,7 +45,6 @@ export default function PaginationTable() {
   // handlers
   const handlePageChange = (page) => {
     // Request new data using the page number
-    console.log(page);
   };
 
   return (

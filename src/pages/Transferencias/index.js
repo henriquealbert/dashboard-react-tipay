@@ -31,7 +31,6 @@ export default function Transferencias() {
 
   const { data } = useTransfers();
 
-  console.log(data);
   return (
     <Layout>
       <Container>
