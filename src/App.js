@@ -27,7 +27,7 @@ const App = () => (
 
           <Routes />
 
-          <ReactQueryDevtools initialIsOpen={false} />
+          {/* <ReactQueryDevtools initialIsOpen={false} /> */}
         </ChakraProvider>
       </AuthProvider>
     </QueryClientProvider>

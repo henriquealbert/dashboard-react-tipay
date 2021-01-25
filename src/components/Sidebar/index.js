@@ -13,15 +13,17 @@ import MenuItem from './MenuItem';
 export default function Sidebar() {
   return (
     <Flex
-      direction="column"
-      w="8.063rem"
-      h="100vh"
+      direction={{ base: 'row', md: 'column' }}
+      w={{ base: '100%', md: '8.063rem' }}
+      h={{ md: '100vh' }}
       bg="white"
-      pt="6.25rem"
+      pt={{ md: '6.25rem' }}
       position="fixed"
+      bottom={{ base: '0' }}
       zIndex="sticky"
       boxShadow="0rem 0.188rem 1.25rem #0000003D"
       alignItems="center"
+      overflowX={{ base: 'auto', md: 'hidden' }}
     >
       <MenuItem
         icon={HomeIcon}

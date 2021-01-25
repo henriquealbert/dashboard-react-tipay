@@ -15,7 +15,7 @@ export default function MenuItem({ pathname, text, icon, w, h }) {
   return (
     <Link to={pathname}>
       <Flex
-        w="100%"
+        w={{ base: '76px', md: '100%' }}
         h="8.063rem"
         direction="column"
         alignItems="center"
@@ -26,6 +26,7 @@ export default function MenuItem({ pathname, text, icon, w, h }) {
           svg: { color: 'white' },
           p: { color: 'brand.100' }
         }}
+        mx={{ base: '0.35rem', md: '' }}
       >
         <Flex
           as="nav"

@@ -7,7 +7,7 @@ export default function HomeInnerMenu() {
   return (
     <Flex justifyContent="space-between">
       <InnerMenu pageTitle="Home" />
-      <ExcelExport />
+      {/* <ExcelExport /> */}
     </Flex>
   );
 }

@@ -16,9 +16,16 @@ export default function InnerMenu({ pageTitle }) {
   };
 
   return (
-    <Flex direction={pageTitle === 'Home' ? 'row' : 'column'}>
+    <Flex
+      direction={{
+        base: 'column',
+        md: `${pageTitle === 'Home' ? 'row' : 'column'}`
+      }}
+      flexWrap={{ base: 'wrap' }}
+      w="100%"
+    >
       <PageTitle>{pageTitle}</PageTitle>
-      <Flex>
+      <Flex overflowX={{ base: 'scroll', md: 'hidden' }} w="100%">
         <Button
           variant="outline"
           mr="0.875rem"

@@ -41,6 +41,7 @@ const Button = {
       fontSize: '0.875rem',
       lineHeight: '1.125rem',
       fontWeight: 'semibold',
+      minWidth: 'none',
       _hover: {
         color: 'white',
         bg: 'linear-gradient(180deg, #0A172D 0%, #40474F 100%)',

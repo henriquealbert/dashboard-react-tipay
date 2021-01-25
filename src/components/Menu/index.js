@@ -23,7 +23,12 @@ export default function Menu() {
           setIsOpen(!isOpen);
         }}
       >
-        <Box border="0.125rem solid #23DAC9" borderRadius="50%" w="51px" h="51px">
+        <Box
+          border="0.125rem solid #23DAC9"
+          borderRadius="50%"
+          w="51px"
+          h="51px"
+        >
           <Avatar
             src={user?.img}
             alt={user?.name}

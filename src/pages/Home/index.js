@@ -13,9 +13,9 @@ export default function Home() {
   return (
     <Layout>
       <Container>
-        <Box mb="52px">
+        <Box mb="3.25rem">
           <HomeInnerMenu />
-          <Box
+          {/* <Box
             display="grid"
             gridTemplateColumns="2fr 1fr"
             gridGap="1.313rem"
@@ -24,8 +24,8 @@ export default function Home() {
           >
             <SalesStatus />
             <SalesPercentages />
-          </Box>
-          <Box
+          </Box> */}
+          {/* <Box
             display="grid"
             gridTemplateColumns="2fr 1fr"
             gridGap="1.313rem"
@@ -38,7 +38,7 @@ export default function Home() {
             <Box>
               <SalesByIssuer />
             </Box>
-          </Box>
+          </Box> */}
         </Box>
       </Container>
     </Layout>

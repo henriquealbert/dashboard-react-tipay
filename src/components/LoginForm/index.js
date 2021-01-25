@@ -70,16 +70,17 @@ export default function LoginForm() {
           {errors.password && errors.password.message}
         </FormErrorMessage>
       </FormControl>
-
-      <Text
-        fontSize="1.25rem"
-        fontWeight="semibold"
-        color="white"
-        textAlign="right"
-        as="span"
-      >
-        Esqueci minha senha
-      </Text>
+      <Flex justifyContent="flex-end">
+        <Text
+          fontSize="1.25rem"
+          fontWeight="semibold"
+          color="white"
+          textAlign="right"
+          as="span"
+        >
+          Esqueci minha senha
+        </Text>
+      </Flex>
 
       <Flex
         direction={{ base: 'column', md: 'row-reverse' }}
