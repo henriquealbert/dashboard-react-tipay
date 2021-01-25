@@ -41,7 +41,7 @@ export default function LoginForm() {
 
   return (
     <Box w="100%" as="form" onSubmit={handleSubmit(onSubmit)}>
-      <FormControl mb="1.563rem" isInvalid={errors.email}>
+      <FormControl mb="1.5rem" isInvalid={errors.email}>
         <Input
           type="email"
           name="email"
@@ -56,7 +56,7 @@ export default function LoginForm() {
         </FormErrorMessage>
       </FormControl>
 
-      <FormControl mb="1rem" isInvalid={errors.password}>
+      <FormControl mb="1.5rem" isInvalid={errors.password}>
         <Input
           type="password"
           name="password"
@@ -81,17 +81,28 @@ export default function LoginForm() {
         Esqueci minha senha
       </Text>
 
-      <Flex justifyContent="space-between" mt="2.188rem">
-        <Button variant="secondary" type="button" mr="2rem">
-          Cadastrar grátis
-        </Button>
+      <Flex
+        direction={{ base: 'column', md: 'row-reverse' }}
+        justifyContent="space-between"
+        mt="2.25rem"
+      >
         <Button
           variant="primary"
           type="submit"
           isLoading={isSubmitting}
           loadingText="Carregando..."
+          w="100%"
         >
           Entrar
+        </Button>
+        <Button
+          variant="secondary"
+          type="button"
+          w="100%"
+          mt={{ base: '1.5rem', md: '0' }}
+          mr={{ md: '2rem', lg: '1rem' }}
+        >
+          Cadastrar grátis
         </Button>
       </Flex>
     </Box>

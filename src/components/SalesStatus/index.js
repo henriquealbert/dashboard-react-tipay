@@ -28,7 +28,11 @@ export default function SalesStatus() {
           {aprovadas}
         </Text>
       </Flex>
-      <Box h="0.063rem" bg="#ECECEC" m="19.0.313rem 48px 19.0.313rem 1.125rem" />
+      <Box
+        h="0.063rem"
+        bg="#ECECEC"
+        m="19.0.313rem 48px 19.0.313rem 1.125rem"
+      />
       <Flex justifyContent="space-between">
         <Text as="h4" color="gray.500" fontSize="1.25rem" lineHeight="1.5rem">
           Canceladas
@@ -44,7 +48,11 @@ export default function SalesStatus() {
           {canceladas}
         </Text>
       </Flex>
-      <Box h="0.063rem" bg="#ECECEC" m="19.0.313rem 48px 19.0.313rem 1.125rem" />
+      <Box
+        h="0.063rem"
+        bg="#ECECEC"
+        m="19.0.313rem 48px 19.0.313rem 1.125rem"
+      />
       <Flex justifyContent="space-between">
         <Text as="h4" color="gray.500" fontSize="1.25rem" lineHeight="1.5rem">
           Pendentes

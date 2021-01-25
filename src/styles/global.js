@@ -1,14 +1,13 @@
 import { css } from '@emotion/react';
-import breakpoints from './foundations/breakpoints';
 
 export const GlobalStyles = css`
   html {
-    font-size: 1rem;
+    font-size: 12px;
   }
 
-  @media only screen and (max-width: ${breakpoints['xxl']}) {
+  @media only screen and (min-width: 768px) {
     html {
-      font-size: 12px;
+      font-size: 16px;
     }
   }
 `;
