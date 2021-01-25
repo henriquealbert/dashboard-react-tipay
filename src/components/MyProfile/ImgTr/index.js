@@ -18,7 +18,7 @@ const ImgTr = ({ item }) => {
         <Text
           color="gray.900"
           fontSize="1.25rem"
-          lineHeight="24px"
+          lineHeight="1.5rem"
           fontWeight="bold"
           textTransform="uppercase"
         >

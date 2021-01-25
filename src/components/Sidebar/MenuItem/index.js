@@ -30,9 +30,9 @@ export default function MenuItem({ pathname, text, icon, w, h }) {
         <Flex
           as="nav"
           bg={currentPage() ? 'brand.100' : 'gray.200'}
-          w="60px"
-          h="60px"
-          borderRadius="10px"
+          w="3.75rem"
+          h="3.75rem"
+          borderRadius="0.625rem"
           justifyContent="center"
           alignItems="center"
         >
@@ -44,10 +44,10 @@ export default function MenuItem({ pathname, text, icon, w, h }) {
           />
         </Flex>
         <Text
-          mt="14px"
+          mt="0.875rem"
           textAlign="center"
           fontWeight={currentPage() ? 'bold' : 'normal'}
-          fontSize="14px"
+          fontSize="0.875rem"
           color={currentPage() ? 'brand.100' : 'gray.700'}
         >
           {text}

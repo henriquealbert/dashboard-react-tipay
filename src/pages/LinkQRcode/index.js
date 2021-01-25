@@ -60,7 +60,7 @@ export default function LinkQRcode() {
         <Flex justifyContent="space-between">
           <InnerMenu pageTitle="Vendas por Links/QR Code" />
           <Link to="/link-qrcode/gerar-cobranca">
-            <Button variant="green" alignSelf="flex-end" w="260px" h="60px">
+            <Button variant="green" alignSelf="flex-end" w="260px" h="3.75rem">
               Gerar Cobrança
               <LinkQRCodeIcon
                 ml="1rem"
@@ -71,7 +71,7 @@ export default function LinkQRcode() {
             </Button>
           </Link>
         </Flex>
-        <Flex my="36px">
+        <Flex my="2.25rem">
           <SalesStatus />
         </Flex>
         <ToolsMenu />

@@ -3,8 +3,8 @@ const Textarea = {
     filled: {
       bg: '#F2F2F2',
       fontSize: '1.25rem',
-      borderRadius: '5px',
-      maxW: '695px',
+      borderRadius: '0.313rem',
+      maxW: '43.438rem',
       _focus: {
         bg: '#F2F2F2',
         borderColor: ''

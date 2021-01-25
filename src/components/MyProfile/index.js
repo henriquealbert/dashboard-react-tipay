@@ -48,8 +48,8 @@ export default function MyProfile() {
   ];
   return (
     <Box
-      boxShadow="0rem 0.188rem 10px #0000000A"
-      borderRadius="10px"
+      boxShadow="0rem 0.188rem 0.625rem #0000000A"
+      borderRadius="0.625rem"
       bg="white"
       h="100%"
       w="100%"

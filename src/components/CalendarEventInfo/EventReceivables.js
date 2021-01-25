@@ -20,7 +20,7 @@ export default function EventReceivables({ data }) {
     <Accordion
       allowMultiple
       defaultIndex={[0]}
-      borderRadius="5px"
+      borderRadius="0.313rem"
       bg="brand.400"
       maxW="54.688rem"
       border="none"

@@ -3,7 +3,7 @@ import { Input, InputGroup, InputRightElement } from '@chakra-ui/react';
 
 export default function Filter() {
   return (
-    <InputGroup h="60px" maxW="310px" size="lg" borderRadius="5px">
+    <InputGroup h="3.75rem" maxW="310px" size="lg" borderRadius="0.313rem">
       <Input
         variant="solid"
         _placeholder={{ color: 'gray.1000', fontSize: '1.125rem' }}

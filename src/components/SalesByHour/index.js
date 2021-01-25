@@ -57,24 +57,24 @@ export default function SalesByHour() {
       px="3.75rem"
       mt="1.125rem"
       w="100%"
-      boxShadow="0rem 0.188rem 10px #0000000A"
-      borderRadius="10px"
+      boxShadow="0rem 0.188rem 0.625rem #0000000A"
+      borderRadius="0.625rem"
       direction="column"
     >
       <Text
         as="h4"
         fontWeight="bold"
         fontSize="1.25rem"
-        lineHeight="24px"
+        lineHeight="1.5rem"
         color="gray.500"
-        mb="14px"
+        mb="0.875rem"
       >
         Hora das Vendas
       </Text>
       <Flex
         h="190px"
         w="100%"
-        border="1px solid"
+        border="0.063rem solid"
         borderColor="#DFDFDF"
         borderRadius="9px"
       >

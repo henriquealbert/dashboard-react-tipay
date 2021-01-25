@@ -19,13 +19,13 @@ export default function Boletos() {
         <Flex justifyContent="space-between">
           <InnerMenu pageTitle="Boletos" />
           <Link to="/boletos/gerar-boleto">
-            <Button variant="green" alignSelf="flex-end" w="260px" h="60px">
+            <Button variant="green" alignSelf="flex-end" w="260px" h="3.75rem">
               Gerar Boleto
               <BoletoIcon ml="1rem" w="2.125rem" h="1.563rem" color="white" />
             </Button>
           </Link>
         </Flex>
-        <Flex my="36px">
+        <Flex my="2.25rem">
           <SalesStatus />
         </Flex>
         <ToolsMenu />

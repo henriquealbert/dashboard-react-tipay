@@ -22,7 +22,7 @@ export default function GerarHeader({
   return (
     <Flex
       justifyContent="space-between"
-      borderBottom="1px solid"
+      borderBottom="0.063rem solid"
       borderColor="#CECECE"
       pb="1.75rem"
     >

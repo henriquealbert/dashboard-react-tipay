@@ -11,11 +11,11 @@ export default function InputLinkQRcode({ url }) {
     <InputGroup w="100%">
       <FormLabel
         position="absolute"
-        left="26px"
+        left="1.625rem"
         top="-0.938rem"
         bg="white"
         zIndex="1"
-        p="5px"
+        p="0.313rem"
         textTransform="uppercase"
         color="#A9A9A9"
       >
@@ -23,10 +23,10 @@ export default function InputLinkQRcode({ url }) {
       </FormLabel>
       <Input
         placeholder="mysite"
-        h="80px"
-        border="2px solid"
+        h="5rem"
+        border="0.125rem solid"
         borderColor="gray.1100"
-        borderRadius="10px"
+        borderRadius="0.625rem"
         isReadOnly
         value={url}
         fontSize="1.125rem"
@@ -34,17 +34,17 @@ export default function InputLinkQRcode({ url }) {
         textDecoration="underline"
         color="#002387"
         cursor="default"
-        pl="26px"
+        pl="1.625rem"
       />
       <InputRightAddon
-        h="80px"
-        w="80px"
+        h="5rem"
+        w="5rem"
         bg="#F6F6F6"
         display="flex"
         justifyContent="center"
-        border="2px solid"
+        border="0.125rem solid"
         borderColor="gray.1100"
-        borderRadius="10px"
+        borderRadius="0.625rem"
         as="button"
       >
         <CopyIcon w="2rem" h="2rem" color="#9B9B9B" />

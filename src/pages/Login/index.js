@@ -9,31 +9,30 @@ export default function Login() {
         src="/images/logo.svg"
         alt="Logo Tipay"
         position="absolute"
-        top="60.188rem"
-        left="7.25rem"
-        w="140px"
-        h="82px"
+        top="5%"
+        left="5%"
+        w="8.75rem"
+        h="5.125rem"
       />
-      <Flex
-        maxH="100vh"
-        bg="transparent linear-gradient(180deg, #0A172D 0%, #40474F 100%) 0% 0% no-repeat padding-box"
+      <Box
+        display="grid"
+        gridTemplateColumns="2fr 1fr"
+        bg="linear-gradient(180deg, #0A172D 0%, #40474F 100%)"
       >
-        <Box>
-          <Img
-            src="/images/login.png"
-            alt="Mulher sorrindo e usando App Tipay"
-            h="100%"
-            w="100%"
-            objectFit="cover"
-            objectPosition="right top"
-          />
-        </Box>
+        <Img
+          src="/images/login.png"
+          alt="Mulher sorrindo e usando App Tipay"
+          h="100%"
+          w="100%"
+          maxH="100vh"
+          objectFit="cover"
+          objectPosition="right top"
+        />
         <Flex
-          w="790px"
           justifyContent="center"
           alignItems="center"
           direction="column"
-          px="117px"
+          px="7.5rem"
         >
           <Text
             as="h1"
@@ -46,7 +45,7 @@ export default function Login() {
           </Text>
           <LoginForm />
         </Flex>
-      </Flex>
+      </Box>
     </Box>
   );
 }

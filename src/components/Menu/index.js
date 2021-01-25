@@ -23,7 +23,7 @@ export default function Menu() {
           setIsOpen(!isOpen);
         }}
       >
-        <Box border="2px solid #23DAC9" borderRadius="50%" w="51px" h="51px">
+        <Box border="0.125rem solid #23DAC9" borderRadius="50%" w="51px" h="51px">
           <Avatar
             src={user?.img}
             alt={user?.name}
@@ -43,7 +43,7 @@ export default function Menu() {
           <Flex
             w="31.125rem"
             bg="white"
-            boxShadow="0rem 0.188rem 6px #00000029"
+            boxShadow="0rem 0.188rem 0.375rem #00000029"
             position="absolute"
             top="7.375rem"
             left="0"

@@ -9,19 +9,19 @@ import {
 
 export default function NewClient() {
   return (
-    <Box mt="36px" w="100%">
+    <Box mt="2.25rem" w="100%">
       <Text
         color="gray.500"
         fontSize="1.25rem"
-        lineHeight="24px"
+        lineHeight="1.5rem"
         fontWeight="bold"
       >
         Informações do cliente
       </Text>
       <Box
         mt="12px"
-        boxShadow="0rem 0.188rem 10px #0000000A"
-        borderRadius="10px"
+        boxShadow="0rem 0.188rem 0.625rem #0000000A"
+        borderRadius="0.625rem"
         w="100%"
         bg="white"
         p="58px 4.25rem"
@@ -32,7 +32,7 @@ export default function NewClient() {
               <FormLabel
                 color="gray.1000"
                 fontSize="1.25rem"
-                lineHeight="24px"
+                lineHeight="1.5rem"
                 fontWeight="semibold"
               >
                 Nome completo
@@ -48,7 +48,7 @@ export default function NewClient() {
               <FormLabel
                 color="gray.1000"
                 fontSize="1.25rem"
-                lineHeight="24px"
+                lineHeight="1.5rem"
                 fontWeight="semibold"
               >
                 CPF ou CNPJ
@@ -64,7 +64,7 @@ export default function NewClient() {
               <FormLabel
                 color="gray.1000"
                 fontSize="1.25rem"
-                lineHeight="24px"
+                lineHeight="1.5rem"
                 fontWeight="semibold"
               >
                 Email
@@ -82,7 +82,7 @@ export default function NewClient() {
                 <FormLabel
                   color="gray.1000"
                   fontSize="1.25rem"
-                  lineHeight="24px"
+                  lineHeight="1.5rem"
                   fontWeight="semibold"
                 >
                   Endereço
@@ -94,11 +94,11 @@ export default function NewClient() {
                 />
               </FormControl>
 
-              <FormControl id="streetNumber" mb="1.75rem" maxW="135px">
+              <FormControl id="streetNumber" mb="1.75rem" maxW="12.188rem">
                 <FormLabel
                   color="gray.1000"
                   fontSize="1.25rem"
-                  lineHeight="24px"
+                  lineHeight="1.5rem"
                   fontWeight="semibold"
                 >
                   Número
@@ -117,7 +117,7 @@ export default function NewClient() {
                 <FormLabel
                   color="gray.1000"
                   fontSize="1.25rem"
-                  lineHeight="24px"
+                  lineHeight="1.5rem"
                   fontWeight="semibold"
                 >
                   Bairro
@@ -128,7 +128,7 @@ export default function NewClient() {
                 <FormLabel
                   color="gray.1000"
                   fontSize="1.25rem"
-                  lineHeight="24px"
+                  lineHeight="1.5rem"
                   fontWeight="semibold"
                 >
                   Cidade
@@ -142,7 +142,7 @@ export default function NewClient() {
                 <FormLabel
                   color="gray.1000"
                   fontSize="1.25rem"
-                  lineHeight="24px"
+                  lineHeight="1.5rem"
                   fontWeight="semibold"
                 >
                   Estado
@@ -153,7 +153,7 @@ export default function NewClient() {
                 <FormLabel
                   color="gray.1000"
                   fontSize="1.25rem"
-                  lineHeight="24px"
+                  lineHeight="1.5rem"
                   fontWeight="semibold"
                 >
                   Complemento

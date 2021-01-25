@@ -2,7 +2,7 @@ const Input = {
   sizes: {
     lg: {
       field: {
-        h: '60px'
+        h: '3.75rem'
       }
     }
   },
@@ -11,7 +11,7 @@ const Input = {
       field: {
         bg: '#FFFFFF',
         fontSize: '1.25rem',
-        borderRadius: '10px',
+        borderRadius: '0.625rem',
         _focus: {
           bg: '#FFFFFF'
         },
@@ -24,9 +24,9 @@ const Input = {
       field: {
         bg: '#F2F2F2',
         fontSize: '1.25rem',
-        borderRadius: '5px',
-        h: '72px',
-        maxW: '695px',
+        borderRadius: '0.313rem',
+        h: '4.5',
+        maxW: '43.438rem',
         _focus: {
           bg: '#F2F2F2'
         },

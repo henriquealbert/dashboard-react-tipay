@@ -21,7 +21,7 @@ export default function Vendas() {
           gridTemplateColumns="2fr 1fr"
           gridGap="1.313rem"
           w="100%"
-          mt="36px"
+          mt="2.25rem"
         >
           <SalesStatus />
           <SalesPercentages />

@@ -16,11 +16,11 @@ export default function PaginationTable() {
   const normalStyles = {
     color: 'brand.200',
     bg: 'gray.1200',
-    border: '1px solid',
+    border: '0.063rem solid',
     borderColor: 'gray.1300',
-    padding: '1.125rem 26px',
-    width: '60px',
-    height: '60px',
+    padding: '1.125rem 1.625rem',
+    width: '3.75rem',
+    height: '3.75rem',
     borderRadius: '0',
     cursor: 'pointer',
     _hover: {
@@ -32,9 +32,9 @@ export default function PaginationTable() {
   const activeStyles = {
     color: 'white',
     bg: 'linear-gradient(180deg, #0A172D 0%, #40474F 100%)',
-    padding: '1.125rem 26px',
-    width: '60px',
-    height: '60px',
+    padding: '1.125rem 1.625rem',
+    width: '3.75rem',
+    height: '3.75rem',
     borderRadius: '0',
     cursor: 'pointer',
     _hover: {
@@ -54,13 +54,13 @@ export default function PaginationTable() {
         pagesQuantity={Number(pagesQuantity) - 1}
       >
         <Previous
-          h="60px"
+          h="3.75rem"
           px="1rem"
           bg="gray.1200"
-          border="1px solid"
+          border="0.063rem solid"
           borderColor="gray.1300"
           color="brand.200"
-          borderRadius="5px 0 0 5px"
+          borderRadius="0.313rem 0 0 0.313rem"
         >
           Anterior
           {/* i.e. an icon from `react-icons` */}
@@ -76,13 +76,13 @@ export default function PaginationTable() {
           ))}
         </PageGroup>
         <Next
-          h="60px"
+          h="3.75rem"
           px="1rem"
           bg="gray.1200"
-          border="1px solid"
+          border="0.063rem solid"
           borderColor="gray.1300"
           color="brand.200"
-          borderRadius="0 5px 5px 0"
+          borderRadius="0 0.313rem 0.313rem 0"
         >
           Próximo
           {/* i.e. an icon from `react-icons` */}

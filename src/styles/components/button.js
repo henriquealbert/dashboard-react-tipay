@@ -5,10 +5,10 @@ const Button = {
       color: 'white',
       fontWeight: 'semibold',
       fontSize: '1.25rem',
-      h: '80px',
-      w: '265px',
-      borderRadius: '10px',
-      boxShadow: '0rem 0.188rem 6px #00000029',
+      h: '5rem',
+      w: '16.563rem',
+      borderRadius: '0.625rem',
+      boxShadow: '0rem 0.188rem 0.375rem #00000029',
       _hover: {
         bg: 'linear-gradient(180deg, #F2D6A3 0%, #F2D6A3 100%)',
         _disabled: {
@@ -21,10 +21,10 @@ const Button = {
       color: 'white',
       fontWeight: 'semibold',
       fontSize: '1.25rem',
-      h: '80px',
-      w: '265px',
-      borderRadius: '10px',
-      boxShadow: '0rem 0.188rem 6px #00000029',
+      h: '5rem',
+      w: '16.563rem',
+      borderRadius: '0.625rem',
+      boxShadow: '0rem 0.188rem 0.375rem #00000029',
       _hover: {
         bg: 'linear-gradient(180deg, #4EE2DE 0%, #4EE2DE 100%)',
         _disabled: {
@@ -33,12 +33,12 @@ const Button = {
       }
     },
     outline: {
-      border: '2px solid',
+      border: '0.125rem solid',
       borderColor: 'gray.800',
-      borderRadius: '5px',
+      borderRadius: '0.313rem',
       color: 'gray.800',
-      padding: '10px 1.25rem',
-      fontSize: '14px',
+      padding: '0.625rem 1.25rem',
+      fontSize: '0.875rem',
       lineHeight: '1.125rem',
       fontWeight: 'semibold',
       _hover: {
@@ -61,9 +61,9 @@ const Button = {
       color: 'white',
       fontWeight: 'semibold',
       fontSize: '1.25rem',
-      h: '60px',
-      w: '195px',
-      borderRadius: '5px',
+      h: '3.75rem',
+      w: '12.188rem',
+      borderRadius: '0.313rem',
       _hover: {
         bg: 'linear-gradient(180deg, #80D196 0%, #80D196 100%)',
         _disabled: {
@@ -76,9 +76,9 @@ const Button = {
       color: 'white',
       fontWeight: 'semibold',
       fontSize: '1.25rem',
-      h: '65px',
-      w: '255px',
-      borderRadius: '5px',
+      h: '4.063rem',
+      w: '15.938rem',
+      borderRadius: '0.313rem',
       _hover: {
         bg: 'linear-gradient(180deg, #E66464 0%, #E66464 100%)',
         _disabled: {
@@ -91,9 +91,9 @@ const Button = {
       color: 'white',
       fontWeight: 'semibold',
       fontSize: '1.25rem',
-      h: '65px',
-      w: '172px',
-      borderRadius: '5px',
+      h: '4.063rem',
+      w: '10.75rem',
+      borderRadius: '0.313rem',
       _hover: {
         bg: 'linear-gradient(180deg, #40474F 0%, #40474F 100%)',
         _disabled: {
@@ -106,12 +106,12 @@ const Button = {
       _hover: {
         bg: 'linear-gradient(180deg, #40474F 0%, #40474F 100%)'
       },
-      boxShadow: '0rem 0.188rem 6px #00000017',
-      border: '2px solid',
+      boxShadow: '0rem 0.188rem 0.375rem #00000017',
+      border: '0.125rem solid',
       borderColor: 'white',
-      borderRadius: '6px',
+      borderRadius: '0.375rem',
       color: 'white',
-      fontSize: '14px',
+      fontSize: '0.875rem',
       fontWeight: 'normal'
     },
     'calendar-receivables-btn': {
@@ -119,12 +119,12 @@ const Button = {
       _hover: {
         bg: 'linear-gradient(180deg, #FDCB6E 0%, #FDCB6E 100%)'
       },
-      boxShadow: '0rem 0.188rem 6px #00000017',
-      border: '2px solid',
+      boxShadow: '0rem 0.188rem 0.375rem #00000017',
+      border: '0.125rem solid',
       borderColor: 'white',
-      borderRadius: '6px',
+      borderRadius: '0.375rem',
       color: 'white',
-      fontSize: '14px',
+      fontSize: '0.875rem',
       fontWeight: 'normal'
     }
   }

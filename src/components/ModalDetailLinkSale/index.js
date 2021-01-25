@@ -53,7 +53,7 @@ export default function ModalDetailLinkSale({ data }) {
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Box border="2px solid" borderColor="gray.1100" borderRadius="14px">
+            <Box border="0.125rem solid" borderColor="gray.1100" borderRadius="0.875rem">
               <Flex>
                 <Img src="/images/qrcode.png" />
                 <Box mt="30px" ml="40px" mr="30px" w="100%">
@@ -66,7 +66,7 @@ export default function ModalDetailLinkSale({ data }) {
                 </Box>
               </Flex>
             </Box>
-            <Box mt="60px">
+            <Box mt="3.75rem">
               <Text
                 fontSize="30px"
                 color="gray.900"

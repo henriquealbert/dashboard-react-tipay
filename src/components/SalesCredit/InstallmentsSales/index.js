@@ -23,9 +23,9 @@ export default function InstallmentsSales({ theme }) {
         as="h4"
         fontWeight="bold"
         fontSize="1.25rem"
-        lineHeight="24px"
+        lineHeight="1.5rem"
         color="gray.500"
-        mb="14px"
+        mb="0.875rem"
       >
         Vendas Parceladas
       </Text>
@@ -60,7 +60,7 @@ export default function InstallmentsSales({ theme }) {
           animate={true}
           motionStiffness={90}
           motionDamping={15}
-          borderRadius="5px"
+          borderRadius="0.313rem"
           padding={0}
           innerPadding={13}
           colors={['#36A2EB']}
@@ -70,8 +70,14 @@ export default function InstallmentsSales({ theme }) {
           tooltip={({ color, value, id }) => {
             return (
               <Flex justifyContent="center" alignItems="center">
-                <Box w="1rem" h="1rem" bg={color} mb="2px" borderRadius="5px" />
-                <Text lineHeight="1rem" fontSize="1rem" ml="5px">
+                <Box
+                  w="1rem"
+                  h="1rem"
+                  bg={color}
+                  mb="0.125rem"
+                  borderRadius="0.313rem"
+                />
+                <Text lineHeight="1rem" fontSize="1rem" ml="0.313rem">
                   {value}% - {id}
                 </Text>
               </Flex>

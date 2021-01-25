@@ -22,9 +22,9 @@ export default function CalendarEventInfo({ data, eventDate }) {
       <Flex
         h="calc(100vh - 5rem)"
         bg="white"
-        boxShadow="0rem 0.188rem 10px #0000000A"
-        p="1.375rem 26px"
-        borderRadius="10px"
+        boxShadow="0rem 0.188rem 0.625rem #0000000A"
+        p="1.375rem 1.625rem"
+        borderRadius="0.625rem"
         justifyContent="center"
         alignItems="center"
         mt="7.375rem"
@@ -38,7 +38,7 @@ export default function CalendarEventInfo({ data, eventDate }) {
             fontWeight="bold"
             maxW="31.75rem"
             textAlign="center"
-            mt="35px"
+            mt="2.188rem"
           >
             Selecione um dia no calendário
           </Text>
@@ -51,9 +51,9 @@ export default function CalendarEventInfo({ data, eventDate }) {
     <Box
       h="calc(100vh - 5rem)"
       bg="white"
-      boxShadow="0rem 0.188rem 10px #0000000A"
-      p="1.375rem 26px"
-      borderRadius="10px"
+      boxShadow="0rem 0.188rem 0.625rem #0000000A"
+      p="1.375rem 1.625rem"
+      borderRadius="0.625rem"
       justifyContent="center"
       alignItems="center"
       mt="7.375rem"

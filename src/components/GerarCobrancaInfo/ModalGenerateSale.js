@@ -42,7 +42,7 @@ export default function ModalGenerateSale() {
         <ModalContent p="52px 2rem">
           <ModalCloseButton />
           <ModalBody>
-            <Img src="/images/qrcode.png" m="0 auto 26px" />
+            <Img src="/images/qrcode.png" m="0 auto 1.625rem" />
             <InputLinkQRcode url="https://tipay.app/dabdddaajkawbdawdbawhdvawbihdgwa" />
           </ModalBody>
 

@@ -9,12 +9,12 @@ export default function SalesStatus() {
     <Box
       w="100%"
       bg="white"
-      boxShadow="0rem 0.188rem 10px #0000000A"
-      borderRadius="10px"
-      p="31px 35px"
+      boxShadow="0rem 0.188rem 0.625rem #0000000A"
+      borderRadius="0.625rem"
+      p="31px 2.188rem"
     >
       <Flex justifyContent="space-between">
-        <Text as="h4" color="gray.500" fontSize="1.25rem" lineHeight="24px">
+        <Text as="h4" color="gray.500" fontSize="1.25rem" lineHeight="1.5rem">
           Aprovadas
         </Text>
         <Text
@@ -28,9 +28,9 @@ export default function SalesStatus() {
           {aprovadas}
         </Text>
       </Flex>
-      <Box h="1px" bg="#ECECEC" m="19.5px 48px 19.5px 1.125rem" />
+      <Box h="0.063rem" bg="#ECECEC" m="19.0.313rem 48px 19.0.313rem 1.125rem" />
       <Flex justifyContent="space-between">
-        <Text as="h4" color="gray.500" fontSize="1.25rem" lineHeight="24px">
+        <Text as="h4" color="gray.500" fontSize="1.25rem" lineHeight="1.5rem">
           Canceladas
         </Text>
         <Text
@@ -44,9 +44,9 @@ export default function SalesStatus() {
           {canceladas}
         </Text>
       </Flex>
-      <Box h="1px" bg="#ECECEC" m="19.5px 48px 19.5px 1.125rem" />
+      <Box h="0.063rem" bg="#ECECEC" m="19.0.313rem 48px 19.0.313rem 1.125rem" />
       <Flex justifyContent="space-between">
-        <Text as="h4" color="gray.500" fontSize="1.25rem" lineHeight="24px">
+        <Text as="h4" color="gray.500" fontSize="1.25rem" lineHeight="1.5rem">
           Pendentes
         </Text>
         <Text

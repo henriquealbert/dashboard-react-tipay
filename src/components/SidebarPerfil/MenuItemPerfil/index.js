@@ -33,7 +33,7 @@ export default function MenuItemPerfil({ pathname, text, icon, w, h }) {
         <Text
           ml="1rem"
           fontWeight={currentPage() ? 'bold' : 'normal'}
-          fontSize="19px"
+          fontSize="1.188rem"
           color={currentPage() ? 'brand.100' : 'gray.700'}
         >
           {text}

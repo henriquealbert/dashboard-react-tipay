@@ -11,10 +11,10 @@ export default function TableSales({ data }) {
     <>
       <Box
         bg="white"
-        borderRadius="10px"
-        boxShadow="0rem 0.188rem 10px #0000000A"
+        borderRadius="0.625rem"
+        boxShadow="0rem 0.188rem 0.625rem #0000000A"
         mb="40px"
-        px="35px"
+        px="2.188rem"
       >
         <Table variant="sales" size="lg">
           <Thead>

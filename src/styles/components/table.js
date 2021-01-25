@@ -11,22 +11,22 @@ const Table = {
     sales: {
       th: {
         color: 'gray.700',
-        borderBottom: '1px solid',
+        borderBottom: '0.063rem solid',
         borderColor: 'gray.1100',
         pl: '0',
         py: '1.25rem',
         fontSize: '1rem',
         fontWeight: 'normal',
-        lineHeight: '19px'
+        lineHeight: '1.188rem'
       },
       td: {
         pl: '0',
-        py: '26px',
+        py: '1.625rem',
         color: 'gray.900',
         fontSize: '1.25rem',
-        lineHeight: '24px',
+        lineHeight: '1.5rem',
         fontWeight: 'normal',
-        borderTop: '1px solid',
+        borderTop: '0.063rem solid',
         borderColor: 'gray.1100'
       }
     },
@@ -37,36 +37,36 @@ const Table = {
         py: '1.25rem',
         fontSize: '1rem',
         fontWeight: 'normal',
-        lineHeight: '19px',
-        borderTop: '1px solid',
-        borderBottom: '1px solid',
+        lineHeight: '1.188rem',
+        borderTop: '0.063rem solid',
+        borderBottom: '0.063rem solid',
         borderColor: 'gray.1100'
       },
       td: {
         pl: '0',
-        py: '26px',
+        py: '1.625rem',
         color: 'gray.900',
         fontSize: '1.25rem',
-        lineHeight: '24px',
+        lineHeight: '1.5rem',
         fontWeight: 'normal',
-        borderBottom: '1px solid',
+        borderBottom: '0.063rem solid',
         borderColor: 'gray.1100'
       }
     },
     'calendar-sales': {
       th: {
         color: 'white',
-        fontSize: '14px',
+        fontSize: '0.875rem',
         fontWeight: 'normal',
-        borderTop: '1px solid',
-        borderBottom: '1px solid',
+        borderTop: '0.063rem solid',
+        borderBottom: '0.063rem solid',
         borderColor: '#2F343A',
         pl: '0'
       },
       td: {
         fontWeight: 'semibold',
         color: 'white',
-        borderBottom: '1px solid',
+        borderBottom: '0.063rem solid',
         borderColor: '#2F343A',
         pl: '0'
       }
@@ -74,17 +74,17 @@ const Table = {
     'calendar-receivables': {
       th: {
         color: 'white',
-        fontSize: '14px',
+        fontSize: '0.875rem',
         fontWeight: 'normal',
-        borderTop: '1px solid',
-        borderBottom: '1px solid',
+        borderTop: '0.063rem solid',
+        borderBottom: '0.063rem solid',
         borderColor: '#f0c067',
         pl: '0'
       },
       td: {
         fontWeight: 'semibold',
         color: 'white',
-        borderBottom: '1px solid',
+        borderBottom: '0.063rem solid',
         borderColor: '#f0c067',
         pl: '0'
       }

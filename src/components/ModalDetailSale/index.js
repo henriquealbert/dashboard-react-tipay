@@ -58,7 +58,7 @@ export default function ModalDetailSale({ data }) {
               <Tbody>
                 <Tr>
                   <Td>{data?.id}</Td>
-                  <Td maxW="280px">{data?.holder_name}</Td>
+                  <Td maxW="25rem">{data?.holder_name}</Td>
                   <Td>{formatDate(data?.dt_payment_br)}</Td>
                   <Td>{data?.value}</Td>
                   <Td>{data?.finalValue}</Td>
@@ -70,7 +70,7 @@ export default function ModalDetailSale({ data }) {
               </Tbody>
             </Table>
 
-            <Box mt="60px">
+            <Box mt="3.75rem">
               <Text
                 fontSize="30px"
                 color="gray.900"

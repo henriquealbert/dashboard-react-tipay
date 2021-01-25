@@ -8,16 +8,16 @@ export const Wrapper = styled.div`
 
   .fc-view-harness {
     background: white;
-    box-shadow: 0rem 0.188rem 10px #0000000a;
-    border-radius: 10px;
+    box-shadow: 0rem 0.188rem 0.625rem #0000000a;
+    border-radius: 0.625rem;
   }
   .fc-scrollgrid-liquid {
-    border-radius: 10px;
+    border-radius: 0.625rem;
     border: none;
   }
   .fc-scrollgrid-section-header {
     td {
-      border-radius: 10px 10px 0 0;
+      border-radius: 0.625rem 0.625rem 0 0;
       border-right: none;
     }
   }
@@ -31,13 +31,13 @@ export const Wrapper = styled.div`
   }
   .fc-scrollgrid-section-body {
     td {
-      border-radius: 0 0 10px 10px;
+      border-radius: 0 0 0.625rem 0.625rem;
       border-bottom: none;
       border-right: none;
     }
   }
   .fc-toolbar-title {
-    font-size: 26px;
+    font-size: 1.625rem;
     line-height: 2rem;
     font-family: 'Montserrat';
     font-weight: normal;
@@ -46,8 +46,8 @@ export const Wrapper = styled.div`
   }
   .fc-button-primary {
     background-color: transparent;
-    border: 2px solid #9b9b9b;
-    border-radius: 5px;
+    border: 0.125rem solid #9b9b9b;
+    border-radius: 0.313rem;
     color: #9b9b9b;
     text-transform: capitalize;
     font-weight: 600;
@@ -71,10 +71,10 @@ export const Wrapper = styled.div`
 
   .fc-direction-ltr .fc-button-group > .fc-button:not(:last-child) {
     margin-right: 12px;
-    border-radius: 5px;
+    border-radius: 0.313rem;
   }
   .fc-direction-ltr .fc-button-group > .fc-button:not(:first-of-type) {
-    border-radius: 5px;
+    border-radius: 0.313rem;
   }
 
   .fc .fc-daygrid-day-number {
@@ -82,17 +82,17 @@ export const Wrapper = styled.div`
     text-transform: uppercase;
     color: #b8b8b8;
     font-size: 1rem;
-    line-height: 19px;
+    line-height: 1.188rem;
     font-family: 'Montserrat';
     font-weight: 600;
   }
   .fc-h-event .fc-event-main {
     text-align: center;
-    border-radius: 5px;
+    border-radius: 0.313rem;
     padding-top: 0.188rem;
     padding-bottom: 0.188rem;
     font-family: 'Montserrat';
-    font-size: 14px;
+    font-size: 0.875rem;
   }
 
   .fc .fc-toolbar.fc-header-toolbar {

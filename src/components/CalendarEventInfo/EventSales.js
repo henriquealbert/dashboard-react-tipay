@@ -20,7 +20,7 @@ export default function EventSales({ data }) {
     <Accordion
       defaultIndex={[0]}
       allowMultiple
-      borderRadius="5px"
+      borderRadius="0.313rem"
       bg="brand.300"
       maxW="54.688rem"
       border="none"

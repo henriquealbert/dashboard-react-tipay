@@ -1,7 +1,7 @@
 const Radio = {
   sizes: {
     lg: {
-      control: { w: '44px', h: '44px' },
+      control: { w: '2.75rem', h: '2.75rem' },
       label: {
         fontSize: '1.25rem',
         color: 'gray.1000'
@@ -10,7 +10,7 @@ const Radio = {
   },
   baseStyle: {
     control: {
-      border: '10px solid',
+      border: '0.625rem solid',
       borderColor: '#F1F1F1',
       bg: '#F1F1F1',
       _checked: {

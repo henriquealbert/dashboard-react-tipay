@@ -6,8 +6,8 @@ export default function ResultsPerPage({ ml }) {
       maxW="310px"
       variant="solid"
       size="lg"
-      h="60px"
-      borderRadius="5px"
+      h="3.75rem"
+      borderRadius="0.313rem"
       _placeholder={{ color: 'gray.1000' }}
       fontSize="1.125rem"
       ml={ml}

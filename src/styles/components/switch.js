@@ -9,12 +9,12 @@ const Switch = {
   },
   sizes: {
     lg: {
-      track: { w: '72px', h: '36px' },
+      track: { w: '4.5', h: '2.25rem' },
       thumb: {
-        w: '36px',
-        h: '36px',
+        w: '2.25rem',
+        h: '2.25rem',
         _checked: {
-          transform: 'translateX(36px)'
+          transform: 'translateX(2.25rem)'
         }
       }
     }

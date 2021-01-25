@@ -37,21 +37,21 @@ export default function SalesByIssuer() {
       w="100%"
       h="100%"
       maxH="586px"
-      boxShadow="0rem 0.188rem 10px #0000000A"
-      borderRadius="10px"
+      boxShadow="0rem 0.188rem 0.625rem #0000000A"
+      borderRadius="0.625rem"
       direction="column"
     >
       <Text
         as="h4"
         fontWeight="bold"
         fontSize="1.25rem"
-        lineHeight="24px"
+        lineHeight="1.5rem"
         color="gray.500"
         mb="48px"
       >
         Venda por bandeiras
       </Text>
-      <Flex height="280px">
+      <Flex height="25rem">
         <ResponsivePie
           data={data}
           innerRadius={0.5}
@@ -61,14 +61,14 @@ export default function SalesByIssuer() {
           colors={data.map((item) => item.color)}
         />
       </Flex>
-      <Box mt="24px">
+      <Box mt="1.5rem">
         {data.map((item) => {
           return (
             <Flex key={item.id} justifyContent="space-between" mb="12px">
               <Flex alignItems="center">
                 <Box
-                  w="24px"
-                  h="24px"
+                  w="1.5rem"
+                  h="1.5rem"
                   borderRadius="50%"
                   bg={item.color}
                   mr="30px"

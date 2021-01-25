@@ -23,8 +23,8 @@ export default function SalesCredit() {
       py="1.75rem"
       px="3.75rem"
       mt="1.125rem"
-      boxShadow="0rem 0.188rem 10px #0000000A"
-      borderRadius="10px"
+      boxShadow="0rem 0.188rem 0.625rem #0000000A"
+      borderRadius="0.625rem"
       w="100%"
     >
       <TotalCreditSales theme={theme} />

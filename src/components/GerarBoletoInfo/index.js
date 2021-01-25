@@ -20,19 +20,19 @@ export default function GerarBoletoInfo() {
   const [hasNewClient, setNewClient] = useState('0');
 
   return (
-    <Box mt="36px" w="100%">
+    <Box mt="2.25rem" w="100%">
       <Text
         color="gray.500"
         fontSize="1.25rem"
-        lineHeight="24px"
+        lineHeight="1.5rem"
         fontWeight="bold"
       >
         Informações boleto
       </Text>
       <Box
         mt="12px"
-        boxShadow="0rem 0.188rem 10px #0000000A"
-        borderRadius="10px"
+        boxShadow="0rem 0.188rem 0.625rem #0000000A"
+        borderRadius="0.625rem"
         w="100%"
         bg="white"
         p="58px 4.25rem"
@@ -43,7 +43,7 @@ export default function GerarBoletoInfo() {
               <FormLabel
                 color="gray.1000"
                 fontSize="1.25rem"
-                lineHeight="24px"
+                lineHeight="1.5rem"
                 fontWeight="semibold"
               >
                 Valor a ser cobrado
@@ -59,7 +59,7 @@ export default function GerarBoletoInfo() {
               <FormLabel
                 color="gray.1000"
                 fontSize="1.25rem"
-                lineHeight="24px"
+                lineHeight="1.5rem"
                 fontWeight="semibold"
               >
                 Data de vencimento
@@ -77,7 +77,7 @@ export default function GerarBoletoInfo() {
               <FormLabel
                 color="gray.1000"
                 fontSize="1.25rem"
-                lineHeight="24px"
+                lineHeight="1.5rem"
                 fontWeight="semibold"
               >
                 Instruções do boleto
@@ -96,7 +96,7 @@ export default function GerarBoletoInfo() {
             <FormLabel
               color="gray.1000"
               fontSize="1.25rem"
-              lineHeight="24px"
+              lineHeight="1.5rem"
               fontWeight="semibold"
             >
               Deseja incluir juros de mora?
@@ -115,7 +115,7 @@ export default function GerarBoletoInfo() {
             <FormLabel
               color="gray.1000"
               fontSize="1.25rem"
-              lineHeight="24px"
+              lineHeight="1.5rem"
               fontWeight="semibold"
             >
               Cadastrar novo usuário

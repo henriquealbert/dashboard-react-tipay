@@ -81,8 +81,8 @@ export default function LoginForm() {
         Esqueci minha senha
       </Text>
 
-      <Flex justifyContent="space-between" mt="35px">
-        <Button variant="secondary" type="button">
+      <Flex justifyContent="space-between" mt="2.188rem">
+        <Button variant="secondary" type="button" mr="2rem">
           Cadastrar grátis
         </Button>
         <Button

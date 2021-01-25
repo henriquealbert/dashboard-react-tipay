@@ -21,7 +21,7 @@ export default function InnerMenu({ pageTitle }) {
       <Flex>
         <Button
           variant="outline"
-          mr="14px"
+          mr="0.875rem"
           onClick={() => setActive('hoje')}
           isActive={handleActive('hoje')}
         >
@@ -29,7 +29,7 @@ export default function InnerMenu({ pageTitle }) {
         </Button>
         <Button
           variant="outline"
-          mr="14px"
+          mr="0.875rem"
           onClick={() => setActive('ontem')}
           isActive={handleActive('ontem')}
         >
@@ -37,7 +37,7 @@ export default function InnerMenu({ pageTitle }) {
         </Button>
         <Button
           variant="outline"
-          mr="14px"
+          mr="0.875rem"
           onClick={() => setActive('7 dias')}
           isActive={handleActive('7 dias')}
         >
@@ -45,7 +45,7 @@ export default function InnerMenu({ pageTitle }) {
         </Button>
         <Button
           variant="outline"
-          mr="14px"
+          mr="0.875rem"
           onClick={() => setActive('15 dias')}
           isActive={handleActive('15 dias')}
         >
@@ -53,7 +53,7 @@ export default function InnerMenu({ pageTitle }) {
         </Button>
         <Button
           variant="outline"
-          mr="14px"
+          mr="0.875rem"
           onClick={() => setActive('30 dias')}
           isActive={handleActive('30 dias')}
         >
@@ -61,7 +61,7 @@ export default function InnerMenu({ pageTitle }) {
         </Button>
         <Button
           variant="outline"
-          mr="14px"
+          mr="0.875rem"
           onClick={() => setActive('3 meses')}
           isActive={handleActive('3 meses')}
         >
@@ -72,7 +72,7 @@ export default function InnerMenu({ pageTitle }) {
           onClick={() => setActive('data')}
           isActive={handleActive('data')}
         >
-          Data Específica <CalendarioIcon ml="10px" />
+          Data Específica <CalendarioIcon ml="0.625rem" />
         </Button>
       </Flex>
     </Flex>
