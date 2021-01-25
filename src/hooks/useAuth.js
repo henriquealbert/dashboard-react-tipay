@@ -18,6 +18,9 @@ const AuthProvider = ({ children }) => {
       api.defaults.headers.Authorization = `Bearer ${token}`;
       setAuthenticated(true);
     }
+    if (!token) {
+      setAuthenticated(false);
+    }
 
     setLoading(false);
   }, []);
@@ -28,7 +31,7 @@ const AuthProvider = ({ children }) => {
     });
     const { token } = response.data;
 
-    const inTenMinutes = new Date(new Date().getTime() + 1 * 60 * 1000);
+    const inTenMinutes = new Date(new Date().getTime() + 10 * 60 * 1000);
     Cookies.set('tipay_token', token, {
       expires: inTenMinutes
     });
