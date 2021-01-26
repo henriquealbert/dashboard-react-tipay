@@ -1,4 +1,5 @@
 import { Button, Flex } from '@chakra-ui/react';
+import ExcelExport from 'components/ExcelExport';
 import PageTitle from 'components/PageTitle';
 import { useState } from 'react';
 
@@ -19,13 +20,13 @@ export default function InnerMenu({ pageTitle }) {
     <Flex
       direction={{
         base: 'column',
-        md: `${pageTitle === 'Home' ? 'row' : 'column'}`
+        lg: `${pageTitle === 'Home' ? 'row' : 'column'}`
       }}
-      flexWrap={{ base: 'wrap', md: 'nowrap' }}
+      flexWrap={{ base: 'wrap', lg: 'nowrap' }}
       w="100%"
     >
       <PageTitle>{pageTitle}</PageTitle>
-      <Flex overflowX={{ base: 'scroll', md: 'hidden' }} w="100%" pb="1rem">
+      <Flex overflowX={{ base: 'scroll', lg: 'hidden' }} w="100%" pb="1rem">
         <Button
           variant="outline"
           mr="0.875rem"
@@ -78,9 +79,11 @@ export default function InnerMenu({ pageTitle }) {
           variant="outline"
           onClick={() => setActive('data')}
           isActive={handleActive('data')}
+          mr={{ base: '4rem', lg: 'auto' }}
         >
           Data Específica <CalendarioIcon ml="0.625rem" />
         </Button>
+        <ExcelExport />
       </Flex>
     </Flex>
   );

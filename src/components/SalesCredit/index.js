@@ -8,13 +8,13 @@ export default function SalesCredit() {
     <Box
       bg="white"
       py="1.75rem"
-      px={{ base: '0', md: '3.75rem' }}
+      px={{ base: '0', lg: '3.75rem' }}
       mt="1.125rem"
       boxShadow="0rem 0.188rem 0.625rem #0000000A"
       borderRadius="0.625rem"
       w="100%"
       display={{ base: 'block', md: 'grid' }}
-      gridTemplateColumns="1fr 3fr"
+      gridTemplateColumns={{ md: '1fr 3fr' }}
     >
       <TotalCreditSales />
       <InstallmentsSales />

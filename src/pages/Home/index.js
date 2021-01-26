@@ -16,19 +16,19 @@ export default function Home() {
         <Box mb="3.25rem">
           <HomeInnerMenu />
           <Box
-            display={{ base: 'block', md: 'grid' }}
-            gridTemplateColumns={{ md: '2fr 1fr' }}
-            gridGap={{ md: '1.313rem' }}
+            display={{ base: 'block', lg: 'grid' }}
+            gridTemplateColumns={{ lg: '2fr 1fr' }}
+            gridGap={{ lg: '1.313rem' }}
             w="100%"
-            mt={{ base: '2rem', md: '45px' }}
+            mt={{ base: '2rem', lg: '45px' }}
           >
             <SalesStatus />
             <SalesPercentages />
           </Box>
           <Box
-            display={{ base: 'block', md: 'grid' }}
-            gridTemplateColumns={{ md: '2fr 1fr' }}
-            gridGap={{ md: '1.313rem' }}
+            display={{ base: 'block', lg: 'grid' }}
+            gridTemplateColumns={{ lg: '2fr 1fr' }}
+            gridGap={{ lg: '1.313rem' }}
             w="100%"
           >
             <Box>

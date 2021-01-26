@@ -26,7 +26,7 @@ export default function MenuItem({ pathname, text, icon, w, h }) {
           svg: { color: 'white' },
           p: { color: 'brand.100' }
         }}
-        mx={{ base: '0.35rem', md: '' }}
+        mx={{ base: '0.35rem', lg: '' }}
       >
         <Flex
           as="nav"

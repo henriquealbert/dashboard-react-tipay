@@ -83,7 +83,7 @@ export default function LoginForm() {
       </Flex>
 
       <Flex
-        direction={{ base: 'column', md: 'row-reverse' }}
+        direction={{ base: 'column', lg: 'row-reverse' }}
         justifyContent="space-between"
         mt="2.25rem"
       >
@@ -106,8 +106,8 @@ export default function LoginForm() {
           variant="secondary"
           type="button"
           w="100%"
-          mt={{ base: '1.5rem', md: '0' }}
-          mr={{ md: '2rem', lg: '1rem' }}
+          mt={{ base: '1.5rem', lg: '0' }}
+          mr={{ lg: '2rem', lg: '1rem' }}
         >
           Cadastrar grátis
         </Button>

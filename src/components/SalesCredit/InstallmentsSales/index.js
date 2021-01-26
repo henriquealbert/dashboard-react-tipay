@@ -50,8 +50,8 @@ export default function InstallmentsSales() {
   ];
   return (
     <Flex
-      ml={{ md: '48px' }}
-      mt={{ base: '2rem', md: '' }}
+      ml={{ lg: '48px' }}
+      mt={{ base: '2rem', md: 'auto' }}
       direction="column"
       w="100%"
     >
@@ -59,10 +59,9 @@ export default function InstallmentsSales() {
         as="h4"
         fontWeight="bold"
         fontSize="1.25rem"
-        lineHeight="1.5rem"
         color="gray.500"
         mb="0.875rem"
-        ml={{ base: '2rem', md: '0' }}
+        ml={{ base: '2rem', md: '1rem', lg: '0' }}
       >
         Vendas Parceladas
       </Text>

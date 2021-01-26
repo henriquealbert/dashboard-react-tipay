@@ -14,10 +14,10 @@ export default function Layout({ children, perfil }) {
         as="main"
         bg="gray.200"
         w="100%"
-        minH={{ md: '100vh' }}
+        minH={{ lg: '100vh' }}
         h="100%"
         pt="7.375rem"
-        pl={{ md: `${perfil ? '21.75rem' : '8.063rem'}` }}
+        pl={{ lg: `${perfil ? '21.75rem' : '8.063rem'}` }}
       >
         {children}
       </Flex>

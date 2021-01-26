@@ -12,7 +12,7 @@ export default function PercentageItem({ value, label, color, mr }) {
     >
       <Text
         as="h4"
-        fontSize={{ base: '1rem', md: '1.25rem' }}
+        fontSize={{ base: '1rem', lg: '1.25rem' }}
         fontWeight="bold"
         lineHeight="1.5rem"
         pl="1.25rem"
@@ -27,7 +27,7 @@ export default function PercentageItem({ value, label, color, mr }) {
         m="auto"
         pb="2.188rem"
         fontWeight="bold"
-        fontSize={{ base: '3rem', md: '3.75rem' }}
+        fontSize={{ base: '3rem', lg: '3.75rem' }}
         lineHeight="4.563rem"
         color="white"
       >

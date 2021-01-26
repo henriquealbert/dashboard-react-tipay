@@ -23,19 +23,15 @@ export default function Menu() {
           setIsOpen(!isOpen);
         }}
       >
-        <Box
-          border="0.125rem solid #23DAC9"
+        <Avatar
+          src={user?.img}
+          alt={user?.name}
+          bg="gray.100"
           borderRadius="50%"
-          w="51px"
-          h="51px"
-        >
-          <Avatar
-            src={user?.img}
-            alt={user?.name}
-            borderRadius="50%"
-            bg="gray.100"
-          />
-        </Box>
+          w="50px"
+          h="50px"
+          border="2px solid #23DAC9"
+        />
 
         <Text color="white" fontSize="1.125rem" mx="1.375rem" as="span">
           {user.name}

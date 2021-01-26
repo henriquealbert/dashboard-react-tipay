@@ -9,8 +9,8 @@ export default function Login() {
         src="/images/logo.svg"
         alt="Logo Tipay"
         position="absolute"
-        top={{ base: '2rem', md: '2rem' }}
-        left={{ base: '2rem', md: '4rem' }}
+        top={{ base: '2rem', lg: '2rem' }}
+        left={{ base: '2rem', lg: '4rem' }}
         w={{ base: '72px', xl: '120px' }}
       />
       <Flex
@@ -30,7 +30,7 @@ export default function Login() {
           justifyContent="center"
           alignItems="center"
           direction="column"
-          px={{ base: '2rem', md: '4rem', lg: '2rem', xl: '4rem', xxl: '7rem' }}
+          px={{ base: '2rem', lg: '4rem', lg: '2rem', xl: '4rem', xxl: '7rem' }}
           pt={{ base: '8rem' }}
           pb={{ base: '6rem' }}
           m={{ xl: '0 auto' }}
