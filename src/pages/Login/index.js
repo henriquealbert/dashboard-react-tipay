@@ -1,5 +1,6 @@
 import { Box, Flex, Img, Text } from '@chakra-ui/react';
 
+import ImageSlider from 'components/ImageSlider';
 import LoginForm from 'components/LoginForm';
 
 export default function Login() {
@@ -17,14 +18,7 @@ export default function Login() {
         direction={{ base: 'column-reverse', lg: 'row' }}
         bg="linear-gradient(180deg, #0A172D 0%, #40474F 100%)"
       >
-        <Img
-          src="/images/login.png"
-          alt="Mulher sorrindo e usando App Tipay"
-          w={{ base: '100%', lg: '50%', xl: '60%' }}
-          h="100vh"
-          objectFit="cover"
-          objectPosition="right top"
-        />
+        <ImageSlider />
         <Flex
           w={{ lg: '50%' }}
           justifyContent="center"
