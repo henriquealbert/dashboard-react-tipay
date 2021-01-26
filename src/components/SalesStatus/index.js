@@ -11,8 +11,8 @@ export default function SalesStatus() {
       bg="white"
       boxShadow="0rem 0.188rem 0.625rem #0000000A"
       borderRadius="0.625rem"
-      p="2rem 2.188rem"
-      mb={{ base: '1.5rem', lg: '0' }}
+      p="2rem"
+      mb={{ base: '1.5rem', xl: '0' }}
     >
       <Flex justifyContent="space-between">
         <Text as="h4" color="gray.500" fontSize="1.25rem" lineHeight="1.5rem">

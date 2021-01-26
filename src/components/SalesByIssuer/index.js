@@ -31,12 +31,9 @@ export default function SalesByIssuer() {
   return (
     <Flex
       bg="white"
-      py="1.75rem"
-      px="3.75rem"
+      p="2rem"
       mt="1.125rem"
       w="100%"
-      h="100%"
-      maxH="586px"
       boxShadow="0rem 0.188rem 0.625rem #0000000A"
       borderRadius="0.625rem"
       direction="column"
@@ -51,7 +48,7 @@ export default function SalesByIssuer() {
       >
         Venda por bandeiras
       </Text>
-      <Flex height="25rem">
+      <Flex height="250px">
         <ResponsivePie
           data={data}
           innerRadius={0.5}
@@ -64,7 +61,13 @@ export default function SalesByIssuer() {
       <Box mt="1.5rem">
         {data.map((item) => {
           return (
-            <Flex key={item.id} justifyContent="space-between" mb="12px">
+            <Flex
+              key={item.id}
+              justifyContent="space-between"
+              mb="12px"
+              maxW="500px"
+              mx="auto"
+            >
               <Flex alignItems="center">
                 <Box
                   w="1.5rem"

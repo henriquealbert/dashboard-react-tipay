@@ -20,13 +20,13 @@ export default function InnerMenu({ pageTitle }) {
     <Flex
       direction={{
         base: 'column',
-        lg: `${pageTitle === 'Home' ? 'row' : 'column'}`
+        xxl: `${pageTitle === 'Home' ? 'row' : 'column'}`
       }}
-      flexWrap={{ base: 'wrap', lg: 'nowrap' }}
+      flexWrap={{ base: 'wrap', xxl: 'nowrap' }}
       w="100%"
     >
       <PageTitle>{pageTitle}</PageTitle>
-      <Flex overflowX={{ base: 'scroll', lg: 'hidden' }} w="100%" pb="1rem">
+      <Flex overflowX={{ base: 'auto' }} w="100%" pb="1rem">
         <Button
           variant="outline"
           mr="0.875rem"
@@ -79,7 +79,7 @@ export default function InnerMenu({ pageTitle }) {
           variant="outline"
           onClick={() => setActive('data')}
           isActive={handleActive('data')}
-          mr={{ base: '4rem', lg: 'auto' }}
+          mr={{ base: '4rem', xxl: 'auto' }}
         >
           Data Específica <CalendarioIcon ml="0.625rem" />
         </Button>

@@ -18,8 +18,9 @@ export default function TotalCreditSales() {
     <Flex
       direction="column"
       borderRight={{ md: '0.063rem solid #ECECEC' }}
-      borderBottom={{ base: '0.063rem solid #ECECEC', md: '' }}
+      borderBottom={{ base: '0.063rem solid #ECECEC', md: 'none' }}
       pb={{ base: '2rem', md: '0' }}
+      pr={{ xl: '1rem' }}
     >
       <Text
         as="h4"

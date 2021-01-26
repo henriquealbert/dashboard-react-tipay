@@ -50,7 +50,7 @@ export default function InstallmentsSales() {
   ];
   return (
     <Flex
-      ml={{ lg: '48px' }}
+      pl={{ lg: '1rem', xl: '48px' }}
       mt={{ base: '2rem', md: 'auto' }}
       direction="column"
       w="100%"
@@ -61,11 +61,11 @@ export default function InstallmentsSales() {
         fontSize="1.25rem"
         color="gray.500"
         mb="0.875rem"
-        ml={{ base: '2rem', md: '1rem', lg: '0' }}
+        ml={{ base: '2rem', md: '1rem', xl: '0' }}
       >
         Vendas Parceladas
       </Text>
-      <Flex height="190px" w="100%" maxW="650px">
+      <Flex height="190px" w="100%">
         <CustomBar data={data} color="#36A2EB" />
       </Flex>
     </Flex>

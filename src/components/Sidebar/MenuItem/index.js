@@ -16,7 +16,7 @@ export default function MenuItem({ pathname, text, icon, w, h }) {
     <Link to={pathname}>
       <Flex
         w={{ base: '76px', md: '100%' }}
-        h="8.063rem"
+        py={{ base: '1rem', lg: '0' }}
         direction="column"
         alignItems="center"
         justifyContent="center"
