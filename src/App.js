@@ -9,7 +9,7 @@ import customTheme from 'styles/customTheme';
 import { GlobalStyles } from 'styles/global';
 
 // react-query - data fetching
-import { ReactQueryDevtools } from 'react-query/devtools';
+// import { ReactQueryDevtools } from 'react-query/devtools';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
 // auth
