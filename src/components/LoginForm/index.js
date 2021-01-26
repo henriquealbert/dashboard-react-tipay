@@ -96,7 +96,13 @@ export default function LoginForm() {
         >
           Entrar
         </Button>
+
         <Button
+          as="a"
+          cursor="pointer"
+          href="https://tipay.app/"
+          target="_blank"
+          rel="noopener noreferrer"
           variant="secondary"
           type="button"
           w="100%"
