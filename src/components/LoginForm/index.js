@@ -107,7 +107,7 @@ export default function LoginForm() {
           type="button"
           w="100%"
           mt={{ base: '1.5rem', lg: '0' }}
-          mr={{ lg: '2rem', lg: '1rem' }}
+          mr={{ base: '2rem', lg: '1rem' }}
         >
           Cadastrar grátis
         </Button>
