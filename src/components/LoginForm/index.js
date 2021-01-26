@@ -12,6 +12,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 
 import { useAuth } from 'hooks/useAuth';
+import { Link } from 'react-router-dom';
 
 const schema = Yup.object().shape({
   email: Yup.string()
@@ -71,15 +72,21 @@ export default function LoginForm() {
         </FormErrorMessage>
       </FormControl>
       <Flex justifyContent="flex-end">
-        <Text
-          fontSize="1.25rem"
-          fontWeight="semibold"
-          color="white"
-          textAlign="right"
-          as="span"
-        >
-          Esqueci minha senha
-        </Text>
+        <Link to="/esqueci-minha-senha">
+          <Text
+            cursor="pointer"
+            fontSize="1.25rem"
+            fontWeight="semibold"
+            color="white"
+            textAlign="right"
+            as="span"
+            _hover={{
+              textDecoration: 'underline'
+            }}
+          >
+            Esqueci minha senha
+          </Text>
+        </Link>
       </Flex>
 
       <Flex

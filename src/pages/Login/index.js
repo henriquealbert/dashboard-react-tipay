@@ -19,6 +19,7 @@ export default function Login() {
         bg="linear-gradient(180deg, #0A172D 0%, #40474F 100%)"
       >
         <ImageSlider />
+
         <Flex
           w={{ lg: '50%' }}
           justifyContent="center"

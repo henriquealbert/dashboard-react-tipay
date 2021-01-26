@@ -102,4 +102,13 @@ export const Wrapper = styled.div`
   .fc-daygrid-day-frame {
     cursor: pointer;
   }
+
+  @media (max-width: 768px) {
+    .fc .fc-toolbar {
+      display: block;
+    }
+    .fc-toolbar-title {
+      margin-bottom: 1rem;
+    }
+  }
 `;

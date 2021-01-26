@@ -28,6 +28,7 @@ export default function CalendarEventInfo({ data, eventDate }) {
         justifyContent="center"
         alignItems="center"
         mt="7.375rem"
+        id="event_info"
       >
         <Flex direction="column" justifyContent="center" alignItems="center">
           <CalendarioIcon color="gray.1100" width="114px" height="6.25rem" />

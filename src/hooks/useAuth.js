@@ -26,10 +26,12 @@ const AuthProvider = ({ children }) => {
   }, []);
 
   async function handleLogin(email, password) {
-    const response = await api.post('stores/sign_in.json', {
-      store: { email, password, id_partner: 1 }
-    });
-    const { token } = response.data;
+    // const response = await api.post('stores/sign_in.json', {
+    //   store: { email, password, id_partner: 1 }
+    // });
+
+    // const { token } = response.data;
+    const token = 'token';
 
     const inTenMinutes = new Date(new Date().getTime() + 10 * 60 * 1000);
     Cookies.set('tipay_token', token, {

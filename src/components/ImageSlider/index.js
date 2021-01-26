@@ -30,23 +30,21 @@ export default function ImageSlider() {
 
   return (
     <>
-      {data.map((slide, index) => {
-        return (
-          <>
-            {index === current && (
-              <Img
-                key={index}
-                src={slide.src}
-                alt="Mulher sorrindo e usando App Tipay"
-                objectFit="cover"
-                objectPosition="right top"
-                w={{ base: '100%', lg: '50%', xl: '60%' }}
-                h="100vh"
-              />
-            )}
-          </>
-        );
-      })}
+      {data
+        .filter((item, index) => index === current)
+        .map((slide, index) => {
+          return (
+            <Img
+              key={index}
+              src={slide.src}
+              alt="Mulher sorrindo e usando App Tipay"
+              objectFit="cover"
+              objectPosition="right top"
+              w={{ base: '100%', lg: '50%', xl: '60%' }}
+              h="100vh"
+            />
+          );
+        })}
     </>
   );
 }

@@ -59,7 +59,12 @@ export default function Calendario() {
     <Layout>
       <Container>
         <PageTitle>Calendário de Recebíveis</PageTitle>
-        <Box display="grid" gridTemplateColumns="2fr 1fr" gridColumnGap="42px">
+        <Box
+          display={{ xl: 'grid' }}
+          gridTemplateColumns={{ xl: '2fr 1fr' }}
+          gridColumnGap={{ xl: '42px' }}
+          w="100%"
+        >
           <CalendarComponent data={data} setEventDate={setEventDate} />
           <CalendarEventInfo data={data} eventDate={eventDate} />
         </Box>

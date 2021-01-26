@@ -20,6 +20,7 @@ import GerarCobranca from 'pages/LinkQRcode/GerarCobranca';
 
 // auth
 import { useAuth } from 'hooks/useAuth';
+import ForgotPassword from 'pages/ForgotPassword';
 
 function CustomRoute({ isPrivate, ...rest }) {
   const { loading, authenticated } = useAuth();
@@ -79,6 +80,7 @@ const Routes = () => (
     />
     <CustomRoute isPrivate exact path="/sobre" component={Sobre} />
     <CustomRoute exact path="/login" component={Login} />
+    <CustomRoute exact path="/esqueci-minha-senha" component={ForgotPassword} />
   </Switch>
 );
 
