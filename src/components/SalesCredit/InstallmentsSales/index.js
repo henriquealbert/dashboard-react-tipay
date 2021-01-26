@@ -1,24 +1,60 @@
-import { Flex, Text, Box } from '@chakra-ui/react';
-import { ResponsiveBar } from '@nivo/bar';
+import { Flex, Text } from '@chakra-ui/react';
+import CustomBar from '../CustomBar';
 
-export default function InstallmentsSales({ theme }) {
+export default function InstallmentsSales() {
   const data = [
     {
-      '2x': 50,
-      '3x': 25,
-      '4x': 10,
-      '5x': 32,
-      '6x': 10,
-      '7x': 5,
-      '8x': 89,
-      '9x': 69,
-      '10x': 55,
-      '11x': 3,
-      '12x': 36
+      id: '2x',
+      value: 50
+    },
+    {
+      id: '3x',
+      value: 2
+    },
+    {
+      id: '4x',
+      value: 25
+    },
+    {
+      id: '5x',
+      value: 9
+    },
+    {
+      id: '6x',
+      value: 32
+    },
+    {
+      id: '7x',
+      value: 26
+    },
+    {
+      id: '8x',
+      value: 88
+    },
+    {
+      id: '9x',
+      value: 2
+    },
+    {
+      id: '10x',
+      value: 0
+    },
+    {
+      id: '11x',
+      value: 0
+    },
+    {
+      id: '12x',
+      value: 14
     }
   ];
   return (
-    <Flex ml="48px" direction="column" w="100%">
+    <Flex
+      ml={{ md: '48px' }}
+      mt={{ base: '2rem', md: '' }}
+      direction="column"
+      w="100%"
+    >
       <Text
         as="h4"
         fontWeight="bold"
@@ -26,79 +62,12 @@ export default function InstallmentsSales({ theme }) {
         lineHeight="1.5rem"
         color="gray.500"
         mb="0.875rem"
+        ml={{ base: '2rem', md: '0' }}
       >
         Vendas Parceladas
       </Text>
-      <Flex height="190px" w="100%">
-        <ResponsiveBar
-          data={data}
-          keys={[
-            '2x',
-            '3x',
-            '4x',
-            '5x',
-            '6x',
-            '7x',
-            '8x',
-            '9x',
-            '10x',
-            '11x',
-            '12x'
-          ]}
-          groupMode="grouped"
-          axisTop={null}
-          axisBottom={{
-            tickSize: 0,
-            tickPadding: 0,
-            tickRotation: 0,
-            legendPosition: 'middle',
-            legendOffset: 0
-          }}
-          axisRight={null}
-          axisLeft={null}
-          enableGridY={false}
-          animate={true}
-          motionStiffness={90}
-          motionDamping={15}
-          borderRadius="0.313rem"
-          padding={0}
-          innerPadding={13}
-          colors={['#36A2EB']}
-          margin={{ top: 30, bottom: 40 }}
-          theme={theme}
-          labelFormat={(value) => <tspan y={-21}>{value}%</tspan>}
-          tooltip={({ color, value, id }) => {
-            return (
-              <Flex justifyContent="center" alignItems="center">
-                <Box
-                  w="1rem"
-                  h="1rem"
-                  bg={color}
-                  mb="0.125rem"
-                  borderRadius="0.313rem"
-                />
-                <Text lineHeight="1rem" fontSize="1rem" ml="0.313rem">
-                  {value}% - {id}
-                </Text>
-              </Flex>
-            );
-          }}
-          legends={[
-            {
-              dataFrom: 'keys',
-              anchor: 'bottom',
-              direction: 'row',
-              justify: true,
-              translateX: -17,
-              translateY: 20,
-              itemWidth: 55,
-              itemHeight: 0,
-              itemsSpacing: 0,
-              symbolSize: 0,
-              itemDirection: 'left-to-right'
-            }
-          ]}
-        />
+      <Flex height="190px" w="100%" maxW="650px">
+        <CustomBar data={data} color="#36A2EB" />
       </Flex>
     </Flex>
   );

@@ -1,34 +1,23 @@
-import { Flex } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 
 import InstallmentsSales from './InstallmentsSales';
 import TotalCreditSales from './TotalCreditSales';
 
 export default function SalesCredit() {
-  const theme = {
-    legends: {
-      text: { fontSize: 16, color: '#606060', fontFamily: 'Montserrat' }
-    },
-    labels: {
-      text: {
-        fontSize: 15,
-        color: '#606060',
-        fontFamily: 'Montserrat',
-        fontWeight: 'bold'
-      }
-    }
-  };
   return (
-    <Flex
+    <Box
       bg="white"
       py="1.75rem"
-      px="3.75rem"
+      px={{ base: '0', md: '3.75rem' }}
       mt="1.125rem"
       boxShadow="0rem 0.188rem 0.625rem #0000000A"
       borderRadius="0.625rem"
       w="100%"
+      display={{ base: 'block', md: 'grid' }}
+      gridTemplateColumns="1fr 3fr"
     >
-      <TotalCreditSales theme={theme} />
-      <InstallmentsSales theme={theme} />
-    </Flex>
+      <TotalCreditSales />
+      <InstallmentsSales />
+    </Box>
   );
 }

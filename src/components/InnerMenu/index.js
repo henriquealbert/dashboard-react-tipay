@@ -21,11 +21,11 @@ export default function InnerMenu({ pageTitle }) {
         base: 'column',
         md: `${pageTitle === 'Home' ? 'row' : 'column'}`
       }}
-      flexWrap={{ base: 'wrap' }}
+      flexWrap={{ base: 'wrap', md: 'nowrap' }}
       w="100%"
     >
       <PageTitle>{pageTitle}</PageTitle>
-      <Flex overflowX={{ base: 'scroll', md: 'hidden' }} w="100%">
+      <Flex overflowX={{ base: 'scroll', md: 'hidden' }} w="100%" pb="1rem">
         <Button
           variant="outline"
           mr="0.875rem"

@@ -1,15 +1,21 @@
 import { Box, Flex, Text } from '@chakra-ui/react';
-import { ResponsiveBar } from '@nivo/bar';
+import CustomBar from '../CustomBar';
 
-export default function TotalCreditSales({ theme }) {
-  const data = [
+export default function TotalCreditSales() {
+  const parcelada = [
     {
-      'À vista': 100,
-      Parcelada: 25
+      id: 'Parcelada',
+      value: 25
+    }
+  ];
+  const avista = [
+    {
+      id: 'À vista',
+      value: 88
     }
   ];
   return (
-    <Flex direction="column" borderRight="0.063rem solid #ECECEC">
+    <Flex direction="column" borderRight={{ md: '0.063rem solid #ECECEC' }}>
       <Text
         as="h4"
         fontWeight="bold"
@@ -17,61 +23,17 @@ export default function TotalCreditSales({ theme }) {
         lineHeight="1.5rem"
         color="gray.500"
         mb="0.875rem"
+        ml={{ base: '2rem', md: '0' }}
       >
         Vendas no crédito
       </Text>
-      <Flex height="190px" w="240px">
-        <ResponsiveBar
-          data={data}
-          keys={['À vista', 'Parcelada']}
-          groupMode="grouped"
-          axisTop={null}
-          axisBottom={null}
-          axisRight={null}
-          axisLeft={null}
-          enableGridY={false}
-          animate={true}
-          motionStiffness={90}
-          motionDamping={15}
-          borderRadius="0.313rem"
-          padding={0}
-          innerPadding={75}
-          colors={['#FF6384', '#FF9F40']}
-          margin={{ top: 30, bottom: 40, right: 70 }}
-          theme={theme}
-          labelFormat={(value) => <tspan y={-21}>{value}%</tspan>}
-          tooltip={({ color, value, id }) => {
-            return (
-              <Flex justifyContent="center" alignItems="center">
-                <Box
-                  w="1rem"
-                  h="1rem"
-                  bg={color}
-                  mb="0.125rem"
-                  borderRadius="0.313rem"
-                />
-                <Text lineHeight="1rem" fontSize="1rem" ml="0.313rem">
-                  {value}% - {id}
-                </Text>
-              </Flex>
-            );
-          }}
-          legends={[
-            {
-              dataFrom: 'keys',
-              anchor: 'bottom',
-              direction: 'row',
-              justify: true,
-              translateX: -12,
-              translateY: 20,
-              itemWidth: 90,
-              itemHeight: 0,
-              itemsSpacing: 40,
-              symbolSize: 0,
-              itemDirection: 'left-to-right'
-            }
-          ]}
-        />
+      <Flex ml={{ base: '1rem', md: '0' }}>
+        <Box height="190px" w="80px" mr="2rem">
+          <CustomBar data={avista} color="#FF6384" />
+        </Box>
+        <Box height="190px" w="80px">
+          <CustomBar data={parcelada} color="#FF9F40" />
+        </Box>
       </Flex>
     </Flex>
   );

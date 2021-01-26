@@ -15,20 +15,20 @@ export default function Home() {
       <Container>
         <Box mb="3.25rem">
           <HomeInnerMenu />
-          {/* <Box
-            display="grid"
-            gridTemplateColumns="2fr 1fr"
-            gridGap="1.313rem"
+          <Box
+            display={{ base: 'block', md: 'grid' }}
+            gridTemplateColumns={{ md: '2fr 1fr' }}
+            gridGap={{ md: '1.313rem' }}
             w="100%"
-            mt="45px"
+            mt={{ base: '2rem', md: '45px' }}
           >
             <SalesStatus />
             <SalesPercentages />
-          </Box> */}
-          {/* <Box
-            display="grid"
-            gridTemplateColumns="2fr 1fr"
-            gridGap="1.313rem"
+          </Box>
+          <Box
+            display={{ base: 'block', md: 'grid' }}
+            gridTemplateColumns={{ md: '2fr 1fr' }}
+            gridGap={{ md: '1.313rem' }}
             w="100%"
           >
             <Box>
@@ -38,7 +38,7 @@ export default function Home() {
             <Box>
               <SalesByIssuer />
             </Box>
-          </Box> */}
+          </Box>
         </Box>
       </Container>
     </Layout>

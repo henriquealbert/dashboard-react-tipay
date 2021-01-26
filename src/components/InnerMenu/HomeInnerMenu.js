@@ -5,9 +5,12 @@ import InnerMenu from '.';
 
 export default function HomeInnerMenu() {
   return (
-    <Flex justifyContent="space-between">
+    <Flex
+      justifyContent={{ base: 'initial', md: 'space-between' }}
+      direction={{ base: 'column', md: 'row' }}
+    >
       <InnerMenu pageTitle="Home" />
-      {/* <ExcelExport /> */}
+      <ExcelExport m={{ base: '1rem 0', md: '0' }} />
     </Flex>
   );
 }
