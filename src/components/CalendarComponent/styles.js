@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   height: 100vh;
   width: 100%;
   margin-top: 38px;
-  margin-bottom: 52px;
+  margin-bottom: 3.25rem;
 
   .fc-view-harness {
     background: white;

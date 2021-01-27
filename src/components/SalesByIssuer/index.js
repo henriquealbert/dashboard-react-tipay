@@ -74,7 +74,7 @@ export default function SalesByIssuer() {
                   h="1.5rem"
                   borderRadius="50%"
                   bg={item.color}
-                  mr="30px"
+                  mr="1.875rem"
                 />
                 <Text
                   fontSize="1.25rem"

@@ -34,8 +34,8 @@ export default function CalendarEventInfo({ data, eventDate }) {
           <CalendarioIcon color="gray.1100" width="114px" height="6.25rem" />
           <Text
             color="gray.1100"
-            fontSize="30px"
-            lineHeight="37px"
+            fontSize="1.875rem"
+            lineHeight="2.313rem"
             fontWeight="bold"
             maxW="31.75rem"
             textAlign="center"

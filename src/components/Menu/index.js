@@ -37,7 +37,7 @@ export default function Menu() {
           {user.name}
         </Text>
 
-        <ChevronDownIcon color="white" w="30px" h="30px" />
+        <ChevronDownIcon color="white" w="1.875rem" h="1.875rem" />
       </Flex>
       {isOpen && (
         <Fade in={isOpen}>

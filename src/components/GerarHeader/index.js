@@ -30,8 +30,8 @@ export default function GerarHeader({
         <PageTitle>
           <Icon
             as={icon}
-            w="52px"
-            h="52px"
+            w="3.25rem"
+            h="3.25rem"
             display="inline-block"
             mr="1.375rem"
           />

@@ -31,11 +31,11 @@ export default function ModalDetailSale({ data }) {
       </Button>
       <Modal isOpen={isOpen} onClose={onClose} isCentered size="7xl">
         <ModalOverlay />
-        <ModalContent p="52px">
+        <ModalContent p={{ base: '1rem', xl: '3.25rem' }}>
           <ModalHeader
-            fontSize="30px"
+            fontSize="1.875rem"
             color="gray.900"
-            lineHeight="37px"
+            lineHeight="2.313rem"
             fontWeight="bold"
             pb="1.375rem"
           >
@@ -43,38 +43,40 @@ export default function ModalDetailSale({ data }) {
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Table variant="sales-modal">
-              <Thead>
-                <Tr>
-                  <Th>Identificação</Th>
-                  <Th>Pagador</Th>
-                  <Th>Data</Th>
-                  <Th>Valor</Th>
-                  <Th>Valor Líquido</Th>
-                  <Th>Pagamento</Th>
-                  <Th>Status</Th>
-                </Tr>
-              </Thead>
-              <Tbody>
-                <Tr>
-                  <Td>{data?.id}</Td>
-                  <Td maxW="25rem">{data?.holder_name}</Td>
-                  <Td>{formatDate(data?.dt_payment_br)}</Td>
-                  <Td>{data?.value}</Td>
-                  <Td>{data?.finalValue}</Td>
-                  <Td>{formatPaymentType(data?.payment_type)}</Td>
-                  <Td color={formatStatusColor(data?.status)} pr="0">
-                    {formatStatusLabel(data?.status)}
-                  </Td>
-                </Tr>
-              </Tbody>
-            </Table>
+            <Box overflowX="auto">
+              <Table variant="sales-modal">
+                <Thead>
+                  <Tr>
+                    <Th>Identificação</Th>
+                    <Th>Pagador</Th>
+                    <Th>Data</Th>
+                    <Th>Valor</Th>
+                    <Th>Valor Líquido</Th>
+                    <Th>Pagamento</Th>
+                    <Th>Status</Th>
+                  </Tr>
+                </Thead>
+                <Tbody>
+                  <Tr>
+                    <Td>{data?.id}</Td>
+                    <Td maxW="25rem">{data?.holder_name}</Td>
+                    <Td>{formatDate(data?.dt_payment_br)}</Td>
+                    <Td>{data?.value}</Td>
+                    <Td>{data?.finalValue}</Td>
+                    <Td>{formatPaymentType(data?.payment_type)}</Td>
+                    <Td color={formatStatusColor(data?.status)} pr="0">
+                      {formatStatusLabel(data?.status)}
+                    </Td>
+                  </Tr>
+                </Tbody>
+              </Table>
+            </Box>
 
-            <Box mt="3.75rem">
+            <Box mt="3.75rem" overflowX="auto">
               <Text
-                fontSize="30px"
+                fontSize="1.875rem"
                 color="gray.900"
-                lineHeight="37px"
+                lineHeight="2.313rem"
                 fontWeight="bold"
                 pb="1.375rem"
               >

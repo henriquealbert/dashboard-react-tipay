@@ -27,7 +27,7 @@ export default function EventReceivables({ data }) {
       mt="1.375rem"
     >
       <AccordionItem border="none">
-        <AccordionButton p="30px">
+        <AccordionButton p="1.875rem">
           <Text
             fontSize="1.125rem"
             color="white"
@@ -40,7 +40,7 @@ export default function EventReceivables({ data }) {
           </Text>
           <AccordionIcon color="white" w={7} h={7} />
         </AccordionButton>
-        <AccordionPanel px="30px">
+        <AccordionPanel px="1.875rem">
           <Table variant="calendar-receivables" mb="2rem">
             <Thead>
               <Tr>

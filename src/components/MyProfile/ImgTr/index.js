@@ -5,7 +5,7 @@ const ImgTr = ({ item }) => {
   return (
     <Tr>
       <Td
-        p="30px 0"
+        p="1.875rem 0"
         w="260px"
         fontWeight="bold"
         fontSize="1.25rem"
@@ -14,7 +14,7 @@ const ImgTr = ({ item }) => {
       >
         <ProfilePic data={item} />
       </Td>
-      <Td p="30px 0" fontSize="1.375rem">
+      <Td p="1.875rem 0" fontSize="1.375rem">
         <Text
           color="gray.900"
           fontSize="1.25rem"
@@ -33,7 +33,7 @@ const ImgTr = ({ item }) => {
           {item?.name}
         </Text>
       </Td>
-      <Td p="30px 0" textAlign="right">
+      <Td p="1.875rem 0" textAlign="right">
         <Button variant="link" fontSize="1.25rem" color="brand.yellow">
           Editar
         </Button>

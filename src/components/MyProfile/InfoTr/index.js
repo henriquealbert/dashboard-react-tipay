@@ -4,7 +4,7 @@ const InfoTr = ({ item }) => {
   return (
     <Tr>
       <Td
-        p="30px 0"
+        p="1.875rem 0"
         w="260px"
         fontWeight="bold"
         fontSize="1.25rem"
@@ -14,10 +14,10 @@ const InfoTr = ({ item }) => {
       >
         {item.title}
       </Td>
-      <Td p="30px 0" fontSize="1.375rem" border={item?.border}>
+      <Td p="1.875rem 0" fontSize="1.375rem" border={item?.border}>
         {item.description}
       </Td>
-      <Td p="30px 0" textAlign="right" border={item?.border}>
+      <Td p="1.875rem 0" textAlign="right" border={item?.border}>
         <Button variant="link" fontSize="1.25rem" color="brand.yellow">
           Editar
         </Button>

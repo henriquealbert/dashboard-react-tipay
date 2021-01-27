@@ -9,7 +9,7 @@ const Switch = {
   },
   sizes: {
     lg: {
-      track: { w: '4.5', h: '2.25rem' },
+      track: { w: '4.5rem', h: '2.25rem' },
       thumb: {
         w: '2.25rem',
         h: '2.25rem',

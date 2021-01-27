@@ -6,10 +6,9 @@ import SalesStatus from 'components/SalesStatus';
 import TableTransfers from 'components/TableTransfers';
 import ToolsMenu from 'components/ToolsMenu';
 import useTransfers from 'hooks/useTransfers';
-import { transfers } from 'db';
 
 export default function Transferencias() {
-  // const { data } = useTransfers();
+  const { data } = useTransfers();
 
   return (
     <Layout>
@@ -19,7 +18,7 @@ export default function Transferencias() {
           <SalesStatus />
         </Flex>
         <ToolsMenu />
-        <TableTransfers data={transfers} />
+        <TableTransfers data={data?.entries} />
       </Container>
     </Layout>
   );

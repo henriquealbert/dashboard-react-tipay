@@ -102,7 +102,7 @@ export default function GerarBoletoInfo() {
               Deseja incluir juros de mora?
             </FormLabel>
             <RadioGroup onChange={setJuros} value={hasJuros}>
-              <Radio value="1" size="lg" mr="52px" cursor="pointer">
+              <Radio value="1" size="lg" mr="3.25rem" cursor="pointer">
                 Sim
               </Radio>
               <Radio value="0" size="lg" cursor="pointer">
@@ -121,7 +121,7 @@ export default function GerarBoletoInfo() {
               Cadastrar novo usuário
             </FormLabel>
             <RadioGroup onChange={setNewClient} value={hasNewClient}>
-              <Radio value="1" size="lg" mr="52px" cursor="pointer">
+              <Radio value="1" size="lg" mr="3.25rem" cursor="pointer">
                 Sim
               </Radio>
               <Radio value="0" size="lg" cursor="pointer">
@@ -138,12 +138,12 @@ export default function GerarBoletoInfo() {
       <Button
         variant="green"
         w="100%"
-        h="90px"
-        fontSize="30px"
-        mt="48px"
-        mb="56px"
+        h="5.625rem"
+        fontSize="1.875rem"
+        mt="3rem"
+        mb="3.5rem"
       >
-        Gerar Boleto <BoletoIcon ml="1rem" w="45px" h="2rem" />
+        Gerar Boleto <BoletoIcon ml="1rem" w="2.813rem" h="2rem" />
       </Button>
     </Box>
   );

@@ -26,7 +26,7 @@ export default function EventSales({ data }) {
       border="none"
     >
       <AccordionItem border="none">
-        <AccordionButton p="30px">
+        <AccordionButton p="1.875rem">
           <Text
             fontSize="1.125rem"
             color="white"
@@ -39,7 +39,7 @@ export default function EventSales({ data }) {
           </Text>
           <AccordionIcon color="white" w={7} h={7} />
         </AccordionButton>
-        <AccordionPanel px="30px">
+        <AccordionPanel px="1.875rem">
           <Table variant="calendar-sales" mb="2rem">
             <Thead>
               <Tr>

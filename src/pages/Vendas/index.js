@@ -8,10 +8,9 @@ import SalesStatus from 'components/SalesStatus';
 import ToolsMenu from 'components/ToolsMenu';
 import TableSales from 'components/TableSales';
 import useTransactions from 'hooks/useTransactions';
-import { transactions } from 'db';
 
 export default function Vendas() {
-  // const { data } = useTransactions();
+  const { data } = useTransactions();
 
   return (
     <Layout>
@@ -30,7 +29,7 @@ export default function Vendas() {
         </Box>
 
         <ToolsMenu />
-        <TableSales data={transactions?.entries} />
+        <TableSales data={data?.entries} />
       </Container>
     </Layout>
   );

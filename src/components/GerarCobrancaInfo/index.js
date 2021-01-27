@@ -153,7 +153,7 @@ export default function GerarCobrancaInfo() {
               Repassar taxa para o cliente?
             </FormLabel>
             <RadioGroup onChange={setFee} value={hasFee}>
-              <Radio value="1" size="lg" mr="52px" cursor="pointer">
+              <Radio value="1" size="lg" mr="3.25rem" cursor="pointer">
                 Sim
               </Radio>
               <Radio value="0" size="lg" cursor="pointer">

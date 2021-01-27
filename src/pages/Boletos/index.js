@@ -9,10 +9,9 @@ import TableSales from 'components/TableSales';
 import ToolsMenu from 'components/ToolsMenu';
 import { BoletoIcon } from 'styles/icons';
 import useTransactions from 'hooks/useTransactions';
-import { transactions } from 'db';
 
 export default function Boletos() {
-  // const { data } = useTransactions('/payment_type=3');
+  const { data } = useTransactions('/payment_type=3');
 
   return (
     <Layout>
@@ -39,7 +38,7 @@ export default function Boletos() {
           <SalesStatus />
         </Flex>
         <ToolsMenu />
-        <TableSales data={transactions?.entries} />
+        <TableSales data={data?.entries} />
       </Container>
     </Layout>
   );

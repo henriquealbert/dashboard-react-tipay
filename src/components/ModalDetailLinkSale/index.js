@@ -41,11 +41,11 @@ export default function ModalDetailLinkSale({ data }) {
         scrollBehavior="inside"
       >
         <ModalOverlay />
-        <ModalContent p="38px 48px">
+        <ModalContent p={{ base: '1rem', xl: '3.25rem' }} overflowY="auto">
           <ModalHeader
-            fontSize="30px"
+            fontSize="1.875rem"
             color="gray.900"
-            lineHeight="37px"
+            lineHeight="2.313rem"
             fontWeight="bold"
             pb="1.375rem"
           >
@@ -60,7 +60,7 @@ export default function ModalDetailLinkSale({ data }) {
             >
               <Flex>
                 <Img src="/images/qrcode.png" />
-                <Box mt="30px" ml="40px" mr="30px" w="100%">
+                <Box mt="1.875rem" ml="2.5rem" mr="1.875rem" w="100%">
                   <FormControl id="link" mb="48px">
                     <FormLabel fontWeight="bold">Link ativado</FormLabel>
                     <Switch size="lg" isChecked={data?.active_url} />
@@ -72,9 +72,9 @@ export default function ModalDetailLinkSale({ data }) {
             </Box>
             <Box mt="3.75rem">
               <Text
-                fontSize="30px"
+                fontSize="1.875rem"
                 color="gray.900"
-                lineHeight="37px"
+                lineHeight="2.313rem"
                 fontWeight="bold"
                 pb="1.375rem"
               >
@@ -108,7 +108,7 @@ export default function ModalDetailLinkSale({ data }) {
           </ModalBody>
 
           <ModalFooter>
-            <Button variant="green" w="276px" h="64px" fontSize="30px">
+            <Button variant="green" w="276px" h="64px" fontSize="1.875rem">
               Compartilhar
             </Button>
           </ModalFooter>
