@@ -1,4 +1,5 @@
 import { Flex } from '@chakra-ui/react';
+import GlobalLoader from 'components/GlobalLoader';
 
 import Header from 'components/Header';
 import Sidebar from 'components/Sidebar';
@@ -18,7 +19,10 @@ export default function Layout({ children, perfil }) {
         h="100%"
         pt="7.375rem"
         pl={{ lg: `${perfil ? '21.75rem' : '8.063rem'}` }}
+        position="relative"
       >
+        <GlobalLoader />
+
         {children}
       </Flex>
     </>
