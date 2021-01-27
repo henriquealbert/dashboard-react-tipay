@@ -83,7 +83,7 @@ export default function InnerMenu({ pageTitle }) {
         >
           Data Específica <CalendarioIcon ml="0.625rem" />
         </Button>
-        <ExcelExport />
+        {pageTitle === 'Home' && <ExcelExport />}
       </Flex>
     </Flex>
   );

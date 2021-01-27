@@ -8,12 +8,22 @@ import PrintBtn from 'components/PrintBtn';
 
 export default function ToolsMenu() {
   return (
-    <Flex my="40px" justifyContent="space-between">
-      <Flex>
+    <Flex
+      mt={{ base: '0', xlg: '40px' }}
+      mb={{ base: '2rem', xlg: '40px' }}
+      justifyContent={{ xlg: 'space-between' }}
+      direction={{ base: 'column', xlg: 'row' }}
+    >
+      <Flex direction={{ base: 'column', md: 'row' }}>
         <Filter />
-        <ResultsPerPage ml="2rem" />
+        <ResultsPerPage />
       </Flex>
-      <Flex>
+      <Flex
+        mt={{ base: '1rem', xlg: '0' }}
+        overflowX="auto"
+        pb={{ base: '1rem', xlg: '0' }}
+        justifyContent={{ md: 'center' }}
+      >
         <CopyBtn size="lg" m="0 12px 0 0" />
         <ExcelExport size="lg" m="0 12px 0 0" />
         <PrintBtn size="lg" />
