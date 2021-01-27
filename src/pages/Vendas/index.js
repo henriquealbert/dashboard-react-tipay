@@ -7,10 +7,11 @@ import SalesPercentages from 'components/SalesPercentages';
 import SalesStatus from 'components/SalesStatus';
 import ToolsMenu from 'components/ToolsMenu';
 import TableSales from 'components/TableSales';
+import TableSalesSkeleton from 'components/TableSalesSkeleton';
 import useTransactions from 'hooks/useTransactions';
 
 export default function Vendas() {
-  const { data } = useTransactions();
+  const { data, isError, error, isLoading } = useTransactions();
 
   return (
     <Layout>
@@ -29,7 +30,13 @@ export default function Vendas() {
         </Box>
 
         <ToolsMenu />
-        <TableSales data={data?.entries} />
+        {isError && (
+          <Box color="red.500" m="0 auto">
+            {error.message}
+          </Box>
+        )}
+        {isLoading && <TableSalesSkeleton />}
+        {data && <TableSales data={data?.entries} />}
       </Container>
     </Layout>
   );

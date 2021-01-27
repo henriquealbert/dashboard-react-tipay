@@ -1,4 +1,4 @@
-import { Button, Flex } from '@chakra-ui/react';
+import { Button, Flex, Box } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 
 import Container from 'components/Container';
@@ -9,9 +9,12 @@ import TableSales from 'components/TableSales';
 import ToolsMenu from 'components/ToolsMenu';
 import { BoletoIcon } from 'styles/icons';
 import useTransactions from 'hooks/useTransactions';
+import TableSalesSkeleton from 'components/TableSalesSkeleton';
 
 export default function Boletos() {
-  const { data } = useTransactions('/payment_type=3');
+  const { data, error, isLoading, isError } = useTransactions(
+    '/payment_type=3'
+  );
 
   return (
     <Layout>
@@ -38,7 +41,13 @@ export default function Boletos() {
           <SalesStatus />
         </Flex>
         <ToolsMenu />
-        <TableSales data={data?.entries} />
+        {isError && (
+          <Box color="red.500" m="0 auto">
+            {error.message}
+          </Box>
+        )}
+        {isLoading && <TableSalesSkeleton />}
+        {data && <TableSales data={data?.entries} />}
       </Container>
     </Layout>
   );
