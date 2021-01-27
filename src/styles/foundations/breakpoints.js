@@ -6,7 +6,7 @@ const breakpoints = createBreakpoints({
   md: '768px',
   lg: '960px',
   xl: '1200px',
-  xlg: '1366px',
+  xlg: '1400px',
   xxl: '1920px'
 });
 

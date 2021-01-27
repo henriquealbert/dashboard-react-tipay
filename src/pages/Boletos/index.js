@@ -9,27 +9,37 @@ import TableSales from 'components/TableSales';
 import ToolsMenu from 'components/ToolsMenu';
 import { BoletoIcon } from 'styles/icons';
 import useTransactions from 'hooks/useTransactions';
+import { transactions } from 'db';
 
 export default function Boletos() {
-  const { data } = useTransactions('/payment_type=3');
+  // const { data } = useTransactions('/payment_type=3');
 
   return (
     <Layout>
       <Container>
-        <Flex justifyContent="space-between">
+        <Flex
+          justifyContent={{ xxl: 'space-between' }}
+          direction={{ base: 'column', xxl: 'row' }}
+        >
           <InnerMenu pageTitle="Boletos" />
-          <Link to="/boletos/gerar-boleto">
-            <Button variant="green" alignSelf="flex-end" w="260px" h="3.75rem">
+          <Flex alignSelf={{ xxl: 'center' }} mt={{ base: '1rem', xlg: '0' }}>
+            <Button
+              as={Link}
+              to="/boletos/gerar-boleto"
+              variant="green"
+              w={{ base: '100%', xlg: '260px' }}
+              h="3.75rem"
+            >
               Gerar Boleto
               <BoletoIcon ml="1rem" w="2.125rem" h="1.563rem" color="white" />
             </Button>
-          </Link>
+          </Flex>
         </Flex>
         <Flex my="2.25rem">
           <SalesStatus />
         </Flex>
         <ToolsMenu />
-        <TableSales data={data?.entries} />
+        <TableSales data={transactions?.entries} />
       </Container>
     </Layout>
   );

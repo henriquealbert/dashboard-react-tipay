@@ -6,32 +6,9 @@ import SalesStatus from 'components/SalesStatus';
 import TableTransfers from 'components/TableTransfers';
 import ToolsMenu from 'components/ToolsMenu';
 import useTransfers from 'hooks/useTransfers';
+import { transfers } from 'db';
 
 export default function Transferencias() {
-  const data = [
-    {
-      id: 152218268,
-      transfer_date: '2020-10-22T19:00:00.000Z',
-      amount: 'R$ 300,00',
-      status: 0,
-      status_detail: 'Transferência Recusada.'
-    },
-    {
-      id: 152218267,
-      transfer_date: '2020-10-22T19:00:00.000Z',
-      amount: 'R$ 300,00',
-      status: 1,
-      status_detail: 'Transferência efetuada com sucesso.'
-    },
-    {
-      id: 152218266,
-      transfer_date: '2020-10-22T19:00:00.000Z',
-      amount: 'R$ 300,00',
-      status: 1,
-      status_detail: 'Transferência efetuada com sucesso.'
-    }
-  ];
-
   // const { data } = useTransfers();
 
   return (
@@ -42,7 +19,7 @@ export default function Transferencias() {
           <SalesStatus />
         </Flex>
         <ToolsMenu />
-        <TableTransfers data={data} />
+        <TableTransfers data={transfers} />
       </Container>
     </Layout>
   );

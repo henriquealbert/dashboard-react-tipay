@@ -3,7 +3,7 @@ import { Box } from '@chakra-ui/react';
 export default function Container({ children }) {
   return (
     <Box
-      px={{ base: '1rem', lg: '3rem', xl: '4.688rem' }}
+      px={{ base: '1rem', lg: '2rem', xl: '2.5rem', xxl: '4.688rem' }}
       pt="3.75rem"
       pb={{ base: '15vh', lg: '0' }}
       w="100%"

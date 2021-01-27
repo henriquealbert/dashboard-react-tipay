@@ -8,59 +8,25 @@ import SalesStatus from 'components/SalesStatus';
 import TableQRCode from 'components/TableQRCode';
 import ToolsMenu from 'components/ToolsMenu';
 import { LinkQRCodeIcon } from 'styles/icons';
+import { link } from 'db';
 
 export default function LinkQRcode() {
-  const data = [
-    {
-      id: 152218268,
-      payer: 'Pede Bolo Agência De confeitarias E Panificadoras On-line LTDA',
-      date: '15/10/2020 19:11',
-      value: 'R$ 300,00',
-      payment: '10 de 10',
-      check: true,
-      status: 'Aprovado',
-      updated_at: '27/05/2020 21:18:52',
-      created_at: '15/10/2020 19:11',
-      operation: 'Autorização',
-      url: 'https://tipay.app/dabdddaajkawbdawdbawhdvawbihdgwa',
-      active_url: true
-    },
-    {
-      id: 152218267,
-      payer: 'Pede Bolo Agência De confeitarias E Panificadoras On-line LTDA',
-      date: '15/10/2020 19:11',
-      value: 'R$ 300,00',
-      payment: '10 de 20',
-      check: false,
-      status: 'Pendente',
-      updated_at: '27/05/2020 21:18:52',
-      created_at: '15/10/2020 19:11',
-      operation: 'Autorização',
-      url: 'https://tipay.app/dabdddaajkawbdawdbawhdvawbihdgwa',
-      active_url: false
-    },
-    {
-      id: 152218266,
-      payer: 'Pede Bolo Agência De confeitarias E Panificadoras On-line LTDA',
-      date: '15/10/2020 19:11',
-      value: 'R$ 300,00',
-      payment: '1 de 1',
-      check: false,
-      status: 'Cancelada',
-      updated_at: '27/05/2020 21:18:52',
-      created_at: '15/10/2020 19:11',
-      operation: 'Autorização',
-      url: 'https://tipay.app/dabdddaajkawbdawdbawhdvawbihdgwa',
-      active_url: false
-    }
-  ];
   return (
     <Layout>
       <Container>
-        <Flex justifyContent="space-between">
+        <Flex
+          justifyContent={{ xxl: 'space-between' }}
+          direction={{ base: 'column', xxl: 'row' }}
+        >
           <InnerMenu pageTitle="Vendas por Links/QR Code" />
-          <Link to="/link-qrcode/gerar-cobranca">
-            <Button variant="green" alignSelf="flex-end" w="260px" h="3.75rem">
+          <Flex alignSelf={{ xxl: 'center' }} mt={{ base: '1rem', xlg: '0' }}>
+            <Button
+              as={Link}
+              to="/link-qrcode/gerar-cobranca"
+              variant="green"
+              w={{ base: '100%', xlg: '260px' }}
+              h="3.75rem"
+            >
               Gerar Cobrança
               <LinkQRCodeIcon
                 ml="1rem"
@@ -69,13 +35,13 @@ export default function LinkQRcode() {
                 color="white"
               />
             </Button>
-          </Link>
+          </Flex>
         </Flex>
         <Flex my="2.25rem">
           <SalesStatus />
         </Flex>
         <ToolsMenu />
-        <TableQRCode data={data} />
+        <TableQRCode data={link} />
       </Container>
     </Layout>
   );

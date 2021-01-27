@@ -15,6 +15,8 @@ export default function TableSales({ data }) {
         boxShadow="0rem 0.188rem 0.625rem #0000000A"
         mb="40px"
         px="2.188rem"
+        overflowX="auto"
+        h="100%"
       >
         <Table variant="sales" size="lg">
           <Thead>
@@ -40,7 +42,7 @@ export default function TableSales({ data }) {
                     {formatStatusLabel(item?.status)}
                   </Td>
                   <Td>{formatPaymentType(item?.payment_type)}</Td>
-                  <Td pr="0" textAlign="right">
+                  <Td pr={{ base: '2rem', xlg: '0' }} textAlign="right">
                     <ModalDetailSale data={item} />
                   </Td>
                 </Tr>
