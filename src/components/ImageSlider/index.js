@@ -39,7 +39,7 @@ export default function ImageSlider() {
               src={slide.src}
               alt="Mulher sorrindo e usando App Tipay"
               objectFit="cover"
-              objectPosition="right top"
+              objectPosition={{ base: 'center center', xl: 'right top' }}
               w={{ base: '100%', lg: '50%', xl: '60%' }}
               h="100vh"
             />

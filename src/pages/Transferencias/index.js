@@ -15,7 +15,7 @@ export default function Transferencias() {
     <Layout>
       <Container>
         <InnerMenu pageTitle="Transferências" />
-        <Flex my="2.25rem">
+        <Flex mt="1rem">
           <SalesStatus />
         </Flex>
         <ToolsMenu />

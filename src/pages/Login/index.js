@@ -5,7 +5,7 @@ import LoginForm from 'components/LoginForm';
 
 export default function Login() {
   return (
-    <Box position="relative">
+    <Box position="relative" w="100%">
       <Img
         src="/images/logo.svg"
         alt="Logo Tipay"

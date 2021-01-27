@@ -37,7 +37,7 @@ export default function LinkQRcode() {
             </Button>
           </Flex>
         </Flex>
-        <Flex my="2.25rem">
+        <Flex mt="1rem">
           <SalesStatus />
         </Flex>
         <ToolsMenu />

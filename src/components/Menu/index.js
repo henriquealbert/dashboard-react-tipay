@@ -28,8 +28,8 @@ export default function Menu() {
           alt={user?.name}
           bg="gray.100"
           borderRadius="50%"
-          w="50px"
-          h="50px"
+          w={{ base: '38px', md: '50px' }}
+          h={{ base: '38px', md: '50px' }}
           border="2px solid #23DAC9"
         />
 

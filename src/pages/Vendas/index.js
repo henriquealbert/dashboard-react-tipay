@@ -8,27 +8,29 @@ import SalesStatus from 'components/SalesStatus';
 import ToolsMenu from 'components/ToolsMenu';
 import TableSales from 'components/TableSales';
 import useTransactions from 'hooks/useTransactions';
+import { transactions } from 'db';
 
 export default function Vendas() {
-  const { data } = useTransactions();
+  // const { data } = useTransactions();
 
   return (
     <Layout>
       <Container>
         <InnerMenu pageTitle="Vendas" />
         <Box
-          display="grid"
-          gridTemplateColumns="2fr 1fr"
-          gridGap="1.313rem"
+          display={{ base: 'block', xl: 'grid' }}
+          gridTemplateColumns={{ xl: '1fr 1fr', xxl: '2fr 1fr' }}
+          gridGap={{ xl: '1.313rem' }}
           w="100%"
-          mt="2.25rem"
+          mt="1rem"
+          mb="2rem"
         >
           <SalesStatus />
           <SalesPercentages />
         </Box>
 
         <ToolsMenu />
-        <TableSales data={data?.entries} />
+        <TableSales data={transactions?.entries} />
       </Container>
     </Layout>
   );
