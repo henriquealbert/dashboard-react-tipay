@@ -80,30 +80,32 @@ export default function ModalDetailLinkSale({ data }) {
               >
                 Histórico das vendas
               </Text>
-              <Table variant="sales-modal">
-                <Thead>
-                  <Tr>
-                    <Th>Data e hora</Th>
-                    <Th>Pagador</Th>
-                    <Th>Data</Th>
-                    <Th>Valor</Th>
-                    <Th>Opreação</Th>
-                    <Th pr="0">Status</Th>
-                  </Tr>
-                </Thead>
-                <Tbody>
-                  <Tr>
-                    <Td>{data?.updated_at}</Td>
-                    <Td maxW="240px">{data?.payer}</Td>
-                    <Td>{data?.created_at}</Td>
-                    <Td>{data?.value}</Td>
-                    <Td>{data?.operation}</Td>
-                    <Td color={formatStatusColor(data?.status)} pr="0">
-                      {data?.status}
-                    </Td>
-                  </Tr>
-                </Tbody>
-              </Table>
+              <Box overflowX="auto">
+                <Table variant="sales-modal">
+                  <Thead>
+                    <Tr>
+                      <Th>Data e hora</Th>
+                      <Th>Pagador</Th>
+                      <Th>Data</Th>
+                      <Th>Valor</Th>
+                      <Th>Opreação</Th>
+                      <Th pr="0">Status</Th>
+                    </Tr>
+                  </Thead>
+                  <Tbody>
+                    <Tr>
+                      <Td>{data?.updated_at}</Td>
+                      <Td maxW="240px">{data?.payer}</Td>
+                      <Td>{data?.created_at}</Td>
+                      <Td>{data?.value}</Td>
+                      <Td>{data?.operation}</Td>
+                      <Td color={formatStatusColor(data?.status)} pr="0">
+                        {data?.status}
+                      </Td>
+                    </Tr>
+                  </Tbody>
+                </Table>
+              </Box>
             </Box>
           </ModalBody>
 

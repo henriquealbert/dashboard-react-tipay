@@ -36,6 +36,7 @@ const AuthProvider = ({ children }) => {
     Cookies.set('tipay_token', token, {
       expires: inTenMinutes
     });
+    api.defaults.headers.Authorization = `Bearer ${token}`;
 
     setAuthenticated(true);
     history.push('/dashboard');
