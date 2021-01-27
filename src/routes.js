@@ -17,13 +17,26 @@ import TermosContrato from 'pages/TermosContrato';
 import Sobre from 'pages/Sobre';
 import GerarBoleto from 'pages/Boletos/GerarBoleto';
 import GerarCobranca from 'pages/LinkQRcode/GerarCobranca';
+import ForgotPassword from 'pages/ForgotPassword';
 
 // auth
 import { useAuth } from 'hooks/useAuth';
-import ForgotPassword from 'pages/ForgotPassword';
+import api from 'api';
 
 function CustomRoute({ isPrivate, ...rest }) {
-  const { loading, authenticated } = useAuth();
+  const { loading, authenticated, handleLogout } = useAuth();
+
+  api.interceptors.response.use(
+    (response) => {
+      return response;
+    },
+    (error) => {
+      if (error.response.status === 401) {
+        handleLogout();
+      }
+      return error;
+    }
+  );
 
   if (loading) {
     return <h1>Loading...</h1>;
