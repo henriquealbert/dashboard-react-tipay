@@ -24,10 +24,10 @@ export default function InfoBoleto() {
         borderRadius="0.625rem"
         w="100%"
         bg="white"
-        p="58px 4.25rem"
+        p={{ base: '2rem', xlg: '3.625rem 4.25rem' }}
       >
-        <Flex>
-          <Box w="50%" mr="56px">
+        <Flex direction={{ base: 'column', md: 'row' }}>
+          <Box w={{ md: '50%' }} mr={{ md: '2rem', xlg: '56px' }}>
             <FormControl id="price" mb="1.75rem">
               <FormLabel
                 color="gray.1000"
@@ -44,7 +44,7 @@ export default function InfoBoleto() {
               />
             </FormControl>
 
-            <FormControl id="date" mb="1.75rem">
+            <FormControl id="date" mb={{ base: '1.75rem', md: '0' }}>
               <FormLabel
                 color="gray.1000"
                 fontSize="1.25rem"
@@ -61,7 +61,7 @@ export default function InfoBoleto() {
             </FormControl>
           </Box>
 
-          <Box w="50%" ml="56px">
+          <Box w={{ md: '50%' }} ml={{ xlg: '56px' }}>
             <FormControl id="description" mb="1.75rem">
               <FormLabel
                 color="gray.1000"

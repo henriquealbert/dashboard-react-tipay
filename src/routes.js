@@ -26,8 +26,6 @@ function CustomRoute({ isPrivate, ...rest }) {
   const { loading, authenticated } = useAuth();
   const { pathname } = useLocation();
 
-  console.log(pathname);
-
   if (loading) {
     return <h1>Loading...</h1>;
   }

@@ -1,6 +1,5 @@
 import {
   Box,
-  Text,
   FormControl,
   FormLabel,
   Input,
@@ -10,185 +9,208 @@ import {
 
 export default function NewClient({ setNewClient }) {
   return (
-    <Box my="1.375rem" w="100%">
-      <Text
-        color="gray.500"
-        fontSize="1.25rem"
-        lineHeight="1.5rem"
-        fontWeight="bold"
-      >
-        Informações do cliente
-      </Text>
-      <Box
-        mt="12px"
-        boxShadow="0rem 0.188rem 0.625rem #0000000A"
-        borderRadius="0.625rem"
-        w="100%"
-        bg="white"
-        p="58px 4.25rem"
-      >
-        <Flex>
-          <Box w="50%" mr="112px">
-            <FormControl id="name" mb="1.75rem">
+    <Box
+      mt="0.75rem"
+      boxShadow="0rem 0.188rem 0.625rem #0000000A"
+      borderRadius="0.625rem"
+      w="100%"
+      bg="white"
+      p={{ base: '2rem', xlg: '3rem 4.25rem' }}
+      direction={{ base: 'column', lg: 'row' }}
+    >
+      <Flex direction={{ base: 'column', lg: 'row' }}>
+        <Box w={{ base: '100%', lg: '50%' }} mr={{ lg: '2rem', xlg: '7rem' }}>
+          <FormControl id="name" mb="1.75rem">
+            <FormLabel
+              color="gray.1000"
+              fontSize="1.25rem"
+              lineHeight="1.5rem"
+              fontWeight="semibold"
+            >
+              Nome completo
+            </FormLabel>
+            <Input
+              type="text"
+              variant="innerSolid"
+              maxW="none"
+              placeholder="Digite o nome do cliente"
+            />
+          </FormControl>
+
+          <FormControl id="doc" mb="1.75rem">
+            <FormLabel
+              color="gray.1000"
+              fontSize="1.25rem"
+              lineHeight="1.5rem"
+              fontWeight="semibold"
+            >
+              CPF ou CNPJ
+            </FormLabel>
+            <Input
+              type="text"
+              variant="innerSolid"
+              maxW="none"
+              placeholder="Digite o numero do documento"
+            />
+          </FormControl>
+
+          <FormControl id="email" mb={{ base: '1.75rem', lg: '0' }}>
+            <FormLabel
+              color="gray.1000"
+              fontSize="1.25rem"
+              lineHeight="1.5rem"
+              fontWeight="semibold"
+            >
+              Email
+            </FormLabel>
+            <Input
+              type="email"
+              variant="innerSolid"
+              maxW="none"
+              placeholder="Digite o email"
+            />
+          </FormControl>
+        </Box>
+        <Box w={{ base: '100%', lg: '50%' }}>
+          <Flex direction={{ base: 'column', lg: 'row' }}>
+            <FormControl id="street" mb="1.75rem" mr="1.375rem">
               <FormLabel
                 color="gray.1000"
                 fontSize="1.25rem"
                 lineHeight="1.5rem"
                 fontWeight="semibold"
               >
-                Nome completo
+                Endereço
               </FormLabel>
               <Input
                 type="text"
                 variant="innerSolid"
-                placeholder="Digite o nome do cliente"
+                maxW="none"
+                placeholder="Nome da Rua"
+                w="100%"
               />
             </FormControl>
 
-            <FormControl id="doc" mb="1.75rem">
+            <FormControl id="streetNumber" mb="1.75rem" maxW={{ lg: '30%' }}>
               <FormLabel
                 color="gray.1000"
                 fontSize="1.25rem"
                 lineHeight="1.5rem"
                 fontWeight="semibold"
               >
-                CPF ou CNPJ
+                Número
               </FormLabel>
               <Input
                 type="text"
                 variant="innerSolid"
-                placeholder="Digite o numero do documento"
+                maxW="none"
+                placeholder="Nº"
+                w="100%"
               />
             </FormControl>
+          </Flex>
 
-            <FormControl id="email">
+          <Flex direction={{ base: 'column', lg: 'row' }}>
+            <FormControl
+              id="neighborhood"
+              mb="1.75rem"
+              mr="1.375rem"
+              maxW={{ lg: '50%' }}
+            >
               <FormLabel
                 color="gray.1000"
                 fontSize="1.25rem"
                 lineHeight="1.5rem"
                 fontWeight="semibold"
               >
-                Email
+                Bairro
               </FormLabel>
               <Input
-                type="email"
+                type="text"
                 variant="innerSolid"
-                placeholder="Digite o email"
+                maxW="none"
+                placeholder="Bairro"
               />
             </FormControl>
-          </Box>
-          <Box w="50%">
-            <Flex>
-              <FormControl id="street" mb="1.75rem" mr="1.375rem">
-                <FormLabel
-                  color="gray.1000"
-                  fontSize="1.25rem"
-                  lineHeight="1.5rem"
-                  fontWeight="semibold"
-                >
-                  Endereço
-                </FormLabel>
-                <Input
-                  type="text"
-                  variant="innerSolid"
-                  placeholder="Nome da Rua"
-                />
-              </FormControl>
-
-              <FormControl id="streetNumber" mb="1.75rem" maxW="12.188rem">
-                <FormLabel
-                  color="gray.1000"
-                  fontSize="1.25rem"
-                  lineHeight="1.5rem"
-                  fontWeight="semibold"
-                >
-                  Número
-                </FormLabel>
-                <Input type="text" variant="innerSolid" placeholder="Nº" />
-              </FormControl>
-            </Flex>
-
-            <Flex>
-              <FormControl
-                id="neighborhood"
-                mb="1.75rem"
-                mr="1.375rem"
-                maxW="50%"
+            <FormControl id="city" mb="1.75rem" maxW={{ lg: '50%' }}>
+              <FormLabel
+                color="gray.1000"
+                fontSize="1.25rem"
+                lineHeight="1.5rem"
+                fontWeight="semibold"
               >
-                <FormLabel
-                  color="gray.1000"
-                  fontSize="1.25rem"
-                  lineHeight="1.5rem"
-                  fontWeight="semibold"
-                >
-                  Bairro
-                </FormLabel>
-                <Input type="text" variant="innerSolid" placeholder="Bairro" />
-              </FormControl>
-              <FormControl id="city" mb="1.75rem" maxW="50%">
-                <FormLabel
-                  color="gray.1000"
-                  fontSize="1.25rem"
-                  lineHeight="1.5rem"
-                  fontWeight="semibold"
-                >
-                  Cidade
-                </FormLabel>
-                <Input type="text" variant="innerSolid" placeholder="Cidade" />
-              </FormControl>
-            </Flex>
+                Cidade
+              </FormLabel>
+              <Input
+                type="text"
+                variant="innerSolid"
+                maxW="none"
+                placeholder="Cidade"
+              />
+            </FormControl>
+          </Flex>
 
-            <Flex>
-              <FormControl id="state" mr="1.375rem" maxW="50%">
-                <FormLabel
-                  color="gray.1000"
-                  fontSize="1.25rem"
-                  lineHeight="1.5rem"
-                  fontWeight="semibold"
-                >
-                  Estado
-                </FormLabel>
-                <Input type="text" variant="innerSolid" placeholder="Estado" />
-              </FormControl>
-              <FormControl id="complement" maxW="50%">
-                <FormLabel
-                  color="gray.1000"
-                  fontSize="1.25rem"
-                  lineHeight="1.5rem"
-                  fontWeight="semibold"
-                >
-                  Complemento
-                </FormLabel>
-                <Input
-                  type="text"
-                  variant="innerSolid"
-                  placeholder="Complemento"
-                />
-              </FormControl>
-            </Flex>
-          </Box>
-        </Flex>
+          <Flex direction={{ base: 'column', lg: 'row' }}>
+            <FormControl
+              id="state"
+              mr="1.375rem"
+              maxW={{ lg: '50%' }}
+              mb={{ base: '1.75rem', lg: '0' }}
+            >
+              <FormLabel
+                color="gray.1000"
+                fontSize="1.25rem"
+                lineHeight="1.5rem"
+                fontWeight="semibold"
+              >
+                Estado
+              </FormLabel>
+              <Input
+                type="text"
+                variant="innerSolid"
+                maxW="none"
+                placeholder="Estado"
+              />
+            </FormControl>
+            <FormControl id="complement" maxW={{ lg: '50%' }}>
+              <FormLabel
+                color="gray.1000"
+                fontSize="1.25rem"
+                lineHeight="1.5rem"
+                fontWeight="semibold"
+              >
+                Complemento
+              </FormLabel>
+              <Input
+                type="text"
+                variant="innerSolid"
+                maxW="none"
+                placeholder="Complemento"
+              />
+            </FormControl>
+          </Flex>
+        </Box>
+      </Flex>
 
-        <Flex mt="2.625rem" justifyContent="flex-end">
-          <Button
-            variant="red"
-            mr="1.375rem"
-            h="4.5rem"
-            w="13.75rem"
-            onClick={() => setNewClient(false)}
-          >
-            Cancelar
-          </Button>
-          <Button
-            variant="green"
-            w="21rem"
-            h="4.5rem"
-            onClick={() => setNewClient(false)}
-          >
-            Salvar Novo Cliente
-          </Button>
-        </Flex>
-      </Box>
+      <Flex mt="2.625rem" justifyContent="flex-end">
+        <Button
+          variant="red"
+          mr="1.375rem"
+          h="4.5rem"
+          w="13.75rem"
+          onClick={() => setNewClient(false)}
+        >
+          Cancelar
+        </Button>
+        <Button
+          variant="green"
+          w="21rem"
+          h="4.5rem"
+          onClick={() => setNewClient(false)}
+        >
+          Salvar Novo Cliente
+        </Button>
+      </Flex>
     </Box>
   );
 }

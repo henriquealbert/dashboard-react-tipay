@@ -30,18 +30,26 @@ export default function GerarBoletoModal() {
 
       <Modal isOpen={isOpen} onClose={onClose} size="7xl">
         <ModalOverlay />
-        <ModalContent p="1.5rem 2.5rem 2.5rem">
+        <ModalContent
+          p={{ base: '1rem 1rem 1.5rem', lg: '1.5rem 2.5rem 2.5rem' }}
+        >
           <ModalHeader fontSize="2.5rem" color="gray.500" fontWeight="bold">
             Boleto
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Flex>
+            <Flex direction={{ base: 'column', md: 'row' }}>
               <InputLink
                 label="Código do boleto"
                 url="00020101021226770014BR.GOV.BCB.PIX2555api.itau/pix/qr/v2/c6e24562-4248-4ff0-9f5c-1f02a585"
               />
-              <Button variant="green" w="18.75rem" h="4.938rem" ml="3.75rem">
+              <Button
+                variant="green"
+                w={{ base: '100%', md: '18.75rem' }}
+                h="4.938rem"
+                ml={{ md: '1rem', lg: '3.75rem' }}
+                mt={{ base: '1rem', md: '0' }}
+              >
                 Imprimir Boleto
               </Button>
             </Flex>

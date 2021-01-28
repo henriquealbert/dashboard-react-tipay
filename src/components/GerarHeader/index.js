@@ -25,6 +25,7 @@ export default function GerarHeader({
       borderBottom="0.063rem solid"
       borderColor="#CECECE"
       pb="1.75rem"
+      direction={{ base: 'column', md: 'row' }}
     >
       <Box>
         <PageTitle>
@@ -55,9 +56,16 @@ export default function GerarHeader({
           </BreadcrumbItem>
         </Breadcrumb>
       </Box>
-      <Link to={backUrl}>
-        <Button variant="red">Cancelar</Button>
-      </Link>
+
+      <Button
+        as={Link}
+        to={backUrl}
+        variant="red"
+        w={{ base: '100%', md: '15.938rem' }}
+        mt={{ base: '1rem' }}
+      >
+        Cancelar
+      </Button>
     </Flex>
   );
 }

@@ -10,7 +10,6 @@ const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   const history = useHistory();
-  console.log(history);
 
   useEffect(() => {
     const token = Cookies.get('tipay_token');

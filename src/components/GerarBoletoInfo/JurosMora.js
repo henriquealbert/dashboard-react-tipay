@@ -36,9 +36,14 @@ export default function JurosMora() {
           borderRadius="0.625rem"
           w="100%"
           bg="white"
-          p="3rem 4.25rem"
+          p={{ base: '2rem', xlg: '3rem 4.25rem' }}
+          direction={{ base: 'column', md: 'row' }}
         >
-          <FormControl id="mora" mr="7rem">
+          <FormControl
+            id="mora"
+            mr={{ base: '2rem', xlg: '7rem' }}
+            mb={{ base: '1.75rem', md: '0' }}
+          >
             <FormLabel
               color="gray.1000"
               fontSize="1.25rem"

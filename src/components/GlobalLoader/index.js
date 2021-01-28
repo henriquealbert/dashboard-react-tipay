@@ -4,11 +4,9 @@ import { useIsFetching } from 'react-query';
 export default function GlobalLoader() {
   const isFetching = useIsFetching();
 
-  return (
-    <>
-      {isFetching ? (
-        <Spinner position="absolute" right="1rem" top="8rem" />
-      ) : null}
-    </>
-  );
+  if (isFetching) {
+    return <Spinner position="absolute" right="1rem" top="8rem" />;
+  }
+
+  return null;
 }
