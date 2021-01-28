@@ -44,7 +44,7 @@ export default function SalesByIssuer() {
         fontSize="1.25rem"
         lineHeight="1.5rem"
         color="gray.500"
-        mb="48px"
+        mb="3rem"
       >
         Venda por bandeiras
       </Text>

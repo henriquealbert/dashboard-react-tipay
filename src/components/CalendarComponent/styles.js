@@ -22,7 +22,7 @@ export const Wrapper = styled.div`
     }
   }
   .fc-col-header-cell {
-    padding: 1.25rem 48px;
+    padding: 1.25rem 3rem;
     color: #b8b8b8;
     text-transform: uppercase;
     font-weight: bold;

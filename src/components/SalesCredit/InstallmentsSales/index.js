@@ -50,7 +50,7 @@ export default function InstallmentsSales() {
   ];
   return (
     <Flex
-      pl={{ lg: '1rem', xl: '48px' }}
+      pl={{ lg: '1rem', xl: '3rem' }}
       mt={{ base: '2rem', md: 'auto' }}
       direction="column"
       w="100%"

@@ -58,10 +58,17 @@ export default function ModalDetailLinkSale({ data }) {
               borderColor="gray.1100"
               borderRadius="0.875rem"
             >
-              <Flex>
-                <Img src="/images/qrcode.png" />
-                <Box mt="1.875rem" ml="2.5rem" mr="1.875rem" w="100%">
-                  <FormControl id="link" mb="48px">
+              <Flex direction={{ base: 'column', md: 'row' }}>
+                <Img src="/images/qrcode.png" maxW="15.5rem" maxH="15.5rem" />
+                <Box
+                  mt="1.875rem"
+                  ml={{ lg: '2.5rem' }}
+                  mr="1.875rem"
+                  w="100%"
+                  px={{ base: '1rem', lg: '0' }}
+                  mb={{ base: '2rem', lg: '0' }}
+                >
+                  <FormControl id="link" mb="3rem">
                     <FormLabel fontWeight="bold">Link ativado</FormLabel>
                     <Switch size="lg" isChecked={data?.active_url} />
                   </FormControl>
@@ -95,7 +102,7 @@ export default function ModalDetailLinkSale({ data }) {
                   <Tbody>
                     <Tr>
                       <Td>{data?.updated_at}</Td>
-                      <Td maxW="240px">{data?.payer}</Td>
+                      <Td maxW="15rem">{data?.payer}</Td>
                       <Td>{data?.created_at}</Td>
                       <Td>{data?.value}</Td>
                       <Td>{data?.operation}</Td>
@@ -110,7 +117,7 @@ export default function ModalDetailLinkSale({ data }) {
           </ModalBody>
 
           <ModalFooter>
-            <Button variant="green" w="276px" h="64px" fontSize="1.875rem">
+            <Button variant="green" w="17.25rem" h="4rem" fontSize="1.875rem">
               Compartilhar
             </Button>
           </ModalFooter>
