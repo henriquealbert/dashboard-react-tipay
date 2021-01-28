@@ -9,6 +9,7 @@ import ToolsMenu from 'components/ToolsMenu';
 import TableSales from 'components/TableSales';
 import TableSalesSkeleton from 'components/TableSalesSkeleton';
 import useTransactions from 'hooks/useTransactions';
+import ErrorMessage from 'pages/ErrorMessage';
 
 export default function Vendas() {
   const { data, isError, error, isLoading } = useTransactions();
@@ -30,11 +31,7 @@ export default function Vendas() {
         </Box>
 
         <ToolsMenu />
-        {isError && (
-          <Box color="red.500" m="0 auto">
-            {error.message}
-          </Box>
-        )}
+        {isError && <ErrorMessage message={error.message} />}
         {isLoading && <TableSalesSkeleton />}
         {data && <TableSales data={data?.entries} />}
       </Container>

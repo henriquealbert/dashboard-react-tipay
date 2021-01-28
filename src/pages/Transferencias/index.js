@@ -1,4 +1,4 @@
-import { Box, Flex } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 import Container from 'components/Container';
 import InnerMenu from 'components/InnerMenu';
 import Layout from 'components/Layout';
@@ -7,6 +7,7 @@ import TableSalesSkeleton from 'components/TableSalesSkeleton';
 import TableTransfers from 'components/TableTransfers';
 import ToolsMenu from 'components/ToolsMenu';
 import useTransfers from 'hooks/useTransfers';
+import ErrorMessage from 'pages/ErrorMessage';
 
 export default function Transferencias() {
   const { data, error, isError, isLoading } = useTransfers();
@@ -19,11 +20,7 @@ export default function Transferencias() {
           <SalesStatus />
         </Flex>
         <ToolsMenu />
-        {isError && (
-          <Box color="red.500" m="0 auto">
-            {error.message}
-          </Box>
-        )}
+        {isError && <ErrorMessage message={error.message} />}
         {isLoading && <TableSalesSkeleton />}
         {data && <TableTransfers data={data?.entries} />}
       </Container>

@@ -1,4 +1,4 @@
-import { Flex, Button, Box } from '@chakra-ui/react';
+import { Flex, Button } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 
 import Container from 'components/Container';
@@ -10,8 +10,13 @@ import ToolsMenu from 'components/ToolsMenu';
 import { LinkQRCodeIcon } from 'styles/icons';
 import { link as data } from 'db';
 import TableSalesSkeleton from 'components/TableSalesSkeleton';
+import ErrorMessage from 'pages/ErrorMessage';
 
 export default function LinkQRcode() {
+  const error = { message: 'error' };
+  const isError = null;
+  const isLoading = null;
+
   return (
     <Layout>
       <Container>
@@ -42,12 +47,8 @@ export default function LinkQRcode() {
           <SalesStatus />
         </Flex>
         <ToolsMenu />
-        {/* {isError && (
-          <Box color="red.500" m="0 auto">
-            {error.message}
-          </Box>
-        )}
-        {isLoading && <TableSalesSkeleton />} */}
+        {isError && <ErrorMessage message={error.message} />}
+        {isLoading && <TableSalesSkeleton />}
         {data && <TableQRCode data={data} />}
       </Container>
     </Layout>
