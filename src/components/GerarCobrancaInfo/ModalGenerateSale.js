@@ -7,12 +7,12 @@ import {
   ModalCloseButton,
   ModalBody,
   ModalFooter,
-  Img,
-  Box
+  Img
 } from '@chakra-ui/react';
-import InputLink from 'components/InputLink';
 import { Link } from 'react-router-dom';
 import { LinkQRCodeIcon } from 'styles/icons';
+
+import InputLink from 'components/InputLink';
 
 export default function ModalGenerateSale() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -39,7 +39,9 @@ export default function ModalGenerateSale() {
         scrollBehavior="inside"
       >
         <ModalOverlay />
-        <ModalContent p="3.25rem 2rem">
+        <ModalContent
+          p={{ base: '1rem 1rem 1.5rem', lg: '1.5rem 2.5rem 2.5rem' }}
+        >
           <ModalCloseButton />
           <ModalBody>
             <Img src="/images/qrcode.png" m="0 auto 1.625rem" />
@@ -49,15 +51,29 @@ export default function ModalGenerateSale() {
             />
           </ModalBody>
 
-          <ModalFooter mt="40px">
-            <Box w="50%" mr="1rem">
-              <Link to="/link-qrcode">
-                <Button variant="red" h="90px" w="100%" fontSize="1.875rem">
-                  Fechar
-                </Button>
-              </Link>
-            </Box>
-            <Button variant="green" w="50%" h="90px" fontSize="1.875rem">
+          <ModalFooter
+            mt="40px"
+            display="flex"
+            flexDirection={{ base: 'column', md: 'row' }}
+          >
+            <Button
+              as={Link}
+              to="/link-qrcode"
+              variant="red"
+              h="5.625rem"
+              w={{ base: '100%', md: '50%' }}
+              mr={{ md: '1rem' }}
+              mb={{ base: '1rem', md: '0' }}
+              fontSize="1.875rem"
+            >
+              Fechar
+            </Button>
+            <Button
+              variant="green"
+              w={{ base: '100%', md: '50%' }}
+              h="5.625rem"
+              fontSize="1.875rem"
+            >
               Compartilhar
             </Button>
           </ModalFooter>

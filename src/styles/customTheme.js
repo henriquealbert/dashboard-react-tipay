@@ -12,6 +12,7 @@ import Modal from './components/modal';
 import Textarea from './components/textarea';
 import Radio from './components/radio';
 import Switch from './components/switch';
+import Select from './components/select';
 
 const customTheme = extendTheme({
   fonts: fonts,
@@ -24,7 +25,8 @@ const customTheme = extendTheme({
     Modal: Modal,
     Textarea: Textarea,
     Radio: Radio,
-    Switch: Switch
+    Switch: Switch,
+    Select: Select
   }
 });
 
