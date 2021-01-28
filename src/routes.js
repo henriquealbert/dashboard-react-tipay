@@ -1,4 +1,4 @@
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect, useLocation } from 'react-router-dom';
 
 // pages
 import Home from 'pages/Home';
@@ -21,29 +21,27 @@ import ForgotPassword from 'pages/ForgotPassword';
 
 // auth
 import { useAuth } from 'hooks/useAuth';
-import api from 'api';
 
 function CustomRoute({ isPrivate, ...rest }) {
-  const { loading, authenticated, handleLogout } = useAuth();
+  const { loading, authenticated } = useAuth();
+  const { pathname } = useLocation();
 
-  api.interceptors.response.use(
-    (response) => {
-      return response;
-    },
-    (error) => {
-      if (error.response.status === 401) {
-        handleLogout();
-      }
-      return error;
-    }
-  );
+  console.log(pathname);
 
   if (loading) {
     return <h1>Loading...</h1>;
   }
 
   if (isPrivate && !authenticated) {
-    return <Redirect to="/login" />;
+    return (
+      <Redirect
+        to={{
+          pathname: '/login',
+          search: `?redirected=true`,
+          state: { ref: pathname }
+        }}
+      />
+    );
   }
 
   return <Route {...rest} />;

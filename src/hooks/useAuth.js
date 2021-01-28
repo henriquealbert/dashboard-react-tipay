@@ -10,6 +10,7 @@ const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   const history = useHistory();
+  console.log(history);
 
   useEffect(() => {
     const token = Cookies.get('tipay_token');
@@ -38,14 +39,23 @@ const AuthProvider = ({ children }) => {
     });
     api.defaults.headers.Authorization = `Bearer ${token}`;
 
-    setAuthenticated(true);
-    history.push('/dashboard');
+    if (history.location.state.ref) {
+      setAuthenticated(true);
+      history.push(history.location.state?.ref);
+    } else {
+      setAuthenticated(true);
+      history.push('/dashboard');
+    }
   }
 
   function handleLogout() {
     Cookies.remove('tipay_token');
     setAuthenticated(false);
-    history.push('/login');
+  }
+
+  function handleUnauthorized() {
+    Cookies.remove('tipay_token');
+    setAuthenticated(false);
   }
 
   return (
@@ -56,7 +66,8 @@ const AuthProvider = ({ children }) => {
         loading,
         setLoading,
         handleLogin,
-        handleLogout
+        handleLogout,
+        handleUnauthorized
       }}
     >
       {children}

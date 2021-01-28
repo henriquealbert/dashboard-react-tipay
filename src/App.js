@@ -1,5 +1,4 @@
-import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import React, { useEffect } from 'react';
 import Routes from 'routes';
 
 // styles
@@ -9,29 +8,42 @@ import customTheme from 'styles/customTheme';
 import { GlobalStyles } from 'styles/global';
 
 // react-query - data fetching
-// import { ReactQueryDevtools } from 'react-query/devtools';
+import { ReactQueryDevtools } from 'react-query/devtools';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import api from 'api';
 
 // auth
-import { AuthProvider } from 'hooks/useAuth';
+import { useAuth } from 'hooks/useAuth';
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <BrowserRouter>
+export default function App() {
+  const { handleUnauthorized } = useAuth();
+
+  useEffect(() => {
+    api.interceptors.response.use(
+      (response) => {
+        return response;
+      },
+      (error) => {
+        if (error.response.status === 401) {
+          handleUnauthorized();
+        }
+        return error;
+      }
+    );
+  }, [handleUnauthorized]);
+
+  return (
     <QueryClientProvider client={queryClient}>
-      <AuthProvider>
-        <ChakraProvider theme={customTheme}>
-          <CSSReset />
-          <Global styles={GlobalStyles} />
+      <ChakraProvider theme={customTheme}>
+        <CSSReset />
+        <Global styles={GlobalStyles} />
 
-          <Routes />
+        <Routes />
 
-          {/* <ReactQueryDevtools initialIsOpen={false} /> */}
-        </ChakraProvider>
-      </AuthProvider>
+        <ReactQueryDevtools initialIsOpen={false} />
+      </ChakraProvider>
     </QueryClientProvider>
-  </BrowserRouter>
-);
-
-export default App;
+  );
+}
