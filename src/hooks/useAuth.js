@@ -38,12 +38,12 @@ const AuthProvider = ({ children }) => {
     });
     api.defaults.headers.Authorization = `Bearer ${token}`;
 
-    if (history.location.state.ref) {
-      setAuthenticated(true);
-      history.push(history.location.state?.ref);
-    } else {
+    if (history.location.state === undefined) {
       setAuthenticated(true);
       history.push('/dashboard');
+    } else {
+      setAuthenticated(true);
+      history.push(history.location.state?.ref);
     }
   }
 
