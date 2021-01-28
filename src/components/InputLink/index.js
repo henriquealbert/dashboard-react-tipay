@@ -6,7 +6,7 @@ import {
 } from '@chakra-ui/react';
 import { CopyIcon } from 'styles/icons';
 
-export default function InputLinkQRcode({ url }) {
+export default function InputLink({ url, label }) {
   return (
     <InputGroup w="100%">
       <FormLabel
@@ -19,7 +19,7 @@ export default function InputLinkQRcode({ url }) {
         textTransform="uppercase"
         color="#A9A9A9"
       >
-        Link
+        {label}
       </FormLabel>
       <Input
         placeholder="mysite"

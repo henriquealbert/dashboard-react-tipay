@@ -4,12 +4,13 @@ import {
   FormControl,
   FormLabel,
   Input,
-  Flex
+  Flex,
+  Button
 } from '@chakra-ui/react';
 
-export default function NewClient() {
+export default function NewClient({ setNewClient }) {
   return (
-    <Box mt="2.25rem" w="100%">
+    <Box my="1.375rem" w="100%">
       <Text
         color="gray.500"
         fontSize="1.25rem"
@@ -166,6 +167,26 @@ export default function NewClient() {
               </FormControl>
             </Flex>
           </Box>
+        </Flex>
+
+        <Flex mt="2.625rem" justifyContent="flex-end">
+          <Button
+            variant="red"
+            mr="1.375rem"
+            h="4.5rem"
+            w="13.75rem"
+            onClick={() => setNewClient(false)}
+          >
+            Cancelar
+          </Button>
+          <Button
+            variant="green"
+            w="21rem"
+            h="4.5rem"
+            onClick={() => setNewClient(false)}
+          >
+            Salvar Novo Cliente
+          </Button>
         </Flex>
       </Box>
     </Box>

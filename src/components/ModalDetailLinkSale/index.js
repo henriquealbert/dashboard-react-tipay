@@ -22,7 +22,7 @@ import {
   FormControl,
   FormLabel
 } from '@chakra-ui/react';
-import InputLinkQRcode from 'components/InputLinkQRcode';
+import InputLink from 'components/InputLink';
 import { formatStatusColor } from 'utils/formatStatusColor';
 
 export default function ModalDetailLinkSale({ data }) {
@@ -66,7 +66,7 @@ export default function ModalDetailLinkSale({ data }) {
                     <Switch size="lg" isChecked={data?.active_url} />
                   </FormControl>
 
-                  <InputLinkQRcode url={data?.url} />
+                  <InputLink label="Link" url={data?.url} />
                 </Box>
               </Flex>
             </Box>

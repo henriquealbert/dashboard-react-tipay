@@ -10,7 +10,7 @@ import {
   Img,
   Box
 } from '@chakra-ui/react';
-import InputLinkQRcode from 'components/InputLinkQRcode';
+import InputLink from 'components/InputLink';
 import { Link } from 'react-router-dom';
 import { LinkQRCodeIcon } from 'styles/icons';
 
@@ -43,7 +43,10 @@ export default function ModalGenerateSale() {
           <ModalCloseButton />
           <ModalBody>
             <Img src="/images/qrcode.png" m="0 auto 1.625rem" />
-            <InputLinkQRcode url="https://tipay.app/dabdddaajkawbdawdbawhdvawbihdgwa" />
+            <InputLink
+              label="Link"
+              url="https://tipay.app/dabdddaajkawbdawdbawhdvawbihdgwa"
+            />
           </ModalBody>
 
           <ModalFooter mt="40px">
