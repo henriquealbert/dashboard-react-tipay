@@ -82,6 +82,7 @@ export default function MeuPlano() {
           bg="white"
           borderRadius="10px"
           mb="4rem"
+          mt="2rem"
         >
           <Box
             bg="linear-gradient(180deg, #0A172D 0%, #40474F 100%)"

@@ -744,3 +744,450 @@ export const ErrorTipayIcon = createIcon({
     </>
   )
 });
+
+export const DocumentIcon = createIcon({
+  displayName: 'DocumentIcon',
+  viewBox: '0 0 37.33 51',
+  path: (
+    <g
+      id="Group_1693"
+      data-name="Group 1693"
+      transform="translate(-5800 -6484.256)"
+    >
+      <g
+        id="Group_165"
+        data-name="Group 165"
+        transform="translate(5808.481 6496.673)"
+      >
+        <line
+          id="Line_52"
+          data-name="Line 52"
+          x2="20.615"
+          fill="none"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeMiterlimit="10"
+          strokeWidth="2"
+        />
+        <line
+          id="Line_53"
+          data-name="Line 53"
+          x2="20.615"
+          transform="translate(0.12 7.427)"
+          fill="none"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeMiterlimit="10"
+          strokeWidth="2"
+        />
+        <line
+          id="Line_54"
+          data-name="Line 54"
+          x2="20.615"
+          transform="translate(0.24 14.853)"
+          fill="none"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeMiterlimit="10"
+          strokeWidth="2"
+        />
+      </g>
+      <g
+        id="Group_172"
+        data-name="Group 172"
+        transform="translate(5801 6485.256)"
+      >
+        <path
+          id="Path_144"
+          data-name="Path 144"
+          d="M1956.758,794.256h-21.714v-49h35.33v35.384Z"
+          transform="translate(-1935.044 -745.256)"
+          fill="none"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeMiterlimit="10"
+          strokeWidth="2"
+        />
+        <path
+          id="Path_145"
+          data-name="Path 145"
+          d="M2031.9,895.044v-13.6h13.6"
+          transform="translate(-2010.184 -846.063)"
+          fill="none"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeMiterlimit="10"
+          strokeWidth="2"
+        />
+      </g>
+    </g>
+  )
+});
+
+export const EmailIcon = createIcon({
+  displayName: 'EmailIcon',
+  viewBox: '0 0 50.979 34.755',
+  path: (
+    <>
+      <g
+        id="Group_1009"
+        data-name="Group 1009"
+        transform="translate(3346 -4002)"
+      >
+        <rect
+          id="Rectangle_731"
+          data-name="Rectangle 731"
+          width="48.979"
+          height="32.755"
+          rx="2"
+          transform="translate(-3345 4003)"
+          fill="none"
+          stroke="currentColor"
+          strokeMiterlimit="10"
+          strokeWidth="2"
+        />
+        <path
+          id="Path_928"
+          data-name="Path 928"
+          d="M-3284.974,4014.5l-23.795,20.4-23.731-20.333"
+          transform="translate(-11.728 -10.789)"
+          fill="none"
+          stroke="currentColor"
+          strokeMiterlimit="10"
+          strokeWidth="2"
+        />
+        <line
+          id="Line_311"
+          data-name="Line 311"
+          y1="16.317"
+          x2="17.413"
+          transform="translate(-3344.258 4018.635)"
+          fill="none"
+          stroke="currentColor"
+          strokeMiterlimit="10"
+          strokeWidth="2"
+        />
+        <line
+          id="Line_312"
+          data-name="Line 312"
+          x1="17.405"
+          y1="16.309"
+          transform="translate(-3314.191 4018.635)"
+          fill="none"
+          stroke="currentColor"
+          strokeMiterlimit="10"
+          strokeWidth="2"
+        />
+      </g>
+    </>
+  )
+});
+
+export const FrenteIcon = createIcon({
+  displayName: 'FrenteIcon',
+  viewBox: '0 0 48.7 37.27',
+  path: (
+    <>
+      <g
+        id="Group_1002"
+        data-name="Group 1002"
+        transform="translate(-5787.9 -6453.9)"
+      >
+        <g
+          id="Group_999"
+          data-name="Group 999"
+          transform="translate(0.5 43.193)"
+        >
+          <path
+            id="Path_141"
+            data-name="Path 141"
+            d="M219.63,791.087H237.5v30.936H191V791.087h18.6"
+            transform="translate(5597.5 5624.854)"
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeMiterlimit="10"
+            strokeWidth="2.2"
+          />
+          <rect
+            id="Rectangle_122"
+            data-name="Rectangle 122"
+            width="8.262"
+            height="8.262"
+            transform="translate(5807.5 6411.807)"
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeMiterlimit="10"
+            strokeWidth="2.2"
+          />
+        </g>
+        <g
+          id="Group_1001"
+          data-name="Group 1001"
+          transform="translate(5796 6469)"
+        >
+          <g id="Group_164" data-name="Group 164" transform="translate(0 0)">
+            <path
+              id="Rectangle_123"
+              data-name="Rectangle 123"
+              d="M5.993,0H6.62a5.993,5.993,0,0,1,5.993,5.993v0a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0v0A5.993,5.993,0,0,1,5.993,0Z"
+              transform="translate(0 7.067)"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeMiterlimit="10"
+              strokeWidth="2.2"
+            />
+            <rect
+              id="Rectangle_124"
+              data-name="Rectangle 124"
+              width="7.038"
+              height="7.038"
+              rx="3.519"
+              transform="translate(2.787)"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeMiterlimit="10"
+              strokeWidth="2.2"
+            />
+          </g>
+          <g
+            id="Group_165"
+            data-name="Group 165"
+            transform="translate(16.537 0.573)"
+          >
+            <line
+              id="Line_52"
+              data-name="Line 52"
+              x2="16.14"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeMiterlimit="10"
+              strokeWidth="2.2"
+            />
+            <line
+              id="Line_53"
+              data-name="Line 53"
+              x2="16.14"
+              transform="translate(0.096 5.957)"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeMiterlimit="10"
+              strokeWidth="2.2"
+            />
+            <line
+              id="Line_54"
+              data-name="Line 54"
+              x2="16.14"
+              transform="translate(0.192 11.913)"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeMiterlimit="10"
+              strokeWidth="2.2"
+            />
+          </g>
+        </g>
+      </g>
+    </>
+  )
+});
+
+export const SelfieIcon = createIcon({
+  displayName: 'SelfieIcon',
+  viewBox: '0 0 29.233 51',
+  path: (
+    <>
+      <g
+        id="Group_1690"
+        data-name="Group 1690"
+        transform="translate(-5763 -6479)"
+      >
+        <g
+          id="Group_164"
+          data-name="Group 164"
+          transform="translate(5770.536 6496.34)"
+        >
+          <path
+            id="Rectangle_123"
+            data-name="Rectangle 123"
+            d="M6.528,0h.683A6.528,6.528,0,0,1,13.74,6.528v0a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0v0A6.528,6.528,0,0,1,6.528,0Z"
+            transform="translate(0 7.698)"
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeMiterlimit="10"
+            strokeWidth="2"
+          />
+          <rect
+            id="Rectangle_124"
+            data-name="Rectangle 124"
+            width="7.667"
+            height="7.667"
+            rx="3.833"
+            transform="translate(3.036)"
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeMiterlimit="10"
+            strokeWidth="2"
+          />
+        </g>
+        <g
+          id="Group_1003"
+          data-name="Group 1003"
+          transform="translate(5764 6480)"
+        >
+          <rect
+            id="Rectangle_125"
+            data-name="Rectangle 125"
+            width="27.233"
+            height="49"
+            rx="1"
+            transform="translate(0 0)"
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeMiterlimit="10"
+            strokeWidth="2"
+          />
+          <line
+            id="Line_56"
+            data-name="Line 56"
+            x2="27.233"
+            transform="translate(0 6.27)"
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeMiterlimit="10"
+            strokeWidth="2"
+          />
+          <line
+            id="Line_57"
+            data-name="Line 57"
+            x2="6.957"
+            transform="translate(10.138 3.181)"
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeMiterlimit="10"
+            strokeWidth="2"
+          />
+          <line
+            id="Line_58"
+            data-name="Line 58"
+            x2="27.233"
+            transform="translate(0 41.744)"
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeMiterlimit="10"
+            strokeWidth="2"
+          />
+          <rect
+            id="Rectangle_126"
+            data-name="Rectangle 126"
+            width="2.385"
+            height="2.385"
+            rx="1"
+            transform="translate(12.424 44.13)"
+            fill="currentColor"
+          />
+        </g>
+      </g>
+    </>
+  )
+});
+
+export const VersoIcon = createIcon({
+  displayName: 'VersoIcon',
+  viewBox: '0 0 48.7 37.27',
+  path: (
+    <>
+      <g
+        id="Group_1000"
+        data-name="Group 1000"
+        transform="translate(-5787.9 -6410.707)"
+      >
+        <g id="Group_999" data-name="Group 999" transform="translate(0.5)">
+          <path
+            id="Path_141"
+            data-name="Path 141"
+            d="M219.63,791.087H237.5v30.936H191V791.087h18.6"
+            transform="translate(5597.5 5624.854)"
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeMiterlimit="10"
+            strokeWidth="2.2"
+          />
+          <rect
+            id="Rectangle_122"
+            data-name="Rectangle 122"
+            width="8.262"
+            height="8.262"
+            transform="translate(5807.5 6411.807)"
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeMiterlimit="10"
+            strokeWidth="2.2"
+          />
+        </g>
+        <g
+          id="Group_165"
+          data-name="Group 165"
+          transform="translate(5797 6426.413)"
+        >
+          <line
+            id="Line_52"
+            data-name="Line 52"
+            x2="29.629"
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeMiterlimit="10"
+            strokeWidth="2.2"
+          />
+          <line
+            id="Line_53"
+            data-name="Line 53"
+            x2="29.629"
+            transform="translate(0.096 5.957)"
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeMiterlimit="10"
+            strokeWidth="2.2"
+          />
+          <line
+            id="Line_54"
+            data-name="Line 54"
+            x2="29.629"
+            transform="translate(0.192 11.913)"
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeMiterlimit="10"
+            strokeWidth="2.2"
+          />
+        </g>
+      </g>
+    </>
+  )
+});
