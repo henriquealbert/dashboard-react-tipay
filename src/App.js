@@ -18,9 +18,23 @@ import Cookies from 'js-cookie';
 const queryClient = new QueryClient();
 
 export default function App() {
-  const { setAuthenticated, setLoading } = useAuth();
+  const { setAuthenticated, setLoading, handleUnauthorized } = useAuth();
 
   useEffect(() => {
+    // redirect if status code is 401
+    api.interceptors.response.use(
+      (response) => {
+        return response;
+      },
+      (error) => {
+        if (error.response.status === 401) {
+          handleUnauthorized();
+        }
+        return error;
+      }
+    );
+
+    // get token from cookies & set authenticated
     const token = Cookies.get('tipay_token');
 
     if (token) {
@@ -32,7 +46,7 @@ export default function App() {
       setAuthenticated(false);
       setLoading(false);
     }
-  }, [setLoading, setAuthenticated]);
+  }, [setLoading, setAuthenticated, handleUnauthorized]);
 
   return (
     <QueryClientProvider client={queryClient}>
