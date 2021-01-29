@@ -15,9 +15,8 @@ export default function ProfilePic({ data }) {
         ml="1.25rem"
         src={data?.img}
         alt={data?.name}
-        w="10.625rem"
-        h="10.625rem"
-        borderRadius="50%"
+        w={{ base: '8rem', lg: '10.625rem' }}
+        h={{ base: '8rem', lg: '10.625rem' }}
         bg="gray.100"
       />
     </Box>
