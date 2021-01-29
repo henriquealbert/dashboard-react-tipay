@@ -1,4 +1,4 @@
-import { useState, useEffect, createContext, useContext } from 'react';
+import { useState, createContext, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import api from 'api';
@@ -11,39 +11,29 @@ const AuthProvider = ({ children }) => {
 
   const history = useHistory();
 
-  useEffect(() => {
-    const token = Cookies.get('tipay_token');
-
-    if (token) {
-      api.defaults.headers.Authorization = `Bearer ${token}`;
-      setAuthenticated(true);
-    }
-    if (!token) {
-      setAuthenticated(false);
-    }
-
-    setLoading(false);
-  }, []);
-
   async function handleLogin(email, password) {
-    const response = await api.post('stores/sign_in.json', {
-      store: { email, password, id_partner: 1 }
-    });
+    try {
+      const response = await api.post('stores/sign_in.json', {
+        store: { email, password, id_partner: 1 }
+      });
 
-    const { token } = response.data;
+      const { token } = response.data;
 
-    const inTenMinutes = new Date(new Date().getTime() + 10 * 60 * 1000);
-    Cookies.set('tipay_token', token, {
-      expires: inTenMinutes
-    });
-    api.defaults.headers.Authorization = `Bearer ${token}`;
+      const inTenMinutes = new Date(new Date().getTime() + 10 * 60 * 1000);
+      Cookies.set('tipay_token', token, {
+        expires: inTenMinutes
+      });
+      api.defaults.headers.Authorization = `Bearer ${token}`;
 
-    if (history.location.state === undefined) {
-      setAuthenticated(true);
-      history.push('/dashboard');
-    } else {
-      setAuthenticated(true);
-      history.push(history.location.state?.ref);
+      if (history.location.state === undefined) {
+        setAuthenticated(true);
+        history.push('/dashboard');
+      } else {
+        setAuthenticated(true);
+        history.push(history.location.state?.ref);
+      }
+    } catch (e) {
+      return e;
     }
   }
 

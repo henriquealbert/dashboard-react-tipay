@@ -30,14 +30,23 @@ export default function LoginForm() {
     register,
     handleSubmit,
     errors,
+    setError,
     formState: { isSubmitting }
   } = useForm({
     mode: 'onBlur',
     resolver: yupResolver(schema)
   });
 
-  const onSubmit = ({ email, password }) => {
-    handleLogin(email, password);
+  const onSubmit = async ({ email, password }) => {
+    const result = await handleLogin(email, password);
+    if (result?.message === 'Request failed with status code 401') {
+      const errorMessage = {
+        type: 'server',
+        message: 'Email ou senha inválidos.'
+      };
+      setError('email', errorMessage);
+      setError('password', errorMessage);
+    }
   };
 
   return (

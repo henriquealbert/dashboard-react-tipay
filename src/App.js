@@ -14,25 +14,26 @@ import api from 'api';
 
 // auth
 import { useAuth } from 'hooks/useAuth';
+import Cookies from 'js-cookie';
 
 const queryClient = new QueryClient();
 
 export default function App() {
-  const { handleUnauthorized } = useAuth();
+  const { setAuthenticated, setLoading } = useAuth();
 
   useEffect(() => {
-    api.interceptors.response.use(
-      (response) => {
-        return response;
-      },
-      (error) => {
-        if (error.response.status === 401) {
-          handleUnauthorized();
-        }
-        return error;
-      }
-    );
-  }, [handleUnauthorized]);
+    const token = Cookies.get('tipay_token');
+
+    if (token) {
+      api.defaults.headers.Authorization = `Bearer ${token}`;
+      setAuthenticated(true);
+      setLoading(false);
+    }
+    if (!token) {
+      setAuthenticated(false);
+      setLoading(false);
+    }
+  }, [setLoading, setAuthenticated]);
 
   return (
     <QueryClientProvider client={queryClient}>
