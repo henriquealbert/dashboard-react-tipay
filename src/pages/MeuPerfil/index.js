@@ -6,7 +6,7 @@ import MyProfile from 'components/MyProfile';
 export default function MeuPerfil() {
   return (
     <Layout perfil>
-      <Flex direction="column" px="4.688rem" pt="4.5rem" w="100%" h="100%">
+      {/* <Flex direction="column" px="4.688rem" pt="4.5rem" w="100%" h="100%">
         <MyProfile />
         <Button
           mt="2.125rem"
@@ -16,7 +16,7 @@ export default function MeuPerfil() {
         >
           Salvar
         </Button>
-      </Flex>
+      </Flex> */}
     </Layout>
   );
 }

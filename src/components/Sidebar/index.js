@@ -23,7 +23,7 @@ export default function Sidebar() {
       zIndex="sticky"
       boxShadow="0rem 0.188rem 1.25rem #0000003D"
       alignItems="center"
-      overflowX={{ base: 'auto', md: 'hidden' }}
+      overflowX="auto"
       justifyContent={{ md: 'space-evenly' }}
     >
       <MenuItem
