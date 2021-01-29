@@ -18,8 +18,9 @@ import Cookies from 'js-cookie';
 const queryClient = new QueryClient();
 
 export default function App() {
-  const { setAuthenticated, setLoading, handleUnauthorized } = useAuth();
+  const { setAuthenticated, setLoading, handleUnauthorized, user } = useAuth();
 
+  console.log(user);
   useEffect(() => {
     // redirect if status code is 401
     api.interceptors.response.use(

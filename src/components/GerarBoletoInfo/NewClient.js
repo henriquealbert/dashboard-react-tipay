@@ -7,7 +7,15 @@ import {
   Button
 } from '@chakra-ui/react';
 
-export default function NewClient({ setNewClient }) {
+export default function NewClient({ setNewClient, padding, onClose }) {
+  const handleClick = () => {
+    if (setNewClient) {
+      setNewClient(false);
+    }
+    if (!setNewClient) {
+      onClose();
+    }
+  };
   return (
     <Box
       mt="0.75rem"
@@ -15,7 +23,7 @@ export default function NewClient({ setNewClient }) {
       borderRadius="0.625rem"
       w="100%"
       bg="white"
-      p={{ base: '2rem', xlg: '3rem 4.25rem' }}
+      p={padding ? padding : { base: '2rem', xlg: '3rem 4.25rem' }}
       direction={{ base: 'column', lg: 'row' }}
     >
       <Flex direction={{ base: 'column', lg: 'row' }}>
@@ -198,16 +206,11 @@ export default function NewClient({ setNewClient }) {
           mr="1.375rem"
           h="4.5rem"
           w="13.75rem"
-          onClick={() => setNewClient(false)}
+          onClick={handleClick}
         >
           Cancelar
         </Button>
-        <Button
-          variant="green"
-          w="21rem"
-          h="4.5rem"
-          onClick={() => setNewClient(false)}
-        >
+        <Button variant="green" w="21rem" h="4.5rem" onClick={handleClick}>
           Salvar Novo Cliente
         </Button>
       </Flex>

@@ -8,6 +8,7 @@ const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
   const [authenticated, setAuthenticated] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState(null);
 
   const history = useHistory();
 
@@ -23,7 +24,9 @@ const AuthProvider = ({ children }) => {
       Cookies.set('tipay_token', token, {
         expires: inTenMinutes
       });
+
       api.defaults.headers.Authorization = `Bearer ${token}`;
+      setUser({ ...response.data, password });
 
       if (history.location.state === undefined) {
         setAuthenticated(true);
@@ -43,8 +46,13 @@ const AuthProvider = ({ children }) => {
   }
 
   function handleUnauthorized() {
-    Cookies.remove('tipay_token');
-    setAuthenticated(false);
+    if (user) {
+      handleLogin(user?.email, user?.password);
+      console.log('rodou');
+    }
+    if (!user) {
+      handleLogout();
+    }
   }
 
   return (
@@ -56,7 +64,9 @@ const AuthProvider = ({ children }) => {
         setLoading,
         handleLogin,
         handleLogout,
-        handleUnauthorized
+        handleUnauthorized,
+        user,
+        setUser
       }}
     >
       {children}
