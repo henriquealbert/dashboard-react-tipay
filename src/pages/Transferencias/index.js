@@ -28,7 +28,11 @@ export default function Transferencias() {
         <Flex mt="1rem">
           <SalesStatus />
         </Flex>
-        <ToolsMenu setPer_Page={setPer_Page} per_Page={per_Page} />
+        <ToolsMenu
+          setPer_Page={setPer_Page}
+          per_Page={per_Page}
+          pageKey="transactions"
+        />
 
         {isError && <ErrorMessage message={error.message} />}
         {isLoading && <TableSalesSkeleton />}

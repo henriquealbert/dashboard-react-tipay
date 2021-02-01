@@ -19,7 +19,7 @@ export default function Boletos() {
   const [per_Page, setPer_Page] = useState(25);
 
   const { data, error, isLoading, isError } = useTransactions(
-    '/payment_type=3',
+    `/payment_type=3/per_page=${per_Page}`,
     `/${page}`
   );
 
@@ -47,7 +47,12 @@ export default function Boletos() {
         <Flex mt="1rem">
           <SalesStatus />
         </Flex>
-        <ToolsMenu setPer_Page={setPer_Page} per_Page={per_Page} />
+        <ToolsMenu
+          setPer_Page={setPer_Page}
+          per_Page={per_Page}
+          pageKey="transactions"
+        />
+
         {isError && <ErrorMessage message={error.message} />}
         {isLoading && <TableSalesSkeleton />}
         {data && <TableSales data={data} setPage={setPage} />}

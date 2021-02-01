@@ -51,7 +51,8 @@ export default function LinkQRcode() {
         <Flex mt="1rem">
           <SalesStatus />
         </Flex>
-        <ToolsMenu setPer_Page={setPer_Page} per_Page={per_Page} />
+
+        <ToolsMenu setPer_Page={setPer_Page} per_Page={per_Page} pageKey="" />
 
         {isError && <ErrorMessage message={error.message} />}
         {isLoading && <TableSalesSkeleton />}

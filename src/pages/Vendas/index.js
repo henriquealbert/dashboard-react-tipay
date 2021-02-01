@@ -41,7 +41,11 @@ export default function Vendas() {
           <SalesPercentages />
         </Box>
 
-        <ToolsMenu setPer_Page={setPer_Page} per_Page={per_Page} />
+        <ToolsMenu
+          setPer_Page={setPer_Page}
+          per_Page={per_Page}
+          pageKey="transactions"
+        />
 
         {isError && <ErrorMessage message={error.message} />}
         {isLoading && <TableSalesSkeleton />}

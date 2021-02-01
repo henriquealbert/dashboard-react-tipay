@@ -6,7 +6,7 @@ import CopyBtn from 'components/CopyBtn';
 import ExcelExport from 'components/ExcelExport';
 import PrintBtn from 'components/PrintBtn';
 
-export default function ToolsMenu({ setPer_Page, per_Page }) {
+export default function ToolsMenu({ setPer_Page, per_Page, pageKey }) {
   return (
     <Flex
       mt={{ base: '0', xlg: '40px' }}
@@ -16,7 +16,11 @@ export default function ToolsMenu({ setPer_Page, per_Page }) {
     >
       <Flex direction={{ base: 'column', md: 'row' }}>
         <Filter />
-        <ResultsPerPage setPer_Page={setPer_Page} per_Page={per_Page} />
+        <ResultsPerPage
+          setPer_Page={setPer_Page}
+          per_Page={per_Page}
+          pageKey={pageKey}
+        />
       </Flex>
       <Flex
         mt={{ base: '1rem', xlg: '0' }}
