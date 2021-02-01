@@ -2,8 +2,9 @@ import { Table, Thead, Tr, Th, Td, Tbody, Box, Text } from '@chakra-ui/react';
 import PaginationTable from 'components/PaginationTable';
 import { CheckTipayIcon, ErrorTipayIcon } from 'styles/icons';
 import { formatDateTime } from 'utils/formatDate';
+import { formatPrice } from 'utils/formatPrice';
 
-export default function TableTransfers({ data }) {
+export default function TableTransfers({ data, setPage }) {
   return (
     <>
       <Box
@@ -25,16 +26,16 @@ export default function TableTransfers({ data }) {
             </Tr>
           </Thead>
           <Tbody>
-            {data?.map((item) => {
+            {data?.entries.map((item) => {
               return (
-                <Tr key={item.id}>
-                  <Td>{item.id}</Td>
-                  <Td>{formatDateTime(item.transfer_date)}</Td>
+                <Tr key={item?.id}>
+                  <Td>{item?.id}</Td>
+                  <Td>{formatDateTime(item?.transfer_date)}</Td>
                   <Td display="flex" alignItems="center">
-                    {statusIcon(item.status, item.status_detail)}
+                    {statusIcon(item?.status, item?.status_detail)}
                   </Td>
                   <Td fontWeight="semibold" px="0">
-                    {item.amount}
+                    {formatPrice(item?.amount)}
                   </Td>
                 </Tr>
               );
@@ -42,7 +43,7 @@ export default function TableTransfers({ data }) {
           </Tbody>
         </Table>
       </Box>
-      <PaginationTable />
+      <PaginationTable setPage={setPage} />
     </>
   );
 }

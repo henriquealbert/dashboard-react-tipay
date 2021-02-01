@@ -1,4 +1,5 @@
 import { Button, Flex } from '@chakra-ui/react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import Container from 'components/Container';
@@ -13,8 +14,13 @@ import TableSalesSkeleton from 'components/TableSalesSkeleton';
 import ErrorMessage from 'pages/ErrorMessage';
 
 export default function Boletos() {
+  // states
+  const [page, setPage] = useState(1);
+  const [per_Page, setPer_Page] = useState(25);
+
   const { data, error, isLoading, isError } = useTransactions(
-    '/payment_type=3'
+    '/payment_type=3',
+    `/${page}`
   );
 
   return (
@@ -41,10 +47,10 @@ export default function Boletos() {
         <Flex mt="1rem">
           <SalesStatus />
         </Flex>
-        <ToolsMenu />
+        <ToolsMenu setPer_Page={setPer_Page} per_Page={per_Page} />
         {isError && <ErrorMessage message={error.message} />}
         {isLoading && <TableSalesSkeleton />}
-        {data && <TableSales data={data?.entries} />}
+        {data && <TableSales data={data} setPage={setPage} />}
       </Container>
     </Layout>
   );

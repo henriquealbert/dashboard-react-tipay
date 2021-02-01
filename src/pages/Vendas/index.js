@@ -1,4 +1,5 @@
 import { Box } from '@chakra-ui/react';
+import { useState } from 'react';
 
 import Layout from 'components/Layout';
 import Container from 'components/Container';
@@ -12,9 +13,17 @@ import useTransactions from 'hooks/useTransactions';
 import ErrorMessage from 'pages/ErrorMessage';
 
 export default function Vendas() {
-  const { data, isError, error, isLoading } = useTransactions('/per_page=25');
+  // states
+  const [page, setPage] = useState(1);
+  const [per_Page, setPer_Page] = useState(25);
 
-  // console.log(data);
+  // query
+  const { data, isError, error, isLoading } = useTransactions(
+    `/per_page=${per_Page}`,
+    `/${page}`
+  );
+
+  console.log(data);
 
   return (
     <Layout>
@@ -32,10 +41,11 @@ export default function Vendas() {
           <SalesPercentages />
         </Box>
 
-        <ToolsMenu />
+        <ToolsMenu setPer_Page={setPer_Page} per_Page={per_Page} />
+
         {isError && <ErrorMessage message={error.message} />}
         {isLoading && <TableSalesSkeleton />}
-        {data && <TableSales data={data} />}
+        {data && <TableSales data={data} setPage={setPage} />}
       </Container>
     </Layout>
   );

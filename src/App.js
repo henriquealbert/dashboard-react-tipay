@@ -9,6 +9,7 @@ import { GlobalStyles } from 'styles/global';
 
 // react-query - data fetching
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
 import api from 'api';
 
 // auth
@@ -56,6 +57,7 @@ export default function App() {
         <Global styles={GlobalStyles} />
 
         <Routes />
+        <ReactQueryDevtools initialIsOpen={false} />
       </ChakraProvider>
     </QueryClientProvider>
   );

@@ -1,5 +1,6 @@
 import { Flex, Button } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 import Container from 'components/Container';
 import InnerMenu from 'components/InnerMenu';
@@ -13,6 +14,10 @@ import TableSalesSkeleton from 'components/TableSalesSkeleton';
 import ErrorMessage from 'pages/ErrorMessage';
 
 export default function LinkQRcode() {
+  // states
+  const [page, setPage] = useState(1);
+  const [per_Page, setPer_Page] = useState(25);
+
   const error = { message: 'error' };
   const isError = null;
   const isLoading = null;
@@ -46,10 +51,11 @@ export default function LinkQRcode() {
         <Flex mt="1rem">
           <SalesStatus />
         </Flex>
-        <ToolsMenu />
+        <ToolsMenu setPer_Page={setPer_Page} per_Page={per_Page} />
+
         {isError && <ErrorMessage message={error.message} />}
         {isLoading && <TableSalesSkeleton />}
-        {data && <TableQRCode data={data} />}
+        {data && <TableQRCode data={data} setPage={setPage} />}
       </Container>
     </Layout>
   );

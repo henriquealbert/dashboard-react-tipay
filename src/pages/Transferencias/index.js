@@ -1,4 +1,6 @@
 import { Flex } from '@chakra-ui/react';
+import { useState } from 'react';
+
 import Container from 'components/Container';
 import InnerMenu from 'components/InnerMenu';
 import Layout from 'components/Layout';
@@ -10,7 +12,14 @@ import useTransfers from 'hooks/useTransfers';
 import ErrorMessage from 'pages/ErrorMessage';
 
 export default function Transferencias() {
-  const { data, error, isError, isLoading } = useTransfers();
+  // states
+  const [page, setPage] = useState(1);
+  const [per_Page, setPer_Page] = useState(25);
+
+  const { data, error, isError, isLoading } = useTransfers(
+    `/per_page=${per_Page}`,
+    `/${page}`
+  );
 
   return (
     <Layout>
@@ -19,10 +28,11 @@ export default function Transferencias() {
         <Flex mt="1rem">
           <SalesStatus />
         </Flex>
-        <ToolsMenu />
+        <ToolsMenu setPer_Page={setPer_Page} per_Page={per_Page} />
+
         {isError && <ErrorMessage message={error.message} />}
         {isLoading && <TableSalesSkeleton />}
-        {data && <TableTransfers data={data?.entries} />}
+        {data && <TableTransfers data={data} setPage={setPage} />}
       </Container>
     </Layout>
   );
