@@ -1,9 +1,18 @@
 import { Button, Flex } from '@chakra-ui/react';
-import ExcelExport from 'components/ExcelExport';
-import PageTitle from 'components/PageTitle';
 import { useState } from 'react';
 
-import { CalendarioIcon } from 'styles/icons';
+import ExcelExport from 'components/ExcelExport';
+import PageTitle from 'components/PageTitle';
+import CustomDatePicker from './CustomDatePicker';
+
+import {
+  getToday,
+  getYesterday,
+  getLast7Day,
+  getLast15Day,
+  getLast30Day,
+  getLast3Months
+} from 'utils/formatDate';
 
 export default function InnerMenu({ pageTitle }) {
   const [active, setActive] = useState('3 meses');
@@ -16,6 +25,25 @@ export default function InnerMenu({ pageTitle }) {
     }
   };
 
+  // specific date
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(null);
+
+  const handleDateRange = (dates) => {
+    const [start, end] = dates;
+    setStartDate(start);
+    setEndDate(end);
+  };
+
+  const handleChange = () => {
+    console.log('hoje', getToday());
+    console.log('ontem', getYesterday());
+    console.log('7 dias', getLast7Day());
+    console.log('15 dias', getLast15Day());
+    console.log('30 dias', getLast30Day());
+    console.log('3 meses', getLast3Months());
+  };
+
   return (
     <Flex
       direction={{
@@ -24,13 +52,19 @@ export default function InnerMenu({ pageTitle }) {
       }}
       flexWrap={{ base: 'wrap', xxl: 'nowrap' }}
       w="100%"
+      h="auto"
+      position="relative"
     >
       <PageTitle>{pageTitle}</PageTitle>
-      <Flex overflowX={{ base: 'auto' }} w="100%" pb="1rem">
+      <Flex overflowX={{ base: 'auto' }} w="100%" pb="1rem" overflowY="hidden">
         <Button
           variant="outline"
           mr="0.875rem"
-          onClick={() => setActive('hoje')}
+          onClick={() => {
+            setActive('hoje');
+
+            handleChange();
+          }}
           isActive={handleActive('hoje')}
         >
           Hoje
@@ -75,14 +109,15 @@ export default function InnerMenu({ pageTitle }) {
         >
           Últimos 3 meses
         </Button>
-        <Button
-          variant="outline"
-          onClick={() => setActive('data')}
-          isActive={handleActive('data')}
-          mr={{ base: '4rem', xxl: 'auto' }}
-        >
-          Data Específica <CalendarioIcon ml="0.625rem" />
-        </Button>
+
+        <CustomDatePicker
+          setActive={setActive}
+          handleActive={handleActive}
+          startDate={startDate}
+          endDate={endDate}
+          onChange={handleDateRange}
+        />
+
         {pageTitle === 'Home' && <ExcelExport />}
       </Flex>
     </Flex>

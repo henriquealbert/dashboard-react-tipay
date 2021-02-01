@@ -1,20 +1,25 @@
-import { Box } from '@chakra-ui/react';
+import { Box, Flex } from '@chakra-ui/react';
 
 import Layout from 'components/Layout';
 import Container from 'components/Container';
-import HomeInnerMenu from 'components/InnerMenu/HomeInnerMenu';
 import SalesStatus from 'components/SalesStatus';
 import SalesPercentages from 'components/SalesPercentages';
 import SalesCredit from 'components/SalesCredit';
 import SalesByHour from 'components/SalesByHour';
 import SalesByIssuer from 'components/SalesByIssuer';
+import InnerMenu from 'components/InnerMenu';
 
 export default function Home() {
   return (
     <Layout>
       <Container>
         <Box mb="3.25rem">
-          <HomeInnerMenu />
+          <Flex
+            justifyContent={{ base: 'initial', xl: 'space-between' }}
+            direction={{ base: 'column', xl: 'row' }}
+          >
+            <InnerMenu pageTitle="Home" />
+          </Flex>
           <Box
             display={{ base: 'block', xl: 'grid' }}
             gridTemplateColumns={{ xl: '1fr 1fr', xxl: '2fr 1fr' }}

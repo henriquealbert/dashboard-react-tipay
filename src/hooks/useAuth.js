@@ -48,7 +48,6 @@ const AuthProvider = ({ children }) => {
   function handleUnauthorized() {
     if (user) {
       handleLogin(user?.email, user?.password);
-      console.log('rodou');
     }
     if (!user) {
       handleLogout();

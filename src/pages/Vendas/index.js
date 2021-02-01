@@ -23,8 +23,6 @@ export default function Vendas() {
     `/${page}`
   );
 
-  console.log(data);
-
   return (
     <Layout>
       <Container>
