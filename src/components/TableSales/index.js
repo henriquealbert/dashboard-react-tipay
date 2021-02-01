@@ -7,7 +7,7 @@ import { formatStatusColor, formatStatusLabel } from 'utils/formatStatusColor';
 import { formatPaymentType } from 'utils/formatPaymentType';
 import { formatPrice } from 'utils/formatPrice';
 
-export default function TableSales({ data, setPage, page }) {
+export default function TableSales({ data, setPage }) {
   return (
     <>
       <Box
@@ -52,7 +52,7 @@ export default function TableSales({ data, setPage, page }) {
           </Tbody>
         </Table>
       </Box>
-      <PaginationTable data={data} setPage={setPage} page={page} />
+      <PaginationTable data={data} setPage={setPage} />
     </>
   );
 }

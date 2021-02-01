@@ -15,7 +15,7 @@ import ErrorMessage from 'pages/ErrorMessage';
 
 export default function LinkQRcode() {
   // states
-  const [page, setPage] = useState(1);
+  const [, setPage] = useState(1);
   const [per_Page, setPer_Page] = useState(25);
 
   const error = { message: 'error' };
@@ -56,7 +56,7 @@ export default function LinkQRcode() {
 
         {isError && <ErrorMessage message={error.message} />}
         {isLoading && <TableSalesSkeleton />}
-        {data && <TableQRCode data={data} setPage={setPage} page={page} />}
+        {data && <TableQRCode data={data} setPage={setPage} />}
       </Container>
     </Layout>
   );

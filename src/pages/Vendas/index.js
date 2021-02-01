@@ -47,7 +47,7 @@ export default function Vendas() {
 
         {isError && <ErrorMessage message={error.message} />}
         {isLoading && <TableSalesSkeleton />}
-        {data && <TableSales data={data} setPage={setPage} page={page} />}
+        {data && <TableSales data={data} setPage={setPage} />}
       </Container>
     </Layout>
   );

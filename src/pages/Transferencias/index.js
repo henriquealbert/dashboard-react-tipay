@@ -37,7 +37,7 @@ export default function Transferencias() {
 
         {isError && <ErrorMessage message={error.message} />}
         {isLoading && <TableSalesSkeleton />}
-        {data && <TableTransfers data={data} setPage={setPage} page={page} />}
+        {data && <TableTransfers data={data} setPage={setPage} />}
       </Container>
     </Layout>
   );

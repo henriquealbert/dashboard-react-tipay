@@ -6,8 +6,6 @@ export default function GlobalLoader() {
 
   const isFetching = queryClient.isFetching();
 
-  console.log(isFetching);
-
   if (isFetching) {
     return <Spinner position="absolute" right="1rem" top="8rem" />;
   }

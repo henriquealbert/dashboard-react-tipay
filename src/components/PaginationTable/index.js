@@ -1,4 +1,4 @@
-import { Button, Flex } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 import {
   Paginator,
   Container,
@@ -7,7 +7,7 @@ import {
   PageGroup
 } from 'chakra-paginator';
 
-export default function PaginationTable({ data, setPage, page }) {
+export default function PaginationTable({ data, setPage }) {
   // Calculated or obtained from Backend
   const pagesQuantity = data?.page_count ? data?.page_count : 1;
   const outerLimit = 2;
@@ -29,22 +29,6 @@ export default function PaginationTable({ data, setPage, page }) {
         onPageChange={handlePageChange}
       >
         <Container>
-          <Button
-            h="3rem"
-            px="1rem"
-            bg="gray.1200"
-            border="0.063rem solid"
-            borderColor="gray.1300"
-            color="brand.200"
-            borderRadius="0.313rem 0 0 0.313rem"
-            _hover={{
-              bg: '#40474F',
-              color: 'white'
-            }}
-            disabled={page === 1 ? true : false}
-          >
-            Primeiro
-          </Button>
           <Previous
             h="3rem"
             px="1rem"
@@ -76,22 +60,6 @@ export default function PaginationTable({ data, setPage, page }) {
           >
             Próximo
           </Next>
-          <Button
-            h="3rem"
-            px="1rem"
-            bg="gray.1200"
-            border="0.063rem solid"
-            borderColor="gray.1300"
-            color="brand.200"
-            borderRadius="0 0.313rem 0.313rem 0"
-            _hover={{
-              bg: '#40474F',
-              color: 'white'
-            }}
-            disabled={page === pagesQuantity ? true : false}
-          >
-            Último
-          </Button>
         </Container>
       </Paginator>
     </Flex>

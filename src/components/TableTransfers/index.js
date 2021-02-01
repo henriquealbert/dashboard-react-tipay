@@ -4,7 +4,7 @@ import { CheckTipayIcon, ErrorTipayIcon } from 'styles/icons';
 import { formatDateTime } from 'utils/formatDate';
 import { formatPrice } from 'utils/formatPrice';
 
-export default function TableTransfers({ data, setPage, page }) {
+export default function TableTransfers({ data, setPage }) {
   return (
     <>
       <Box
@@ -43,7 +43,7 @@ export default function TableTransfers({ data, setPage, page }) {
           </Tbody>
         </Table>
       </Box>
-      <PaginationTable setPage={setPage} page={page} data={data} />
+      <PaginationTable setPage={setPage} data={data} />
     </>
   );
 }
