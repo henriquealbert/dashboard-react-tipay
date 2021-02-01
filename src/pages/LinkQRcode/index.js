@@ -56,7 +56,7 @@ export default function LinkQRcode() {
 
         {isError && <ErrorMessage message={error.message} />}
         {isLoading && <TableSalesSkeleton />}
-        {data && <TableQRCode data={data} setPage={setPage} />}
+        {data && <TableQRCode data={data} setPage={setPage} page={page} />}
       </Container>
     </Layout>
   );

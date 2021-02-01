@@ -55,7 +55,7 @@ export default function Boletos() {
 
         {isError && <ErrorMessage message={error.message} />}
         {isLoading && <TableSalesSkeleton />}
-        {data && <TableSales data={data} setPage={setPage} />}
+        {data && <TableSales data={data} setPage={setPage} page={page} />}
       </Container>
     </Layout>
   );

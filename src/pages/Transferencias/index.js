@@ -16,10 +16,11 @@ export default function Transferencias() {
   const [page, setPage] = useState(1);
   const [per_Page, setPer_Page] = useState(25);
 
-  const { data, error, isError, isLoading } = useTransfers(
-    `/per_page=${per_Page}`,
-    `/${page}`
-  );
+  // const { data, error, isError, isLoading } = useTransfers(
+  //   `/per_page=${per_Page}`,
+  //   `/${page}`
+  // );
+  const { data, error, isError, isLoading } = useTransfers('', `/${page}`);
 
   return (
     <Layout>
@@ -31,12 +32,12 @@ export default function Transferencias() {
         <ToolsMenu
           setPer_Page={setPer_Page}
           per_Page={per_Page}
-          pageKey="transactions"
+          pageKey="transfers"
         />
 
         {isError && <ErrorMessage message={error.message} />}
         {isLoading && <TableSalesSkeleton />}
-        {data && <TableTransfers data={data} setPage={setPage} />}
+        {data && <TableTransfers data={data} setPage={setPage} page={page} />}
       </Container>
     </Layout>
   );

@@ -4,7 +4,7 @@ import { CheckTipayIcon, QuestionTipayIcon } from 'styles/icons';
 
 import ModalDetailLinkSale from 'components/ModalDetailLinkSale';
 
-export default function TableQRCode({ data }) {
+export default function TableQRCode({ data, setPage, page }) {
   return (
     <>
       <Box
@@ -52,7 +52,7 @@ export default function TableQRCode({ data }) {
           </Tbody>
         </Table>
       </Box>
-      <PaginationTable />
+      <PaginationTable data={data} setPage={setPage} page={page} />
     </>
   );
 }

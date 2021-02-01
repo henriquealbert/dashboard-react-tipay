@@ -1,4 +1,4 @@
-import { Flex } from '@chakra-ui/react';
+import { Button, Flex } from '@chakra-ui/react';
 import {
   Paginator,
   Container,
@@ -7,15 +7,15 @@ import {
   PageGroup
 } from 'chakra-paginator';
 
-export default function PaginationTable({ data, setPage }) {
+export default function PaginationTable({ data, setPage, page }) {
   // Calculated or obtained from Backend
-  const pagesQuantity = data?.page_count;
+  const pagesQuantity = data?.page_count ? data?.page_count : 1;
   const outerLimit = 2;
   const innerLimit = 2;
 
-  const handlePageChange = (page) => {
+  const handlePageChange = (currentPage) => {
     // -> request new data using the page number
-    setPage(page);
+    setPage(currentPage);
   };
 
   return (
@@ -29,8 +29,24 @@ export default function PaginationTable({ data, setPage }) {
         onPageChange={handlePageChange}
       >
         <Container>
+          <Button
+            h="3rem"
+            px="1rem"
+            bg="gray.1200"
+            border="0.063rem solid"
+            borderColor="gray.1300"
+            color="brand.200"
+            borderRadius="0.313rem 0 0 0.313rem"
+            _hover={{
+              bg: '#40474F',
+              color: 'white'
+            }}
+            disabled={page === 1 ? true : false}
+          >
+            Primeiro
+          </Button>
           <Previous
-            h="3.75rem"
+            h="3rem"
             px="1rem"
             bg="gray.1200"
             border="0.063rem solid"
@@ -46,7 +62,7 @@ export default function PaginationTable({ data, setPage }) {
           </Previous>
           <PageGroup isInline align="center" spacing="0" />
           <Next
-            h="3.75rem"
+            h="3rem"
             px="1rem"
             bg="gray.1200"
             border="0.063rem solid"
@@ -60,6 +76,22 @@ export default function PaginationTable({ data, setPage }) {
           >
             Próximo
           </Next>
+          <Button
+            h="3rem"
+            px="1rem"
+            bg="gray.1200"
+            border="0.063rem solid"
+            borderColor="gray.1300"
+            color="brand.200"
+            borderRadius="0 0.313rem 0.313rem 0"
+            _hover={{
+              bg: '#40474F',
+              color: 'white'
+            }}
+            disabled={page === pagesQuantity ? true : false}
+          >
+            Último
+          </Button>
         </Container>
       </Paginator>
     </Flex>
@@ -73,8 +105,8 @@ const normalStyles = {
   border: '0.063rem solid',
   borderColor: 'gray.1300',
   padding: '1.125rem 1.625rem',
-  width: '3.75rem',
-  height: '3.75rem',
+  width: '3rem',
+  height: '3rem',
   borderRadius: '0',
   cursor: 'pointer',
   _hover: {
@@ -88,8 +120,8 @@ const activeStyles = {
   color: 'white',
   bg: 'linear-gradient(180deg, #0A172D 0%, #40474F 100%)',
   padding: '1.125rem 1.625rem',
-  width: '3.75rem',
-  height: '3.75rem',
+  width: '3rem',
+  height: '3rem',
   borderRadius: '0',
   cursor: 'pointer',
   _hover: {
