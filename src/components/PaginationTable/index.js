@@ -8,9 +8,9 @@ import {
   generatePages
 } from 'chakra-paginator';
 
-export default function PaginationTable() {
+export default function PaginationTable({ data }) {
   // Calculated or obtained from Backend
-  const pagesQuantity = 5;
+  const pagesQuantity = data?.page_count;
 
   // styles
   const normalStyles = {

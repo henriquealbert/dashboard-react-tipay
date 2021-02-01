@@ -12,7 +12,9 @@ import useTransactions from 'hooks/useTransactions';
 import ErrorMessage from 'pages/ErrorMessage';
 
 export default function Vendas() {
-  const { data, isError, error, isLoading } = useTransactions();
+  const { data, isError, error, isLoading } = useTransactions('/per_page=25');
+
+  // console.log(data);
 
   return (
     <Layout>
@@ -33,7 +35,7 @@ export default function Vendas() {
         <ToolsMenu />
         {isError && <ErrorMessage message={error.message} />}
         {isLoading && <TableSalesSkeleton />}
-        {data && <TableSales data={data?.entries} />}
+        {data && <TableSales data={data} />}
       </Container>
     </Layout>
   );

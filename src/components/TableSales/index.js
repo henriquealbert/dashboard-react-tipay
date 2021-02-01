@@ -5,8 +5,10 @@ import PaginationTable from 'components/PaginationTable';
 import { formatDateTime } from 'utils/formatDate';
 import { formatStatusColor, formatStatusLabel } from 'utils/formatStatusColor';
 import { formatPaymentType } from 'utils/formatPaymentType';
+import { formatPrice } from 'utils/formatPrice';
 
 export default function TableSales({ data }) {
+  console.log(data);
   return (
     <>
       <Box
@@ -31,13 +33,13 @@ export default function TableSales({ data }) {
             </Tr>
           </Thead>
           <Tbody>
-            {data?.map((item) => {
+            {data?.entries.map((item) => {
               return (
                 <Tr key={item?.id}>
                   <Td>{item?.id}</Td>
                   <Td maxW="365px">{item?.holder_name}</Td>
                   <Td>{formatDateTime(item?.dt_payment_br)}</Td>
-                  <Td>{item?.value}</Td>
+                  <Td>{formatPrice(item?.value)}</Td>
                   <Td color={formatStatusColor(item?.status)}>
                     {formatStatusLabel(item?.status)}
                   </Td>
@@ -51,7 +53,7 @@ export default function TableSales({ data }) {
           </Tbody>
         </Table>
       </Box>
-      <PaginationTable />
+      <PaginationTable data={data} />
     </>
   );
 }
