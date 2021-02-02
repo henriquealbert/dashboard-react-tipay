@@ -16,3 +16,15 @@ export const formatPaymentType = (payment) => {
     return 'Débito';
   }
 };
+
+export const formatPaymentTypeString = (payment) => {
+  if (payment === 3) {
+    return 'Boleto';
+  }
+  if (payment === 2) {
+    return 'Crédito';
+  }
+  if (payment === 1) {
+    return 'Débito';
+  }
+};

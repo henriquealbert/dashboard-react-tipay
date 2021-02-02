@@ -14,12 +14,14 @@ import TableSalesSkeleton from 'components/TableSalesSkeleton';
 import ErrorMessage from 'pages/ErrorMessage';
 
 export default function Boletos() {
+  // print
   const printRef = useRef();
+  // table csv
+  const [csv, setCsv] = useState([]);
 
-  // states
+  // query
   const [page, setPage] = useState(1);
   const [per_Page, setPer_Page] = useState(25);
-
   const { data, error, isLoading, isError } = useTransactions(
     `/payment_type=3/per_page=${per_Page}`,
     `/${page}`
@@ -55,6 +57,8 @@ export default function Boletos() {
           pageKey="transactions"
           tableID="table_boleto"
           componentRef={printRef}
+          csv={csv}
+          csvFilename="tipay_boletos.csv"
         />
 
         {isError && <ErrorMessage message={error.message} />}
@@ -65,6 +69,7 @@ export default function Boletos() {
             ref={printRef}
             data={data}
             setPage={setPage}
+            setCsv={setCsv}
           />
         )}
       </Container>

@@ -13,13 +13,13 @@ import useTransactions from 'hooks/useTransactions';
 import ErrorMessage from 'pages/ErrorMessage';
 
 export default function Vendas() {
+  // print
   const printRef = useRef();
-
-  // states
+  // table csv
+  const [csv, setCsv] = useState([]);
+  // query
   const [page, setPage] = useState(1);
   const [per_Page, setPer_Page] = useState(25);
-
-  // query
   const { data, isError, error, isLoading } = useTransactions(
     `/per_page=${per_Page}`,
     `/${page}`
@@ -48,6 +48,8 @@ export default function Vendas() {
           pageKey="transactions"
           tableID="table_sales"
           componentRef={printRef}
+          csv={csv}
+          csvFilename="tipay_sales.csv"
         />
 
         {isError && <ErrorMessage message={error.message} />}
@@ -58,6 +60,7 @@ export default function Vendas() {
             ref={printRef}
             data={data}
             setPage={setPage}
+            setCsv={setCsv}
           />
         )}
       </Container>

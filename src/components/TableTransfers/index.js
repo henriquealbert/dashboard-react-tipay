@@ -1,11 +1,21 @@
 import { Table, Thead, Tr, Th, Td, Tbody, Box, Text } from '@chakra-ui/react';
 import PaginationTable from 'components/PaginationTable';
-import { forwardRef } from 'react';
+import { forwardRef, useEffect } from 'react';
 import { CheckTipayIcon, ErrorTipayIcon } from 'styles/icons';
 import { formatDateTime } from 'utils/formatDate';
 import { formatPrice } from 'utils/formatPrice';
 
-function TableTransfers({ id, data, setPage }, ref) {
+function TableTransfers({ id, data, setPage, setCsv }, ref) {
+  useEffect(() => {
+    const generateCsv = data?.entries.map((item) => ({
+      Identificação: item?.id,
+      Data: formatDateTime(item?.transfer_date),
+      Status: statusText(item?.status, item?.status_detail),
+      Valor: formatPrice(item?.amount)
+    }));
+    setCsv(generateCsv);
+  }, [data, setCsv]);
+
   return (
     <>
       <Box
@@ -74,5 +84,15 @@ const statusIcon = (status, status_detail) => {
           </Text>
         </>
       );
+  }
+};
+
+const statusText = (status, status_detail) => {
+  switch (status) {
+    case 0:
+      return 'Transferência Recusada.';
+
+    case 1:
+      return status_detail;
   }
 };

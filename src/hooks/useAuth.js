@@ -20,7 +20,11 @@ const AuthProvider = ({ children }) => {
         store: { email, password, id_partner: 1 }
       });
 
-      const { token } = response.data;
+      if (response.status !== 200) {
+        throw response;
+      }
+
+      const token = response?.data?.token;
 
       const inTenMinutes = new Date(new Date().getTime() + 10 * 60 * 1000);
       Cookies.set('tipay_token', token, {

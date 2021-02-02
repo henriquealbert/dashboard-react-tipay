@@ -11,7 +11,9 @@ export default function ToolsMenu({
   per_Page,
   pageKey,
   tableID,
-  componentRef
+  componentRef,
+  csv,
+  csvFilename
 }) {
   return (
     <Flex
@@ -35,7 +37,12 @@ export default function ToolsMenu({
         justifyContent={{ md: 'center' }}
       >
         <CopyBtn size="lg" m="0 12px 0 0" tableID={tableID} />
-        <ExcelExport size="lg" m="0 12px 0 0" />
+        <ExcelExport
+          size="lg"
+          m="0 12px 0 0"
+          csv={csv}
+          csvFilename={csvFilename}
+        />
         <PrintBtn size="lg" componentRef={componentRef} />
       </Flex>
     </Flex>

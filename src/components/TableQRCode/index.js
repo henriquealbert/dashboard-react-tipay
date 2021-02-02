@@ -3,9 +3,20 @@ import PaginationTable from 'components/PaginationTable';
 import { CheckTipayIcon, QuestionTipayIcon } from 'styles/icons';
 
 import ModalDetailLinkSale from 'components/ModalDetailLinkSale';
-import { forwardRef } from 'react';
+import { forwardRef, useEffect } from 'react';
 
-function TableQRCode({ id, data, setPage }, ref) {
+function TableQRCode({ id, data, setPage, setCsv }, ref) {
+  useEffect(() => {
+    // const generateCsv = data?.entries?.map((item) => ({
+    //   Identificação: item?.id,
+    //   Pagador: item?.holder_name,
+    //   Data: 'formatDateTime(item?.dt_payment_br)',
+    //   Valor: 'formatPrice(item?.value)',
+    //   'Pagamento por link': ''
+    // }));
+    setCsv('generateCsv');
+  }, [data, setCsv]);
+
   return (
     <>
       <Box

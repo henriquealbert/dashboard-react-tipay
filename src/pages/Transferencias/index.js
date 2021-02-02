@@ -12,9 +12,12 @@ import useTransfers from 'hooks/useTransfers';
 import ErrorMessage from 'pages/ErrorMessage';
 
 export default function Transferencias() {
+  // print
   const printRef = useRef();
+  // table csv
+  const [csv, setCsv] = useState([]);
 
-  // states
+  // query
   const [page, setPage] = useState(1);
   const [per_Page, setPer_Page] = useState(25);
 
@@ -37,6 +40,8 @@ export default function Transferencias() {
           pageKey="transfers"
           tableID="table_transfers"
           componentRef={printRef}
+          csv={csv}
+          csvFilename="tipay_transfers.csv"
         />
 
         {isError && <ErrorMessage message={error.message} />}
@@ -47,6 +52,7 @@ export default function Transferencias() {
             ref={printRef}
             data={data}
             setPage={setPage}
+            setCsv={setCsv}
           />
         )}
       </Container>

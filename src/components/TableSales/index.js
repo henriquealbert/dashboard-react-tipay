@@ -1,14 +1,29 @@
-import { forwardRef } from 'react';
+import { forwardRef, useEffect } from 'react';
 import { Table, Thead, Tr, Th, Td, Tbody, Box } from '@chakra-ui/react';
 
 import ModalDetailSale from 'components/ModalDetailSale';
 import PaginationTable from 'components/PaginationTable';
 import { formatDateTime } from 'utils/formatDate';
 import { formatStatusColor, formatStatusLabel } from 'utils/formatStatusColor';
-import { formatPaymentType } from 'utils/formatPaymentType';
+import {
+  formatPaymentType,
+  formatPaymentTypeString
+} from 'utils/formatPaymentType';
 import { formatPrice } from 'utils/formatPrice';
 
-function TableSales({ id, data, setPage }, ref) {
+function TableSales({ id, data, setPage, setCsv }, ref) {
+  useEffect(() => {
+    const generateCsv = data?.entries.map((item) => ({
+      Identificação: item?.id,
+      Pagador: item?.holder_name,
+      Data: formatDateTime(item?.dt_payment_br),
+      Valor: formatPrice(item?.value),
+      Status: formatStatusLabel(item?.status),
+      Pagamento: formatPaymentTypeString(item?.payment_type)
+    }));
+    setCsv(generateCsv);
+  }, [data, setCsv]);
+
   return (
     <>
       <Box

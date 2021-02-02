@@ -14,9 +14,12 @@ import TableSalesSkeleton from 'components/TableSalesSkeleton';
 import ErrorMessage from 'pages/ErrorMessage';
 
 export default function LinkQRcode() {
+  // print
   const printRef = useRef();
+  // table csv
+  const [csv, setCsv] = useState([]);
 
-  // states
+  // query
   const [, setPage] = useState(1);
   const [per_Page, setPer_Page] = useState(25);
 
@@ -60,6 +63,8 @@ export default function LinkQRcode() {
           pageKey=""
           tableID="table_qrcode"
           componentRef={printRef}
+          csv={csv}
+          csvFilename="tipay_links_qrcode.csv"
         />
 
         {isError && <ErrorMessage message={error.message} />}
@@ -70,6 +75,7 @@ export default function LinkQRcode() {
             ref={printRef}
             data={data}
             setPage={setPage}
+            setCsv={setCsv}
           />
         )}
       </Container>
