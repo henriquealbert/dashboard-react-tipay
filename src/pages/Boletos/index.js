@@ -51,11 +51,12 @@ export default function Boletos() {
           setPer_Page={setPer_Page}
           per_Page={per_Page}
           pageKey="transactions"
+          tableID="table_boleto"
         />
 
         {isError && <ErrorMessage message={error.message} />}
         {isLoading && <TableSalesSkeleton />}
-        {data && <TableSales data={data} setPage={setPage} />}
+        {data && <TableSales id="table_boleto" data={data} setPage={setPage} />}
       </Container>
     </Layout>
   );

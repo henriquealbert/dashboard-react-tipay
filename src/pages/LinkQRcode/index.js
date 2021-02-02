@@ -52,11 +52,18 @@ export default function LinkQRcode() {
           <SalesStatus />
         </Flex>
 
-        <ToolsMenu setPer_Page={setPer_Page} per_Page={per_Page} pageKey="" />
+        <ToolsMenu
+          setPer_Page={setPer_Page}
+          per_Page={per_Page}
+          pageKey=""
+          tableID="table_qrcode"
+        />
 
         {isError && <ErrorMessage message={error.message} />}
         {isLoading && <TableSalesSkeleton />}
-        {data && <TableQRCode data={data} setPage={setPage} />}
+        {data && (
+          <TableQRCode id="table_qrcode" data={data} setPage={setPage} />
+        )}
       </Container>
     </Layout>
   );

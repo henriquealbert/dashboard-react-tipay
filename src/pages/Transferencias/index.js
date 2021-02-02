@@ -33,11 +33,14 @@ export default function Transferencias() {
           setPer_Page={setPer_Page}
           per_Page={per_Page}
           pageKey="transfers"
+          tableID="table_transfers"
         />
 
         {isError && <ErrorMessage message={error.message} />}
         {isLoading && <TableSalesSkeleton />}
-        {data && <TableTransfers data={data} setPage={setPage} />}
+        {data && (
+          <TableTransfers id="table_transfers" data={data} setPage={setPage} />
+        )}
       </Container>
     </Layout>
   );

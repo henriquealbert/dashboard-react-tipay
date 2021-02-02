@@ -1,4 +1,4 @@
-import { Box, Flex } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 
 import Layout from 'components/Layout';
 import Container from 'components/Container';
@@ -14,12 +14,8 @@ export default function Home() {
     <Layout>
       <Container>
         <Box mb="3.25rem">
-          <Flex
-            justifyContent={{ base: 'initial', xl: 'space-between' }}
-            direction={{ base: 'column', xl: 'row' }}
-          >
-            <InnerMenu pageTitle="Home" />
-          </Flex>
+          <InnerMenu pageTitle="Home" />
+
           <Box
             display={{ base: 'block', xl: 'grid' }}
             gridTemplateColumns={{ xl: '1fr 1fr', xxl: '2fr 1fr' }}

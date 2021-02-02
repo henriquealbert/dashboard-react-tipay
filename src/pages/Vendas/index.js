@@ -43,11 +43,12 @@ export default function Vendas() {
           setPer_Page={setPer_Page}
           per_Page={per_Page}
           pageKey="transactions"
+          tableID="table_sales"
         />
 
         {isError && <ErrorMessage message={error.message} />}
         {isLoading && <TableSalesSkeleton />}
-        {data && <TableSales data={data} setPage={setPage} />}
+        {data && <TableSales id="table_sales" data={data} setPage={setPage} />}
       </Container>
     </Layout>
   );

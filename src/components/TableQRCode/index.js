@@ -4,10 +4,11 @@ import { CheckTipayIcon, QuestionTipayIcon } from 'styles/icons';
 
 import ModalDetailLinkSale from 'components/ModalDetailLinkSale';
 
-export default function TableQRCode({ data, setPage }) {
+export default function TableQRCode({ id, data, setPage }) {
   return (
     <>
       <Box
+        id={id}
         bg="white"
         borderRadius="0.625rem"
         boxShadow="0rem 0.188rem 0.625rem #0000000A"

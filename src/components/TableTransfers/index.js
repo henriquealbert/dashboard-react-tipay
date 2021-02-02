@@ -4,10 +4,11 @@ import { CheckTipayIcon, ErrorTipayIcon } from 'styles/icons';
 import { formatDateTime } from 'utils/formatDate';
 import { formatPrice } from 'utils/formatPrice';
 
-export default function TableTransfers({ data, setPage }) {
+export default function TableTransfers({ id, data, setPage }) {
   return (
     <>
       <Box
+        id={id}
         bg="white"
         borderRadius="0.625rem"
         boxShadow="0rem 0.188rem 0.625rem #0000000A"

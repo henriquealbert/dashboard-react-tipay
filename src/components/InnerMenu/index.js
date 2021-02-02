@@ -1,4 +1,4 @@
-import { Button, Flex } from '@chakra-ui/react';
+import { Box, Button, Flex } from '@chakra-ui/react';
 import { useState } from 'react';
 
 import ExcelExport from 'components/ExcelExport';
@@ -109,15 +109,15 @@ export default function InnerMenu({ pageTitle }) {
         >
           Últimos 3 meses
         </Button>
-
-        <CustomDatePicker
-          setActive={setActive}
-          handleActive={handleActive}
-          startDate={startDate}
-          endDate={endDate}
-          onChange={handleDateRange}
-        />
-
+        <Box mr="auto">
+          <CustomDatePicker
+            setActive={setActive}
+            handleActive={handleActive}
+            startDate={startDate}
+            endDate={endDate}
+            onChange={handleDateRange}
+          />
+        </Box>
         {pageTitle === 'Home' && <ExcelExport />}
       </Flex>
     </Flex>

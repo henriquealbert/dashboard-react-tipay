@@ -7,10 +7,11 @@ import { formatStatusColor, formatStatusLabel } from 'utils/formatStatusColor';
 import { formatPaymentType } from 'utils/formatPaymentType';
 import { formatPrice } from 'utils/formatPrice';
 
-export default function TableSales({ data, setPage }) {
+export default function TableSales({ id, data, setPage }) {
   return (
     <>
       <Box
+        id={id}
         bg="white"
         borderRadius="0.625rem"
         boxShadow="0rem 0.188rem 0.625rem #0000000A"

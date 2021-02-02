@@ -8,7 +8,9 @@ const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
   const [authenticated, setAuthenticated] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({});
+
+  console.log(user);
 
   const history = useHistory();
 
@@ -45,11 +47,11 @@ const AuthProvider = ({ children }) => {
     setAuthenticated(false);
   }
 
-  function handleUnauthorized() {
-    if (user) {
-      handleLogin(user?.email, user?.password);
+  async function handleUnauthorized() {
+    if (user.email) {
+      await handleLogin(user.email, user.password);
     }
-    if (!user) {
+    if (!user.email) {
       handleLogout();
     }
   }
