@@ -1,5 +1,5 @@
 import { Box } from '@chakra-ui/react';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 import Layout from 'components/Layout';
 import Container from 'components/Container';
@@ -13,6 +13,8 @@ import useTransactions from 'hooks/useTransactions';
 import ErrorMessage from 'pages/ErrorMessage';
 
 export default function Vendas() {
+  const printRef = useRef();
+
   // states
   const [page, setPage] = useState(1);
   const [per_Page, setPer_Page] = useState(25);
@@ -27,6 +29,7 @@ export default function Vendas() {
     <Layout>
       <Container>
         <InnerMenu pageTitle="Vendas" />
+
         <Box
           display={{ base: 'block', xl: 'grid' }}
           gridTemplateColumns={{ xl: '1fr 1fr', xxl: '2fr 1fr' }}
@@ -44,11 +47,19 @@ export default function Vendas() {
           per_Page={per_Page}
           pageKey="transactions"
           tableID="table_sales"
+          componentRef={printRef}
         />
 
         {isError && <ErrorMessage message={error.message} />}
         {isLoading && <TableSalesSkeleton />}
-        {data && <TableSales id="table_sales" data={data} setPage={setPage} />}
+        {data && (
+          <TableSales
+            id="table_sales"
+            ref={printRef}
+            data={data}
+            setPage={setPage}
+          />
+        )}
       </Container>
     </Layout>
   );

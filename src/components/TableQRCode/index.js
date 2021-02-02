@@ -3,8 +3,9 @@ import PaginationTable from 'components/PaginationTable';
 import { CheckTipayIcon, QuestionTipayIcon } from 'styles/icons';
 
 import ModalDetailLinkSale from 'components/ModalDetailLinkSale';
+import { forwardRef } from 'react';
 
-export default function TableQRCode({ id, data, setPage }) {
+function TableQRCode({ id, data, setPage }, ref) {
   return (
     <>
       <Box
@@ -16,6 +17,7 @@ export default function TableQRCode({ id, data, setPage }) {
         px="2.188rem"
         overflowX="auto"
         h="100%"
+        ref={ref}
       >
         <Table variant="sales" size="lg">
           <Thead>
@@ -57,3 +59,5 @@ export default function TableQRCode({ id, data, setPage }) {
     </>
   );
 }
+
+export default forwardRef(TableQRCode);

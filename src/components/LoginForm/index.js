@@ -47,6 +47,14 @@ export default function LoginForm() {
       setError('email', errorMessage);
       setError('password', errorMessage);
     }
+    if (result?.message) {
+      const errorMessage = {
+        type: 'server',
+        message: 'Erro ao conectar com o servidor. Tente novamente mais tarde.'
+      };
+      setError('email', errorMessage);
+      setError('password', errorMessage);
+    }
   };
 
   return (

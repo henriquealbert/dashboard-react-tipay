@@ -1,10 +1,11 @@
 import { Table, Thead, Tr, Th, Td, Tbody, Box, Text } from '@chakra-ui/react';
 import PaginationTable from 'components/PaginationTable';
+import { forwardRef } from 'react';
 import { CheckTipayIcon, ErrorTipayIcon } from 'styles/icons';
 import { formatDateTime } from 'utils/formatDate';
 import { formatPrice } from 'utils/formatPrice';
 
-export default function TableTransfers({ id, data, setPage }) {
+function TableTransfers({ id, data, setPage }, ref) {
   return (
     <>
       <Box
@@ -16,6 +17,7 @@ export default function TableTransfers({ id, data, setPage }) {
         px="2.188rem"
         overflowX="auto"
         h="100%"
+        ref={ref}
       >
         <Table variant="sales" size="lg">
           <Thead>
@@ -48,6 +50,8 @@ export default function TableTransfers({ id, data, setPage }) {
     </>
   );
 }
+
+export default forwardRef(TableTransfers);
 
 const statusIcon = (status, status_detail) => {
   switch (status) {

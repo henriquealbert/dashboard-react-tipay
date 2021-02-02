@@ -1,9 +1,9 @@
 import { Box, Button, Flex } from '@chakra-ui/react';
 import { useState } from 'react';
 
-import ExcelExport from 'components/ExcelExport';
 import PageTitle from 'components/PageTitle';
 import CustomDatePicker from './CustomDatePicker';
+import PrintBtn from 'components/PrintBtn';
 
 import {
   getToday,
@@ -14,7 +14,7 @@ import {
   getLast3Months
 } from 'utils/formatDate';
 
-export default function InnerMenu({ pageTitle }) {
+export default function InnerMenu({ pageTitle, componentRef }) {
   const [active, setActive] = useState('3 meses');
 
   const handleActive = (label) => {
@@ -118,7 +118,7 @@ export default function InnerMenu({ pageTitle }) {
             onChange={handleDateRange}
           />
         </Box>
-        {pageTitle === 'Home' && <ExcelExport />}
+        {pageTitle === 'Home' && <PrintBtn componentRef={componentRef} />}
       </Flex>
     </Flex>
   );

@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import { Table, Thead, Tr, Th, Td, Tbody, Box } from '@chakra-ui/react';
 
 import ModalDetailSale from 'components/ModalDetailSale';
@@ -7,7 +8,7 @@ import { formatStatusColor, formatStatusLabel } from 'utils/formatStatusColor';
 import { formatPaymentType } from 'utils/formatPaymentType';
 import { formatPrice } from 'utils/formatPrice';
 
-export default function TableSales({ id, data, setPage }) {
+function TableSales({ id, data, setPage }, ref) {
   return (
     <>
       <Box
@@ -19,6 +20,7 @@ export default function TableSales({ id, data, setPage }) {
         px="2.188rem"
         overflowX="auto"
         h="100%"
+        ref={ref}
       >
         <Table variant="sales" size="lg">
           <Thead>
@@ -57,3 +59,5 @@ export default function TableSales({ id, data, setPage }) {
     </>
   );
 }
+
+export default forwardRef(TableSales);

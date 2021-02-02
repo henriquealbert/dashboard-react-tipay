@@ -1,5 +1,5 @@
 import { Button, Flex } from '@chakra-ui/react';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import Container from 'components/Container';
@@ -14,6 +14,8 @@ import TableSalesSkeleton from 'components/TableSalesSkeleton';
 import ErrorMessage from 'pages/ErrorMessage';
 
 export default function Boletos() {
+  const printRef = useRef();
+
   // states
   const [page, setPage] = useState(1);
   const [per_Page, setPer_Page] = useState(25);
@@ -52,11 +54,19 @@ export default function Boletos() {
           per_Page={per_Page}
           pageKey="transactions"
           tableID="table_boleto"
+          componentRef={printRef}
         />
 
         {isError && <ErrorMessage message={error.message} />}
         {isLoading && <TableSalesSkeleton />}
-        {data && <TableSales id="table_boleto" data={data} setPage={setPage} />}
+        {data && (
+          <TableSales
+            id="table_boleto"
+            ref={printRef}
+            data={data}
+            setPage={setPage}
+          />
+        )}
       </Container>
     </Layout>
   );

@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import { Box } from '@chakra-ui/react';
 
 import Layout from 'components/Layout';
@@ -10,33 +11,37 @@ import SalesByIssuer from 'components/SalesByIssuer';
 import InnerMenu from 'components/InnerMenu';
 
 export default function Home() {
+  const printRef = useRef();
+
   return (
     <Layout>
       <Container>
         <Box mb="3.25rem">
-          <InnerMenu pageTitle="Home" />
+          <InnerMenu pageTitle="Home" componentRef={printRef} />
 
-          <Box
-            display={{ base: 'block', xl: 'grid' }}
-            gridTemplateColumns={{ xl: '1fr 1fr', xxl: '2fr 1fr' }}
-            gridGap={{ xl: '1.313rem' }}
-            w="100%"
-            mt={{ base: '2rem', xl: '45px' }}
-          >
-            <SalesStatus />
-            <SalesPercentages />
-          </Box>
-          <Box
-            display={{ base: 'block', xxl: 'grid' }}
-            gridTemplateColumns={{ xxl: '2fr 1fr' }}
-            gridGap={{ xxl: '1.313rem' }}
-            w="100%"
-          >
-            <Box>
-              <SalesCredit />
-              <SalesByHour />
+          <Box bg="gray.200" ref={printRef}>
+            <Box
+              display={{ base: 'block', xl: 'grid' }}
+              gridTemplateColumns={{ xl: '1fr 1fr', xxl: '2fr 1fr' }}
+              gridGap={{ xl: '1.313rem' }}
+              w="100%"
+              mt={{ base: '2rem', xl: '45px' }}
+            >
+              <SalesStatus />
+              <SalesPercentages />
             </Box>
-            <SalesByIssuer />
+            <Box
+              display={{ base: 'block', xxl: 'grid' }}
+              gridTemplateColumns={{ xxl: '2fr 1fr' }}
+              gridGap={{ xxl: '1.313rem' }}
+              w="100%"
+            >
+              <Box>
+                <SalesCredit />
+                <SalesByHour />
+              </Box>
+              <SalesByIssuer />
+            </Box>
           </Box>
         </Box>
       </Container>
