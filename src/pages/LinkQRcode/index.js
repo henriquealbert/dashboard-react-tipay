@@ -9,9 +9,9 @@ import SalesStatus from 'components/SalesStatus';
 import TableQRCode from 'components/TableQRCode';
 import ToolsMenu from 'components/ToolsMenu';
 import { LinkQRCodeIcon } from 'styles/icons';
-import { link as data } from 'db';
 import TableSalesSkeleton from 'components/TableSalesSkeleton';
 import ErrorMessage from 'pages/ErrorMessage';
+import useLinks from 'hooks/useLinks';
 
 export default function LinkQRcode() {
   // print
@@ -20,12 +20,13 @@ export default function LinkQRcode() {
   const [csv, setCsv] = useState([]);
 
   // query
-  const [, setPage] = useState(1);
+  const [page, setPage] = useState(1);
   const [per_Page, setPer_Page] = useState(25);
 
-  const error = { message: 'error' };
-  const isError = null;
-  const isLoading = null;
+  const { data, isError, error, isLoading } = useLinks(
+    `/per_page=${per_Page}`,
+    `/${page}`
+  );
 
   return (
     <Layout>

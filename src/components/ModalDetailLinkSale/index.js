@@ -70,10 +70,10 @@ export default function ModalDetailLinkSale({ data }) {
                 >
                   <FormControl id="link" mb="3rem">
                     <FormLabel fontWeight="bold">Link ativado</FormLabel>
-                    <Switch size="lg" isChecked={data?.active_url} />
+                    <Switch size="lg" isChecked={data?.is_active} />
                   </FormControl>
 
-                  <InputLink label="Link" url={data?.url} />
+                  <InputLink label="Link" url={data?.link} />
                 </Box>
               </Flex>
             </Box>

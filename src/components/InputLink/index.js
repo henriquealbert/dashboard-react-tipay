@@ -1,9 +1,4 @@
-import {
-  InputGroup,
-  FormLabel,
-  Input,
-  InputRightAddon
-} from '@chakra-ui/react';
+import { InputGroup, FormLabel, Button, Text, Flex } from '@chakra-ui/react';
 import { CopyIcon } from 'styles/icons';
 
 export default function InputLink({ url, label }) {
@@ -21,22 +16,36 @@ export default function InputLink({ url, label }) {
       >
         {label}
       </FormLabel>
-      <Input
-        placeholder="mysite"
+      <Flex
         h="5rem"
+        w="100%"
         border="0.125rem solid"
         borderColor="gray.1100"
-        borderRadius="0.625rem"
+        borderRadius="0.625rem 0 0 0.625rem"
         isReadOnly
-        value={url}
         fontSize="1.125rem"
         lineHeight="1.375rem"
         textDecoration="underline"
         color="#002387"
-        cursor="default"
         pl="1.625rem"
-      />
-      <InputRightAddon
+        alignItems="center"
+        textOverflow="ellipsis"
+        whiteSpace="nowrap"
+        overflow="hidden"
+        maxW={{ base: 'none', md: '40vw', lg: '50vw', xl: 'none' }}
+      >
+        <Text
+          as="a"
+          target="_blank"
+          href={url}
+          textOverflow="ellipsis"
+          whiteSpace="nowrap"
+          overflow="hidden"
+        >
+          {url}
+        </Text>
+      </Flex>
+      <Button
         h="5rem"
         w="5rem"
         bg="#F6F6F6"
@@ -44,11 +53,11 @@ export default function InputLink({ url, label }) {
         justifyContent="center"
         border="0.125rem solid"
         borderColor="gray.1100"
-        borderRadius="0.625rem"
-        as="button"
+        ml="-2px"
+        borderRadius="0 0.625rem 0.625rem 0"
       >
         <CopyIcon w="2rem" h="2rem" color="#9B9B9B" />
-      </InputRightAddon>
+      </Button>
     </InputGroup>
   );
 }
