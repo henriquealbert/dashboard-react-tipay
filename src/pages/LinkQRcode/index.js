@@ -11,25 +11,26 @@ import ToolsMenu from 'components/ToolsMenu';
 import { LinkQRCodeIcon } from 'styles/icons';
 import TableSalesSkeleton from 'components/TableSalesSkeleton';
 import ErrorMessage from 'pages/ErrorMessage';
-import useLinks from 'hooks/useLinks';
-
 import { getLast3Months, getToday } from 'utils/formatDate';
 
-export default function LinkQRcode() {
-  // print
-  const printRef = useRef();
-  // table csv
-  const [csv, setCsv] = useState([]);
+import { useLinks_TABLE } from 'hooks/useLinks';
 
-  // query
+export default function LinkQRcode() {
+  /************* HEADER *************/
+  const [, setStartDate] = useState(getLast3Months());
+  const [, setEndDate] = useState(getToday());
+
+  /************* TABLE *************/
+  const printRef = useRef();
+  const [csv, setCsv] = useState([]);
   const [page, setPage] = useState(1);
   const [per_Page, setPer_Page] = useState(25);
-  const [startDate, setStartDate] = useState(getLast3Months());
-  const [endDate, setEndDate] = useState(getToday());
-  const { data, isError, error, isLoading } = useLinks(
-    `/start_date=${startDate}/end_date=${endDate}/per_page=${per_Page}`,
-    `/${page}`
-  );
+  const {
+    data: TABLE_data,
+    isError: TABLE_isError,
+    error: TABLE_error,
+    isLoading: TABLE_isLoading
+  } = useLinks_TABLE(`/per_page=${per_Page}`, `/${page}`);
 
   return (
     <Layout>
@@ -76,13 +77,13 @@ export default function LinkQRcode() {
           csvFilename="tipay_links_qrcode.csv"
         />
 
-        {isError && <ErrorMessage message={error.message} />}
-        {isLoading && <TableSalesSkeleton />}
-        {data && (
+        {TABLE_isError && <ErrorMessage message={TABLE_error.message} />}
+        {TABLE_isLoading && <TableSalesSkeleton />}
+        {TABLE_data && (
           <TableQRCode
             id="table_qrcode"
             ref={printRef}
-            data={data}
+            data={TABLE_data}
             setPage={setPage}
             setCsv={setCsv}
           />

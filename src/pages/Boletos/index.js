@@ -9,27 +9,28 @@ import SalesStatus from 'components/SalesStatus';
 import TableSales from 'components/TableSales';
 import ToolsMenu from 'components/ToolsMenu';
 import { BoletoIcon } from 'styles/icons';
-import useTransactions from 'hooks/useTransactions';
 import TableSalesSkeleton from 'components/TableSalesSkeleton';
 import ErrorMessage from 'pages/ErrorMessage';
-
 import { getLast3Months, getToday } from 'utils/formatDate';
 
-export default function Boletos() {
-  // print
-  const printRef = useRef();
-  // table csv
-  const [csv, setCsv] = useState([]);
+import { useTransactions_TABLE } from 'hooks/useTransactions';
 
-  // query
+export default function Boletos() {
+  /************* HEADER *************/
+  const [, setStartDate] = useState(getLast3Months());
+  const [, setEndDate] = useState(getToday());
+
+  /************* TABLE *************/
+  const printRef = useRef();
+  const [csv, setCsv] = useState([]);
   const [page, setPage] = useState(1);
   const [per_Page, setPer_Page] = useState(25);
-  const [startDate, setStartDate] = useState(getLast3Months());
-  const [endDate, setEndDate] = useState(getToday());
-  const { data, error, isLoading, isError } = useTransactions(
-    `/start_date=${startDate}/end_date=${endDate}/payment_type=3/per_page=${per_Page}`,
-    `/${page}`
-  );
+  const {
+    data: TABLE_data,
+    isError: TABLE_isError,
+    error: TABLE_error,
+    isLoading: TABLE_isLoading
+  } = useTransactions_TABLE(`/payment_type=3/per_page=${per_Page}`, `/${page}`);
 
   return (
     <Layout>
@@ -70,13 +71,13 @@ export default function Boletos() {
           csvFilename="tipay_boletos.csv"
         />
 
-        {isError && <ErrorMessage message={error.message} />}
-        {isLoading && <TableSalesSkeleton />}
-        {data && (
+        {TABLE_isError && <ErrorMessage message={TABLE_error.message} />}
+        {TABLE_isLoading && <TableSalesSkeleton />}
+        {TABLE_data && (
           <TableSales
             id="table_boleto"
             ref={printRef}
-            data={data}
+            data={TABLE_data}
             setPage={setPage}
             setCsv={setCsv}
           />

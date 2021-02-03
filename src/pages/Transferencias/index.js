@@ -8,26 +8,27 @@ import SalesStatus from 'components/SalesStatus';
 import TableSalesSkeleton from 'components/TableSalesSkeleton';
 import TableTransfers from 'components/TableTransfers';
 import ToolsMenu from 'components/ToolsMenu';
-import useTransfers from 'hooks/useTransfers';
 import ErrorMessage from 'pages/ErrorMessage';
-
 import { getLast3Months, getToday } from 'utils/formatDate';
 
-export default function Transferencias() {
-  // print
-  const printRef = useRef();
-  // table csv
-  const [csv, setCsv] = useState([]);
+import { useTransfers_TABLE } from 'hooks/useTransfers';
 
-  // query
+export default function Transferencias() {
+  /************* HEADER *************/
+  const [, setStartDate] = useState(getLast3Months());
+  const [, setEndDate] = useState(getToday());
+
+  /************* TABLE *************/
+  const printRef = useRef();
+  const [csv, setCsv] = useState([]);
   const [page, setPage] = useState(1);
   const [per_Page, setPer_Page] = useState(25);
-  const [startDate, setStartDate] = useState(getLast3Months());
-  const [endDate, setEndDate] = useState(getToday());
-  const { data, error, isError, isLoading } = useTransfers(
-    `/start_date=${startDate}/end_date=${endDate}/per_page=${per_Page}`,
-    `/${page}`
-  );
+  const {
+    data: TABLE_data,
+    isError: TABLE_isError,
+    error: TABLE_error,
+    isLoading: TABLE_isLoading
+  } = useTransfers_TABLE(`/per_page=${per_Page}`, `/${page}`);
 
   return (
     <Layout>
@@ -51,13 +52,13 @@ export default function Transferencias() {
           csvFilename="tipay_transfers.csv"
         />
 
-        {isError && <ErrorMessage message={error.message} />}
-        {isLoading && <TableSalesSkeleton />}
-        {data && (
+        {TABLE_isError && <ErrorMessage message={TABLE_error.message} />}
+        {TABLE_isLoading && <TableSalesSkeleton />}
+        {TABLE_data && (
           <TableTransfers
             id="table_transfers"
             ref={printRef}
-            data={data}
+            data={TABLE_data}
             setPage={setPage}
             setCsv={setCsv}
           />

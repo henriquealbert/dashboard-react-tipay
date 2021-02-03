@@ -9,25 +9,27 @@ import SalesStatus from 'components/SalesStatus';
 import ToolsMenu from 'components/ToolsMenu';
 import TableSales from 'components/TableSales';
 import TableSalesSkeleton from 'components/TableSalesSkeleton';
-import useTransactions from 'hooks/useTransactions';
 import ErrorMessage from 'pages/ErrorMessage';
-
 import { getLast3Months, getToday } from 'utils/formatDate';
 
+import { useTransactions_TABLE } from 'hooks/useTransactions';
+
 export default function Vendas() {
-  // print
+  /************* HEADER *************/
+  const [, setStartDate] = useState(getLast3Months());
+  const [, setEndDate] = useState(getToday());
+
+  /************* TABLE *************/
   const printRef = useRef();
-  // table csv
   const [csv, setCsv] = useState([]);
-  // query
   const [page, setPage] = useState(1);
   const [per_Page, setPer_Page] = useState(25);
-  const [startDate, setStartDate] = useState(getLast3Months());
-  const [endDate, setEndDate] = useState(getToday());
-  const { data, isError, error, isLoading } = useTransactions(
-    `/start_date=${startDate}/end_date=${endDate}/per_page=${per_Page}`,
-    `/${page}`
-  );
+  const {
+    data: TABLE_data,
+    isError: TABLE_isError,
+    error: TABLE_error,
+    isLoading: TABLE_isLoading
+  } = useTransactions_TABLE(`/per_page=${per_Page}`, `/${page}`);
 
   return (
     <Layout>
@@ -61,13 +63,13 @@ export default function Vendas() {
           csvFilename="tipay_sales.csv"
         />
 
-        {isError && <ErrorMessage message={error.message} />}
-        {isLoading && <TableSalesSkeleton />}
-        {data && (
+        {TABLE_isError && <ErrorMessage message={TABLE_error.message} />}
+        {TABLE_isLoading && <TableSalesSkeleton />}
+        {TABLE_data && (
           <TableSales
             id="table_sales"
             ref={printRef}
-            data={data}
+            data={TABLE_data}
             setPage={setPage}
             setCsv={setCsv}
           />
