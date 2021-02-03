@@ -19,7 +19,7 @@ import Cookies from 'js-cookie';
 const queryClient = new QueryClient();
 
 export default function App() {
-  const { setAuthenticated, setLoading, handleUnauthorized } = useAuth();
+  const { setAuthenticated, setLoading, handleLogout } = useAuth();
 
   useEffect(() => {
     // redirect if status code is 401
@@ -29,7 +29,7 @@ export default function App() {
       },
       (error) => {
         if (error.response.status === 401) {
-          handleUnauthorized();
+          handleLogout();
         }
         return error;
       }
@@ -47,7 +47,7 @@ export default function App() {
       setAuthenticated(false);
       setLoading(false);
     }
-  }, [setLoading, setAuthenticated, handleUnauthorized]);
+  }, [setLoading, setAuthenticated, handleLogout]);
 
   return (
     <QueryClientProvider client={queryClient}>

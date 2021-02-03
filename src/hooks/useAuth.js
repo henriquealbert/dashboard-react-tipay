@@ -8,9 +8,6 @@ const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
   const [authenticated, setAuthenticated] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [user, setUser] = useState({});
-
-  console.log(user);
 
   const history = useHistory();
 
@@ -26,13 +23,9 @@ const AuthProvider = ({ children }) => {
 
       const token = response?.data?.token;
 
-      const inTenMinutes = new Date(new Date().getTime() + 10 * 60 * 1000);
-      Cookies.set('tipay_token', token, {
-        expires: inTenMinutes
-      });
+      Cookies.set('tipay_token', token, { expires: 7 });
 
       api.defaults.headers.Authorization = `Bearer ${token}`;
-      setUser({ ...response.data, password });
 
       if (history.location.state === undefined) {
         setAuthenticated(true);
@@ -51,15 +44,6 @@ const AuthProvider = ({ children }) => {
     setAuthenticated(false);
   }
 
-  async function handleUnauthorized() {
-    if (user.email) {
-      await handleLogin(user.email, user.password);
-    }
-    if (!user.email) {
-      handleLogout();
-    }
-  }
-
   return (
     <AuthContext.Provider
       value={{
@@ -68,10 +52,7 @@ const AuthProvider = ({ children }) => {
         loading,
         setLoading,
         handleLogin,
-        handleLogout,
-        handleUnauthorized,
-        user,
-        setUser
+        handleLogout
       }}
     >
       {children}
