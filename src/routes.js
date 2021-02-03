@@ -1,4 +1,12 @@
-import { Route, Switch, Redirect, useLocation } from 'react-router-dom';
+import {
+  Route,
+  Switch,
+  Redirect,
+  useLocation,
+  useHistory
+} from 'react-router-dom';
+import { Spinner, Flex } from '@chakra-ui/react';
+import { useEffect } from 'react';
 
 // pages
 import Home from 'pages/Home';
@@ -21,13 +29,57 @@ import ForgotPassword from 'pages/ForgotPassword';
 
 // auth
 import { useAuth } from 'hooks/useAuth';
+import api from 'api';
+import Cookies from 'js-cookie';
 
 function CustomRoute({ isPrivate, ...rest }) {
-  const { loading, authenticated } = useAuth();
+  const {
+    loading,
+    authenticated,
+    handleLogout,
+    setAuthenticated,
+    setLoading
+  } = useAuth();
   const { pathname } = useLocation();
+  const history = useHistory();
+
+  useEffect(() => {
+    // redirect if status code is 401
+    api.interceptors.response.use(
+      (response) => {
+        return response;
+      },
+      (error) => {
+        if (error.response.status === 401) {
+          handleLogout();
+        }
+        return error;
+      }
+    );
+
+    // get token from cookies & set authenticated
+    const token = Cookies.get('tipay_token');
+
+    if (token) {
+      api.defaults.headers.Authorization = `Bearer ${token}`;
+      setAuthenticated(true);
+      setLoading(false);
+
+      if (pathname === '/login') history.push('/dashboard');
+      if (pathname !== '/login') history.push(pathname);
+    }
+    if (!token) {
+      setAuthenticated(false);
+      setLoading(false);
+    }
+  }, [setLoading, setAuthenticated, handleLogout, history, pathname]);
 
   if (loading) {
-    return <h1>Loading...</h1>;
+    return (
+      <Flex justifyContent="center" alignItems="center" h="100vh">
+        <Spinner size="xl" />
+      </Flex>
+    );
   }
 
   if (isPrivate && !authenticated) {
