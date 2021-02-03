@@ -11,6 +11,8 @@ import ToolsMenu from 'components/ToolsMenu';
 import useTransfers from 'hooks/useTransfers';
 import ErrorMessage from 'pages/ErrorMessage';
 
+import { getLast3Months, getToday } from 'utils/formatDate';
+
 export default function Transferencias() {
   // print
   const printRef = useRef();
@@ -20,17 +22,22 @@ export default function Transferencias() {
   // query
   const [page, setPage] = useState(1);
   const [per_Page, setPer_Page] = useState(25);
-
-  // const { data, error, isError, isLoading } = useTransfers(
-  //   `/per_page=${per_Page}`,
-  //   `/${page}`
-  // );
-  const { data, error, isError, isLoading } = useTransfers('', `/${page}`);
+  const [startDate, setStartDate] = useState(getLast3Months());
+  const [endDate, setEndDate] = useState(getToday());
+  const { data, error, isError, isLoading } = useTransfers(
+    `/start_date=${startDate}/end_date=${endDate}/per_page=${per_Page}`,
+    `/${page}`
+  );
 
   return (
     <Layout>
       <Container>
-        <InnerMenu pageTitle="Transferências" />
+        <InnerMenu
+          pageTitle="Transferências"
+          setStartDate={setStartDate}
+          setEndDate={setEndDate}
+          pageKey="transfers"
+        />
         <Flex mt="1rem">
           <SalesStatus />
         </Flex>

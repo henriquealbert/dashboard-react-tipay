@@ -87,7 +87,7 @@ export default function ModalDetailLinkSale({ data }) {
               >
                 Histórico das vendas
               </Text>
-              <Box overflowX="auto">
+              <Box overflowX="auto" overflowY="auto">
                 <Table variant="sales-modal">
                   <Thead>
                     <Tr>

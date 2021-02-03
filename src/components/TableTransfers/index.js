@@ -39,7 +39,7 @@ function TableTransfers({ id, data, setPage, setCsv }, ref) {
             </Tr>
           </Thead>
           <Tbody>
-            {data?.entries.map((item) => {
+            {data?.entries?.map((item) => {
               return (
                 <Tr key={item?.id}>
                   <Td>{item?.id}</Td>
@@ -56,7 +56,9 @@ function TableTransfers({ id, data, setPage, setCsv }, ref) {
           </Tbody>
         </Table>
       </Box>
-      <PaginationTable setPage={setPage} data={data} />
+      {data?.page_count > 1 && (
+        <PaginationTable data={data} setPage={setPage} />
+      )}
     </>
   );
 }

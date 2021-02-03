@@ -70,7 +70,9 @@ function TableSales({ id, data, setPage, setCsv }, ref) {
           </Tbody>
         </Table>
       </Box>
-      <PaginationTable data={data} setPage={setPage} />
+      {data?.page_count > 1 && (
+        <PaginationTable data={data} setPage={setPage} />
+      )}
     </>
   );
 }

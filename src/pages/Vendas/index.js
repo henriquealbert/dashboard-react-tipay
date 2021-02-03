@@ -12,6 +12,8 @@ import TableSalesSkeleton from 'components/TableSalesSkeleton';
 import useTransactions from 'hooks/useTransactions';
 import ErrorMessage from 'pages/ErrorMessage';
 
+import { getLast3Months, getToday } from 'utils/formatDate';
+
 export default function Vendas() {
   // print
   const printRef = useRef();
@@ -20,15 +22,22 @@ export default function Vendas() {
   // query
   const [page, setPage] = useState(1);
   const [per_Page, setPer_Page] = useState(25);
+  const [startDate, setStartDate] = useState(getLast3Months());
+  const [endDate, setEndDate] = useState(getToday());
   const { data, isError, error, isLoading } = useTransactions(
-    `/per_page=${per_Page}`,
+    `/start_date=${startDate}/end_date=${endDate}/per_page=${per_Page}`,
     `/${page}`
   );
 
   return (
     <Layout>
       <Container>
-        <InnerMenu pageTitle="Vendas" />
+        <InnerMenu
+          pageTitle="Vendas"
+          setStartDate={setStartDate}
+          setEndDate={setEndDate}
+          pageKey="transactions"
+        />
 
         <Box
           display={{ base: 'block', xl: 'grid' }}

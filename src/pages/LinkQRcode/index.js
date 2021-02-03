@@ -13,6 +13,8 @@ import TableSalesSkeleton from 'components/TableSalesSkeleton';
 import ErrorMessage from 'pages/ErrorMessage';
 import useLinks from 'hooks/useLinks';
 
+import { getLast3Months, getToday } from 'utils/formatDate';
+
 export default function LinkQRcode() {
   // print
   const printRef = useRef();
@@ -22,9 +24,10 @@ export default function LinkQRcode() {
   // query
   const [page, setPage] = useState(1);
   const [per_Page, setPer_Page] = useState(25);
-
+  const [startDate, setStartDate] = useState(getLast3Months());
+  const [endDate, setEndDate] = useState(getToday());
   const { data, isError, error, isLoading } = useLinks(
-    `/per_page=${per_Page}`,
+    `/start_date=${startDate}/end_date=${endDate}/per_page=${per_Page}`,
     `/${page}`
   );
 
@@ -35,7 +38,12 @@ export default function LinkQRcode() {
           justifyContent={{ xxl: 'space-between' }}
           direction={{ base: 'column', xxl: 'row' }}
         >
-          <InnerMenu pageTitle="Vendas por Links/QR Code" />
+          <InnerMenu
+            pageTitle="Vendas por Links/QR Code"
+            setStartDate={setStartDate}
+            setEndDate={setEndDate}
+            pageKey="transfers"
+          />
           <Flex alignSelf={{ xxl: 'center' }} mt={{ base: '1rem', xlg: '0' }}>
             <Button
               as={Link}

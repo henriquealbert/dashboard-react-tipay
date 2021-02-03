@@ -13,35 +13,33 @@ import {
   getLast30Day,
   getLast3Months
 } from 'utils/formatDate';
+import { useQueryClient } from 'react-query';
 
-export default function InnerMenu({ pageTitle, componentRef }) {
+export default function InnerMenu({
+  pageTitle,
+  componentRef,
+  setStartDate,
+  setEndDate,
+  pageKey
+}) {
+  const queryClient = useQueryClient();
+  const isFetching = queryClient.isFetching();
+
+  const handleDateRange = (dates) => {
+    queryClient.removeQueries([pageKey]);
+    const [start, end] = dates;
+    setStartDate(start);
+    setEndDate(end);
+  };
+
+  // label
   const [active, setActive] = useState('3 meses');
-
   const handleActive = (label) => {
     if (active === label) {
       return true;
     } else {
       return false;
     }
-  };
-
-  // specific date
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(null);
-
-  const handleDateRange = (dates) => {
-    const [start, end] = dates;
-    setStartDate(start);
-    setEndDate(end);
-  };
-
-  const handleChange = () => {
-    console.log('hoje', getToday());
-    console.log('ontem', getYesterday());
-    console.log('7 dias', getLast7Day());
-    console.log('15 dias', getLast15Day());
-    console.log('30 dias', getLast30Day());
-    console.log('3 meses', getLast3Months());
   };
 
   return (
@@ -59,11 +57,12 @@ export default function InnerMenu({ pageTitle, componentRef }) {
       <Flex overflowX={{ base: 'auto' }} w="100%" pb="1rem" overflowY="hidden">
         <Button
           variant="outline"
+          disabled={isFetching ? true : false}
+          cursor={isFetching ? 'not-allowed' : 'pointer'}
           mr="0.875rem"
           onClick={() => {
             setActive('hoje');
-
-            handleChange();
+            handleDateRange([getToday(), getToday()]);
           }}
           isActive={handleActive('hoje')}
         >
@@ -71,40 +70,65 @@ export default function InnerMenu({ pageTitle, componentRef }) {
         </Button>
         <Button
           variant="outline"
+          disabled={isFetching ? true : false}
+          cursor={isFetching ? 'not-allowed' : 'pointer'}
           mr="0.875rem"
-          onClick={() => setActive('ontem')}
+          onClick={() => {
+            setActive('ontem');
+            handleDateRange([getYesterday(), getYesterday()]);
+          }}
           isActive={handleActive('ontem')}
         >
           Ontem
         </Button>
         <Button
           variant="outline"
+          disabled={isFetching ? true : false}
+          cursor={isFetching ? 'not-allowed' : 'pointer'}
           mr="0.875rem"
-          onClick={() => setActive('7 dias')}
+          onClick={() => {
+            setActive('7 dias');
+            handleDateRange([getLast7Day(), getToday()]);
+          }}
           isActive={handleActive('7 dias')}
         >
           Últimos 7 dias
         </Button>
         <Button
           variant="outline"
+          disabled={isFetching ? true : false}
+          cursor={isFetching ? 'not-allowed' : 'pointer'}
           mr="0.875rem"
-          onClick={() => setActive('15 dias')}
+          onClick={() => {
+            setActive('15 dias');
+            handleDateRange([getLast15Day(), getToday()]);
+          }}
           isActive={handleActive('15 dias')}
         >
           Últimos 15 dias
         </Button>
         <Button
           variant="outline"
+          disabled={isFetching ? true : false}
+          cursor={isFetching ? 'not-allowed' : 'pointer'}
           mr="0.875rem"
-          onClick={() => setActive('30 dias')}
+          onClick={() => {
+            setActive('30 dias');
+            handleDateRange([getLast30Day(), getToday()]);
+          }}
           isActive={handleActive('30 dias')}
         >
           Últimos 30 dias
         </Button>
         <Button
           variant="outline"
+          disabled={isFetching ? true : false}
+          cursor={isFetching ? 'not-allowed' : 'pointer'}
           mr="0.875rem"
-          onClick={() => setActive('3 meses')}
+          onClick={() => {
+            setActive('3 meses');
+            handleDateRange([getLast3Months(), getToday()]);
+          }}
           isActive={handleActive('3 meses')}
         >
           Últimos 3 meses
@@ -113,9 +137,8 @@ export default function InnerMenu({ pageTitle, componentRef }) {
           <CustomDatePicker
             setActive={setActive}
             handleActive={handleActive}
-            startDate={startDate}
-            endDate={endDate}
-            onChange={handleDateRange}
+            handleDateRange={handleDateRange}
+            isFetching={isFetching}
           />
         </Box>
         {pageTitle === 'Home' && <PrintBtn componentRef={componentRef} />}

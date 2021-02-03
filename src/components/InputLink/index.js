@@ -22,7 +22,6 @@ export default function InputLink({ url, label }) {
         border="0.125rem solid"
         borderColor="gray.1100"
         borderRadius="0.625rem 0 0 0.625rem"
-        isReadOnly
         fontSize="1.125rem"
         lineHeight="1.375rem"
         textDecoration="underline"

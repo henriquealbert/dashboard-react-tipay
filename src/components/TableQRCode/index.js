@@ -19,8 +19,6 @@ function TableQRCode({ id, data, setPage, setCsv }, ref) {
     setCsv(generateCsv);
   }, [data, setCsv]);
 
-  console.log(data);
-
   return (
     <>
       <Box
@@ -54,10 +52,7 @@ function TableQRCode({ id, data, setPage, setCsv }, ref) {
                   <Td>{formatDateTime(item?.created_at)}</Td>
                   <Td>{formatPrice(item?.amount)}</Td>
                   <Td>
-                    <TdLimit
-                      current_limit={item?.current_limit}
-                      limit={item?.limit}
-                    />
+                    <TdLimit item={item} />
                   </Td>
                   <Td pr={{ base: '2rem', xlg: '0' }} textAlign="right">
                     <ModalDetailLinkSale data={item} />
@@ -68,31 +63,40 @@ function TableQRCode({ id, data, setPage, setCsv }, ref) {
           </Tbody>
         </Table>
       </Box>
-      <PaginationTable data={data} setPage={setPage} />
+
+      {data?.page_count > 1 && (
+        <PaginationTable data={data} setPage={setPage} />
+      )}
     </>
   );
 }
 
 export default forwardRef(TableQRCode);
 
-const TdLimit = ({ current_limit, limit }) => {
-  if (current_limit !== null) {
-    if (current_limit === limit) {
+const TdLimit = ({ item }) => {
+  if (!item?.has_limit) {
+    return (
+      <>
+        <QuestionTipayIcon mr="1rem" /> Sem limite
+      </>
+    );
+  }
+  if (item?.has_limit) {
+    if (item?.current_limit !== 0) {
       return (
         <>
-          <CheckTipayIcon mr="1rem" />
-          {current_limit} de {limit}
+          <QuestionTipayIcon mr="1rem" /> {item?.limit - item?.current_limit} de{' '}
+          {item?.limit}
         </>
       );
-    } else if (!current_limit === limit) {
+    } else {
       return (
         <>
-          <QuestionTipayIcon mr="1rem" />
-          {current_limit} de {limit}
+          <CheckTipayIcon mr="1rem" /> {item?.limit - item?.current_limit} de{' '}
+          {item?.limit}
         </>
       );
     }
-  } else if (current_limit === null && limit === null) {
-    return <CheckTipayIcon mr="1rem" />;
   }
+  return '';
 };

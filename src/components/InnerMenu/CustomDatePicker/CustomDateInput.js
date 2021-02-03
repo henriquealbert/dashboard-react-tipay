@@ -7,6 +7,8 @@ const CustomDateInput = (props, ref) => {
     <Button
       ref={ref}
       variant="outline"
+      disabled={props.isFetching ? true : false}
+      cursor={props.isFetching ? 'not-allowed' : 'pointer'}
       onClick={() => {
         props.onClick();
         props.setActive('data');

@@ -13,6 +13,8 @@ import useTransactions from 'hooks/useTransactions';
 import TableSalesSkeleton from 'components/TableSalesSkeleton';
 import ErrorMessage from 'pages/ErrorMessage';
 
+import { getLast3Months, getToday } from 'utils/formatDate';
+
 export default function Boletos() {
   // print
   const printRef = useRef();
@@ -22,8 +24,10 @@ export default function Boletos() {
   // query
   const [page, setPage] = useState(1);
   const [per_Page, setPer_Page] = useState(25);
+  const [startDate, setStartDate] = useState(getLast3Months());
+  const [endDate, setEndDate] = useState(getToday());
   const { data, error, isLoading, isError } = useTransactions(
-    `/payment_type=3/per_page=${per_Page}`,
+    `/start_date=${startDate}/end_date=${endDate}/payment_type=3/per_page=${per_Page}`,
     `/${page}`
   );
 
@@ -34,7 +38,12 @@ export default function Boletos() {
           justifyContent={{ xxl: 'space-between' }}
           direction={{ base: 'column', xxl: 'row' }}
         >
-          <InnerMenu pageTitle="Boletos" />
+          <InnerMenu
+            pageTitle="Boletos"
+            setStartDate={setStartDate}
+            setEndDate={setEndDate}
+            pageKey="transactions"
+          />
           <Flex alignSelf={{ xxl: 'center' }} mt={{ base: '1rem', xlg: '0' }}>
             <Button
               as={Link}
