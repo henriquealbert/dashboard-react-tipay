@@ -13,6 +13,7 @@ import ErrorMessage from 'pages/ErrorMessage';
 import { getLast3Months, getToday } from 'utils/formatDate';
 
 import { useTransactions_TABLE } from 'hooks/useTransactions';
+import { useTransaction } from 'hooks/useTransaction';
 
 export default function Vendas() {
   /************* HEADER *************/
@@ -30,6 +31,10 @@ export default function Vendas() {
     error: TABLE_error,
     isLoading: TABLE_isLoading
   } = useTransactions_TABLE(`/per_page=${per_Page}`, `/${page}`);
+
+  /************* DETAILS *************/
+  const [transactionID, setTransactionID] = useState(null);
+  const { data: detailData } = useTransaction(transactionID);
 
   return (
     <Layout>
@@ -72,6 +77,8 @@ export default function Vendas() {
             data={TABLE_data}
             setPage={setPage}
             setCsv={setCsv}
+            setTransactionID={setTransactionID}
+            detailData={detailData}
           />
         )}
       </Container>

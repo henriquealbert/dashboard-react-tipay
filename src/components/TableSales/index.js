@@ -11,7 +11,10 @@ import {
 } from 'utils/formatPaymentType';
 import { formatPrice } from 'utils/formatPrice';
 
-function TableSales({ id, data, setPage, setCsv }, ref) {
+function TableSales(
+  { id, data, setPage, setCsv, setTransactionID, detailData },
+  ref
+) {
   useEffect(() => {
     const generateCsv = data?.entries.map((item) => ({
       Identificação: item?.id,
@@ -62,7 +65,11 @@ function TableSales({ id, data, setPage, setCsv }, ref) {
                   </Td>
                   <Td>{formatPaymentType(item?.payment_type)}</Td>
                   <Td pr={{ base: '2rem', xlg: '0' }} textAlign="right">
-                    <ModalDetailSale data={item} />
+                    <ModalDetailSale
+                      setTransactionID={setTransactionID}
+                      id={item?.id}
+                      data={detailData}
+                    />
                   </Td>
                 </Tr>
               );

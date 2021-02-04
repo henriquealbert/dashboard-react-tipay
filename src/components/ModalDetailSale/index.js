@@ -17,16 +17,31 @@ import {
   Box,
   Text
 } from '@chakra-ui/react';
-import { formatStatusColor, formatStatusLabel } from 'utils/formatStatusColor';
+import {
+  formatOperationType,
+  formatStatusColor,
+  formatStatusLabel,
+  formatStatusType,
+  formatStatusTypeColor
+} from 'utils/formatStatusColor';
 import { formatPaymentType } from 'utils/formatPaymentType';
-import { formatDate } from 'utils/formatDate';
+import { formatDateTime } from 'utils/formatDate';
+import { formatPrice } from 'utils/formatPrice';
 
-export default function ModalDetailSale({ data }) {
+export default function ModalDetailSale({ id, setTransactionID, data }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <>
-      <Button variant="green" maxW="13.125rem" h="3.125rem" onClick={onOpen}>
+      <Button
+        variant="green"
+        maxW="13.125rem"
+        h="3.125rem"
+        onClick={() => {
+          onOpen();
+          setTransactionID(id);
+        }}
+      >
         Detalhes
       </Button>
       <Modal isOpen={isOpen} onClose={onClose} isCentered size="7xl">
@@ -48,7 +63,6 @@ export default function ModalDetailSale({ data }) {
                 <Thead>
                   <Tr>
                     <Th>Identificação</Th>
-                    <Th>Pagador</Th>
                     <Th>Data</Th>
                     <Th>Valor</Th>
                     <Th>Valor Líquido</Th>
@@ -58,14 +72,18 @@ export default function ModalDetailSale({ data }) {
                 </Thead>
                 <Tbody>
                   <Tr>
-                    <Td>{data?.id}</Td>
-                    <Td maxW="25rem">{data?.holder_name}</Td>
-                    <Td>{formatDate(data?.dt_payment_br)}</Td>
-                    <Td>{data?.value}</Td>
-                    <Td>{data?.finalValue}</Td>
-                    <Td>{formatPaymentType(data?.payment_type)}</Td>
-                    <Td color={formatStatusColor(data?.status)} pr="0">
-                      {formatStatusLabel(data?.status)}
+                    <Td>{data?.transaction?.id}</Td>
+                    <Td>{formatDateTime(data?.transaction?.dt_payment_br)}</Td>
+                    <Td>{formatPrice(data?.transaction?.value)}</Td>
+                    <Td>{formatPrice(data?.receivable?.amount)}</Td>
+                    <Td>
+                      {formatPaymentType(data?.transaction?.payment_type)}
+                    </Td>
+                    <Td
+                      color={formatStatusColor(data?.transaction?.status)}
+                      pr="0"
+                    >
+                      {formatStatusLabel(data?.transaction?.status)}
                     </Td>
                   </Tr>
                 </Tbody>
@@ -82,26 +100,30 @@ export default function ModalDetailSale({ data }) {
               >
                 Histórico das vendas
               </Text>
-              <Table variant="sales-modal">
-                <Thead>
-                  <Tr>
-                    <Th w="30%">Data e hora</Th>
-                    <Th>Opreação</Th>
-                    <Th pr="0" w="15%">
-                      Status
-                    </Th>
-                  </Tr>
-                </Thead>
-                <Tbody>
-                  <Tr>
-                    <Td>{data?.updated_at}</Td>
-                    <Td>{data?.operation}</Td>
-                    <Td color={formatStatusColor(data?.status)} pr="0">
-                      {formatStatusLabel(data?.status)}
-                    </Td>
-                  </Tr>
-                </Tbody>
-              </Table>
+              <Box overflowY="auto" maxH="175px">
+                <Table variant="sales-modal">
+                  <Thead>
+                    <Tr>
+                      <Th w="25%">Identificação</Th>
+                      <Th>Opreação</Th>
+                      <Th pr="0" w="25%">
+                        Status
+                      </Th>
+                    </Tr>
+                  </Thead>
+                  <Tbody>
+                    {data?.transaction_history?.map((item) => (
+                      <Tr key={item?.id}>
+                        <Td>{item?.id}</Td>
+                        <Td>{formatOperationType(item?.operation_type)}</Td>
+                        <Td color={formatStatusTypeColor(item?.status_type)}>
+                          {formatStatusType(item?.status_type)}
+                        </Td>
+                      </Tr>
+                    ))}
+                  </Tbody>
+                </Table>
+              </Box>
             </Box>
           </ModalBody>
 

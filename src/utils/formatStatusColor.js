@@ -47,3 +47,54 @@ export const formatStatusLabel = (status) => {
       return 'Em disputa';
   }
 };
+
+export const formatOperationType = (type) => {
+  switch (type) {
+    case 'created':
+      return 'Transacão criada';
+
+    case 'authorization':
+      return 'Transação autorizada';
+
+    case 'reversed':
+      return 'Transação estornada';
+
+    case 'reversal':
+      return 'Transação cancelada';
+
+    case 'failed':
+      return 'Transação falhada';
+
+    case 'disputed':
+      return 'Transação em disputa';
+
+    case 'charged_back':
+      return 'Chargeback';
+
+    case 'paid':
+      return 'Transação paga';
+
+    case 'expiration':
+      return 'Transação expirada';
+  }
+};
+
+export const formatStatusType = (type) => {
+  switch (type) {
+    case 'succeeded':
+      return 'Sucesso na operação';
+
+    case 'failed':
+      return 'Falha na operação';
+  }
+};
+
+export const formatStatusTypeColor = (type) => {
+  switch (type) {
+    case 'succeeded':
+      return '#05BE5B';
+
+    case 'failed':
+      return '#FF4E7E';
+  }
+};
