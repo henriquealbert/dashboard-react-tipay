@@ -16,13 +16,13 @@ import {
   Td,
   Box,
   Text,
-  Img,
   Flex,
   Switch,
   FormControl,
   FormLabel
 } from '@chakra-ui/react';
 import InputLink from 'components/InputLink';
+import QRCodeComponent from 'components/QRCodeComponent';
 import { formatStatusColor } from 'utils/formatStatusColor';
 
 export default function ModalDetailLinkSale({ data }) {
@@ -59,7 +59,9 @@ export default function ModalDetailLinkSale({ data }) {
               borderRadius="0.875rem"
             >
               <Flex direction={{ base: 'column', md: 'row' }}>
-                <Img src="/images/qrcode.png" maxW="15.5rem" maxH="15.5rem" />
+                <Box maxW="14.5rem" maxH="14.5rem" m="1rem">
+                  <QRCodeComponent url={data?.link} />
+                </Box>
                 <Box
                   mt="1.875rem"
                   ml={{ lg: '2.5rem' }}

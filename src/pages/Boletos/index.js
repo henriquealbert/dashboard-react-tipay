@@ -14,6 +14,7 @@ import ErrorMessage from 'pages/ErrorMessage';
 import { getLast3Months, getToday } from 'utils/formatDate';
 
 import { useTransactions_TABLE } from 'hooks/useTransactions';
+import { useTransaction } from 'hooks/useTransaction';
 
 export default function Boletos() {
   /************* HEADER *************/
@@ -31,6 +32,10 @@ export default function Boletos() {
     error: TABLE_error,
     isLoading: TABLE_isLoading
   } = useTransactions_TABLE(`/payment_type=3/per_page=${per_Page}`, `/${page}`);
+
+  /************* DETAILS *************/
+  const [transactionID, setTransactionID] = useState(null);
+  const { data: detailData } = useTransaction(transactionID);
 
   return (
     <Layout>
@@ -80,6 +85,8 @@ export default function Boletos() {
             data={TABLE_data}
             setPage={setPage}
             setCsv={setCsv}
+            setTransactionID={setTransactionID}
+            detailData={detailData}
           />
         )}
       </Container>
