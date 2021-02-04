@@ -19,8 +19,6 @@ export default function ResultsPerPage({ setPer_Page, per_Page, pageKey }) {
       borderRadius="0.313rem"
       _placeholder={{ color: 'gray.1000' }}
       fontSize="1.125rem"
-      ml={{ base: '0', md: '2rem' }}
-      mt={{ base: '1rem', md: '0' }}
       value={per_Page}
       onChange={handleChange}
       disabled={isFetching ? true : false}

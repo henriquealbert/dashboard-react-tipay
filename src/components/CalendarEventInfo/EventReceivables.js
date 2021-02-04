@@ -14,6 +14,7 @@ import {
   Button
 } from '@chakra-ui/react';
 import { formatDateTime } from 'utils/formatDate';
+import { formatPrice } from 'utils/formatPrice';
 
 export default function EventReceivables({ data }) {
   return (
@@ -53,8 +54,12 @@ export default function EventReceivables({ data }) {
               {data?.map((item) => {
                 return (
                   <Tr key={item?.id}>
-                    <Td>{item?.date ? formatDateTime(item?.date) : ''}</Td>
-                    <Td>{item?.title}</Td>
+                    <Td>
+                      {item?.expected_on
+                        ? formatDateTime(item?.expected_on)
+                        : ''}
+                    </Td>
+                    <Td>{formatPrice(item?.amount)}</Td>
                     <Th pr="0" textAlign="right">
                       <Button variant="calendar-receivables-btn">
                         Detalhes

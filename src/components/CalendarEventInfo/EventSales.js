@@ -14,6 +14,7 @@ import {
   Button
 } from '@chakra-ui/react';
 import { formatDateTime } from 'utils/formatDate';
+import { formatPrice } from 'utils/formatPrice';
 
 export default function EventSales({ data }) {
   return (
@@ -52,8 +53,12 @@ export default function EventSales({ data }) {
               {data?.map((item) => {
                 return (
                   <Tr key={item?.id}>
-                    <Td>{item?.date ? formatDateTime(item?.date) : ''}</Td>
-                    <Td>{item?.title}</Td>
+                    <Td>
+                      {item?.dt_payment_br
+                        ? formatDateTime(item?.dt_payment_br)
+                        : ''}
+                    </Td>
+                    <Td>{formatPrice(item?.value)}</Td>
                     <Td pr="0" textAlign="right">
                       <Button variant="calendar-sales-btn">Detalhes</Button>
                     </Td>

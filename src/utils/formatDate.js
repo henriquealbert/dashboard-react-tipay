@@ -1,4 +1,4 @@
-import { format, subMonths, subDays } from 'date-fns';
+import { format, subMonths, subDays, addMonths } from 'date-fns';
 
 function parseUTC(date) {
   const d = new Date(date);
@@ -73,4 +73,31 @@ export const normalizeDate = (date) => {
   } else {
     return;
   }
+};
+
+export const normalizeDateUTC = (date) => {
+  if (date) {
+    const parsedDate = parseUTC(date);
+    const formattedDate = format(parsedDate, 'yyyy-MM-dd');
+    return formattedDate;
+  } else {
+    return;
+  }
+};
+
+export const getFirstDayMonth = () => {
+  const date = new Date();
+  const month = date.getMonth();
+  const year = date.getFullYear();
+  const FirstDay = new Date(year, month, 1);
+  return normalizeDateUTC(FirstDay);
+};
+
+export const getLastDayMonth = () => {
+  const date = new Date();
+  const month = date.getMonth();
+  const year = date.getFullYear();
+  const FirstDay = new Date(year, month, 1);
+  const nextFirst = addMonths(FirstDay, 1);
+  return normalizeDateUTC(nextFirst);
 };

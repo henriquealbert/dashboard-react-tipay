@@ -1,4 +1,3 @@
-import Filter from 'components/Filter';
 import { Flex } from '@chakra-ui/react';
 
 import ResultsPerPage from 'components/ResultsPerPage';
@@ -22,14 +21,11 @@ export default function ToolsMenu({
       justifyContent={{ xlg: 'space-between' }}
       direction={{ base: 'column', xlg: 'row' }}
     >
-      <Flex direction={{ base: 'column', md: 'row' }}>
-        <Filter />
-        <ResultsPerPage
-          setPer_Page={setPer_Page}
-          per_Page={per_Page}
-          pageKey={pageKey}
-        />
-      </Flex>
+      <ResultsPerPage
+        setPer_Page={setPer_Page}
+        per_Page={per_Page}
+        pageKey={pageKey}
+      />
       <Flex
         mt={{ base: '1rem', xlg: '0' }}
         overflowX="auto"
