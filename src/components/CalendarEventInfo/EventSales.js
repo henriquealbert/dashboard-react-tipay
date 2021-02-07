@@ -13,10 +13,11 @@ import {
   Tbody,
   Button
 } from '@chakra-ui/react';
+import ModalDetailSale from 'components/ModalDetailSale';
 import { formatDateTime } from 'utils/formatDate';
 import { formatPrice } from 'utils/formatPrice';
 
-export default function EventSales({ data }) {
+export default function EventSales({ data, setTransactionID, detailData }) {
   return (
     <Accordion
       defaultIndex={[0]}
@@ -60,7 +61,12 @@ export default function EventSales({ data }) {
                     </Td>
                     <Td>{formatPrice(item?.value)}</Td>
                     <Td pr="0" textAlign="right">
-                      <Button variant="calendar-sales-btn">Detalhes</Button>
+                      <ModalDetailSale
+                        setTransactionID={setTransactionID}
+                        id={item?.id}
+                        data={detailData}
+                        variant="calendar-sales-btn"
+                      />
                     </Td>
                   </Tr>
                 );

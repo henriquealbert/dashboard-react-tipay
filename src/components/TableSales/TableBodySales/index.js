@@ -26,6 +26,7 @@ export default function TableBodySales({ data, setTransactionID, detailData }) {
                 setTransactionID={setTransactionID}
                 id={item?.id}
                 data={detailData}
+                estornar
               />
             </Td>
           </Tr>

@@ -15,6 +15,7 @@ import {
   useCalendar_ScheduledToReceive,
   useCalendar_Sold
 } from 'hooks/useCalendar';
+import { useTransaction } from 'hooks/useTransaction';
 
 export default function Calendario() {
   const [currentStart, setCurrentStart] = useState(getFirstDayMonth());
@@ -43,6 +44,11 @@ export default function Calendario() {
     error: EXTRACTDAY_error,
     isLoading: EXTRACTDAY_isLoading
   } = useCalendar_ExtractDay(eventDate);
+
+  /************* DETAIL *************/
+  /************* DETAILS *************/
+  const [transactionID, setTransactionID] = useState(null);
+  const { data: detailData } = useTransaction(transactionID);
 
   return (
     <Layout>
@@ -91,7 +97,12 @@ export default function Calendario() {
               <Skeleton h="100%" w="100%" borderRadius="0.625rem" />
             )}
             {EXTRACTDAY_data && (
-              <CalendarEventInfo data={EXTRACTDAY_data} eventDate={eventDate} />
+              <CalendarEventInfo
+                data={EXTRACTDAY_data}
+                eventDate={eventDate}
+                setTransactionID={setTransactionID}
+                detailData={detailData}
+              />
             )}
           </Box>
         </Box>

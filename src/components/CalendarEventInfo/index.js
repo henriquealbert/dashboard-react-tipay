@@ -5,7 +5,12 @@ import EventSales from './EventSales';
 import { formatDate } from 'utils/formatDate';
 import { CalendarioIcon } from 'styles/icons';
 
-export default function CalendarEventInfo({ data, eventDate }) {
+export default function CalendarEventInfo({
+  data,
+  eventDate,
+  setTransactionID,
+  detailData
+}) {
   if (data?.transactions?.length === 0 && data?.receivables?.length === 0) {
     return (
       <Flex w="100%" h="100%" justifyContent="center" alignItems="center">
@@ -39,7 +44,11 @@ export default function CalendarEventInfo({ data, eventDate }) {
       </Text>
 
       {data?.transactions?.length !== 0 && (
-        <EventSales data={data?.transactions} />
+        <EventSales
+          data={data?.transactions}
+          setTransactionID={setTransactionID}
+          detailData={detailData}
+        />
       )}
       {data?.receivables?.length !== 0 && (
         <EventReceivables data={data?.receivables} />

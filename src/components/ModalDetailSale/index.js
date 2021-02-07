@@ -28,13 +28,19 @@ import { formatPaymentType } from 'utils/formatPaymentType';
 import { formatDateTime } from 'utils/formatDate';
 import { formatPrice } from 'utils/formatPrice';
 
-export default function ModalDetailSale({ id, setTransactionID, data }) {
+export default function ModalDetailSale({
+  id,
+  setTransactionID,
+  data,
+  estornar,
+  variant
+}) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <>
       <Button
-        variant="green"
+        variant={variant ? variant : 'green'}
         maxW="13.125rem"
         h="3.125rem"
         onClick={() => {
@@ -128,9 +134,11 @@ export default function ModalDetailSale({ id, setTransactionID, data }) {
           </ModalBody>
 
           <ModalFooter>
-            <Button variant="red" mr="1rem">
-              Estornar Venda
-            </Button>
+            {estornar && (
+              <Button variant="red" mr="1rem">
+                Estornar Venda
+              </Button>
+            )}
             <Button variant="black" mr={3} onClick={onClose}>
               Fechar
             </Button>
