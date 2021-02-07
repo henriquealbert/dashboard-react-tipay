@@ -1,3 +1,4 @@
+import { InfoOutlineIcon } from '@chakra-ui/icons';
 import {
   Box,
   Text,
@@ -5,7 +6,14 @@ import {
   FormControl,
   FormLabel,
   Input,
-  Select
+  Select,
+  Popover,
+  PopoverTrigger,
+  PopoverArrow,
+  PopoverContent,
+  PopoverCloseButton,
+  PopoverHeader,
+  PopoverBody
 } from '@chakra-ui/react';
 
 export default function InfoCharge() {
@@ -87,17 +95,44 @@ export default function InfoCharge() {
           </FormControl>
 
           <FormControl mb={{ base: '1.75rem', md: '0' }}>
-            <FormLabel
-              color="gray.1000"
-              fontSize="1.25rem"
-              lineHeight="1.5rem"
-              fontWeight="semibold"
-            >
-              Duração do link
-            </FormLabel>
-            <Select variant="innerSolid" placeholder="Selecione a duração">
-              <option value="value">Value</option>
-            </Select>
+            <Flex>
+              <FormLabel
+                color="gray.1000"
+                fontSize="1.25rem"
+                lineHeight="1.5rem"
+                fontWeight="semibold"
+              >
+                Duração do link
+              </FormLabel>
+              <Popover placement="top-start">
+                <PopoverTrigger>
+                  <InfoOutlineIcon
+                    w={6}
+                    h={6}
+                    cursor="pointer"
+                    color="brand.yellow"
+                  />
+                </PopoverTrigger>
+                <PopoverContent>
+                  <PopoverArrow />
+                  <PopoverCloseButton />
+                  <PopoverHeader fontWeight="bold">
+                    Link para múltiplas vendas
+                  </PopoverHeader>
+                  <PopoverBody>
+                    Você pode configurar este link para ser válido por múltiplas
+                    vendas no mesmo endereço, após o número de vendas
+                    selecionado o link é desativado. Você pode também selecionar
+                    para que não expire, assim o link fica disponível até você
+                    desativá-lo.
+                  </PopoverBody>
+                </PopoverContent>
+              </Popover>
+            </Flex>
+            <Input
+              variant="innerSolid"
+              placeholder="Campo vazio, o link não expira."
+            />
           </FormControl>
         </Flex>
       </Box>
