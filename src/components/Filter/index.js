@@ -1,38 +1,34 @@
-import { Input, InputGroup, InputRightElement } from '@chakra-ui/react';
+import { Button, Flex, Input } from '@chakra-ui/react';
 import { SearchIcon } from '@chakra-ui/icons';
 
-import { useState } from 'react';
 import { useQueryClient } from 'react-query';
+import { forwardRef } from 'react';
 
-export default function Filter({ placeholder, type, maxW, setValue, pageKey }) {
+function Filter({ placeholder, type, maxW, setValue, pageKey }, ref) {
   const queryClient = useQueryClient();
+  const isFetching = queryClient.isFetching();
 
-  const [inputValue] = useState();
+  const handleClick = (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const obj = Object.fromEntries(formData);
+    const value = Object.values(obj)[0];
 
-  // const handleChange = (event) => {
-  //   setInputValue(event.target.value);
-  // };
-
-  const onClick = () => {
     queryClient.removeQueries([pageKey]);
-    setValue(inputValue);
+    setValue(value);
   };
 
-  /// estou fazendo o clearFIlters
-
   return (
-    <InputGroup
+    <Flex
       as="form"
       maxW={maxW}
       w="100%"
       borderRadius="0.313rem"
       border="1px solid"
       borderColor="gray.1100"
-      onSubmit={(e) => {
-        e.preventDefault();
-
-        console.log(e.target);
-      }}
+      onSubmit={handleClick}
+      cursor={isFetching ? 'not-allowed' : 'initial'}
+      ref={ref}
     >
       <Input
         type={type}
@@ -42,16 +38,19 @@ export default function Filter({ placeholder, type, maxW, setValue, pageKey }) {
         fontSize="1rem"
         color="gray.500"
         placeholder={placeholder}
+        isDisabled={isFetching ? true : false}
       />
 
-      <InputRightElement
-        as="button"
+      <Button
         type="submit"
         cursor="pointer"
-        onClick={onClick}
+        bg="white"
+        isDisabled={isFetching ? true : false}
       >
         <SearchIcon color="gray.1000" w={4} h={4} />
-      </InputRightElement>
-    </InputGroup>
+      </Button>
+    </Flex>
   );
 }
+
+export default forwardRef(Filter);

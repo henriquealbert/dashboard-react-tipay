@@ -22,7 +22,9 @@ function TableSales(
     setPayer,
     setAmount,
     setStatus,
+    status,
     setPaymentType,
+    paymentType,
     pageKey
   },
   ref
@@ -58,7 +60,9 @@ function TableSales(
             setPayer={setPayer}
             setAmount={setAmount}
             setStatus={setStatus}
+            status={status}
             setPaymentType={setPaymentType}
+            paymentType={paymentType}
             pageKey={pageKey}
           />
           <TableBodySales

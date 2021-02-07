@@ -3,6 +3,8 @@ import { Thead, Tr, Th, Button } from '@chakra-ui/react';
 
 import Filter from 'components/Filter';
 import FilterSelect from 'components/FilterSelect';
+import { useRef } from 'react';
+import { useQueryClient } from 'react-query';
 import { useLocation } from 'react-router-dom';
 
 export default function TableHeaderSales({
@@ -11,17 +13,27 @@ export default function TableHeaderSales({
   setAmount,
   setStatus,
   setPaymentType,
+  paymentType,
+  status,
   pageKey
 }) {
   const { pathname } = useLocation();
+  const queryClient = useQueryClient();
+
+  const identificationRef = useRef();
+  const payerRef = useRef();
+  const amountRef = useRef();
 
   const clearFilters = () => {
-    setIdentification(null);
-    setPayer(null);
-    setAmount(null);
-    setStatus(null);
-    setPaymentType(null);
-    console.log('run');
+    setIdentification('');
+    identificationRef?.current.reset();
+    setPayer('');
+    payerRef?.current.reset();
+    setAmount('');
+    amountRef?.current.reset();
+    setStatus('');
+    setPaymentType('');
+    queryClient.removeQueries(['transactions']);
   };
 
   return (
@@ -29,9 +41,10 @@ export default function TableHeaderSales({
       <Tr>
         <Th h="auto" maxH="none">
           <Filter
-            type="number"
+            type="text"
             placeholder="IDENTIFICAÇÃO"
             setValue={setIdentification}
+            ref={identificationRef}
             pageKey={pageKey}
           />
         </Th>
@@ -41,6 +54,7 @@ export default function TableHeaderSales({
             placeholder="PAGADOR"
             setValue={setPayer}
             pageKey={pageKey}
+            ref={payerRef}
           />
         </Th>
         <Th>
@@ -53,6 +67,7 @@ export default function TableHeaderSales({
             maxW="12rem"
             setValue={setAmount}
             pageKey={pageKey}
+            ref={amountRef}
           />
         </Th>
         <Th>
@@ -60,6 +75,7 @@ export default function TableHeaderSales({
             placeholder="STATUS"
             minW="9rem"
             setValue={setStatus}
+            value={status}
             pageKey={pageKey}
           >
             <option value="0">Pendente</option>
@@ -78,6 +94,7 @@ export default function TableHeaderSales({
             <FilterSelect
               minW="11rem"
               setValue={setPaymentType}
+              value={paymentType}
               pageKey={pageKey}
               placeholder="PAGAMENTO"
             >

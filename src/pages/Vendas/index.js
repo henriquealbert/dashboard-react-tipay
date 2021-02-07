@@ -30,18 +30,22 @@ export default function Vendas() {
   const [amount, setAmount] = useState();
   const [status, setStatus] = useState();
   const [paymentType, setPaymentType] = useState();
+
   const {
     data: TABLE_data,
     isError: TABLE_isError,
     error: TABLE_error,
     isLoading: TABLE_isLoading
   } = useTransactions_TABLE(
-    `${identification ? `/id=${identification}` : ''}${
-      payer ? `/payer=${payer}` : ''
-    }${amount ? `/value=${amount}` : ''}${status ? `/status=${status}` : ''}${
-      paymentType ? `/payment_type=${paymentType}` : ''
-    }/per_page=${per_Page}`,
-    `/${page}`
+    identification,
+    payer,
+    amount,
+    status,
+    null,
+    null,
+    paymentType,
+    per_Page,
+    page
   );
 
   /************* DETAILS *************/
@@ -96,7 +100,9 @@ export default function Vendas() {
             setPayer={setPayer}
             setAmount={setAmount}
             setStatus={setStatus}
+            status={status}
             setPaymentType={setPaymentType}
+            paymentType={paymentType}
           />
         )}
       </Container>
