@@ -25,12 +25,24 @@ export default function Vendas() {
   const [csv, setCsv] = useState([]);
   const [page, setPage] = useState(1);
   const [per_Page, setPer_Page] = useState(25);
+  const [identification, setIdentification] = useState();
+  const [payer, setPayer] = useState();
+  const [amount, setAmount] = useState();
+  const [status, setStatus] = useState();
+  const [paymentType, setPaymentType] = useState();
   const {
     data: TABLE_data,
     isError: TABLE_isError,
     error: TABLE_error,
     isLoading: TABLE_isLoading
-  } = useTransactions_TABLE(`/per_page=${per_Page}`, `/${page}`);
+  } = useTransactions_TABLE(
+    `${identification ? `/id=${identification}` : ''}${
+      payer ? `/payer=${payer}` : ''
+    }${amount ? `/value=${amount}` : ''}${status ? `/status=${status}` : ''}${
+      paymentType ? `/payment_type=${paymentType}` : ''
+    }/per_page=${per_Page}`,
+    `/${page}`
+  );
 
   /************* DETAILS *************/
   const [transactionID, setTransactionID] = useState(null);
@@ -79,6 +91,12 @@ export default function Vendas() {
             setCsv={setCsv}
             setTransactionID={setTransactionID}
             detailData={detailData}
+            pageKey="transactions"
+            setIdentification={setIdentification}
+            setPayer={setPayer}
+            setAmount={setAmount}
+            setStatus={setStatus}
+            setPaymentType={setPaymentType}
           />
         )}
       </Container>

@@ -8,7 +8,7 @@ export default function MyProfile() {
     {
       id: 2,
       title: 'CPF/CNPJ',
-      description: '051.548.548-65'
+      description: '000.000.000-00'
     },
     {
       id: 3,

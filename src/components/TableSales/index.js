@@ -1,18 +1,30 @@
 import { forwardRef, useEffect } from 'react';
-import { Table, Thead, Tr, Th, Td, Tbody, Box } from '@chakra-ui/react';
+import { Table, Box } from '@chakra-ui/react';
 
-import ModalDetailSale from 'components/ModalDetailSale';
 import PaginationTable from 'components/PaginationTable';
+import TableHeaderSales from './TableHeaderSales';
+import TableBodySales from './TableBodySales';
+
 import { formatDateTime } from 'utils/formatDate';
-import { formatStatusColor, formatStatusLabel } from 'utils/formatStatusColor';
-import {
-  formatPaymentType,
-  formatPaymentTypeString
-} from 'utils/formatPaymentType';
+import { formatStatusLabel } from 'utils/formatStatusColor';
+import { formatPaymentTypeString } from 'utils/formatPaymentType';
 import { formatPrice } from 'utils/formatPrice';
 
 function TableSales(
-  { id, data, setPage, setCsv, setTransactionID, detailData },
+  {
+    id,
+    data,
+    setPage,
+    setCsv,
+    setTransactionID,
+    detailData,
+    setIdentification,
+    setPayer,
+    setAmount,
+    setStatus,
+    setPaymentType,
+    pageKey
+  },
   ref
 ) {
   useEffect(() => {
@@ -41,40 +53,19 @@ function TableSales(
         ref={ref}
       >
         <Table variant="sales" size="lg">
-          <Thead>
-            <Tr>
-              <Th>Identificação</Th>
-              <Th>Pagador</Th>
-              <Th>Data</Th>
-              <Th>Valor</Th>
-              <Th>Status</Th>
-              <Th>Pagamento</Th>
-              <Th></Th>
-            </Tr>
-          </Thead>
-          <Tbody>
-            {data?.entries.map((item) => {
-              return (
-                <Tr key={item?.id}>
-                  <Td>{item?.id}</Td>
-                  <Td maxW="365px">{item?.holder_name}</Td>
-                  <Td>{formatDateTime(item?.dt_payment_br)}</Td>
-                  <Td>{formatPrice(item?.value)}</Td>
-                  <Td color={formatStatusColor(item?.status)}>
-                    {formatStatusLabel(item?.status)}
-                  </Td>
-                  <Td>{formatPaymentType(item?.payment_type)}</Td>
-                  <Td pr={{ base: '2rem', xlg: '0' }} textAlign="right">
-                    <ModalDetailSale
-                      setTransactionID={setTransactionID}
-                      id={item?.id}
-                      data={detailData}
-                    />
-                  </Td>
-                </Tr>
-              );
-            })}
-          </Tbody>
+          <TableHeaderSales
+            setIdentification={setIdentification}
+            setPayer={setPayer}
+            setAmount={setAmount}
+            setStatus={setStatus}
+            setPaymentType={setPaymentType}
+            pageKey={pageKey}
+          />
+          <TableBodySales
+            data={data}
+            setTransactionID={setTransactionID}
+            detailData={detailData}
+          />
         </Table>
       </Box>
       {data?.page_count > 1 && (
