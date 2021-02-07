@@ -10,8 +10,7 @@ import {
   Tr,
   Td,
   Th,
-  Tbody,
-  Button
+  Tbody
 } from '@chakra-ui/react';
 import ModalDetailSale from 'components/ModalDetailSale';
 import { formatDateTime } from 'utils/formatDate';

@@ -48,6 +48,38 @@ export const formatStatusLabel = (status) => {
   }
 };
 
+export const formatStatusLabelReceivable = (status) => {
+  switch (status) {
+    case 0:
+      return 'Pendente';
+
+    case 1:
+      return 'Pago';
+
+    case 4:
+      return 'Rejeitada';
+
+    case 9:
+      return 'Agendada';
+  }
+};
+
+export const formatStatusColorReceivable = (status) => {
+  switch (status) {
+    case 0:
+      return '#FEAE1A';
+
+    case 1:
+      return '#05BE5B';
+
+    case 4:
+      return '#FF4E7E';
+
+    case 9:
+      return '#05BE5B';
+  }
+};
+
 export const formatOperationType = (type) => {
   switch (type) {
     case 'created':

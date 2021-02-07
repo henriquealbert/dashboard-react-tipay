@@ -51,7 +51,11 @@ export default function CalendarEventInfo({
         />
       )}
       {data?.receivables?.length !== 0 && (
-        <EventReceivables data={data?.receivables} />
+        <EventReceivables
+          data={data?.receivables}
+          setTransactionID={setTransactionID}
+          detailData={detailData}
+        />
       )}
     </>
   );

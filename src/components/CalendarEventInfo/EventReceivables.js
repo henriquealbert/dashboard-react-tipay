@@ -10,13 +10,17 @@ import {
   Tr,
   Td,
   Th,
-  Tbody,
-  Button
+  Tbody
 } from '@chakra-ui/react';
+import ModalDetailReceivable from 'components/ModalDetailReceivable';
 import { formatDateTime } from 'utils/formatDate';
 import { formatPrice } from 'utils/formatPrice';
 
-export default function EventReceivables({ data }) {
+export default function EventReceivables({
+  data,
+  setTransactionID,
+  detailData
+}) {
   return (
     <Accordion
       allowMultiple
@@ -61,9 +65,12 @@ export default function EventReceivables({ data }) {
                     </Td>
                     <Td>{formatPrice(item?.amount)}</Td>
                     <Th pr="0" textAlign="right">
-                      <Button variant="calendar-receivables-btn">
-                        Detalhes
-                      </Button>
+                      <ModalDetailReceivable
+                        variant="calendar-receivables-btn"
+                        setTransactionID={setTransactionID}
+                        id={item?.id_transaction}
+                        data={detailData}
+                      />
                     </Th>
                   </Tr>
                 );
