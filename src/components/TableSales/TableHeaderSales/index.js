@@ -15,7 +15,8 @@ export default function TableHeaderSales({
   setPaymentType,
   paymentType,
   status,
-  pageKey
+  pageKey,
+  boleto
 }) {
   const { pathname } = useLocation();
   const queryClient = useQueryClient();
@@ -25,15 +26,26 @@ export default function TableHeaderSales({
   const amountRef = useRef();
 
   const clearFilters = () => {
-    setIdentification('');
-    identificationRef?.current.reset();
-    setPayer('');
-    payerRef?.current.reset();
-    setAmount('');
-    amountRef?.current.reset();
-    setStatus('');
-    setPaymentType('');
-    queryClient.removeQueries(['transactions']);
+    if (boleto) {
+      setIdentification('');
+      identificationRef?.current.reset();
+      setPayer('');
+      payerRef?.current.reset();
+      setAmount('');
+      amountRef?.current.reset();
+      setStatus('');
+      queryClient.removeQueries(['transactions']);
+    } else {
+      setIdentification('');
+      identificationRef?.current.reset();
+      setPayer('');
+      payerRef?.current.reset();
+      setAmount('');
+      amountRef?.current.reset();
+      setStatus('');
+      setPaymentType('');
+      queryClient.removeQueries(['transactions']);
+    }
   };
 
   return (

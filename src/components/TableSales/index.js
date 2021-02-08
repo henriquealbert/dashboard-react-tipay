@@ -25,7 +25,8 @@ function TableSales(
     status,
     setPaymentType,
     paymentType,
-    pageKey
+    pageKey,
+    boleto
   },
   ref
 ) {
@@ -64,6 +65,7 @@ function TableSales(
             setPaymentType={setPaymentType}
             paymentType={paymentType}
             pageKey={pageKey}
+            boleto={boleto}
           />
           <TableBodySales
             data={data}

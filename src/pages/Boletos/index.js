@@ -8,9 +8,9 @@ import Layout from 'components/Layout';
 import SalesStatus from 'components/SalesStatus';
 import TableSales from 'components/TableSales';
 import ToolsMenu from 'components/ToolsMenu';
-import { BoletoIcon } from 'styles/icons';
 import TableSalesSkeleton from 'components/TableSalesSkeleton';
 import ErrorMessage from 'pages/ErrorMessage';
+import { BoletoIcon } from 'styles/icons';
 import { getLast3Months, getToday } from 'utils/formatDate';
 
 import { useTransactions_TABLE } from 'hooks/useTransactions';
@@ -26,12 +26,27 @@ export default function Boletos() {
   const [csv, setCsv] = useState([]);
   const [page, setPage] = useState(1);
   const [per_Page, setPer_Page] = useState(25);
+  const [identification, setIdentification] = useState();
+  const [payer, setPayer] = useState();
+  const [amount, setAmount] = useState();
+  const [status, setStatus] = useState();
+
   const {
     data: TABLE_data,
     isError: TABLE_isError,
     error: TABLE_error,
     isLoading: TABLE_isLoading
-  } = useTransactions_TABLE(`/payment_type=3/per_page=${per_Page}`, `/${page}`);
+  } = useTransactions_TABLE(
+    identification,
+    payer,
+    amount,
+    status,
+    null,
+    null,
+    '3',
+    per_Page,
+    page
+  );
 
   /************* DETAILS *************/
   const [transactionID, setTransactionID] = useState(null);
@@ -66,6 +81,7 @@ export default function Boletos() {
         <Flex mt="1rem">
           <SalesStatus />
         </Flex>
+
         <ToolsMenu
           setPer_Page={setPer_Page}
           per_Page={per_Page}
@@ -87,6 +103,13 @@ export default function Boletos() {
             setCsv={setCsv}
             setTransactionID={setTransactionID}
             detailData={detailData}
+            pageKey="transactions"
+            setIdentification={setIdentification}
+            setPayer={setPayer}
+            setAmount={setAmount}
+            setStatus={setStatus}
+            status={status}
+            boleto
           />
         )}
       </Container>
