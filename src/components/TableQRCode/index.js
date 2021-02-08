@@ -3,11 +3,13 @@ import PaginationTable from 'components/PaginationTable';
 import { CheckTipayIcon, QuestionTipayIcon } from 'styles/icons';
 
 import ModalDetailLinkSale from 'components/ModalDetailLinkSale';
-import { forwardRef, useEffect } from 'react';
+import { useEffect } from 'react';
 import { formatDateTime } from 'utils/formatDate';
 import { formatPrice } from 'utils/formatPrice';
 
-function TableQRCode({ id, data, setPage, setCsv }, ref) {
+export default function TableQRCode({ id, data, useContext }) {
+  const { setCsv, printRef, setPage } = useContext;
+
   useEffect(() => {
     const generateCsv = data?.entries?.map((item) => ({
       Identificação: item?.id,
@@ -30,7 +32,7 @@ function TableQRCode({ id, data, setPage, setCsv }, ref) {
         px="2.188rem"
         overflowX="auto"
         h="100%"
-        ref={ref}
+        ref={printRef}
       >
         <Table variant="sales" size="lg">
           <Thead>
@@ -70,8 +72,6 @@ function TableQRCode({ id, data, setPage, setCsv }, ref) {
     </>
   );
 }
-
-export default forwardRef(TableQRCode);
 
 const TdLimit = ({ item }) => {
   if (!item?.has_limit) {

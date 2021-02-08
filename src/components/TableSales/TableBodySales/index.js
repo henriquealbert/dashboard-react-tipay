@@ -1,13 +1,18 @@
 import { Tbody, Tr, Td } from '@chakra-ui/react';
 
 import ModalDetailSale from 'components/ModalDetailSale';
+import { useTransaction } from 'hooks/useTransaction';
 
 import { formatDateTime } from 'utils/formatDate';
 import { formatPaymentType } from 'utils/formatPaymentType';
 import { formatPrice } from 'utils/formatPrice';
 import { formatStatusColor, formatStatusLabel } from 'utils/formatStatusColor';
 
-export default function TableBodySales({ data, setTransactionID, detailData }) {
+export default function TableBodySales({ data, useContext }) {
+  const { setTransactionID, transactionID } = useContext;
+
+  const { data: detailData } = useTransaction(transactionID);
+
   return (
     <Tbody>
       {data?.entries.map((item) => {

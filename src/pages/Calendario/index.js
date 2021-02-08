@@ -46,7 +46,7 @@ export default function Calendario() {
   } = useCalendar_ExtractDay(eventDate);
 
   /************* DETAILS *************/
-  const [transactionID, setTransactionID] = useState(null);
+  const [transactionID, setTransactionID] = useState();
   const { data: detailData } = useTransaction(transactionID);
 
   return (

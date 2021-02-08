@@ -1,4 +1,4 @@
-import { forwardRef, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Table, Box } from '@chakra-ui/react';
 
 import PaginationTable from 'components/PaginationTable';
@@ -10,26 +10,10 @@ import { formatStatusLabel } from 'utils/formatStatusColor';
 import { formatPaymentTypeString } from 'utils/formatPaymentType';
 import { formatPrice } from 'utils/formatPrice';
 
-function TableSales(
-  {
-    id,
-    data,
-    setPage,
-    setCsv,
-    setTransactionID,
-    detailData,
-    setIdentification,
-    setPayer,
-    setAmount,
-    setStatus,
-    status,
-    setPaymentType,
-    paymentType,
-    pageKey,
-    boleto
-  },
-  ref
-) {
+export default function TableSales({ id, data, useContext }) {
+  const { setCsv, printRef, setPage } = useContext;
+
+  /************* GENERATE EXCEL CSV *************/
   useEffect(() => {
     const generateCsv = data?.entries.map((item) => ({
       Identificação: item?.id,
@@ -53,25 +37,11 @@ function TableSales(
         px="2.188rem"
         overflowX="auto"
         h="100%"
-        ref={ref}
+        ref={printRef}
       >
         <Table variant="sales" size="lg">
-          <TableHeaderSales
-            setIdentification={setIdentification}
-            setPayer={setPayer}
-            setAmount={setAmount}
-            setStatus={setStatus}
-            status={status}
-            setPaymentType={setPaymentType}
-            paymentType={paymentType}
-            pageKey={pageKey}
-            boleto={boleto}
-          />
-          <TableBodySales
-            data={data}
-            setTransactionID={setTransactionID}
-            detailData={detailData}
-          />
+          <TableHeaderSales useContext={useContext} />
+          <TableBodySales data={data} useContext={useContext} />
         </Table>
       </Box>
       {data?.page_count > 1 && (
@@ -80,5 +50,3 @@ function TableSales(
     </>
   );
 }
-
-export default forwardRef(TableSales);

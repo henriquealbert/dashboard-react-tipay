@@ -1,6 +1,6 @@
 import { Button, Flex } from '@chakra-ui/react';
-import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { BoletoIcon } from 'styles/icons';
 
 import Container from 'components/Container';
 import InnerMenu from 'components/InnerMenu';
@@ -10,47 +10,30 @@ import TableSales from 'components/TableSales';
 import ToolsMenu from 'components/ToolsMenu';
 import TableSalesSkeleton from 'components/TableSalesSkeleton';
 import ErrorMessage from 'pages/ErrorMessage';
-import { BoletoIcon } from 'styles/icons';
-import { getLast3Months, getToday } from 'utils/formatDate';
+import { normalizeDateUTC } from 'utils/formatDate';
 
-import { useTransactions_TABLE } from 'hooks/useTransactions';
-import { useTransaction } from 'hooks/useTransaction';
+import useTransactions from 'hooks/useTransactions';
+import { useBoletoContext } from './BoletoContext';
 
 export default function Boletos() {
-  /************* HEADER *************/
-  const [, setStartDate] = useState(getLast3Months());
-  const [, setEndDate] = useState(getToday());
-
-  /************* TABLE *************/
-  const printRef = useRef();
-  const [csv, setCsv] = useState([]);
-  const [page, setPage] = useState(1);
-  const [per_Page, setPer_Page] = useState(25);
-  const [identification, setIdentification] = useState();
-  const [payer, setPayer] = useState();
-  const [amount, setAmount] = useState();
-  const [status, setStatus] = useState();
+  const ctx = useBoletoContext();
 
   const {
     data: TABLE_data,
     isError: TABLE_isError,
     error: TABLE_error,
     isLoading: TABLE_isLoading
-  } = useTransactions_TABLE(
-    identification,
-    payer,
-    amount,
-    status,
-    null,
-    null,
+  } = useTransactions(
+    ctx.identification,
+    ctx.payer,
+    ctx.amount,
+    ctx.status,
+    normalizeDateUTC(ctx.start_date),
+    normalizeDateUTC(ctx.end_date),
     '3',
-    per_Page,
-    page
+    ctx.per_Page,
+    ctx.page
   );
-
-  /************* DETAILS *************/
-  const [transactionID, setTransactionID] = useState(null);
-  const { data: detailData } = useTransaction(transactionID);
 
   return (
     <Layout>
@@ -59,12 +42,8 @@ export default function Boletos() {
           justifyContent={{ xxl: 'space-between' }}
           direction={{ base: 'column', xxl: 'row' }}
         >
-          <InnerMenu
-            pageTitle="Boletos"
-            setStartDate={setStartDate}
-            setEndDate={setEndDate}
-            pageKey="transactions"
-          />
+          <InnerMenu pageTitle="Boletos" useContext={ctx} />
+
           <Flex alignSelf={{ xxl: 'center' }} mt={{ base: '1rem', xlg: '0' }}>
             <Button
               as={Link}
@@ -78,39 +57,21 @@ export default function Boletos() {
             </Button>
           </Flex>
         </Flex>
+
         <Flex mt="1rem">
           <SalesStatus />
         </Flex>
 
         <ToolsMenu
-          setPer_Page={setPer_Page}
-          per_Page={per_Page}
-          pageKey="transactions"
           tableID="table_boleto"
-          componentRef={printRef}
-          csv={csv}
           csvFilename="tipay_boletos.csv"
+          useContext={ctx}
         />
 
         {TABLE_isError && <ErrorMessage message={TABLE_error.message} />}
         {TABLE_isLoading && <TableSalesSkeleton />}
         {TABLE_data && (
-          <TableSales
-            id="table_boleto"
-            ref={printRef}
-            data={TABLE_data}
-            setPage={setPage}
-            setCsv={setCsv}
-            setTransactionID={setTransactionID}
-            detailData={detailData}
-            pageKey="transactions"
-            setIdentification={setIdentification}
-            setPayer={setPayer}
-            setAmount={setAmount}
-            setStatus={setStatus}
-            status={status}
-            boleto
-          />
+          <TableSales id="table_boleto" data={TABLE_data} useContext={ctx} />
         )}
       </Container>
     </Layout>

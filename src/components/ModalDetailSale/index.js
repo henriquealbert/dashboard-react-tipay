@@ -30,10 +30,10 @@ import { formatPrice } from 'utils/formatPrice';
 
 export default function ModalDetailSale({
   id,
-  setTransactionID,
   data,
   estornar,
-  variant
+  variant,
+  setTransactionID
 }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 

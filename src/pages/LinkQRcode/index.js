@@ -1,6 +1,6 @@
 import { Flex, Button } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
-import { useRef, useState } from 'react';
+import { LinkQRCodeIcon } from 'styles/icons';
 
 import Container from 'components/Container';
 import InnerMenu from 'components/InnerMenu';
@@ -8,29 +8,21 @@ import Layout from 'components/Layout';
 import SalesStatus from 'components/SalesStatus';
 import TableQRCode from 'components/TableQRCode';
 import ToolsMenu from 'components/ToolsMenu';
-import { LinkQRCodeIcon } from 'styles/icons';
-import TableSalesSkeleton from 'components/TableSalesSkeleton';
 import ErrorMessage from 'pages/ErrorMessage';
-import { getLast3Months, getToday } from 'utils/formatDate';
+import TableSalesSkeleton from 'components/TableSalesSkeleton';
 
 import { useLinks_TABLE } from 'hooks/useLinks';
+import { useLinkContext } from './LinkContext';
 
 export default function LinkQRcode() {
-  /************* HEADER *************/
-  const [, setStartDate] = useState(getLast3Months());
-  const [, setEndDate] = useState(getToday());
+  const ctx = useLinkContext();
 
-  /************* TABLE *************/
-  const printRef = useRef();
-  const [csv, setCsv] = useState([]);
-  const [page, setPage] = useState(1);
-  const [per_Page, setPer_Page] = useState(25);
   const {
     data: TABLE_data,
     isError: TABLE_isError,
     error: TABLE_error,
     isLoading: TABLE_isLoading
-  } = useLinks_TABLE(`/per_page=${per_Page}`, `/${page}`);
+  } = useLinks_TABLE(`/per_page=${ctx.per_Page}`, `/${ctx.page}`);
 
   return (
     <Layout>
@@ -39,12 +31,8 @@ export default function LinkQRcode() {
           justifyContent={{ xxl: 'space-between' }}
           direction={{ base: 'column', xxl: 'row' }}
         >
-          <InnerMenu
-            pageTitle="Vendas por Links/QR Code"
-            setStartDate={setStartDate}
-            setEndDate={setEndDate}
-            pageKey="transfers"
-          />
+          <InnerMenu pageTitle="Vendas por Links/QR Code" useContext={ctx} />
+
           <Flex alignSelf={{ xxl: 'center' }} mt={{ base: '1rem', xlg: '0' }}>
             <Button
               as={Link}
@@ -63,30 +51,21 @@ export default function LinkQRcode() {
             </Button>
           </Flex>
         </Flex>
+
         <Flex mt="1rem">
           <SalesStatus />
         </Flex>
 
         <ToolsMenu
-          setPer_Page={setPer_Page}
-          per_Page={per_Page}
-          pageKey=""
           tableID="table_qrcode"
-          componentRef={printRef}
-          csv={csv}
           csvFilename="tipay_links_qrcode.csv"
+          useContext={ctx}
         />
 
         {TABLE_isError && <ErrorMessage message={TABLE_error.message} />}
         {TABLE_isLoading && <TableSalesSkeleton />}
         {TABLE_data && (
-          <TableQRCode
-            id="table_qrcode"
-            ref={printRef}
-            data={TABLE_data}
-            setPage={setPage}
-            setCsv={setCsv}
-          />
+          <TableQRCode id="table_qrcode" data={TABLE_data} useContext={ctx} />
         )}
       </Container>
     </Layout>

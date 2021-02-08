@@ -1,18 +1,7 @@
 import { useQuery } from 'react-query';
 import api from 'api';
 
-export function useTransactions(params, page) {
-  return useQuery(
-    ['transactions', page],
-    () =>
-      api
-        .get(`v1/transactions${params ? params : ''}${page ? page : '/1'}.json`)
-        .then((res) => res.data),
-    { keepPreviousData: true }
-  );
-}
-
-export function useTransactions_TABLE(
+export default function useTransactions(
   id,
   payer,
   value,
@@ -34,13 +23,24 @@ export function useTransactions_TABLE(
   const PAGE = page ? `/${page}` : '/1';
 
   return useQuery(
-    ['transactions', page],
+    [
+      'transactions',
+      id,
+      payer,
+      value,
+      status,
+      start_date,
+      end_date,
+      payment_type,
+      per_page,
+      page
+    ],
     () =>
       api
         .get(
           `/v1/transactions${ID}${PAYER}${VALUE}${STATUS}${START_DATE}${END_DATE}${PAYMENT_TYPE}${PER_PAGE}${PAGE}.json`
         )
         .then((res) => res.data),
-    { keepPreviousData: true }
+    { keepPreviousData: true, enabled: !!page }
   );
 }

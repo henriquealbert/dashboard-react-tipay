@@ -1,11 +1,14 @@
 import { Table, Thead, Tr, Th, Td, Tbody, Box, Text } from '@chakra-ui/react';
 import PaginationTable from 'components/PaginationTable';
-import { forwardRef, useEffect } from 'react';
+import { useEffect } from 'react';
 import { CheckTipayIcon, ErrorTipayIcon } from 'styles/icons';
 import { formatDateTime } from 'utils/formatDate';
 import { formatPrice } from 'utils/formatPrice';
 
-function TableTransfers({ id, data, setPage, setCsv }, ref) {
+export default function TableTransfers({ id, data, useContext }) {
+  const { setCsv, printRef, setPage } = useContext;
+
+  /************* GENERATE EXCEL CSV *************/
   useEffect(() => {
     const generateCsv = data?.entries.map((item) => ({
       Identificação: item?.id,
@@ -27,7 +30,7 @@ function TableTransfers({ id, data, setPage, setCsv }, ref) {
         px="2.188rem"
         overflowX="auto"
         h="100%"
-        ref={ref}
+        ref={printRef}
       >
         <Table variant="sales" size="lg">
           <Thead>
@@ -62,8 +65,6 @@ function TableTransfers({ id, data, setPage, setCsv }, ref) {
     </>
   );
 }
-
-export default forwardRef(TableTransfers);
 
 const statusIcon = (status, status_detail) => {
   switch (status) {

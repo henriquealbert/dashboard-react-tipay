@@ -1,66 +1,38 @@
-import { Box } from '@chakra-ui/react';
-import { useRef, useState } from 'react';
+import { Box } from '@chakra-ui/layout';
 
 import Layout from 'components/Layout';
 import Container from 'components/Container';
-import InnerMenu from 'components/InnerMenu';
-import SalesPercentages from 'components/SalesPercentages';
-import SalesStatus from 'components/SalesStatus';
 import ToolsMenu from 'components/ToolsMenu';
+import ErrorMessage from 'pages/ErrorMessage';
 import TableSales from 'components/TableSales';
 import TableSalesSkeleton from 'components/TableSalesSkeleton';
-import ErrorMessage from 'pages/ErrorMessage';
-import { getLast3Months, getToday } from 'utils/formatDate';
+import SalesStatus from 'components/SalesStatus';
+import SalesPercentages from 'components/SalesPercentages';
+import InnerMenu from 'components/InnerMenu';
+import { normalizeDateUTC } from 'utils/formatDate';
 
-import { useTransactions_TABLE } from 'hooks/useTransactions';
-import { useTransaction } from 'hooks/useTransaction';
+import { useSalesContext } from './SalesContext';
+import useTransactions from 'hooks/useTransactions';
 
 export default function Vendas() {
-  /************* HEADER *************/
-  const [, setStartDate] = useState(getLast3Months());
-  const [, setEndDate] = useState(getToday());
+  const ctx = useSalesContext();
 
-  /************* TABLE *************/
-  const printRef = useRef();
-  const [csv, setCsv] = useState([]);
-  const [page, setPage] = useState(1);
-  const [per_Page, setPer_Page] = useState(25);
-  const [identification, setIdentification] = useState();
-  const [payer, setPayer] = useState();
-  const [amount, setAmount] = useState();
-  const [status, setStatus] = useState();
-  const [paymentType, setPaymentType] = useState();
-
-  const {
-    data: TABLE_data,
-    isError: TABLE_isError,
-    error: TABLE_error,
-    isLoading: TABLE_isLoading
-  } = useTransactions_TABLE(
-    identification,
-    payer,
-    amount,
-    status,
-    null,
-    null,
-    paymentType,
-    per_Page,
-    page
+  const { data, isError, error, isLoading } = useTransactions(
+    ctx.identification,
+    ctx.payer,
+    ctx.amount,
+    ctx.status,
+    normalizeDateUTC(ctx.start_date),
+    normalizeDateUTC(ctx.end_date),
+    ctx.paymentType,
+    ctx.per_Page,
+    ctx.page
   );
-
-  /************* DETAILS *************/
-  const [transactionID, setTransactionID] = useState(null);
-  const { data: detailData } = useTransaction(transactionID);
 
   return (
     <Layout>
       <Container>
-        <InnerMenu
-          pageTitle="Vendas"
-          setStartDate={setStartDate}
-          setEndDate={setEndDate}
-          pageKey="transactions"
-        />
+        <InnerMenu pageTitle="Vendas" useContext={ctx} />
 
         <Box
           display={{ base: 'block', xl: 'grid' }}
@@ -75,36 +47,14 @@ export default function Vendas() {
         </Box>
 
         <ToolsMenu
-          setPer_Page={setPer_Page}
-          per_Page={per_Page}
-          pageKey="transactions"
           tableID="table_sales"
-          componentRef={printRef}
-          csv={csv}
           csvFilename="tipay_sales.csv"
+          useContext={ctx}
         />
 
-        {TABLE_isError && <ErrorMessage message={TABLE_error.message} />}
-        {TABLE_isLoading && <TableSalesSkeleton />}
-        {TABLE_data && (
-          <TableSales
-            id="table_sales"
-            ref={printRef}
-            data={TABLE_data}
-            setPage={setPage}
-            setCsv={setCsv}
-            setTransactionID={setTransactionID}
-            detailData={detailData}
-            pageKey="transactions"
-            setIdentification={setIdentification}
-            setPayer={setPayer}
-            setAmount={setAmount}
-            setStatus={setStatus}
-            status={status}
-            setPaymentType={setPaymentType}
-            paymentType={paymentType}
-          />
-        )}
+        {isError && <ErrorMessage message={error.message} />}
+        {isLoading && <TableSalesSkeleton />}
+        {data && <TableSales id="table_sales" data={data} useContext={ctx} />}
       </Container>
     </Layout>
   );

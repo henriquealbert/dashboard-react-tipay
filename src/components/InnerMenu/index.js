@@ -15,13 +15,9 @@ import {
 } from 'utils/formatDate';
 import { useQueryClient } from 'react-query';
 
-export default function InnerMenu({
-  pageTitle,
-  componentRef,
-  setStartDate,
-  setEndDate,
-  pageKey
-}) {
+export default function InnerMenu({ pageTitle, useContext }) {
+  const { printRef, pageKey, setStartDate, setEndDate } = useContext;
+
   const queryClient = useQueryClient();
   const isFetching = queryClient.isFetching();
 
@@ -141,7 +137,7 @@ export default function InnerMenu({
             isFetching={isFetching}
           />
         </Box>
-        {pageTitle === 'Home' && <PrintBtn componentRef={componentRef} />}
+        {pageTitle === 'Home' && <PrintBtn componentRef={printRef} />}
       </Flex>
     </Flex>
   );

@@ -1,4 +1,3 @@
-import { useRef } from 'react';
 import { Box } from '@chakra-ui/react';
 
 import Layout from 'components/Layout';
@@ -10,16 +9,18 @@ import SalesByHour from 'components/SalesByHour';
 import SalesByIssuer from 'components/SalesByIssuer';
 import InnerMenu from 'components/InnerMenu';
 
+import { useHomeContext } from './HomeContext';
+
 export default function Home() {
-  const printRef = useRef();
+  const ctx = useHomeContext();
 
   return (
     <Layout>
       <Container>
         <Box mb="3.25rem">
-          <InnerMenu pageTitle="Home" componentRef={printRef} />
+          <InnerMenu pageTitle="Home" useContext={ctx} />
 
-          <Box bg="gray.200" ref={printRef}>
+          <Box bg="gray.200" ref={ctx.printRef}>
             <Box
               display={{ base: 'block', xl: 'grid' }}
               gridTemplateColumns={{ xl: '1fr 1fr', xxl: '2fr 1fr' }}

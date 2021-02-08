@@ -5,15 +5,9 @@ import CopyBtn from 'components/CopyBtn';
 import ExcelExport from 'components/ExcelExport';
 import PrintBtn from 'components/PrintBtn';
 
-export default function ToolsMenu({
-  setPer_Page,
-  per_Page,
-  pageKey,
-  tableID,
-  componentRef,
-  csv,
-  csvFilename
-}) {
+export default function ToolsMenu({ tableID, csvFilename, useContext }) {
+  const { printRef, csv, setPer_Page, per_Page, pageKey } = useContext;
+
   return (
     <Flex
       mt={{ base: '0', xlg: '40px' }}
@@ -33,13 +27,15 @@ export default function ToolsMenu({
         justifyContent={{ md: 'center' }}
       >
         <CopyBtn size="lg" m="0 12px 0 0" tableID={tableID} />
+
         <ExcelExport
           size="lg"
           m="0 12px 0 0"
           csv={csv}
           csvFilename={csvFilename}
         />
-        <PrintBtn size="lg" componentRef={componentRef} />
+
+        <PrintBtn size="lg" componentRef={printRef} />
       </Flex>
     </Flex>
   );

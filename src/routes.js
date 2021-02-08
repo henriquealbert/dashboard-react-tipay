@@ -31,6 +31,11 @@ import ForgotPassword from 'pages/ForgotPassword';
 import { useAuth } from 'hooks/useAuth';
 import api from 'api';
 import Cookies from 'js-cookie';
+import { SalesProvider } from 'pages/Vendas/SalesContext';
+import { TransfersProvider } from 'pages/Transferencias/TransfersContext';
+import { BoletoProvider } from 'pages/Boletos/BoletoContext';
+import { LinkProvider } from 'pages/LinkQRcode/LinkContext';
+import { HomeProvider } from 'pages/Home/HomeContext';
 
 function CustomRoute({ isPrivate, ...rest }) {
   const {
@@ -100,16 +105,54 @@ function CustomRoute({ isPrivate, ...rest }) {
 const Routes = () => (
   <Switch>
     <Redirect exact from="/" to="/dashboard" />
-    <CustomRoute isPrivate exact path="/dashboard" component={Home} />
-    <CustomRoute isPrivate exact path="/vendas" component={Vendas} />
-    <CustomRoute isPrivate exact path="/boletos" component={Boletos} />
+    <CustomRoute
+      isPrivate
+      exact
+      path="/dashboard"
+      component={() => (
+        <HomeProvider>
+          <Home />
+        </HomeProvider>
+      )}
+    />
+
+    <CustomRoute
+      isPrivate
+      exact
+      path="/vendas"
+      component={() => (
+        <SalesProvider>
+          <Vendas />
+        </SalesProvider>
+      )}
+    />
+
+    <CustomRoute
+      isPrivate
+      exact
+      path="/boletos"
+      component={() => (
+        <BoletoProvider>
+          <Boletos />
+        </BoletoProvider>
+      )}
+    />
     <CustomRoute
       isPrivate
       exact
       path="/boletos/gerar-boleto"
       component={GerarBoleto}
     />
-    <CustomRoute isPrivate exact path="/link-qrcode" component={LinkQRcode} />
+    <CustomRoute
+      isPrivate
+      exact
+      path="/link-qrcode"
+      component={() => (
+        <LinkProvider>
+          <LinkQRcode />
+        </LinkProvider>
+      )}
+    />
     <CustomRoute
       isPrivate
       exact
@@ -120,7 +163,11 @@ const Routes = () => (
       isPrivate
       exact
       path="/transferencias"
-      component={Transferencias}
+      component={() => (
+        <TransfersProvider>
+          <Transferencias />
+        </TransfersProvider>
+      )}
     />
     <CustomRoute isPrivate exact path="/calendario" component={Calendario} />
     <CustomRoute isPrivate exact path="/meu-perfil" component={MeuPerfil} />

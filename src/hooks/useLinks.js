@@ -3,7 +3,7 @@ import api from 'api';
 
 export function useLinks(params, page) {
   return useQuery(
-    ['transfers', page],
+    ['linkQRCode', page],
     () =>
       api
         .get(`v1/links${params ? params : ''}${page ? page : '/1'}.json`)
@@ -14,7 +14,7 @@ export function useLinks(params, page) {
 
 export function useLinks_TABLE(params, page) {
   return useQuery(
-    ['transfers', page],
+    ['linkQRCode', page],
     () =>
       api
         .get(`v1/links${params ? params : ''}${page ? page : '/1'}.json`)
