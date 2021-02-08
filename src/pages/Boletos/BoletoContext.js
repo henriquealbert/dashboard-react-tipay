@@ -23,7 +23,7 @@ export const BoletoProvider = ({ children }) => {
   const [status, setStatus] = useState();
   const [start_date, setStart_date] = useState();
   const [end_date, setEnd_date] = useState();
-  const [paymentType, setPaymentType] = useState();
+  const paymentType = '3';
 
   /************* DETAILS *************/
   const [transactionID, setTransactionID] = useState();
@@ -56,7 +56,6 @@ export const BoletoProvider = ({ children }) => {
       setAmount('');
       amountRef?.current.reset();
       setStatus('');
-      setPaymentType('');
       setStart_date('');
       setEnd_date('');
       queryClient.removeQueries([pageKey]);
@@ -90,7 +89,6 @@ export const BoletoProvider = ({ children }) => {
         end_date,
         setEnd_date,
         paymentType,
-        setPaymentType,
         transactionID,
         setTransactionID,
         pageKey,

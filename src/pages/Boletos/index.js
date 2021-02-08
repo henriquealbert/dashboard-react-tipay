@@ -10,7 +10,6 @@ import TableSales from 'components/TableSales';
 import ToolsMenu from 'components/ToolsMenu';
 import TableSalesSkeleton from 'components/TableSalesSkeleton';
 import ErrorMessage from 'pages/ErrorMessage';
-import { normalizeDateUTC } from 'utils/formatDate';
 
 import useTransactions from 'hooks/useTransactions';
 import { useBoletoContext } from './BoletoContext';
@@ -23,17 +22,7 @@ export default function Boletos() {
     isError: TABLE_isError,
     error: TABLE_error,
     isLoading: TABLE_isLoading
-  } = useTransactions(
-    ctx.identification,
-    ctx.payer,
-    ctx.amount,
-    ctx.status,
-    normalizeDateUTC(ctx.start_date),
-    normalizeDateUTC(ctx.end_date),
-    '3',
-    ctx.per_Page,
-    ctx.page
-  );
+  } = useTransactions(ctx);
 
   return (
     <Layout>

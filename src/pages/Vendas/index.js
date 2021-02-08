@@ -9,7 +9,6 @@ import TableSalesSkeleton from 'components/TableSalesSkeleton';
 import SalesStatus from 'components/SalesStatus';
 import SalesPercentages from 'components/SalesPercentages';
 import InnerMenu from 'components/InnerMenu';
-import { normalizeDateUTC } from 'utils/formatDate';
 
 import { useSalesContext } from './SalesContext';
 import useTransactions from 'hooks/useTransactions';
@@ -17,17 +16,7 @@ import useTransactions from 'hooks/useTransactions';
 export default function Vendas() {
   const ctx = useSalesContext();
 
-  const { data, isError, error, isLoading } = useTransactions(
-    ctx.identification,
-    ctx.payer,
-    ctx.amount,
-    ctx.status,
-    normalizeDateUTC(ctx.start_date),
-    normalizeDateUTC(ctx.end_date),
-    ctx.paymentType,
-    ctx.per_Page,
-    ctx.page
-  );
+  const { data, isError, error, isLoading } = useTransactions(ctx);
 
   return (
     <Layout>
