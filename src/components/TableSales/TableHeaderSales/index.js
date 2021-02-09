@@ -45,7 +45,6 @@ export default function TableHeaderSales({ useContext }) {
         </Th>
         <Th>
           <Filter
-            type="text"
             placeholder="VALOR"
             minW="7rem"
             maxW="8rem"

@@ -5,7 +5,7 @@ import { normalizeDateUTC } from 'utils/formatDate';
 export default function useTransactions(ctx) {
   const ID = ctx.id ? `/id=${ctx.id}` : '';
   const PAYER = ctx.payer ? `/payer=${ctx.payer}` : '';
-  const VALUE = ctx.value ? `/value=${ctx.value}` : '';
+  const VALUE = ctx.amount ? `/value=${ctx.amount}` : '';
   const STATUS = ctx.status ? `/status=${ctx.status}` : '';
   const START_DATE = ctx.start_date
     ? `/start_date=${normalizeDateUTC(ctx.start_date)}`
