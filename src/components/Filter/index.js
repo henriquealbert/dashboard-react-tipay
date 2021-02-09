@@ -4,7 +4,7 @@ import { SearchIcon } from '@chakra-ui/icons';
 import { useQueryClient } from 'react-query';
 import { forwardRef } from 'react';
 
-function Filter({ placeholder, type, maxW, setValue, pageKey }, ref) {
+function Filter({ placeholder, type, minW, maxW, setValue, pageKey, m }, ref) {
   const queryClient = useQueryClient();
   const isFetching = queryClient.isFetching();
 
@@ -21,14 +21,16 @@ function Filter({ placeholder, type, maxW, setValue, pageKey }, ref) {
   return (
     <Flex
       as="form"
-      maxW={maxW}
+      minW={minW}
       w="100%"
+      maxW={maxW}
       borderRadius="0.313rem"
       border="1px solid"
       borderColor="gray.1100"
       onSubmit={handleClick}
       cursor={isFetching ? 'not-allowed' : 'initial'}
       ref={ref}
+      m={m}
     >
       <Input
         type={type}
@@ -37,6 +39,7 @@ function Filter({ placeholder, type, maxW, setValue, pageKey }, ref) {
         _placeholder={{ color: 'gray.1000' }}
         fontSize="1rem"
         color="gray.500"
+        padding={{ base: '0 0 0 0.75rem', xxl: '1rem' }}
         placeholder={placeholder}
         isDisabled={isFetching ? true : false}
       />
@@ -45,9 +48,15 @@ function Filter({ placeholder, type, maxW, setValue, pageKey }, ref) {
         type="submit"
         cursor="pointer"
         bg="white"
+        size="sm"
+        h="2.625rem"
         isDisabled={isFetching ? true : false}
       >
-        <SearchIcon color="gray.1000" w={4} h={4} />
+        <SearchIcon
+          color="gray.1000"
+          w={{ base: 3, xxl: 4 }}
+          h={{ base: 3, xxl: 4 }}
+        />
       </Button>
     </Flex>
   );

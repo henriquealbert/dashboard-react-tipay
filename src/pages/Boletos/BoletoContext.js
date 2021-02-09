@@ -36,30 +36,17 @@ export const BoletoProvider = ({ children }) => {
   const payerRef = useRef();
   const amountRef = useRef();
 
-  const clearFilters = (boleto) => {
-    if (boleto) {
-      setIdentification('');
-      identificationRef?.current.reset();
-      setPayer('');
-      payerRef?.current.reset();
-      setAmount('');
-      amountRef?.current.reset();
-      setStatus('');
-      setStart_date('');
-      setEnd_date('');
-      queryClient.removeQueries([pageKey]);
-    } else {
-      setIdentification('');
-      identificationRef?.current.reset();
-      setPayer('');
-      payerRef?.current.reset();
-      setAmount('');
-      amountRef?.current.reset();
-      setStatus('');
-      setStart_date('');
-      setEnd_date('');
-      queryClient.removeQueries([pageKey]);
-    }
+  const clearFilters = () => {
+    setIdentification('');
+    identificationRef?.current.reset();
+    setPayer('');
+    payerRef?.current.reset();
+    setAmount('');
+    amountRef?.current.reset();
+    setStatus('');
+    setStart_date('');
+    setEnd_date('');
+    queryClient.removeQueries([pageKey]);
   };
 
   return (

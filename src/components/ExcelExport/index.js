@@ -15,7 +15,8 @@ export default function ExcelExport({ size, m, csv, csvFilename }) {
       loadingText="Exportando..."
       size={size}
       m={m}
-      fontSize="1.25rem"
+      fontSize={{ base: '1rem', xxl: '1.25rem' }}
+      padding={{ base: '0.5rem', xxl: '0.625rem 1.25rem' }}
     >
       <ExportarIcon mr="8px" />
       Exportar Excel

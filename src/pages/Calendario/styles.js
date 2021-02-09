@@ -3,7 +3,6 @@ import styled from '@emotion/styled';
 export const CalendarWrapper = styled.div`
   height: 100vh;
   width: 100%;
-  margin-top: 38px;
   margin-bottom: 3.25rem;
 
   .fc-view-harness {
@@ -22,7 +21,6 @@ export const CalendarWrapper = styled.div`
     }
   }
   .fc-col-header-cell {
-    padding: 1.25rem 3rem;
     color: #b8b8b8;
     text-transform: uppercase;
     font-weight: bold;
@@ -37,7 +35,7 @@ export const CalendarWrapper = styled.div`
     }
   }
   .fc-toolbar-title {
-    font-size: 1.625rem;
+    font-size: 1.5rem;
     line-height: 2rem;
     font-family: 'Montserrat';
     font-weight: normal;
@@ -53,11 +51,7 @@ export const CalendarWrapper = styled.div`
     font-weight: 600;
     height: 49px;
   }
-  .fc-today-button {
-    width: 137px;
-    height: 49px;
-    font-size: 1.25rem;
-  }
+
   .fc .fc-button-primary:hover {
     background-color: #9b9b9b;
     border-color: #9b9b9b;
@@ -109,6 +103,12 @@ export const CalendarWrapper = styled.div`
     }
     .fc-toolbar-title {
       margin-bottom: 1rem;
+      font-size: 1.25rem;
+    }
+  }
+  @media (max-width: 1919px) {
+    .fc-toolbar-title {
+      font-size: 1.25rem;
     }
   }
 `;

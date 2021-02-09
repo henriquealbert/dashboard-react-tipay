@@ -27,12 +27,13 @@ export default function MenuItem({ pathname, text, icon, w, h }) {
           p: { color: 'brand.100' }
         }}
         mx={{ base: '0.35rem', lg: '' }}
+        mt="2rem"
       >
         <Flex
           as="nav"
           bg={currentPage() ? 'brand.100' : 'gray.200'}
-          w="3.75rem"
-          h="3.75rem"
+          w={{ base: '3.25rem', xxl: '3.75rem' }}
+          h={{ base: '3.25rem', xxl: '3.75rem' }}
           borderRadius="0.625rem"
           justifyContent="center"
           alignItems="center"
@@ -45,10 +46,10 @@ export default function MenuItem({ pathname, text, icon, w, h }) {
           />
         </Flex>
         <Text
-          mt="0.875rem"
+          mt={{ base: '0.5rem', xxl: '0.875rem' }}
           textAlign="center"
           fontWeight={currentPage() ? 'bold' : 'normal'}
-          fontSize="0.875rem"
+          fontSize={{ base: '0.8rem', xxl: '0.875rem' }}
           color={currentPage() ? 'brand.100' : 'gray.700'}
         >
           {text}

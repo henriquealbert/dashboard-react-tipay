@@ -5,6 +5,7 @@ export default function FilterSelect({
   value,
   setValue,
   pageKey,
+  maxW,
   children,
   ...props
 }) {
@@ -18,7 +19,7 @@ export default function FilterSelect({
 
   return (
     <Select
-      maxW={{ xlg: '310px' }}
+      maxW={maxW}
       h="2.625rem"
       borderRadius="0.313rem"
       border="1px solid"

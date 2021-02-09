@@ -22,7 +22,8 @@ export default function CopyBtn({ size, m, tableID }) {
       loadingText="Copiando..."
       size={size}
       m={m}
-      fontSize="1.25rem"
+      fontSize={{ base: '1rem', xxl: '1.25rem' }}
+      padding={{ base: '0.5rem', xxl: '0.625rem 1.25rem' }}
       value="select table"
       onClick={() => handleClick(tableID)}
     >

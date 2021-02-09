@@ -40,10 +40,7 @@ export default function InnerMenu({ pageTitle, useContext }) {
 
   return (
     <Flex
-      direction={{
-        base: 'column',
-        xxl: `${pageTitle === 'Home' ? 'row' : 'column'}`
-      }}
+      direction="column"
       flexWrap={{ base: 'wrap', xxl: 'nowrap' }}
       w="100%"
       h="auto"
@@ -53,9 +50,10 @@ export default function InnerMenu({ pageTitle, useContext }) {
       <Flex overflowX={{ base: 'auto' }} w="100%" pb="1rem" overflowY="hidden">
         <Button
           variant="outline"
+          padding={{ base: '0.5rem', xxl: '0.625rem 1.25rem' }}
           disabled={isFetching ? true : false}
           cursor={isFetching ? 'not-allowed' : 'pointer'}
-          mr="0.875rem"
+          mr={{ base: '0.5rem', xxl: '0.875rem' }}
           onClick={() => {
             setActive('hoje');
             handleDateRange([getToday(), getToday()]);
@@ -66,9 +64,10 @@ export default function InnerMenu({ pageTitle, useContext }) {
         </Button>
         <Button
           variant="outline"
+          padding={{ base: '0.5rem', xxl: '0.625rem 1.25rem' }}
           disabled={isFetching ? true : false}
           cursor={isFetching ? 'not-allowed' : 'pointer'}
-          mr="0.875rem"
+          mr={{ base: '0.5rem', xxl: '0.875rem' }}
           onClick={() => {
             setActive('ontem');
             handleDateRange([getYesterday(), getYesterday()]);
@@ -79,9 +78,10 @@ export default function InnerMenu({ pageTitle, useContext }) {
         </Button>
         <Button
           variant="outline"
+          padding={{ base: '0.5rem', xxl: '0.625rem 1.25rem' }}
           disabled={isFetching ? true : false}
           cursor={isFetching ? 'not-allowed' : 'pointer'}
-          mr="0.875rem"
+          mr={{ base: '0.5rem', xxl: '0.875rem' }}
           onClick={() => {
             setActive('7 dias');
             handleDateRange([getLast7Day(), getToday()]);
@@ -92,9 +92,10 @@ export default function InnerMenu({ pageTitle, useContext }) {
         </Button>
         <Button
           variant="outline"
+          padding={{ base: '0.5rem', xxl: '0.625rem 1.25rem' }}
           disabled={isFetching ? true : false}
           cursor={isFetching ? 'not-allowed' : 'pointer'}
-          mr="0.875rem"
+          mr={{ base: '0.5rem', xxl: '0.875rem' }}
           onClick={() => {
             setActive('15 dias');
             handleDateRange([getLast15Day(), getToday()]);
@@ -105,9 +106,10 @@ export default function InnerMenu({ pageTitle, useContext }) {
         </Button>
         <Button
           variant="outline"
+          padding={{ base: '0.5rem', xxl: '0.625rem 1.25rem' }}
           disabled={isFetching ? true : false}
           cursor={isFetching ? 'not-allowed' : 'pointer'}
-          mr="0.875rem"
+          mr={{ base: '0.5rem', xxl: '0.875rem' }}
           onClick={() => {
             setActive('30 dias');
             handleDateRange([getLast30Day(), getToday()]);
@@ -118,9 +120,10 @@ export default function InnerMenu({ pageTitle, useContext }) {
         </Button>
         <Button
           variant="outline"
+          padding={{ base: '0.5rem', xxl: '0.625rem 1.25rem' }}
           disabled={isFetching ? true : false}
           cursor={isFetching ? 'not-allowed' : 'pointer'}
-          mr="0.875rem"
+          mr={{ base: '0.5rem', xxl: '0.875rem' }}
           onClick={() => {
             setActive('3 meses');
             handleDateRange([getLast3Months(), getToday()]);

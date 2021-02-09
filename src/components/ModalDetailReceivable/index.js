@@ -31,7 +31,8 @@ export default function ModalDetailReceivable({
   id,
   setTransactionID,
   data,
-  variant
+  variant,
+  calendar
 }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -39,8 +40,17 @@ export default function ModalDetailReceivable({
     <>
       <Button
         variant={variant ? variant : 'green'}
-        maxW="13.125rem"
-        h="3.125rem"
+        maxW={
+          calendar
+            ? { base: '5.25rem', xxl: '13.125rem' }
+            : { base: '8rem', xxl: '13.125rem' }
+        }
+        fontSize={
+          calendar
+            ? { base: '0.85rem', xxl: '1.25rem' }
+            : { base: '1rem', xxl: '1.25rem' }
+        }
+        h={{ base: '2.75rem', xxl: '3.125rem' }}
         onClick={() => {
           onOpen();
           setTransactionID(id);

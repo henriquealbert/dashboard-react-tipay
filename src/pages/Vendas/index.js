@@ -28,8 +28,7 @@ export default function Vendas() {
           gridTemplateColumns={{ xl: '1fr 1fr', xxl: '2fr 1fr' }}
           gridGap={{ xl: '1.313rem' }}
           w="100%"
-          mt="1rem"
-          mb="2rem"
+          mt="0.5rem"
         >
           <SalesStatus />
           <SalesPercentages />

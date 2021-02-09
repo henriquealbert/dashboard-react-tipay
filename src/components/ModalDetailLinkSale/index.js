@@ -30,7 +30,13 @@ export default function ModalDetailLinkSale({ data }) {
 
   return (
     <>
-      <Button variant="green" maxW="13.125rem" h="3.125rem" onClick={onOpen}>
+      <Button
+        variant="green"
+        maxW={{ base: '8rem', xxl: '13.125rem' }}
+        fontSize={{ base: '1rem', xxl: '1.25rem' }}
+        h={{ base: '2.75rem', xxl: '3.125rem' }}
+        onClick={onOpen}
+      >
         Detalhes
       </Button>
       <Modal
@@ -41,9 +47,9 @@ export default function ModalDetailLinkSale({ data }) {
         scrollBehavior="inside"
       >
         <ModalOverlay />
-        <ModalContent p={{ base: '1rem', xl: '3.25rem' }} overflowY="auto">
+        <ModalContent p={{ base: '1rem', xxl: '3.25rem' }} overflowY="auto">
           <ModalHeader
-            fontSize="1.875rem"
+            fontSize={{ base: '1.5rem', xxl: '1.875rem' }}
             color="gray.900"
             lineHeight="2.313rem"
             fontWeight="bold"
@@ -81,7 +87,7 @@ export default function ModalDetailLinkSale({ data }) {
             </Box>
             <Box mt="3.75rem">
               <Text
-                fontSize="1.875rem"
+                fontSize={{ base: '1.5rem', xxl: '1.875rem' }}
                 color="gray.900"
                 lineHeight="2.313rem"
                 fontWeight="bold"
@@ -119,7 +125,12 @@ export default function ModalDetailLinkSale({ data }) {
           </ModalBody>
 
           <ModalFooter>
-            <Button variant="green" w="17.25rem" h="4rem" fontSize="1.875rem">
+            <Button
+              variant="green"
+              w={{ base: '12rem', xxl: '17.25rem' }}
+              h={{ base: '3.25rem', xxl: '4rem' }}
+              fontSize="1.25rem"
+            >
               Compartilhar
             </Button>
           </ModalFooter>

@@ -18,9 +18,8 @@ export const LinkProvider = ({ children }) => {
   const [page, setPage] = useState(1);
   const [per_Page, setPer_Page] = useState(25);
   const [identification, setIdentification] = useState();
-  const [payer, setPayer] = useState();
+  const [description, setDescription] = useState();
   const [amount, setAmount] = useState();
-  const [status, setStatus] = useState();
   const [start_date, setStart_date] = useState();
   const [end_date, setEnd_date] = useState();
   const [paymentType, setPaymentType] = useState();
@@ -33,34 +32,19 @@ export const LinkProvider = ({ children }) => {
 
   /************* FILTERS *************/
   const identificationRef = useRef();
-  const payerRef = useRef();
+  const descriptionRef = useRef();
   const amountRef = useRef();
 
-  const clearFilters = (boleto) => {
-    if (boleto) {
-      setIdentification('');
-      identificationRef?.current.reset();
-      setPayer('');
-      payerRef?.current.reset();
-      setAmount('');
-      amountRef?.current.reset();
-      setStatus('');
-      setStart_date('');
-      setEnd_date('');
-      queryClient.removeQueries([pageKey]);
-    } else {
-      setIdentification('');
-      identificationRef?.current.reset();
-      setPayer('');
-      payerRef?.current.reset();
-      setAmount('');
-      amountRef?.current.reset();
-      setStatus('');
-      setPaymentType('');
-      setStart_date('');
-      setEnd_date('');
-      queryClient.removeQueries([pageKey]);
-    }
+  const clearFilters = () => {
+    setIdentification('');
+    identificationRef?.current.reset();
+    setDescription('');
+    descriptionRef?.current.reset();
+    setAmount('');
+    amountRef?.current.reset();
+    setStart_date('');
+    setEnd_date('');
+    queryClient.removeQueries([pageKey]);
   };
 
   return (
@@ -79,12 +63,10 @@ export const LinkProvider = ({ children }) => {
         setPer_Page,
         identification,
         setIdentification,
-        payer,
-        setPayer,
+        description,
+        setDescription,
         amount,
         setAmount,
-        status,
-        setStatus,
         start_date,
         setStart_date,
         end_date,
@@ -96,7 +78,7 @@ export const LinkProvider = ({ children }) => {
         pageKey,
         clearFilters,
         identificationRef,
-        payerRef,
+        descriptionRef,
         amountRef
       }}
     >

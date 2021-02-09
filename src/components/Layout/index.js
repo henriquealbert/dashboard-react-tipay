@@ -17,8 +17,12 @@ export default function Layout({ children, perfil }) {
         w="100%"
         minH={{ lg: '100vh' }}
         h="100%"
-        pt="7.375rem"
-        pl={{ lg: `${perfil ? '21.75rem' : '8.063rem'}` }}
+        pt={{ base: '4rem', xxl: '7.375rem' }}
+        pl={
+          perfil
+            ? { lg: '15rem', xxl: '21.75rem' }
+            : { lg: '6.25rem', xxl: '7.5rem' }
+        }
         position="relative"
       >
         <GlobalLoader />

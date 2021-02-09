@@ -17,7 +17,7 @@ export default function MenuItemPerfil({ pathname, text, icon, pr }) {
       as={Link}
       to={pathname}
       w="100%"
-      p="1.25rem"
+      p={{ base: '1rem', xxl: '1.25rem' }}
       cursor="pointer"
       alignItems="center"
       _hover={{
@@ -31,13 +31,13 @@ export default function MenuItemPerfil({ pathname, text, icon, pr }) {
       <Icon
         as={icon}
         color={currentPage() ? 'brand.100' : 'gray.100'}
-        w="2rem"
+        w={{ base: '1.75rem', xxl: '2rem' }}
         h="1.813rem"
       />
       <Text
-        ml={{ md: '1rem' }}
+        ml={{ md: '1rem', lg: '0.75rem', xxl: '1rem' }}
         fontWeight={currentPage() ? 'bold' : 'normal'}
-        fontSize="1.188rem"
+        fontSize={{ base: '1rem', xxl: '1.188rem' }}
         color={currentPage() ? 'brand.100' : 'gray.700'}
         mt={{ base: '1rem', md: '0' }}
         textAlign="center"

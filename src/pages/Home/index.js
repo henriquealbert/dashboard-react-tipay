@@ -26,7 +26,7 @@ export default function Home() {
               gridTemplateColumns={{ xl: '1fr 1fr', xxl: '2fr 1fr' }}
               gridGap={{ xl: '1.313rem' }}
               w="100%"
-              mt={{ base: '2rem', xl: '45px' }}
+              mt="0.5rem"
             >
               <SalesStatus />
               <SalesPercentages />

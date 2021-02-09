@@ -10,10 +10,9 @@ export default function ToolsMenu({ tableID, csvFilename, useContext }) {
 
   return (
     <Flex
-      mt={{ base: '0', xlg: '40px' }}
-      mb={{ base: '2rem', xlg: '40px' }}
-      justifyContent={{ xlg: 'space-between' }}
-      direction={{ base: 'column', xlg: 'row' }}
+      my="2rem"
+      justifyContent={{ xl: 'space-between' }}
+      direction={{ base: 'column', xl: 'row' }}
     >
       <ResultsPerPage
         setPer_Page={setPer_Page}
@@ -21,9 +20,9 @@ export default function ToolsMenu({ tableID, csvFilename, useContext }) {
         pageKey={pageKey}
       />
       <Flex
-        mt={{ base: '1rem', xlg: '0' }}
+        mt={{ base: '1rem', xl: '0' }}
         overflowX="auto"
-        pb={{ base: '1rem', xlg: '0' }}
+        pb={{ base: '1rem', xl: '0' }}
         justifyContent={{ md: 'center' }}
       >
         <CopyBtn size="lg" m="0 12px 0 0" tableID={tableID} />

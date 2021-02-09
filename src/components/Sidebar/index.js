@@ -14,17 +14,16 @@ export default function Sidebar() {
   return (
     <Flex
       direction={{ base: 'row', lg: 'column' }}
-      w={{ base: '100%', lg: '8.063rem' }}
+      w={{ base: '100%', lg: '6.25rem', xxl: '7.5rem' }}
       h={{ lg: '100vh' }}
       bg="white"
-      pt={{ lg: '6.25rem' }}
+      pt={{ lg: '4rem', xxl: '5rem' }}
       position="fixed"
       bottom={{ base: '0', lg: 'none' }}
       zIndex="sticky"
       boxShadow="0rem 0.188rem 1.25rem #0000003D"
       alignItems="center"
       overflowX="auto"
-      justifyContent={{ md: 'space-evenly' }}
     >
       <MenuItem
         icon={HomeIcon}

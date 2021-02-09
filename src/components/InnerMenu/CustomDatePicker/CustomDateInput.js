@@ -7,6 +7,7 @@ const CustomDateInput = (props, ref) => {
     <Button
       ref={ref}
       variant="outline"
+      padding={{ base: '0.5rem', xxl: '0.625rem 1.25rem' }}
       disabled={props.isFetching ? true : false}
       cursor={props.isFetching ? 'not-allowed' : 'pointer'}
       onClick={() => {
@@ -14,7 +15,7 @@ const CustomDateInput = (props, ref) => {
         props.setActive('data');
       }}
       isActive={props.handleActive('data')}
-      mr={{ base: '4rem', xxl: 'auto' }}
+      mr={{ base: '4rem', xl: 'auto' }}
     >
       Data Específica <CalendarioIcon ml="0.625rem" />
     </Button>

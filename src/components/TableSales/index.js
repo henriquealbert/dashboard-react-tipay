@@ -34,12 +34,12 @@ export default function TableSales({ id, data, useContext }) {
         borderRadius="0.625rem"
         boxShadow="0rem 0.188rem 0.625rem #0000000A"
         mb="40px"
-        px="2.188rem"
+        px={{ base: '1rem', xxl: '2.188rem' }}
         overflowX="auto"
         h="100%"
         ref={printRef}
       >
-        <Table variant="sales" size="lg">
+        <Table variant="sales">
           <TableHeaderSales useContext={useContext} />
           <TableBodySales data={data} useContext={useContext} />
         </Table>

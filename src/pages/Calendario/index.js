@@ -56,7 +56,7 @@ export default function Calendario() {
         <Box
           display={{ xl: 'grid' }}
           gridTemplateColumns={{ xl: '2fr 1fr' }}
-          gridColumnGap={{ xl: '42px' }}
+          gridColumnGap={{ xl: '1rem', xxl: '42px' }}
           w="100%"
         >
           <CalendarWrapper>
@@ -78,15 +78,13 @@ export default function Calendario() {
           </CalendarWrapper>
 
           <Box
-            h="calc(100vh - 5rem)"
             bg="white"
             boxShadow="0rem 0.188rem 0.625rem #0000000A"
-            p={EXTRACTDAY_isLoading ? '' : '1.375rem 1.625rem'}
+            p={EXTRACTDAY_isLoading ? '' : { base: '1rem', xxl: '2rem' }}
             borderRadius="0.625rem"
+            maxH="calc(100% - 3.25rem)"
             justifyContent="center"
             alignItems="center"
-            mt="7.375rem"
-            maxH="calc(100vh - 5rem)"
             overflowY="auto"
           >
             {EXTRACTDAY_isError && (

@@ -1,7 +1,10 @@
-import { Table, Thead, Tr, Th, Td, Tbody, Box, Text } from '@chakra-ui/react';
-import PaginationTable from 'components/PaginationTable';
+import { Table, Box } from '@chakra-ui/react';
 import { useEffect } from 'react';
-import { CheckTipayIcon, ErrorTipayIcon } from 'styles/icons';
+
+import PaginationTable from 'components/PaginationTable';
+import TableBodyTransfers from './TableBodyTransfers';
+import TableHeaderTransfers from './TableHeaderTransfers';
+
 import { formatDateTime } from 'utils/formatDate';
 import { formatPrice } from 'utils/formatPrice';
 
@@ -27,36 +30,15 @@ export default function TableTransfers({ id, data, useContext }) {
         borderRadius="0.625rem"
         boxShadow="0rem 0.188rem 0.625rem #0000000A"
         mb="40px"
-        px="2.188rem"
+        px={{ base: '1rem', xxl: '2.188rem' }}
         overflowX="auto"
         h="100%"
         ref={printRef}
       >
         <Table variant="sales" size="lg">
-          <Thead>
-            <Tr>
-              <Th>Identificação</Th>
-              <Th>Data</Th>
-              <Th>Status</Th>
-              <Th>Valor</Th>
-            </Tr>
-          </Thead>
-          <Tbody>
-            {data?.entries?.map((item) => {
-              return (
-                <Tr key={item?.id}>
-                  <Td>{item?.id}</Td>
-                  <Td>{formatDateTime(item?.transfer_date)}</Td>
-                  <Td display="flex" alignItems="center">
-                    {statusIcon(item?.status, item?.status_detail)}
-                  </Td>
-                  <Td fontWeight="semibold" px="0">
-                    {formatPrice(item?.amount)}
-                  </Td>
-                </Tr>
-              );
-            })}
-          </Tbody>
+          <TableHeaderTransfers useContext={useContext} />
+
+          <TableBodyTransfers data={data} />
         </Table>
       </Box>
       {data?.page_count > 1 && (
@@ -66,36 +48,15 @@ export default function TableTransfers({ id, data, useContext }) {
   );
 }
 
-const statusIcon = (status, status_detail) => {
+const statusText = (status) => {
   switch (status) {
     case 0:
-      return (
-        <>
-          <ErrorTipayIcon mr="1rem" />
-          <Text display="inline" as="span">
-            Transferência Recusada.
-          </Text>
-        </>
-      );
+      return 'Transferência agendada';
 
     case 1:
-      return (
-        <>
-          <CheckTipayIcon mr="1rem" />
-          <Text display="inline" as="span">
-            {status_detail}
-          </Text>
-        </>
-      );
-  }
-};
+      return 'Transferência efetuada com sucesso';
 
-const statusText = (status, status_detail) => {
-  switch (status) {
-    case 0:
-      return 'Transferência Recusada.';
-
-    case 1:
-      return status_detail;
+    case 2:
+      return 'Transferência falahada';
   }
 };

@@ -11,6 +11,7 @@ registerLocale('pt-BR', br);
 
 export default function CustomDatePicker({
   setStartDate,
+  maxW,
   // setEndDate,
   startDate
   // endDate,
@@ -32,6 +33,7 @@ export default function CustomDatePicker({
     <Flex
       as="form"
       w="100%"
+      maxW={maxW}
       justifyContent="center"
       alignItems="center"
       borderRadius="0.313rem"
@@ -48,8 +50,12 @@ export default function CustomDatePicker({
       />
       <Text as="span">-</Text>
 
-      <Button type="submit" cursor="pointer" bg="white">
-        <SearchIcon color="gray.1000" w={4} h={4} />
+      <Button type="submit" cursor="pointer" bg="white" size="sm" h="2.625rem">
+        <SearchIcon
+          color="gray.1000"
+          w={{ base: 3, xxl: 4 }}
+          h={{ base: 3, xxl: 4 }}
+        />
       </Button>
     </Flex>
   );

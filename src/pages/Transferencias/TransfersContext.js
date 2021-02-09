@@ -18,12 +18,10 @@ export const TransfersProvider = ({ children }) => {
   const [page, setPage] = useState(1);
   const [per_Page, setPer_Page] = useState(25);
   const [identification, setIdentification] = useState();
-  const [payer, setPayer] = useState();
   const [amount, setAmount] = useState();
   const [status, setStatus] = useState();
   const [start_date, setStart_date] = useState();
   const [end_date, setEnd_date] = useState();
-  const [paymentType, setPaymentType] = useState();
 
   /************* DETAILS *************/
   const [transactionID, setTransactionID] = useState();
@@ -33,34 +31,17 @@ export const TransfersProvider = ({ children }) => {
 
   /************* FILTERS *************/
   const identificationRef = useRef();
-  const payerRef = useRef();
   const amountRef = useRef();
 
-  const clearFilters = (boleto) => {
-    if (boleto) {
-      setIdentification('');
-      identificationRef?.current.reset();
-      setPayer('');
-      payerRef?.current.reset();
-      setAmount('');
-      amountRef?.current.reset();
-      setStatus('');
-      setStart_date('');
-      setEnd_date('');
-      queryClient.removeQueries([pageKey]);
-    } else {
-      setIdentification('');
-      identificationRef?.current.reset();
-      setPayer('');
-      payerRef?.current.reset();
-      setAmount('');
-      amountRef?.current.reset();
-      setStatus('');
-      setPaymentType('');
-      setStart_date('');
-      setEnd_date('');
-      queryClient.removeQueries([pageKey]);
-    }
+  const clearFilters = () => {
+    setIdentification('');
+    identificationRef?.current.reset();
+    setStart_date('');
+    setEnd_date('');
+    setStatus('');
+    setAmount('');
+    amountRef?.current.reset();
+    queryClient.removeQueries([pageKey]);
   };
 
   return (
@@ -79,8 +60,6 @@ export const TransfersProvider = ({ children }) => {
         setPer_Page,
         identification,
         setIdentification,
-        payer,
-        setPayer,
         amount,
         setAmount,
         status,
@@ -89,14 +68,11 @@ export const TransfersProvider = ({ children }) => {
         setStart_date,
         end_date,
         setEnd_date,
-        paymentType,
-        setPaymentType,
         transactionID,
         setTransactionID,
         pageKey,
         clearFilters,
         identificationRef,
-        payerRef,
         amountRef
       }}
     >

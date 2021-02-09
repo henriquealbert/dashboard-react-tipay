@@ -11,8 +11,8 @@ export default function SalesPercentages() {
       w="100%"
       display="grid"
       gridTemplateColumns="1fr 1fr 1fr"
-      gridColumnGap="1.3rem"
-      maxH="211px"
+      gridColumnGap={{ base: '1rem', xxl: '1.3rem' }}
+      maxH={{ base: '179px', xxl: '211px' }}
     >
       <PercentageItem value={debito} label="Débito" color="brand.yellow" />
       <PercentageItem value={credito} label="Crédito" color="brand.waterBlue" />

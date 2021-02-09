@@ -17,10 +17,10 @@ export default function SidebarPerfil() {
     <Flex
       boxShadow="0rem 0.188rem 1.25rem #0000003D"
       direction={{ base: 'row', lg: 'column' }}
-      w={{ base: '100%', lg: '21.75rem' }}
+      w={{ base: '100%', lg: '15rem', xxl: '21.75rem' }}
       h={{ lg: '100vh' }}
       bg="white"
-      pt={{ lg: '2.125rem' }}
+      pt={{ lg: '1.5rem', xxl: '2.125rem' }}
       position="fixed"
       bottom={{ base: '0', lg: 'none' }}
       zIndex="sticky"
@@ -31,19 +31,24 @@ export default function SidebarPerfil() {
         as={Link}
         to="/dashboard"
         variant="secondary"
-        w="15.625rem"
+        w={{ base: '13rem', xxl: '15.625rem' }}
         h="3.125rem"
         display={{ base: 'none', lg: 'flex' }}
       >
-        <ChevronLeftIcon h={8} w={8} position="absolute" left="0.938rem" />
+        <ChevronLeftIcon
+          h={8}
+          w={8}
+          position="absolute"
+          left={{ base: '0.25rem', xxl: '0.938rem' }}
+        />
         Sair do Perfil
       </Button>
       <Flex
         direction={{ base: 'row', lg: 'column' }}
         alignItems={{ base: 'center' }}
-        mt={{ lg: '1.75rem' }}
+        mt={{ xxl: '1.75rem' }}
         w="100%"
-        pl="2rem"
+        pl={{ base: '0', xxl: '2rem' }}
         pr={{ base: '2rem', lg: '0' }}
         py={{ md: '1rem' }}
       >

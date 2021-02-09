@@ -20,11 +20,12 @@ export default function PrintBtn({ size, m, componentRef }) {
   return (
     <Button
       variant="outline"
+      padding={{ base: '0.5rem', xxl: '0.625rem 1.25rem' }}
       isLoading={loading}
       loadingText="Imprimindo..."
       size={size}
       m={m}
-      fontSize="1.25rem"
+      fontSize={{ base: '1rem', xxl: '1.25rem' }}
       onClick={handlePrint}
     >
       <PrintIcon mr="8px" />

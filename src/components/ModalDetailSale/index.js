@@ -33,7 +33,8 @@ export default function ModalDetailSale({
   data,
   estornar,
   variant,
-  setTransactionID
+  setTransactionID,
+  calendar
 }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -41,8 +42,17 @@ export default function ModalDetailSale({
     <>
       <Button
         variant={variant ? variant : 'green'}
-        maxW="13.125rem"
-        h="3.125rem"
+        maxW={
+          calendar
+            ? { base: '5.25rem', xxl: '13.125rem' }
+            : { base: '8rem', xxl: '13.125rem' }
+        }
+        fontSize={
+          calendar
+            ? { base: '0.85rem', xxl: '1.25rem' }
+            : { base: '1rem', xxl: '1.25rem' }
+        }
+        h={{ base: '2.75rem', xxl: '3.125rem' }}
         onClick={() => {
           onOpen();
           setTransactionID(id);
@@ -50,11 +60,17 @@ export default function ModalDetailSale({
       >
         Detalhes
       </Button>
-      <Modal isOpen={isOpen} onClose={onClose} isCentered size="7xl">
+      <Modal
+        isOpen={isOpen}
+        onClose={onClose}
+        isCentered
+        size="7xl"
+        scrollBehavior="inside"
+      >
         <ModalOverlay />
-        <ModalContent p={{ base: '1rem', xl: '3.25rem' }}>
+        <ModalContent p={{ base: '1rem', xxl: '3.25rem' }}>
           <ModalHeader
-            fontSize="1.875rem"
+            fontSize={{ base: '1.5rem', xxl: '1.875rem' }}
             color="gray.900"
             lineHeight="2.313rem"
             fontWeight="bold"
@@ -98,7 +114,7 @@ export default function ModalDetailSale({
 
             <Box mt="3.75rem" overflowX="auto">
               <Text
-                fontSize="1.875rem"
+                fontSize={{ base: '1.5rem', xxl: '1.875rem' }}
                 color="gray.900"
                 lineHeight="2.313rem"
                 fontWeight="bold"
@@ -135,11 +151,24 @@ export default function ModalDetailSale({
 
           <ModalFooter>
             {estornar && (
-              <Button variant="red" mr="1rem">
+              <Button
+                variant="red"
+                mr="1rem"
+                maxW={{ base: '10rem', xxl: 'none' }}
+                maxH={{ base: '3.25rem', xxl: 'none' }}
+                fontSize={{ base: '1rem', xxl: '1.25rem' }}
+              >
                 Estornar Venda
               </Button>
             )}
-            <Button variant="black" mr={3} onClick={onClose}>
+            <Button
+              variant="black"
+              mr={3}
+              onClick={onClose}
+              fontSize={{ base: '1rem', xxl: '1.25rem' }}
+              maxW={{ base: '7rem', xxl: 'none' }}
+              maxH={{ base: '3.25rem', xxl: 'none' }}
+            >
               Fechar
             </Button>
           </ModalFooter>

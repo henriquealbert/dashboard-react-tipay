@@ -11,48 +11,63 @@ export default function SalesStatus() {
       bg="white"
       boxShadow="0rem 0.188rem 0.625rem #0000000A"
       borderRadius="0.625rem"
-      p="2rem"
+      p={{ base: '1.5rem', xxl: '2rem' }}
       mb={{ base: '1.5rem', xlg: '0' }}
     >
       <Flex justifyContent="space-between">
-        <Text as="h4" color="gray.500" fontSize="1.25rem" lineHeight="1.5rem">
+        <Text
+          as="h4"
+          color="gray.500"
+          fontSize={{ base: '1rem', xxl: '1.25rem' }}
+          lineHeight="1.5rem"
+        >
           Aprovadas
         </Text>
         <Text
           as="span"
           color="gray.500"
           fontWeight="bold"
-          fontSize="1.375rem"
+          fontSize={{ base: '1.15rem', xxl: '1.375rem' }}
           lineHeight="1.688rem"
         >
           {aprovadas}
         </Text>
       </Flex>
-      <Box h="0.063rem" bg="#ECECEC" m="1rem" />
+      <Box h="0.063rem" bg="#ECECEC" m={{ base: '0.75rem', xxl: '1rem' }} />
       <Flex justifyContent="space-between">
-        <Text as="h4" color="gray.500" fontSize="1.25rem" lineHeight="1.5rem">
+        <Text
+          as="h4"
+          color="gray.500"
+          fontSize={{ base: '1rem', xxl: '1.25rem' }}
+          lineHeight="1.5rem"
+        >
           Canceladas
         </Text>
         <Text
           as="span"
           color="gray.500"
           fontWeight="bold"
-          fontSize="1.375rem"
+          fontSize={{ base: '1.15rem', xxl: '1.375rem' }}
           lineHeight="1.688rem"
         >
           {canceladas}
         </Text>
       </Flex>
-      <Box h="0.063rem" bg="#ECECEC" m="1rem" />
+      <Box h="0.063rem" bg="#ECECEC" m={{ base: '0.75rem', xxl: '1rem' }} />
       <Flex justifyContent="space-between">
-        <Text as="h4" color="gray.500" fontSize="1.25rem" lineHeight="1.5rem">
+        <Text
+          as="h4"
+          color="gray.500"
+          fontSize={{ base: '1rem', xxl: '1.25rem' }}
+          lineHeight="1.5rem"
+        >
           Pendentes
         </Text>
         <Text
           as="span"
           color="gray.500"
           fontWeight="bold"
-          fontSize="1.375rem"
+          fontSize={{ base: '1.15rem', xxl: '1.375rem' }}
           lineHeight="1.688rem"
         >
           {pendentes}

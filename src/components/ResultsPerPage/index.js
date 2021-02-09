@@ -12,13 +12,13 @@ export default function ResultsPerPage({ setPer_Page, per_Page, pageKey }) {
 
   return (
     <Select
-      maxW={{ xlg: '310px' }}
+      maxW={{ xl: '310px' }}
       variant="solid"
       size="lg"
-      h="3.75rem"
+      h={{ base: '3rem', xxl: '3.75rem' }}
       borderRadius="0.313rem"
       _placeholder={{ color: 'gray.1000' }}
-      fontSize="1.125rem"
+      fontSize={{ base: '1rem', xxl: '1.125rem' }}
       value={per_Page}
       onChange={handleChange}
       disabled={isFetching ? true : false}

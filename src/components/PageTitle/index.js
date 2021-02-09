@@ -6,8 +6,7 @@ export default function PageTitle({ children }) {
       as="h1"
       color="gray.500"
       fontWeight="bold"
-      lineHeight="2.438rem"
-      fontSize="2.5rem"
+      fontSize={{ base: '2rem', xxl: '2.5rem' }}
       mb="0.875rem"
       mr="1.375rem"
     >

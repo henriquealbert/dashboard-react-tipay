@@ -32,7 +32,7 @@ export default function EventReceivables({
       mt="1.375rem"
     >
       <AccordionItem border="none">
-        <AccordionButton p="1.875rem">
+        <AccordionButton p={{ base: '1rem', xxl: '1.875rem' }}>
           <Text
             fontSize="1.125rem"
             color="white"
@@ -45,7 +45,7 @@ export default function EventReceivables({
           </Text>
           <AccordionIcon color="white" w={7} h={7} />
         </AccordionButton>
-        <AccordionPanel px="1.875rem">
+        <AccordionPanel px={{ base: '1rem', xxl: '1.875rem' }}>
           <Table variant="calendar-receivables" mb="2rem">
             <Thead>
               <Tr>
@@ -70,6 +70,7 @@ export default function EventReceivables({
                         setTransactionID={setTransactionID}
                         id={item?.id_transaction}
                         data={detailData}
+                        calendar
                       />
                     </Th>
                   </Tr>
