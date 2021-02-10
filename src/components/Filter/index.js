@@ -5,7 +5,10 @@ import { useQueryClient } from 'react-query';
 import { forwardRef } from 'react';
 import CurrencyInput from './CurrencyInput';
 
-function Filter({ placeholder, type, minW, maxW, setValue, pageKey, m }, ref) {
+function Filter(
+  { placeholder, type, minW, maxW, setValue, value, pageKey, m },
+  ref
+) {
   const queryClient = useQueryClient();
   const isFetching = queryClient.isFetching();
 
@@ -39,7 +42,11 @@ function Filter({ placeholder, type, minW, maxW, setValue, pageKey, m }, ref) {
       m={m}
     >
       {placeholder === 'VALOR' ? (
-        <CurrencyInput placeholder={placeholder} isFetching={isFetching} />
+        <CurrencyInput
+          placeholder={placeholder}
+          isFetching={isFetching}
+          value={value}
+        />
       ) : (
         <Input
           type={type}

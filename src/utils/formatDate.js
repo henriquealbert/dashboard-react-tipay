@@ -101,3 +101,12 @@ export const getLastDayMonth = () => {
   const nextFirst = addMonths(FirstDay, 1);
   return normalizeDateUTC(nextFirst);
 };
+
+export const formatDatepicker = (date) => {
+  if (date) {
+    const formattedDate = date.split('/').reverse().join('-');
+    return formattedDate;
+  } else {
+    return;
+  }
+};

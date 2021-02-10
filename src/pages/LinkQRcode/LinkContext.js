@@ -24,7 +24,7 @@ export const LinkProvider = ({ children }) => {
   const [start, setStart] = useState();
   const [end_date, setEnd_date] = useState();
   const [end, setEnd] = useState();
-  const [paymentType, setPaymentType] = useState();
+  const [is_active, setActive] = useState();
 
   /************* DETAILS *************/
   const [transactionID, setTransactionID] = useState();
@@ -48,6 +48,7 @@ export const LinkProvider = ({ children }) => {
     setStart('');
     setEnd_date('');
     setEnd('');
+    setActive('');
     queryClient.removeQueries([pageKey]);
   };
 
@@ -75,8 +76,8 @@ export const LinkProvider = ({ children }) => {
         setStart_date,
         end_date,
         setEnd_date,
-        paymentType,
-        setPaymentType,
+        is_active,
+        setActive,
         transactionID,
         setTransactionID,
         pageKey,

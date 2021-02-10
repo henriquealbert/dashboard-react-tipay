@@ -11,7 +11,7 @@ import ToolsMenu from 'components/ToolsMenu';
 import ErrorMessage from 'pages/ErrorMessage';
 import TableSalesSkeleton from 'components/TableSalesSkeleton';
 
-import { useLinks_TABLE } from 'hooks/useLinks';
+import useLinks from 'hooks/useLinks';
 import { useLinkContext } from './LinkContext';
 
 export default function LinkQRcode() {
@@ -22,7 +22,7 @@ export default function LinkQRcode() {
     isError: TABLE_isError,
     error: TABLE_error,
     isLoading: TABLE_isLoading
-  } = useLinks_TABLE(`/per_page=${ctx.per_Page}`, `/${ctx.page}`);
+  } = useLinks(ctx);
 
   return (
     <Layout>

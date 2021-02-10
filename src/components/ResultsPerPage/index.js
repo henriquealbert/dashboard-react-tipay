@@ -1,9 +1,11 @@
 import { Select } from '@chakra-ui/react';
 import { useQueryClient } from 'react-query';
 
-export default function ResultsPerPage({ setPer_Page, per_Page, pageKey }) {
+export default function ResultsPerPage({ useContext }) {
   const queryClient = useQueryClient();
   const isFetching = queryClient.isFetching();
+
+  const { pageKey, setPer_Page, per_Page } = useContext;
 
   const handleChange = (e) => {
     queryClient.removeQueries([pageKey]);

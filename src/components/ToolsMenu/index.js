@@ -6,7 +6,7 @@ import ExcelExport from 'components/ExcelExport';
 import PrintBtn from 'components/PrintBtn';
 
 export default function ToolsMenu({ tableID, csvFilename, useContext }) {
-  const { printRef, csv, setPer_Page, per_Page, pageKey } = useContext;
+  const { printRef, csv } = useContext;
 
   return (
     <Flex
@@ -14,11 +14,7 @@ export default function ToolsMenu({ tableID, csvFilename, useContext }) {
       justifyContent={{ xl: 'space-between' }}
       direction={{ base: 'column', xl: 'row' }}
     >
-      <ResultsPerPage
-        setPer_Page={setPer_Page}
-        per_Page={per_Page}
-        pageKey={pageKey}
-      />
+      <ResultsPerPage useContext={useContext} />
       <Flex
         mt={{ base: '1rem', xl: '0' }}
         overflowX="auto"

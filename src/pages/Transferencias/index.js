@@ -9,7 +9,7 @@ import TableTransfers from 'components/TableTransfers';
 import ToolsMenu from 'components/ToolsMenu';
 import ErrorMessage from 'pages/ErrorMessage';
 
-import { useTransfers_TABLE } from 'hooks/useTransfers';
+import useTransfers from 'hooks/useTransfers';
 import { useTransfersContext } from './TransfersContext';
 
 export default function Transferencias() {
@@ -19,7 +19,7 @@ export default function Transferencias() {
     isError: TABLE_isError,
     error: TABLE_error,
     isLoading: TABLE_isLoading
-  } = useTransfers_TABLE(`/per_page=${ctx.per_Page}`, `/${ctx.page}`);
+  } = useTransfers(ctx);
 
   return (
     <Layout>

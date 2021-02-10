@@ -25,9 +25,6 @@ export const TransfersProvider = ({ children }) => {
   const [end_date, setEnd_date] = useState();
   const [end, setEnd] = useState();
 
-  /************* DETAILS *************/
-  const [transactionID, setTransactionID] = useState();
-
   /************* PAGE QUERY ID *************/
   const pageKey = 'transfers';
 
@@ -72,8 +69,6 @@ export const TransfersProvider = ({ children }) => {
         setStart_date,
         end_date,
         setEnd_date,
-        transactionID,
-        setTransactionID,
         pageKey,
         clearFilters,
         identificationRef,

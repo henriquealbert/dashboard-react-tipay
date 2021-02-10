@@ -24,7 +24,6 @@ export default function TableBodyTransfers({ data }) {
             <Td
               fontSize={{ base: '1rem', xxl: '1.25rem' }}
               py={{ base: '1rem', xxl: '1.25rem' }}
-              maxW="365px"
             >
               {formatDateTime(item?.transfer_date)}
             </Td>

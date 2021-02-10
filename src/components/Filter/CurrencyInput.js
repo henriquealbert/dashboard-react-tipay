@@ -1,9 +1,10 @@
 import { Input } from '@chakra-ui/input';
 import NumberFormat from 'react-number-format';
 
-export default function CurrencyInput({ placeholder, isFetching }) {
+export default function CurrencyInput({ placeholder, isFetching, value }) {
   return (
     <NumberFormat
+      value={Number(value / 100)}
       displayType={'input'}
       thousandSeparator={'.'}
       decimalSeparator={','}

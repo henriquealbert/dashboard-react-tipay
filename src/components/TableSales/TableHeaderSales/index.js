@@ -44,6 +44,7 @@ export default function TableHeaderSales({ useContext }) {
             maxW="10rem"
             setValue={ctx.setAmount}
             pageKey={ctx.pageKey}
+            value={ctx.amount}
             ref={ctx.amountRef}
           />
         </Th>

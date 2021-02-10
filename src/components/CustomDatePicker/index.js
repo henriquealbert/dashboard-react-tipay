@@ -6,7 +6,7 @@ import { SearchIcon } from '@chakra-ui/icons';
 import { useQueryClient } from 'react-query';
 import br from 'date-fns/locale/pt-BR';
 
-import { normalizeDateUTC } from 'utils/formatDate';
+import { formatDatepicker } from 'utils/formatDate';
 
 registerLocale('pt-BR', br);
 
@@ -29,14 +29,15 @@ export default function CustomDatePicker({ useContext }) {
     const obj = Object.fromEntries(formData);
     queryClient.removeQueries([pageKey]);
 
-    setStart_date(normalizeDateUTC(obj.start));
-    setEnd_date(normalizeDateUTC(obj.end));
+    setStart_date(formatDatepicker(obj.start));
+    setEnd_date(formatDatepicker(obj.end));
   };
 
   return (
     <Flex
       as="form"
       w="100%"
+      maxW={{ base: '14rem', xxl: '18rem' }}
       justifyContent="space-between"
       borderRadius="0.313rem"
       border="1px solid"
@@ -47,6 +48,7 @@ export default function CustomDatePicker({ useContext }) {
         <DatePicker
           locale="pt-BR"
           selected={start}
+          startDate={start}
           onChange={(date) => setStart(date)}
           dateFormat="dd/MM/yyyy"
           placeholderText="dd/mm/yyyy"
@@ -72,6 +74,7 @@ export default function CustomDatePicker({ useContext }) {
         <DatePicker
           locale="pt-BR"
           selected={end}
+          startDate={end}
           onChange={(date) => setEnd(date)}
           dateFormat="dd/MM/yyyy"
           placeholderText="dd/mm/yyyy"
