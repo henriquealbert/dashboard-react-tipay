@@ -3,6 +3,7 @@ import { SearchIcon } from '@chakra-ui/icons';
 
 import { useQueryClient } from 'react-query';
 import { forwardRef } from 'react';
+import CurrencyInput from './CurrencyInput';
 
 function Filter({ placeholder, type, minW, maxW, setValue, pageKey, m }, ref) {
   const queryClient = useQueryClient();
@@ -13,9 +14,14 @@ function Filter({ placeholder, type, minW, maxW, setValue, pageKey, m }, ref) {
     const formData = new FormData(event.target);
     const obj = Object.fromEntries(formData);
     const value = Object.values(obj)[0];
-
     queryClient.removeQueries([pageKey]);
-    setValue(value);
+
+    if (placeholder === 'VALOR') {
+      const cleanValue = value.replace(/[^\d]/g, '');
+      setValue(cleanValue);
+    } else {
+      setValue(value);
+    }
   };
 
   return (
@@ -32,17 +38,21 @@ function Filter({ placeholder, type, minW, maxW, setValue, pageKey, m }, ref) {
       ref={ref}
       m={m}
     >
-      <Input
-        type={type}
-        name={placeholder}
-        variant="solid"
-        _placeholder={{ color: 'gray.1000' }}
-        fontSize="1rem"
-        color="gray.500"
-        padding={{ base: '0 0 0 0.75rem', xxl: '1rem' }}
-        placeholder={placeholder}
-        isDisabled={isFetching ? true : false}
-      />
+      {placeholder === 'VALOR' ? (
+        <CurrencyInput placeholder={placeholder} isFetching={isFetching} />
+      ) : (
+        <Input
+          type={type}
+          name={placeholder}
+          variant="solid"
+          _placeholder={{ color: 'gray.1000' }}
+          fontSize="1rem"
+          color="gray.500"
+          padding={{ base: '0 0 0 0.75rem', xxl: '1rem' }}
+          placeholder={placeholder}
+          isDisabled={isFetching ? true : false}
+        />
+      )}
 
       <Button
         type="submit"

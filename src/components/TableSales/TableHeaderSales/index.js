@@ -13,7 +13,7 @@ export default function TableHeaderSales({ useContext }) {
   return (
     <Thead>
       <Tr>
-        <Th h="auto" maxH="none">
+        <Th h="auto" maxH="none" pr={{ base: '0.5rem', xxl: '1rem' }}>
           <Filter
             type="text"
             minW="4rem"
@@ -24,7 +24,7 @@ export default function TableHeaderSales({ useContext }) {
             pageKey={ctx.pageKey}
           />
         </Th>
-        <Th>
+        <Th pr={{ base: '0.5rem', xxl: '1rem' }}>
           <Filter
             minW="7rem"
             type="text"
@@ -34,26 +34,20 @@ export default function TableHeaderSales({ useContext }) {
             ref={ctx.payerRef}
           />
         </Th>
-        <Th>
-          <CustomDatePicker
-            maxW={{ base: '9rem', xxl: 'none' }}
-            setStartDate={ctx.setStart_date}
-            setEndDate={ctx.setEnd_date}
-            startDate={ctx.start_date}
-            endDate={ctx.end_date}
-          />
+        <Th pr={{ base: '0.5rem', xxl: '1rem' }}>
+          <CustomDatePicker useContext={useContext} />
         </Th>
-        <Th>
+        <Th pr={{ base: '0.5rem', xxl: '1rem' }}>
           <Filter
             placeholder="VALOR"
-            minW="7rem"
-            maxW="8rem"
+            minW="8rem"
+            maxW="10rem"
             setValue={ctx.setAmount}
             pageKey={ctx.pageKey}
             ref={ctx.amountRef}
           />
         </Th>
-        <Th>
+        <Th pr={{ base: '0.5rem', xxl: '1rem' }}>
           <FilterSelect
             placeholder="STATUS"
             minW="7rem"
@@ -71,7 +65,7 @@ export default function TableHeaderSales({ useContext }) {
             <option value="6">Em disputa</option>
           </FilterSelect>
         </Th>
-        <Th>
+        <Th pr={{ base: '0.5rem', xxl: '1rem' }}>
           {pathname === '/boletos' ? (
             'PAGAMENTO'
           ) : (

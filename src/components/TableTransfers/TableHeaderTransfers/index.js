@@ -22,12 +22,7 @@ export default function TableHeaderTransfers({ useContext }) {
         </Th>
 
         <Th>
-          <CustomDatePicker
-            setStartDate={ctx.setStart_date}
-            setEndDate={ctx.setEnd_date}
-            startDate={ctx.start_date}
-            endDate={ctx.end_date}
-          />
+          <CustomDatePicker useContext={useContext} />
         </Th>
         <Th>
           <FilterSelect
@@ -46,7 +41,8 @@ export default function TableHeaderTransfers({ useContext }) {
           <Filter
             type="text"
             placeholder="VALOR"
-            minW="7rem"
+            minW="8rem"
+            maxW="10rem"
             setValue={ctx.setAmount}
             pageKey={ctx.pageKey}
             ref={ctx.amountRef}

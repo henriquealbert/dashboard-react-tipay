@@ -21,7 +21,9 @@ export const LinkProvider = ({ children }) => {
   const [description, setDescription] = useState();
   const [amount, setAmount] = useState();
   const [start_date, setStart_date] = useState();
+  const [start, setStart] = useState();
   const [end_date, setEnd_date] = useState();
+  const [end, setEnd] = useState();
   const [paymentType, setPaymentType] = useState();
 
   /************* DETAILS *************/
@@ -43,7 +45,9 @@ export const LinkProvider = ({ children }) => {
     setAmount('');
     amountRef?.current.reset();
     setStart_date('');
+    setStart('');
     setEnd_date('');
+    setEnd('');
     queryClient.removeQueries([pageKey]);
   };
 
@@ -79,7 +83,11 @@ export const LinkProvider = ({ children }) => {
         clearFilters,
         identificationRef,
         descriptionRef,
-        amountRef
+        amountRef,
+        start,
+        setStart,
+        end,
+        setEnd
       }}
     >
       {children}

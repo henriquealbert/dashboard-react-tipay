@@ -21,7 +21,9 @@ export const TransfersProvider = ({ children }) => {
   const [amount, setAmount] = useState();
   const [status, setStatus] = useState();
   const [start_date, setStart_date] = useState();
+  const [start, setStart] = useState();
   const [end_date, setEnd_date] = useState();
+  const [end, setEnd] = useState();
 
   /************* DETAILS *************/
   const [transactionID, setTransactionID] = useState();
@@ -37,7 +39,9 @@ export const TransfersProvider = ({ children }) => {
     setIdentification('');
     identificationRef?.current.reset();
     setStart_date('');
+    setStart('');
     setEnd_date('');
+    setEnd('');
     setStatus('');
     setAmount('');
     amountRef?.current.reset();
@@ -73,7 +77,11 @@ export const TransfersProvider = ({ children }) => {
         pageKey,
         clearFilters,
         identificationRef,
-        amountRef
+        amountRef,
+        start,
+        setStart,
+        end,
+        setEnd
       }}
     >
       {children}

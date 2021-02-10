@@ -32,20 +32,14 @@ export default function TableHeaderLink({ useContext }) {
           />
         </Th>
         <Th>
-          <CustomDatePicker
-            maxW={{ base: '9rem', xxl: 'none' }}
-            setStartDate={ctx.setStart_date}
-            setEndDate={ctx.setEnd_date}
-            startDate={ctx.start_date}
-            endDate={ctx.end_date}
-          />
+          <CustomDatePicker useContext={useContext} />
         </Th>
         <Th>
           <Filter
             type="text"
             placeholder="VALOR"
-            minW="7rem"
-            maxW="8rem"
+            minW="8rem"
+            maxW="10rem"
             setValue={ctx.setAmount}
             pageKey={ctx.pageKey}
             ref={ctx.amountRef}

@@ -1,54 +1,99 @@
 import DatePicker from 'react-datepicker';
 import { registerLocale } from 'react-datepicker';
-import br from 'date-fns/locale/pt-BR';
 import 'react-datepicker/dist/react-datepicker.css';
-import { Flex, Text } from '@chakra-ui/layout';
-import { Button } from '@chakra-ui/button';
+import { Flex, Text, Input, Button } from '@chakra-ui/react';
 import { SearchIcon } from '@chakra-ui/icons';
-// import { useQueryClient } from 'react-query';
+import { useQueryClient } from 'react-query';
+import br from 'date-fns/locale/pt-BR';
+
+import { normalizeDateUTC } from 'utils/formatDate';
 
 registerLocale('pt-BR', br);
 
-export default function CustomDatePicker({
-  setStartDate,
-  maxW,
-  // setEndDate,
-  startDate
-  // endDate,
-  // pageKey
-}) {
-  // const queryClient = useQueryClient();
+export default function CustomDatePicker({ useContext }) {
+  const queryClient = useQueryClient();
+
+  const {
+    pageKey,
+    setStart_date,
+    setEnd_date,
+    start,
+    setStart,
+    end,
+    setEnd
+  } = useContext;
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
     const obj = Object.fromEntries(formData);
+    queryClient.removeQueries([pageKey]);
 
-    console.log(obj);
-
-    // queryClient.removeQueries([pageKey]);
+    setStart_date(normalizeDateUTC(obj.start));
+    setEnd_date(normalizeDateUTC(obj.end));
   };
 
   return (
     <Flex
       as="form"
       w="100%"
-      maxW={maxW}
-      justifyContent="center"
-      alignItems="center"
+      justifyContent="space-between"
       borderRadius="0.313rem"
       border="1px solid"
       borderColor="gray.1100"
       onSubmit={handleSubmit}
     >
-      <DatePicker
-        locale="pt-BR"
-        selected={startDate}
-        onChange={(date) => setStartDate(date)}
-        startDate={startDate}
-        dateFormat="dd/MM/yyyy"
-      />
-      <Text as="span">-</Text>
+      <Flex alignItems="center">
+        <DatePicker
+          locale="pt-BR"
+          selected={start}
+          onChange={(date) => setStart(date)}
+          dateFormat="dd/MM/yyyy"
+          placeholderText="dd/mm/yyyy"
+          name="start"
+          required
+          customInput={
+            <Input
+              maxW="7rem"
+              minW="5.25rem"
+              variant="solid"
+              _placeholder={{
+                color: 'gray.1000',
+                fontSize: { base: '0.85rem', xxl: '1rem' }
+              }}
+              fontSize={{ base: '0.85rem', xxl: '1rem' }}
+              color="gray.500"
+              pl={{ base: '0.25rem', xxl: '0.5rem' }}
+              pr="0"
+            />
+          }
+        />
+        <Text as="span">-</Text>
+        <DatePicker
+          locale="pt-BR"
+          selected={end}
+          onChange={(date) => setEnd(date)}
+          dateFormat="dd/MM/yyyy"
+          placeholderText="dd/mm/yyyy"
+          name="end"
+          required
+          customInput={
+            <Input
+              maxW="7rem"
+              minW="5.25rem"
+              variant="solid"
+              _placeholder={{
+                color: 'gray.1000',
+                fontSize: { base: '0.85rem', xxl: '1rem' }
+              }}
+              fontSize={{ base: '0.85rem', xxl: '1rem' }}
+              color="gray.500"
+              pl={{ base: '0.15rem', xxl: '0.5rem' }}
+              pr="0"
+            />
+          }
+        />
+      </Flex>
 
       <Button type="submit" cursor="pointer" bg="white" size="sm" h="2.625rem">
         <SearchIcon

@@ -22,7 +22,9 @@ export const BoletoProvider = ({ children }) => {
   const [amount, setAmount] = useState();
   const [status, setStatus] = useState();
   const [start_date, setStart_date] = useState();
+  const [start, setStart] = useState();
   const [end_date, setEnd_date] = useState();
+  const [end, setEnd] = useState();
   const paymentType = '3';
 
   /************* DETAILS *************/
@@ -45,7 +47,9 @@ export const BoletoProvider = ({ children }) => {
     amountRef?.current.reset();
     setStatus('');
     setStart_date('');
+    setStart('');
     setEnd_date('');
+    setEnd('');
     queryClient.removeQueries([pageKey]);
   };
 
@@ -82,7 +86,11 @@ export const BoletoProvider = ({ children }) => {
         clearFilters,
         identificationRef,
         payerRef,
-        amountRef
+        amountRef,
+        start,
+        setStart,
+        end,
+        setEnd
       }}
     >
       {children}

@@ -22,7 +22,9 @@ export const SalesProvider = ({ children }) => {
   const [amount, setAmount] = useState();
   const [status, setStatus] = useState();
   const [start_date, setStart_date] = useState();
+  const [start, setStart] = useState();
   const [end_date, setEnd_date] = useState();
+  const [end, setEnd] = useState();
   const [paymentType, setPaymentType] = useState();
 
   /************* DETAILS *************/
@@ -46,7 +48,9 @@ export const SalesProvider = ({ children }) => {
     setStatus('');
     setPaymentType('');
     setStart_date('');
+    setStart('');
     setEnd_date('');
+    setEnd('');
     queryClient.removeQueries([pageKey]);
   };
 
@@ -83,6 +87,10 @@ export const SalesProvider = ({ children }) => {
         pageKey,
         clearFilters,
         identificationRef,
+        start,
+        setStart,
+        end,
+        setEnd,
         payerRef,
         amountRef
       }}
