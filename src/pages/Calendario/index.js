@@ -6,7 +6,7 @@ import Layout from 'components/Layout';
 import PageTitle from 'components/PageTitle';
 import CalendarComponent from 'components/CalendarComponent';
 import CalendarEventInfo from 'components/CalendarEventInfo';
-import ErrorMessage from 'pages/ErrorMessage';
+import ErrorMessage from 'components/ErrorMessage';
 import { CalendarWrapper } from './styles';
 import { getFirstDayMonth, getLastDayMonth, getToday } from 'utils/formatDate';
 

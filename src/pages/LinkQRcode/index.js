@@ -8,7 +8,7 @@ import Layout from 'components/Layout';
 import SalesStatus from 'components/SalesStatus';
 import TableQRCode from 'components/TableQRCode';
 import ToolsMenu from 'components/ToolsMenu';
-import ErrorMessage from 'pages/ErrorMessage';
+import ErrorMessage from 'components/ErrorMessage';
 import TableSalesSkeleton from 'components/TableSalesSkeleton';
 
 import useLinks from 'hooks/useLinks';

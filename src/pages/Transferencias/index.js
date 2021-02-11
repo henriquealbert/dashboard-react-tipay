@@ -7,7 +7,7 @@ import SalesStatus from 'components/SalesStatus';
 import TableSalesSkeleton from 'components/TableSalesSkeleton';
 import TableTransfers from 'components/TableTransfers';
 import ToolsMenu from 'components/ToolsMenu';
-import ErrorMessage from 'pages/ErrorMessage';
+import ErrorMessage from 'components/ErrorMessage';
 
 import useTransfers from 'hooks/useTransfers';
 import { useTransfersContext } from './TransfersContext';

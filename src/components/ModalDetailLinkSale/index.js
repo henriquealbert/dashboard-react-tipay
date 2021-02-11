@@ -16,13 +16,15 @@ import {
   Td,
   Box,
   Text,
-  Flex,
-  Switch,
-  FormControl,
-  FormLabel
+  Flex
 } from '@chakra-ui/react';
+
 import InputLink from 'components/InputLink';
 import QRCodeComponent from 'components/QRCodeComponent';
+import IsActiveLink from './IsActiveLink';
+
+import { formatDateTime } from 'utils/formatDate';
+import { formatPrice } from 'utils/formatPrice';
 import { formatStatusColor } from 'utils/formatStatusColor';
 
 export default function ModalDetailLinkSale({ data }) {
@@ -76,10 +78,7 @@ export default function ModalDetailLinkSale({ data }) {
                   px={{ base: '1rem', lg: '0' }}
                   mb={{ base: '2rem', lg: '0' }}
                 >
-                  <FormControl id="link" mb="3rem">
-                    <FormLabel fontWeight="bold">Link ativado</FormLabel>
-                    <Switch size="lg" isChecked={data?.is_active} />
-                  </FormControl>
+                  <IsActiveLink data={data} />
 
                   <InputLink label="Link" url={data?.link} />
                 </Box>
@@ -99,9 +98,9 @@ export default function ModalDetailLinkSale({ data }) {
                 <Table variant="sales-modal">
                   <Thead>
                     <Tr>
-                      <Th>Data e hora</Th>
+                      <Th>Criado em</Th>
                       <Th>Pagador</Th>
-                      <Th>Data</Th>
+                      <Th>Atualizado em</Th>
                       <Th>Valor</Th>
                       <Th>Opreação</Th>
                       <Th pr="0">Status</Th>
@@ -109,10 +108,10 @@ export default function ModalDetailLinkSale({ data }) {
                   </Thead>
                   <Tbody>
                     <Tr>
-                      <Td>{data?.updated_at}</Td>
+                      <Td>{formatDateTime(data?.created_at)}</Td>
                       <Td maxW="15rem">{data?.payer}</Td>
-                      <Td>{data?.created_at}</Td>
-                      <Td>{data?.value}</Td>
+                      <Td>{formatDateTime(data?.updated_at)}</Td>
+                      <Td>{formatPrice(data?.amount)}</Td>
                       <Td>{data?.operation}</Td>
                       <Td color={formatStatusColor(data?.status)} pr="0">
                         {data?.status}

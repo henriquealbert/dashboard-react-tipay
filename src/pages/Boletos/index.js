@@ -9,7 +9,7 @@ import SalesStatus from 'components/SalesStatus';
 import TableSales from 'components/TableSales';
 import ToolsMenu from 'components/ToolsMenu';
 import TableSalesSkeleton from 'components/TableSalesSkeleton';
-import ErrorMessage from 'pages/ErrorMessage';
+import ErrorMessage from 'components/ErrorMessage';
 
 import useTransactions from 'hooks/useTransactions';
 import { useBoletoContext } from './BoletoContext';

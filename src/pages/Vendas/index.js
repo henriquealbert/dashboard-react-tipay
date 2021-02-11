@@ -3,7 +3,7 @@ import { Box } from '@chakra-ui/layout';
 import Layout from 'components/Layout';
 import Container from 'components/Container';
 import ToolsMenu from 'components/ToolsMenu';
-import ErrorMessage from 'pages/ErrorMessage';
+import ErrorMessage from 'components/ErrorMessage';
 import TableSales from 'components/TableSales';
 import TableSalesSkeleton from 'components/TableSalesSkeleton';
 import SalesStatus from 'components/SalesStatus';
