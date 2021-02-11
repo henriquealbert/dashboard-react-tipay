@@ -24,8 +24,6 @@ export default function LinkQRcode() {
     isLoading: TABLE_isLoading
   } = useLinks(ctx);
 
-  console.log(TABLE_data);
-
   return (
     <Layout>
       <Container>

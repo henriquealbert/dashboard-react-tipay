@@ -28,22 +28,40 @@ export default function NewClient({ setNewClient, padding, onClose }) {
     >
       <Flex direction={{ base: 'column', lg: 'row' }}>
         <Box w={{ base: '100%', lg: '50%' }} mr={{ lg: '2rem', xlg: '7rem' }}>
-          <FormControl id="name" mb="1.75rem">
-            <FormLabel
-              color="gray.1000"
-              fontSize="1.25rem"
-              lineHeight="1.5rem"
-              fontWeight="semibold"
-            >
-              Nome completo
-            </FormLabel>
-            <Input
-              type="text"
-              variant="innerSolid"
-              maxW="none"
-              placeholder="Digite o nome do cliente"
-            />
-          </FormControl>
+          <Flex direction={{ base: 'column', md: 'row' }}>
+            <FormControl id="name" mb="1.75rem">
+              <FormLabel
+                color="gray.1000"
+                fontSize="1.25rem"
+                lineHeight="1.5rem"
+                fontWeight="semibold"
+              >
+                Nome
+              </FormLabel>
+              <Input
+                type="text"
+                variant="innerSolid"
+                maxW="none"
+                placeholder="Primeiro nome do cliente"
+              />
+            </FormControl>
+            <FormControl id="name" mb="1.75rem" ml={{ base: '0', md: '1rem' }}>
+              <FormLabel
+                color="gray.1000"
+                fontSize="1.25rem"
+                lineHeight="1.5rem"
+                fontWeight="semibold"
+              >
+                Sobrenome
+              </FormLabel>
+              <Input
+                type="text"
+                variant="innerSolid"
+                maxW="none"
+                placeholder="Sobrenome do cliente"
+              />
+            </FormControl>
+          </Flex>
 
           <FormControl id="doc" mb="1.75rem">
             <FormLabel

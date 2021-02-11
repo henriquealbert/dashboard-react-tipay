@@ -3,11 +3,10 @@ import Container from 'components/Container';
 import ErrorMessage from 'components/ErrorMessage';
 import Layout from 'components/Layout';
 import MyProfile from 'components/MyProfile';
-import { useProfile } from 'hooks/useProfile';
+import useProfile from 'hooks/useProfile';
 
 export default function MeuPerfil() {
   const { data, isError, error, isLoading } = useProfile();
-  console.log(data);
 
   return (
     <Layout perfil>

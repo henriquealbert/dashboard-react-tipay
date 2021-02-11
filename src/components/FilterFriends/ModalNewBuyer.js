@@ -10,7 +10,7 @@ import {
 } from '@chakra-ui/react';
 import NewClient from 'components/GerarBoletoInfo/NewClient';
 
-export default function ModalNewClient() {
+export default function ModalNewBuyer() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>

@@ -1,7 +1,7 @@
 import { Flex, Box, Button, Text } from '@chakra-ui/react';
 import ProfilePic from '../ProfilePic';
 
-const ProfileEditable = ({ item }) => {
+const ProfileEditable = ({ item, buyer }) => {
   return (
     <Flex
       direction={{ base: 'column', md: 'row' }}
@@ -19,12 +19,14 @@ const ProfileEditable = ({ item }) => {
           color="gray.900"
           textTransform="uppercase"
         >
-          <ProfilePic data={item} />
+          <ProfilePic data={item} buyer={buyer} />
         </Box>
         <Box fontSize="1.375rem">
           <Text
             color="gray.900"
-            fontSize={{ base: '1rem', md: '1.25rem' }}
+            fontSize={
+              buyer ? { base: '1rem' } : { base: '1rem', md: '1.25rem' }
+            }
             lineHeight="1.5rem"
             fontWeight="bold"
             textTransform="uppercase"
@@ -33,7 +35,11 @@ const ProfileEditable = ({ item }) => {
           </Text>
           <Text
             color="gray.900"
-            fontSize={{ base: '1.75rem', md: '2.5rem' }}
+            fontSize={
+              buyer
+                ? { base: '1.25rem', md: '1.5rem' }
+                : { base: '1.75rem', md: '2.5rem' }
+            }
             fontWeight="bold"
           >
             {item?.name}

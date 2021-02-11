@@ -1,6 +1,7 @@
-import { Avatar, Box, Text, Button } from '@chakra-ui/react';
+import { Avatar, Box, Text } from '@chakra-ui/react';
+import ModalDetailBuyer from './ModalDetailBuyer';
 
-export default function Friend() {
+export default function Friend({ data }) {
   return (
     <Box
       borderTop="1px solid"
@@ -14,20 +15,11 @@ export default function Friend() {
       <Avatar borderRadius="10px" w="48px" h="48px" />
       <Box ml="1.375rem">
         <Text color="gray.500" fontSize="1.375rem" fontWeight="bold">
-          Nome do Amigo 1
+          {data?.first_name} {data?.last_name}
         </Text>
-        <Text fontSize="1.125rem">999.999.999-99</Text>
+        <Text fontSize="1.125rem">{data?.taxpayer_id}</Text>
       </Box>
-      <Button
-        variant="secondary"
-        w="9.25rem"
-        h="2.75rem"
-        borderRadius="5px"
-        boxShadow="none"
-        mr={{ md: '2rem' }}
-      >
-        Detalhes
-      </Button>
+      <ModalDetailBuyer data={data} />
     </Box>
   );
 }

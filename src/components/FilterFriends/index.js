@@ -1,10 +1,9 @@
 import { Box, Flex } from '@chakra-ui/react';
 import InputFilter from 'components/InputFilter';
 import Friend from './Friend';
-import ModalNewClient from './ModalNewClient';
+import ModalNewBuyer from './ModalNewBuyer';
 
-export default function FilterFriends() {
-  const friends = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+export default function FilterFriends({ data }) {
   return (
     <Box
       bg="white"
@@ -19,12 +18,12 @@ export default function FilterFriends() {
           <InputFilter />
         </Box>
         <Box w={{ base: '100%', md: '18rem' }}>
-          <ModalNewClient />
+          <ModalNewBuyer />
         </Box>
       </Flex>
       <Box mt="2rem" maxH="40rem" overflowY="auto">
-        {friends.map((item, index) => (
-          <Friend key={index} data={item} />
+        {data?.entries.map((item) => (
+          <Friend key={item?.id} data={item} />
         ))}
       </Box>
     </Box>

@@ -1,6 +1,6 @@
 import { Box, Avatar, Button } from '@chakra-ui/react';
 
-export default function ProfilePic({ data }) {
+export default function ProfilePic({ data, buyer }) {
   return (
     <Box>
       <Button
@@ -15,8 +15,16 @@ export default function ProfilePic({ data }) {
         ml="1.25rem"
         src={data?.img}
         alt={data?.name}
-        w={{ base: '8rem', lg: '10.625rem' }}
-        h={{ base: '8rem', lg: '10.625rem' }}
+        w={
+          buyer
+            ? { base: '6rem', lg: '8rem' }
+            : { base: '8rem', lg: '10.625rem' }
+        }
+        h={
+          buyer
+            ? { base: '6rem', lg: '8rem' }
+            : { base: '8rem', lg: '10.625rem' }
+        }
         bg="gray.100"
       />
     </Box>
