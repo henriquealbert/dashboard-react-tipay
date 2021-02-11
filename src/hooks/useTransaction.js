@@ -4,7 +4,7 @@ import api from 'api';
 const fetchDetails = async (transactionID) => {
   if (transactionID) {
     return await api
-      .get(`/v1/transaction/${transactionID}/details.json`)
+      .get(`v1/transaction/${transactionID}/details.json`)
       .then((res) => res.data);
   }
 };

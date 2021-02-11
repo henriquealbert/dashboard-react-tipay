@@ -14,7 +14,7 @@ const InfoEditable = ({ item }) => {
       >
         {item.title}
       </Td>
-      <Td p="1.875rem 0" fontSize="1.375rem" minW="250px">
+      <Td p="1.875rem 0" fontSize="1.375rem" lineHeight="1.5" minW="250px">
         {item.description}
       </Td>
       <Td p="1.875rem 0" textAlign="right" minW="100px">

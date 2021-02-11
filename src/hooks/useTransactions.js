@@ -30,7 +30,7 @@ export default function useTransactions(ctx) {
     () =>
       api
         .get(
-          `/v1/transactions${ID}${PAYER}${VALUE}${START_DATE}${END_DATE}${STATUS}${PAYMENT_TYPE}${PER_PAGE}${PAGE}.json`
+          `v1/transactions${ID}${PAYER}${VALUE}${START_DATE}${END_DATE}${STATUS}${PAYMENT_TYPE}${PER_PAGE}${PAGE}.json`
         )
         .then((res) => res.data),
     { keepPreviousData: true, enabled: !!ctx.page }

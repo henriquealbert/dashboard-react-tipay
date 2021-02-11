@@ -26,7 +26,7 @@ export default function useLinks(ctx) {
     () =>
       api
         .get(
-          `/v1/links${ID}${AMOUNT}${START_DATE}${END_DATE}${ISACTIVE}${DESCRIPTION}${PER_PAGE}${PAGE}.json`
+          `v1/links${ID}${AMOUNT}${START_DATE}${END_DATE}${ISACTIVE}${DESCRIPTION}${PER_PAGE}${PAGE}.json`
         )
         .then((res) => res.data),
     { keepPreviousData: true, enabled: !!ctx.page }
