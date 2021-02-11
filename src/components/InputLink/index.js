@@ -1,7 +1,26 @@
-import { InputGroup, FormLabel, Button, Text, Flex } from '@chakra-ui/react';
+import { CheckIcon } from '@chakra-ui/icons';
+import {
+  InputGroup,
+  FormLabel,
+  Button,
+  Text,
+  Flex,
+  Box
+} from '@chakra-ui/react';
+import { useState } from 'react';
 import { CopyIcon } from 'styles/icons';
 
 export default function InputLink({ url, label }) {
+  const [copied, setCopy] = useState(false);
+
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(url);
+    setCopy(true);
+    setTimeout(() => {
+      setCopy(false);
+    }, 5000);
+  };
+
   return (
     <InputGroup w="100%">
       <FormLabel
@@ -54,8 +73,18 @@ export default function InputLink({ url, label }) {
         borderColor="gray.1100"
         ml="-2px"
         borderRadius="0 0.625rem 0.625rem 0"
+        onClick={copyToClipboard}
       >
-        <CopyIcon w="2rem" h="2rem" color="#9B9B9B" />
+        {copied ? (
+          <Box>
+            <CheckIcon w="2rem" h="2rem" color="#9B9B9B" />
+            <Text as="span" fontSize="0.75rem" display="block">
+              Copiado!
+            </Text>
+          </Box>
+        ) : (
+          <CopyIcon w="2rem" h="2rem" color="#9B9B9B" />
+        )}
       </Button>
     </InputGroup>
   );

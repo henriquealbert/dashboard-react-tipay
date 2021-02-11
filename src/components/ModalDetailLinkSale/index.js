@@ -26,6 +26,7 @@ import IsActiveLink from './IsActiveLink';
 import { formatDateTime } from 'utils/formatDate';
 import { formatPrice } from 'utils/formatPrice';
 import { formatStatusColor } from 'utils/formatStatusColor';
+import ShareLinkButton from './ShareLinkButton';
 
 export default function ModalDetailLinkSale({ data }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -124,14 +125,7 @@ export default function ModalDetailLinkSale({ data }) {
           </ModalBody>
 
           <ModalFooter>
-            <Button
-              variant="green"
-              w={{ base: '12rem', xxl: '17.25rem' }}
-              h={{ base: '3.25rem', xxl: '4rem' }}
-              fontSize="1.25rem"
-            >
-              Compartilhar
-            </Button>
+            <ShareLinkButton url={data?.link} />
           </ModalFooter>
         </ModalContent>
       </Modal>
