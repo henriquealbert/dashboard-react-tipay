@@ -3,32 +3,32 @@ import { Box, Table, Tbody } from '@chakra-ui/react';
 import ProfileEditable from './ProfileEditable';
 import InfoEditable from './InfoEditable';
 
-export default function MyProfile({ profileData }) {
-  const data = [
+export default function MyProfile({ data }) {
+  const formattedData = [
     {
       id: 2,
       title: 'CPF/CNPJ',
-      description: profileData?.store?.cnpj
+      description: data?.store?.cnpj
     },
     {
       id: 3,
       title: 'Endereço',
-      description: `${profileData?.store?.street}, nº ${profileData?.store?.number}, ${profileData?.store?.district} - ${profileData?.store?.city}/${profileData?.store?.state} - CEP: ${profileData?.store?.cep}`
+      description: `${data?.store?.street}, nº ${data?.store?.number}, ${data?.store?.district} - ${data?.store?.city}/${data?.store?.state} - CEP: ${data?.store?.cep}`
     },
     {
       id: 4,
       title: 'Telefone',
-      description: profileData?.store?.cellphone
+      description: data?.store?.cellphone
     },
     {
       id: 5,
       title: 'Conta bancária',
-      description: `Conta: ${profileData?.bank_account?.account_number} - Agência: ${profileData?.bank_account?.bank_agency} - ${profileData?.bank_account?.bank_name}`
+      description: `Conta: ${data?.bank_account?.account_number} - Agência: ${data?.bank_account?.bank_agency} - ${data?.bank_account?.bank_name}`
     }
   ];
   const avatar = {
     id: 1,
-    name: profileData?.store?.name,
+    name: data?.store?.name,
     img: null
   };
 
@@ -48,7 +48,7 @@ export default function MyProfile({ profileData }) {
         <Box overflowX="auto">
           <Table>
             <Tbody>
-              {data.map((item) => (
+              {formattedData.map((item) => (
                 <InfoEditable key={item.id} item={item} />
               ))}
             </Tbody>
