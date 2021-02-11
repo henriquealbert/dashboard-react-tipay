@@ -13,10 +13,12 @@ import {
   PopoverContent,
   PopoverCloseButton,
   PopoverHeader,
-  PopoverBody
+  PopoverBody,
+  FormErrorMessage
 } from '@chakra-ui/react';
+import AmountInput from './AmountInput';
 
-export default function InfoCharge() {
+export default function InfoCharge({ register, errors }) {
   return (
     <Box mt="2.25rem" w="100%">
       <Text
@@ -35,8 +37,12 @@ export default function InfoCharge() {
         bg="white"
         p={{ base: '2rem', xlg: '3.625rem 4.25rem' }}
       >
-        <Flex direction={{ base: 'column', md: 'row' }}>
-          <FormControl mb="1.75rem" mr={{ md: '2rem', xlg: '7rem' }}>
+        <Box
+          display={{ md: 'grid' }}
+          gridTemplateColumns="1fr 1fr"
+          gridColumnGap="2rem"
+        >
+          <FormControl mb="1.75rem" isInvalid={errors.amount}>
             <FormLabel
               color="gray.1000"
               fontSize="1.25rem"
@@ -45,29 +51,21 @@ export default function InfoCharge() {
             >
               Valor a ser cobrado
             </FormLabel>
-            <Input variant="innerSolid" placeholder="Digite o valor" />
-          </FormControl>
 
-          <FormControl mb="1.75rem">
-            <FormLabel
-              color="gray.1000"
-              fontSize="1.25rem"
-              lineHeight="1.5rem"
-              fontWeight="semibold"
-            >
-              Data de vencimento
-            </FormLabel>
-            <Input
-              variant="innerSolid"
-              placeholder="Digite a data de vencimento"
+            <AmountInput
+              ref={register}
+              placeholder="Digite um valor"
+              name="amount"
+              required
             />
+            <FormErrorMessage color="red.300">
+              {errors.amount && errors.amount.message}
+            </FormErrorMessage>
           </FormControl>
-        </Flex>
 
-        <Flex direction={{ base: 'column', md: 'row' }}>
           <FormControl
+            isInvalid={errors.installment_plan}
             mb={{ base: '1.75rem', md: '0' }}
-            mr={{ md: '2rem', xlg: '7rem' }}
           >
             <FormLabel
               color="gray.1000"
@@ -78,7 +76,14 @@ export default function InfoCharge() {
               Parcelas
             </FormLabel>
 
-            <Select variant="innerSolid" placeholder="Selecione as parcelas">
+            <Select
+              variant="innerSolid"
+              placeholder="Selecione as parcelas"
+              w="100%"
+              name="installment_plan"
+              ref={register}
+              required
+            >
               <option value="1">À vista</option>
               <option value="2">2x</option>
               <option value="3">3x</option>
@@ -92,9 +97,40 @@ export default function InfoCharge() {
               <option value="11">11x</option>
               <option value="12">12x</option>
             </Select>
+            <FormErrorMessage color="red.300">
+              {errors.installment_plan && errors.installment_plan.message}
+            </FormErrorMessage>
           </FormControl>
+        </Box>
 
-          <FormControl mb={{ base: '1.75rem', md: '0' }}>
+        <Box
+          display={{ md: 'grid' }}
+          gridTemplateColumns="1fr 1fr"
+          gridColumnGap="2rem"
+        >
+          <FormControl isInvalid={errors.description} mb="1.75rem">
+            <FormLabel
+              color="gray.1000"
+              fontSize="1.25rem"
+              lineHeight="1.5rem"
+              fontWeight="semibold"
+            >
+              Descrição do Link
+            </FormLabel>
+            <Input
+              variant="innerSolid"
+              placeholder="Descrição do Link"
+              name="description"
+              ref={register}
+            />
+            <FormErrorMessage color="red.300">
+              {errors.description && errors.description.message}
+            </FormErrorMessage>
+          </FormControl>
+          <FormControl
+            isInvalid={errors.limit}
+            mb={{ base: '1.75rem', md: '0' }}
+          >
             <Flex>
               <FormLabel
                 color="gray.1000"
@@ -132,9 +168,14 @@ export default function InfoCharge() {
             <Input
               variant="innerSolid"
               placeholder="Campo vazio, o link não expira."
+              ref={register}
+              name="limit"
             />
+            <FormErrorMessage color="red.300">
+              {errors.limit && errors.limit.message}
+            </FormErrorMessage>
           </FormControl>
-        </Flex>
+        </Box>
       </Box>
     </Box>
   );

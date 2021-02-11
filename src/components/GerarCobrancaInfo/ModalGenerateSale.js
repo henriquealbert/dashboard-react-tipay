@@ -4,18 +4,26 @@ import {
   Modal,
   ModalOverlay,
   ModalContent,
-  ModalCloseButton,
   ModalBody,
   ModalFooter,
-  Img
+  Flex
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import { LinkQRCodeIcon } from 'styles/icons';
 
 import InputLink from 'components/InputLink';
+import QRCodeComponent from 'components/QRCodeComponent';
 
-export default function ModalGenerateSale() {
+export default function ModalGenerateSale({ open, isSubmitting, link }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const handleClick = () => {
+    if (open === false) {
+      return;
+    } else {
+      onOpen();
+    }
+  };
 
   return (
     <>
@@ -26,7 +34,10 @@ export default function ModalGenerateSale() {
         fontSize="1.875rem"
         mt="3rem"
         mb="3.5rem"
-        onClick={onOpen}
+        onClick={handleClick}
+        type="submit"
+        isLoading={isSubmitting}
+        loadingText="Gerando Link..."
       >
         Gerar Link <LinkQRCodeIcon ml="1rem" w="45px" h="2rem" />
       </Button>
@@ -37,18 +48,17 @@ export default function ModalGenerateSale() {
         isCentered
         size="3xl"
         scrollBehavior="inside"
+        closeOnOverlayClick={false}
       >
         <ModalOverlay />
         <ModalContent
           p={{ base: '1rem 1rem 1.5rem', lg: '1.5rem 2.5rem 2.5rem' }}
         >
-          <ModalCloseButton />
           <ModalBody>
-            <Img src="/images/qrcode.png" m="0 auto 1.625rem" />
-            <InputLink
-              label="Link"
-              url="https://tipay.app/dabdddaajkawbdawdbawhdvawbihdgwa"
-            />
+            <Flex justifyContent="center" mb="2rem">
+              <QRCodeComponent url={link} />
+            </Flex>
+            <InputLink label="Link" url={link} />
           </ModalBody>
 
           <ModalFooter
