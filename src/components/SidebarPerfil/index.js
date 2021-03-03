@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 import MenuItemPerfil from './MenuItemPerfil';
 import {
   AboutIcon,
-  DocumentsIcon,
   FriendsIcon,
   PerfilIcon,
-  PlanIcon,
   SupportIcon,
   TermsIcon
+  // PlanIcon,
+  // DocumentsIcon,
 } from 'styles/icons';
 
 export default function SidebarPerfil() {

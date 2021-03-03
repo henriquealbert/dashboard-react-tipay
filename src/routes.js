@@ -17,15 +17,15 @@ import LinkQRcode from 'pages/LinkQRcode';
 import Transferencias from 'pages/Transferencias';
 import Calendario from 'pages/Calendario';
 import MeuPerfil from 'pages/MeuPerfil';
-import MeuPlano from 'pages/MeuPlano';
 import Atendimento from 'pages/Atendimento';
 import ClientesAmigos from 'pages/ClientesAmigos';
-import Documentos from 'pages/Documentos';
 import TermosContrato from 'pages/TermosContrato';
 import Sobre from 'pages/Sobre';
 import GerarBoleto from 'pages/Boletos/GerarBoleto';
 import GerarCobranca from 'pages/LinkQRcode/GerarCobranca';
 import ForgotPassword from 'pages/ForgotPassword';
+// import Documentos from 'pages/Documentos';
+// import MeuPlano from 'pages/MeuPlano';
 
 // auth
 import api from 'api';
