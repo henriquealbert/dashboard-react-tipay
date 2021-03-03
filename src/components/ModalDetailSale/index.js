@@ -27,16 +27,19 @@ import {
 import { formatPaymentType } from 'utils/formatPaymentType';
 import { formatDateTime } from 'utils/formatDate';
 import { formatPrice } from 'utils/formatPrice';
+import ShareLinkButton from 'components/ShareLinkButton';
 
 export default function ModalDetailSale({
   id,
   data,
-  estornar,
+  // estornar,
   variant,
   setTransactionID,
   calendar
 }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  console.log(data.transaction);
 
   return (
     <>
@@ -150,7 +153,7 @@ export default function ModalDetailSale({
           </ModalBody>
 
           <ModalFooter>
-            {estornar && (
+            {/* {estornar && (
               <Button
                 variant="red"
                 mr="1rem"
@@ -160,7 +163,8 @@ export default function ModalDetailSale({
               >
                 Estornar Venda
               </Button>
-            )}
+            )} */}
+            <ShareLinkButton url={data?.link} mr="1rem" />
             <Button
               variant="black"
               mr={3}

@@ -22,7 +22,7 @@ import {
 import InputLink from 'components/InputLink';
 import QRCodeComponent from 'components/QRCodeComponent';
 import IsActiveLink from './IsActiveLink';
-import ShareLinkButton from './ShareLinkButton';
+import ShareLinkButton from 'components/ShareLinkButton';
 
 import { formatDateTime } from 'utils/formatDate';
 import { formatPrice } from 'utils/formatPrice';
