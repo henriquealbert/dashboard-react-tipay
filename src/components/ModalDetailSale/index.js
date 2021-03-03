@@ -127,7 +127,7 @@ export default function ModalDetailSale({
                   <Thead>
                     <Tr>
                       <Th w="25%">Identificação</Th>
-                      <Th>Opreação</Th>
+                      <Th>Operação</Th>
                       <Th pr="0" w="25%">
                         Status
                       </Th>

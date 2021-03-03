@@ -22,11 +22,10 @@ import {
 import InputLink from 'components/InputLink';
 import QRCodeComponent from 'components/QRCodeComponent';
 import IsActiveLink from './IsActiveLink';
+import ShareLinkButton from './ShareLinkButton';
 
 import { formatDateTime } from 'utils/formatDate';
 import { formatPrice } from 'utils/formatPrice';
-import { formatStatusColor } from 'utils/formatStatusColor';
-import ShareLinkButton from './ShareLinkButton';
 
 export default function ModalDetailLinkSale({ data }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -99,24 +98,20 @@ export default function ModalDetailLinkSale({ data }) {
                 <Table variant="sales-modal">
                   <Thead>
                     <Tr>
+                      <Th>Identificação</Th>
                       <Th>Criado em</Th>
-                      <Th>Pagador</Th>
                       <Th>Atualizado em</Th>
+                      <Th>Descrição</Th>
                       <Th>Valor</Th>
-                      <Th>Opreação</Th>
-                      <Th pr="0">Status</Th>
                     </Tr>
                   </Thead>
                   <Tbody>
                     <Tr>
+                      <Td>{data?.id}</Td>
                       <Td>{formatDateTime(data?.created_at)}</Td>
-                      <Td maxW="15rem">{data?.payer}</Td>
                       <Td>{formatDateTime(data?.updated_at)}</Td>
+                      <Td>{data?.description}</Td>
                       <Td>{formatPrice(data?.amount)}</Td>
-                      <Td>{data?.operation}</Td>
-                      <Td color={formatStatusColor(data?.status)} pr="0">
-                        {data?.status}
-                      </Td>
                     </Tr>
                   </Tbody>
                 </Table>
