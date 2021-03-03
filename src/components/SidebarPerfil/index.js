@@ -62,16 +62,16 @@ export default function SidebarPerfil() {
           text="Clientes/Amigos"
           pathname="/clientes-amigos"
         />
-        <MenuItemPerfil
+        {/* <MenuItemPerfil
           icon={PlanIcon}
           text="Meu plano"
           pathname="/meu-plano"
-        />
-        <MenuItemPerfil
+        /> */}
+        {/* <MenuItemPerfil
           icon={DocumentsIcon}
           text="Documentos"
           pathname="/documentos"
-        />
+        /> */}
         <MenuItemPerfil
           icon={TermsIcon}
           text="Termos e Contrato"

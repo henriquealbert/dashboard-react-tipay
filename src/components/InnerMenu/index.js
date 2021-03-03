@@ -51,7 +51,7 @@ export default function InnerMenu({ pageTitle, useContext }) {
         <Button
           variant="outline"
           padding={{ base: '0.5rem', xxl: '0.625rem 1.25rem' }}
-          disabled={isFetching ? true : false}
+          disabled={isFetching}
           cursor={isFetching ? 'not-allowed' : 'pointer'}
           mr={{ base: '0.5rem', xxl: '0.875rem' }}
           onClick={() => {
@@ -65,7 +65,7 @@ export default function InnerMenu({ pageTitle, useContext }) {
         <Button
           variant="outline"
           padding={{ base: '0.5rem', xxl: '0.625rem 1.25rem' }}
-          disabled={isFetching ? true : false}
+          disabled={isFetching}
           cursor={isFetching ? 'not-allowed' : 'pointer'}
           mr={{ base: '0.5rem', xxl: '0.875rem' }}
           onClick={() => {
@@ -79,7 +79,7 @@ export default function InnerMenu({ pageTitle, useContext }) {
         <Button
           variant="outline"
           padding={{ base: '0.5rem', xxl: '0.625rem 1.25rem' }}
-          disabled={isFetching ? true : false}
+          disabled={isFetching}
           cursor={isFetching ? 'not-allowed' : 'pointer'}
           mr={{ base: '0.5rem', xxl: '0.875rem' }}
           onClick={() => {
@@ -93,7 +93,7 @@ export default function InnerMenu({ pageTitle, useContext }) {
         <Button
           variant="outline"
           padding={{ base: '0.5rem', xxl: '0.625rem 1.25rem' }}
-          disabled={isFetching ? true : false}
+          disabled={isFetching}
           cursor={isFetching ? 'not-allowed' : 'pointer'}
           mr={{ base: '0.5rem', xxl: '0.875rem' }}
           onClick={() => {
@@ -107,7 +107,7 @@ export default function InnerMenu({ pageTitle, useContext }) {
         <Button
           variant="outline"
           padding={{ base: '0.5rem', xxl: '0.625rem 1.25rem' }}
-          disabled={isFetching ? true : false}
+          disabled={isFetching}
           cursor={isFetching ? 'not-allowed' : 'pointer'}
           mr={{ base: '0.5rem', xxl: '0.875rem' }}
           onClick={() => {
@@ -121,7 +121,7 @@ export default function InnerMenu({ pageTitle, useContext }) {
         <Button
           variant="outline"
           padding={{ base: '0.5rem', xxl: '0.625rem 1.25rem' }}
-          disabled={isFetching ? true : false}
+          disabled={isFetching}
           cursor={isFetching ? 'not-allowed' : 'pointer'}
           mr={{ base: '0.5rem', xxl: '0.875rem' }}
           onClick={() => {

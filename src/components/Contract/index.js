@@ -1,9 +1,13 @@
 import { ChevronRightIcon } from '@chakra-ui/icons';
 import { Flex, Text } from '@chakra-ui/react';
 
-export default function Contract({ title, ...rest }) {
+export default function Contract({ title, href, ...rest }) {
   return (
     <Flex
+      as="a"
+      href={href}
+      target="_blank"
+      rel="noreferrer"
       bg="white"
       boxShadow="0px 3px 6px #00000029"
       borderRadius="10px"

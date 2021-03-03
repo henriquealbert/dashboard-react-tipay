@@ -4,11 +4,14 @@ import GlobalLoader from 'components/GlobalLoader';
 import Header from 'components/Header';
 import Sidebar from 'components/Sidebar';
 import SidebarPerfil from 'components/SidebarPerfil';
+import useProfile from 'hooks/useProfile';
 
 export default function Layout({ children, perfil }) {
+  const { data } = useProfile();
+
   return (
     <>
-      <Header perfil={perfil} />
+      <Header perfil={perfil} data={data} />
       {perfil ? <SidebarPerfil /> : <Sidebar />}
 
       <Flex

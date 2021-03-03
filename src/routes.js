@@ -28,9 +28,9 @@ import GerarCobranca from 'pages/LinkQRcode/GerarCobranca';
 import ForgotPassword from 'pages/ForgotPassword';
 
 // auth
-import { useAuth } from 'hooks/useAuth';
 import api from 'api';
 import Cookies from 'js-cookie';
+import { useAuth } from 'hooks/useAuth';
 import { SalesProvider } from 'pages/Vendas/SalesContext';
 import { TransfersProvider } from 'pages/Transferencias/TransfersContext';
 import { BoletoProvider } from 'pages/Boletos/BoletoContext';
@@ -171,7 +171,7 @@ const Routes = () => (
     />
     <CustomRoute isPrivate exact path="/calendario" component={Calendario} />
     <CustomRoute isPrivate exact path="/meu-perfil" component={MeuPerfil} />
-    <CustomRoute isPrivate exact path="/meu-plano" component={MeuPlano} />
+    {/* <CustomRoute isPrivate exact path="/meu-plano" component={MeuPlano} /> */}
     <CustomRoute isPrivate exact path="/atendimento" component={Atendimento} />
     <CustomRoute
       isPrivate
@@ -179,7 +179,7 @@ const Routes = () => (
       path="/clientes-amigos"
       component={ClientesAmigos}
     />
-    <CustomRoute isPrivate exact path="/documentos" component={Documentos} />
+    {/* <CustomRoute isPrivate exact path="/documentos" component={Documentos} /> */}
     <CustomRoute
       isPrivate
       exact

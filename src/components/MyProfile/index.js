@@ -6,30 +6,48 @@ import InfoEditable from './InfoEditable';
 export default function MyProfile({ data }) {
   const formattedData = [
     {
-      id: 2,
+      id: 1,
       title: 'CPF/CNPJ',
-      description: data?.store?.cnpj
+      description: data?.store?.cnpj,
+      editable: false
+    },
+    {
+      id: 2,
+      title: 'Telefone',
+      description: data?.store?.cellphone,
+      editable: false
     },
     {
       id: 3,
       title: 'Endereço',
-      description: `${data?.store?.street}, nº ${data?.store?.number}, ${data?.store?.district} - ${data?.store?.city}/${data?.store?.state} - CEP: ${data?.store?.cep}`
+      description: `${data?.store?.street}, nº ${data?.store?.number}, ${data?.store?.district} - ${data?.store?.city}/${data?.store?.state} - CEP: ${data?.store?.cep}`,
+      editable: true
     },
     {
       id: 4,
-      title: 'Telefone',
-      description: data?.store?.cellphone
+      title: 'Conta bancária',
+      description: `Nome/Razão Social: ${data?.bank_account?.holder_name} - ${
+        data?.bank_account?.bank_name
+      } - ${
+        data?.bank_account?.bank_account_type === 1
+          ? 'Conta corrente'
+          : 'Conta poupança'
+      } - Conta: ${data?.bank_account?.account_number} - Agência: ${
+        data?.bank_account?.bank_agency
+      }`,
+      editable: true
     },
     {
       id: 5,
-      title: 'Conta bancária',
-      description: `Conta: ${data?.bank_account?.account_number} - Agência: ${data?.bank_account?.bank_agency} - ${data?.bank_account?.bank_name}`
+      title: 'Senha',
+      description: '*****************',
+      editable: true
     }
   ];
   const avatar = {
     id: 1,
     name: data?.store?.name,
-    img: null
+    img: ''
   };
 
   return (

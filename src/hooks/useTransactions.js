@@ -17,15 +17,15 @@ export default function useTransactions(ctx) {
   return useQuery(
     [
       'transactions',
-      ctx.identification,
-      ctx.payer,
-      ctx.value,
-      ctx.status,
-      ctx.start_date,
-      ctx.end_date,
-      ctx.paymentType,
-      ctx.per_page,
-      ctx.page
+      ctx?.identification,
+      ctx?.payer,
+      ctx?.value,
+      ctx?.status,
+      ctx?.start_date,
+      ctx?.end_date,
+      ctx?.paymentType,
+      ctx?.per_page,
+      ctx?.page
     ],
     () =>
       api

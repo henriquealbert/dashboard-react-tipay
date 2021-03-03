@@ -39,8 +39,6 @@ export default function ModalDetailSale({
 }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  console.log(data.transaction);
-
   return (
     <>
       <Button

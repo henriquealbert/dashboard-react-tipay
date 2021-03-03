@@ -17,10 +17,14 @@ const InfoEditable = ({ item }) => {
       <Td p="1.875rem 0" fontSize="1.375rem" lineHeight="1.5" minW="250px">
         {item.description}
       </Td>
-      <Td p="1.875rem 0" textAlign="right" minW="100px">
-        <Button variant="link" fontSize="1.25rem" color="brand.yellow">
-          Editar
-        </Button>
+      <Td p="1.875rem 0.2rem" textAlign="right" minW="100px">
+        {item.editable ? (
+          <Button variant="link" fontSize="1.25rem" color="brand.yellow">
+            Editar
+          </Button>
+        ) : (
+          ''
+        )}
       </Td>
     </Tr>
   );

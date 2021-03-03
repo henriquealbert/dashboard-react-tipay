@@ -1,16 +1,13 @@
 import { ChevronDownIcon } from '@chakra-ui/icons';
-import { Avatar, Box, Fade, Flex, Img, Text } from '@chakra-ui/react';
+import { Avatar, Box, Fade, Flex, Img, Text, Skeleton } from '@chakra-ui/react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { useAuth } from 'hooks/useAuth';
 
-export default function Menu() {
-  const user = { img: '/images/user-img.png', name: 'Fulano de Tal' };
-
-  const [isOpen, setIsOpen] = useState(false);
-
+export default function Menu({ data }) {
   const { handleLogout } = useAuth();
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <Flex position="relative" h="100%">
@@ -24,8 +21,8 @@ export default function Menu() {
         }}
       >
         <Avatar
-          src={user?.img}
-          alt={user?.name}
+          src={''}
+          alt={data?.store?.name}
           bg="gray.100"
           borderRadius="50%"
           w={{ base: '38px', md: '50px' }}
@@ -33,12 +30,16 @@ export default function Menu() {
           border="2px solid #23DAC9"
         />
 
-        <Text color="white" fontSize="1.125rem" mx="1.375rem" as="span">
-          {user.name}
-        </Text>
-
+        {data ? (
+          <Text color="white" fontSize="1.125rem" mx="1.375rem" as="span">
+            {data?.store?.name}
+          </Text>
+        ) : (
+          <Skeleton w="5.625rem" h="0.5rem" as="span" mx="1.375rem" />
+        )}
         <ChevronDownIcon color="white" w="1.875rem" h="1.875rem" />
       </Flex>
+
       {isOpen && (
         <Fade in={isOpen}>
           <Flex
@@ -111,7 +112,7 @@ export default function Menu() {
                 </Flex>
               </Link>
 
-              <Link to="/meu-plano">
+              {/* <Link to="/meu-plano">
                 <Flex
                   as="li"
                   py="0.813rem"
@@ -122,7 +123,7 @@ export default function Menu() {
                   <Img src="/images/meu-plano.svg" alt="Meu Plano" mr="12px" />
                   Meu Plano
                 </Flex>
-              </Link>
+              </Link> */}
 
               <Flex
                 as="li"
