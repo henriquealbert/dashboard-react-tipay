@@ -1,16 +1,16 @@
-import { Box, Avatar, Button } from '@chakra-ui/react';
+import { Box, Avatar } from '@chakra-ui/react';
 
 export default function ProfilePic({ data, buyer }) {
   return (
     <Box>
-      <Button
+      {/* <Button
         variant="link"
         fontSize="1.25rem"
         color="brand.yellow"
         display="block"
       >
         Editar
-      </Button>
+      </Button> */}
       <Avatar
         ml="1.25rem"
         src={data?.img}
