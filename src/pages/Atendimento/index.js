@@ -1,16 +1,7 @@
-import {
-  Box,
-  Flex,
-  Button,
-  FormControl,
-  FormLabel,
-  Img,
-  Input,
-  Text,
-  Textarea
-} from '@chakra-ui/react';
+import { Box, Flex, Img, Text } from '@chakra-ui/react';
 
 import Container from 'components/Container';
+import FormAtendimento from 'components/FormAtendimento';
 import Layout from 'components/Layout';
 import PageTitle from 'components/PageTitle';
 
@@ -70,78 +61,7 @@ export default function Atendimento() {
             ))}
           </Box>
 
-          <Box mt={{ base: '4rem', md: '0' }}>
-            <FormControl mb="1.375rem">
-              <FormLabel
-                fontSize="1.125rem"
-                color="gray.500"
-                fontWeight="bold"
-                textTransform="uppercase"
-              >
-                Seu Nome
-              </FormLabel>
-              <Input
-                variant="innerSolid"
-                type="text"
-                name="name"
-                placeholder="Seu nome completo aqui"
-              />
-            </FormControl>
-
-            <FormControl mb="1.375rem">
-              <FormLabel
-                fontSize="1.125rem"
-                color="gray.500"
-                fontWeight="bold"
-                textTransform="uppercase"
-              >
-                Email
-              </FormLabel>
-              <Input
-                variant="innerSolid"
-                type="email"
-                name="email"
-                placeholder="email@email.com"
-              />
-            </FormControl>
-
-            <FormControl mb="1.375rem">
-              <FormLabel
-                fontSize="1.125rem"
-                color="gray.500"
-                fontWeight="bold"
-                textTransform="uppercase"
-              >
-                Telefone
-              </FormLabel>
-              <Input
-                variant="innerSolid"
-                type="tel"
-                name="tel"
-                placeholder="Com DDD"
-              />
-            </FormControl>
-
-            <FormControl mb="1.375rem">
-              <FormLabel
-                fontSize="1.125rem"
-                color="gray.500"
-                fontWeight="bold"
-                textTransform="uppercase"
-              >
-                Mensagem
-              </FormLabel>
-              <Textarea
-                variant="filled"
-                name="message"
-                placeholder="Digite aqui sua mensagem"
-                rows="4"
-              />
-            </FormControl>
-            <Button variant="green" w="100%">
-              Enviar
-            </Button>
-          </Box>
+          <FormAtendimento />
 
           <a
             href="https://api.whatsapp.com/send?phone=5541996450199"

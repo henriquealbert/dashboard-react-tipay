@@ -12,3 +12,15 @@ const api = axios.create({
 });
 
 export default api;
+
+export const sendMessageSupport = async (lead) => {
+  const config = {
+    method: 'post',
+    url: 'https://api.tipay.app/v1/leads.json',
+    headers: {},
+    data: lead
+  };
+  const response = await api(config);
+
+  return response.data;
+};
