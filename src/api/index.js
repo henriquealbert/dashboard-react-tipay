@@ -36,3 +36,15 @@ export const updateProfileInfo = async (data) => {
 
   return response.data;
 };
+
+export const updateBankAccount = async (values) => {
+  const config = {
+    method: 'post',
+    url: 'https://api.tipay.app/v1/store/bank_account.json',
+    headers: {},
+    data: { bank_account: values }
+  };
+  const response = await api(config);
+
+  return response.data;
+};

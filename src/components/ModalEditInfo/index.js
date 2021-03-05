@@ -10,6 +10,7 @@ import {
   ModalHeader
 } from '@chakra-ui/react';
 import EditAddress from 'components/MyProfile/InfoEditable/EditAddress';
+import EditBankAccount from 'components/MyProfile/InfoEditable/EditBankAccount';
 import { useState } from 'react';
 
 export default function ModalEditInfo({ item, data }) {
@@ -28,7 +29,11 @@ export default function ModalEditInfo({ item, data }) {
         Editar
       </Button>
 
-      <Modal isOpen={isOpen} onClose={onClose} size="7xl">
+      <Modal
+        isOpen={isOpen}
+        onClose={onClose}
+        size={item?.title === 'Senha' ? '3xl' : '4xl'}
+      >
         <ModalOverlay />
         <ModalContent>
           <ModalHeader
@@ -45,10 +50,19 @@ export default function ModalEditInfo({ item, data }) {
             {item?.title === 'Endereço' ? (
               <EditAddress
                 formId={`${item?.title}-form`}
-                data={data}
+                data={data.store}
                 setSubmit={setSubmit}
                 onClose={onClose}
               />
+            ) : item?.title === 'Conta bancária' ? (
+              <EditBankAccount
+                formId={`${item?.title}-form`}
+                data={data.bank_account}
+                setSubmit={setSubmit}
+                onClose={onClose}
+              />
+            ) : item?.title === 'Senha' ? (
+              'senha'
             ) : (
               ''
             )}

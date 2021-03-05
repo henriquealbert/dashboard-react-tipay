@@ -39,12 +39,12 @@ export default function EditAddress({ formId, data, setSubmit, onClose }) {
   } = useForm({
     mode: 'onChange',
     defaultValues: {
-      cep: data?.store?.cep,
-      street: data?.store?.street,
-      number: data?.store?.number,
-      district: data?.store?.district,
-      city: data?.store?.city,
-      state: data?.store?.state
+      cep: data?.cep,
+      street: data?.street,
+      number: data?.number,
+      district: data?.district,
+      city: data?.city,
+      state: data?.state
     },
     resolver: yupResolver(schema)
   });
