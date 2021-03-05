@@ -76,7 +76,11 @@ export default function EditBankAccount({ formId, data, setSubmit, onClose }) {
       onSubmit={handleSubmit(onSubmit)}
     >
       <Box display={{ base: 'block', md: 'flex' }}>
-        <FormControl mr={{ md: '2rem' }} isInvalid={errors.holder_name}>
+        <FormControl
+          mr={{ md: '2rem' }}
+          mb={{ base: '1rem', md: '' }}
+          isInvalid={errors.holder_name}
+        >
           <FormLabel fontWeight="bold" htmlFor="holder_name">
             Nome/Razão Social:
           </FormLabel>
@@ -92,7 +96,7 @@ export default function EditBankAccount({ formId, data, setSubmit, onClose }) {
           </FormErrorMessage>
         </FormControl>
 
-        <FormControl isInvalid={errors.cpf_cnpj}>
+        <FormControl isInvalid={errors.cpf_cnpj} mb={{ base: '1rem', md: '' }}>
           <FormLabel fontWeight="bold" htmlFor="cpf_cnpj">
             CPF/CNPJ
           </FormLabel>
@@ -112,7 +116,11 @@ export default function EditBankAccount({ formId, data, setSubmit, onClose }) {
       </Box>
 
       <Box display={{ base: 'block', md: 'flex' }} mt={{ md: '2rem' }}>
-        <FormControl mr={{ md: '2rem' }} isInvalid={errors.bank_account_type}>
+        <FormControl
+          mr={{ md: '2rem' }}
+          mb={{ base: '1rem', md: '' }}
+          isInvalid={errors.bank_account_type}
+        >
           <FormLabel fontWeight="bold" htmlFor="bank_account_type">
             Tipo de Conta
           </FormLabel>
@@ -138,7 +146,7 @@ export default function EditBankAccount({ formId, data, setSubmit, onClose }) {
           id="bank_code"
         />
 
-        <FormControl isInvalid={errors.bank_name}>
+        <FormControl isInvalid={errors.bank_name} mb={{ base: '1rem', md: '' }}>
           <FormLabel fontWeight="bold" htmlFor="bank_name">
             Banco
           </FormLabel>
@@ -168,7 +176,11 @@ export default function EditBankAccount({ formId, data, setSubmit, onClose }) {
       </Box>
 
       <Box display={{ base: 'block', md: 'flex' }} mt={{ md: '2rem' }}>
-        <FormControl mr={{ md: '2rem' }} isInvalid={errors.account_number}>
+        <FormControl
+          mr={{ md: '2rem' }}
+          mb={{ base: '1rem', md: '' }}
+          isInvalid={errors.account_number}
+        >
           <FormLabel fontWeight="bold" htmlFor="account_number">
             Conta
           </FormLabel>

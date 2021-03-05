@@ -71,7 +71,11 @@ export default function EditAddress({ formId, data, setSubmit, onClose }) {
       onSubmit={handleSubmit(onSubmit)}
     >
       <Box display={{ base: 'block', md: 'flex' }}>
-        <FormControl mr="2rem" isInvalid={errors.cep}>
+        <FormControl
+          mr={{ md: '2rem' }}
+          mb={{ base: '1rem', md: '' }}
+          isInvalid={errors.cep}
+        >
           <FormLabel fontWeight="bold" htmlFor="cep">
             CEP
           </FormLabel>
@@ -99,7 +103,11 @@ export default function EditAddress({ formId, data, setSubmit, onClose }) {
             {errors.cep && errors.cep.message}
           </FormErrorMessage>
         </FormControl>
-        <FormControl mr="2rem" isInvalid={errors.street}>
+        <FormControl
+          mr={{ md: '2rem' }}
+          mb={{ base: '1rem', md: '' }}
+          isInvalid={errors.street}
+        >
           <FormLabel fontWeight="bold" htmlFor="street">
             Rua
           </FormLabel>
@@ -114,7 +122,11 @@ export default function EditAddress({ formId, data, setSubmit, onClose }) {
             {errors.street && errors.street.message}
           </FormErrorMessage>
         </FormControl>
-        <FormControl w={{ md: '50%' }} isInvalid={errors.number}>
+        <FormControl
+          w={{ md: '50%' }}
+          mb={{ base: '1rem', md: '' }}
+          isInvalid={errors.number}
+        >
           <FormLabel fontWeight="bold" htmlFor="number">
             Número
           </FormLabel>
@@ -131,7 +143,11 @@ export default function EditAddress({ formId, data, setSubmit, onClose }) {
         </FormControl>
       </Box>
       <Box display={{ base: 'block', md: 'flex' }} mt={{ md: '2rem' }}>
-        <FormControl mr="2rem" isInvalid={errors.district}>
+        <FormControl
+          mr={{ md: '2rem' }}
+          mb={{ base: '1rem', md: '' }}
+          isInvalid={errors.district}
+        >
           <FormLabel fontWeight="bold" htmlFor="district">
             Bairro
           </FormLabel>
@@ -146,7 +162,11 @@ export default function EditAddress({ formId, data, setSubmit, onClose }) {
             {errors.district && errors.district.message}
           </FormErrorMessage>
         </FormControl>
-        <FormControl mr="2rem" isInvalid={errors.city}>
+        <FormControl
+          mr={{ md: '2rem' }}
+          mb={{ base: '1rem', md: '' }}
+          isInvalid={errors.city}
+        >
           <FormLabel fontWeight="bold" htmlFor="city">
             Cidade
           </FormLabel>

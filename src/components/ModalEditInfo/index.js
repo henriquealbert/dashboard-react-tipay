@@ -68,7 +68,7 @@ export default function ModalEditInfo({ item, data }) {
           </ModalBody>
 
           <ModalFooter mb="2rem" px={{ base: '2rem', lg: '3.625rem' }}>
-            <Button variant="black" mr="2rem" maxH="60px" onClick={onClose}>
+            <Button variant="black" mr="2rem" maxH="3.75rem" onClick={onClose}>
               Fechar
             </Button>
             <Button

@@ -3,7 +3,7 @@ import InputFilter from 'components/InputFilter';
 import Friend from './Friend';
 import ModalNewBuyer from './ModalNewBuyer';
 
-export default function FilterFriends({ data }) {
+export default function Friends({ data }) {
   return (
     <Box
       bg="white"

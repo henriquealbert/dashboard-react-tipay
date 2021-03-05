@@ -11,7 +11,8 @@ export default function BuyerForm({
   setNewClient,
   padding,
   onClose,
-  boxShadow
+  boxShadow,
+  edit
 }) {
   const handleClick = () => {
     if (setNewClient) {
@@ -21,6 +22,7 @@ export default function BuyerForm({
       onClose();
     }
   };
+
   return (
     <Box
       mt="0.75rem"
@@ -233,8 +235,15 @@ export default function BuyerForm({
         >
           Cancelar
         </Button>
-        <Button variant="green" w="21rem" h="4.5rem" onClick={handleClick}>
-          Salvar Novo Cliente
+        <Button
+          variant="green"
+          w="21rem"
+          h="4.5rem"
+          onClick={handleClick}
+          isLoading={false}
+          loadingText="Carregando..."
+        >
+          {edit ? 'Editar Cliente' : 'Cadastrar Cliente'}
         </Button>
       </Flex>
     </Box>
