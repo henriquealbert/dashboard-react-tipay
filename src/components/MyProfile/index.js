@@ -67,7 +67,7 @@ export default function MyProfile({ data }) {
           <Table>
             <Tbody>
               {formattedData.map((item) => (
-                <InfoEditable key={item.id} item={item} />
+                <InfoEditable key={item.id} item={item} data={data} />
               ))}
             </Tbody>
           </Table>

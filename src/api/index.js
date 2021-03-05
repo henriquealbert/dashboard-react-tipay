@@ -24,3 +24,15 @@ export const sendMessageSupport = async (lead) => {
 
   return response.data;
 };
+
+export const updateProfileInfo = async (data) => {
+  const config = {
+    method: 'patch',
+    url: 'https://api.tipay.app/v1/store/profile.json',
+    headers: {},
+    data: data
+  };
+  const response = await api(config);
+
+  return response.data;
+};

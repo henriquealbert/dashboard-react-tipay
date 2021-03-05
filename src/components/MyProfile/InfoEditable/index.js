@@ -1,6 +1,7 @@
-import { Tr, Td, Button } from '@chakra-ui/react';
+import { Tr, Td } from '@chakra-ui/react';
+import ModalEditInfo from 'components/ModalEditInfo';
 
-const InfoEditable = ({ item }) => {
+const InfoEditable = ({ item, data }) => {
   return (
     <Tr>
       <Td
@@ -18,13 +19,7 @@ const InfoEditable = ({ item }) => {
         {item.description}
       </Td>
       <Td p="1.875rem 0.2rem" textAlign="right" minW="100px">
-        {item.editable ? (
-          <Button variant="link" fontSize="1.25rem" color="brand.yellow">
-            Editar
-          </Button>
-        ) : (
-          ''
-        )}
+        {item.editable && <ModalEditInfo item={item} data={data} />}
       </Td>
     </Tr>
   );
