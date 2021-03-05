@@ -1,17 +1,12 @@
-import { Box, Flex, Img, Text } from '@chakra-ui/react';
+import { Box, Img, Text } from '@chakra-ui/react';
 
 import Container from 'components/Container';
 import FormAtendimento from 'components/FormAtendimento';
 import Layout from 'components/Layout';
 import PageTitle from 'components/PageTitle';
+import SocialLinks from 'components/SocialLinks';
 
 export default function Atendimento() {
-  const socialLinks = [
-    { title: '/app.tipay', icon: '/images/facebook.svg', alt: 'Facebook' },
-    { title: '/tipay.app', icon: '/images/instagram.svg', alt: 'Instagram' },
-    { title: '(41) 99645-0199', icon: '/images/tel.svg', alt: 'Telefone' },
-    { title: 'atendimento@tipay.app', icon: '/images/email.svg', alt: 'Email' }
-  ];
   return (
     <Layout perfil>
       <Container>
@@ -53,12 +48,7 @@ export default function Atendimento() {
             >
               Redes Sociais
             </Text>
-            {socialLinks.map((item, index) => (
-              <Flex alignItems="center" key={index} mb="2rem">
-                <Img src={item.icon} alt={item.alt} mr="1.375rem" />
-                <Text fontSize="1.25rem">{item.title}</Text>
-              </Flex>
-            ))}
+            <SocialLinks />
           </Box>
 
           <FormAtendimento />
