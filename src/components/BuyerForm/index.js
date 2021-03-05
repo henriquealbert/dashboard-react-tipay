@@ -36,12 +36,13 @@ export default function BuyerForm({
       <Flex direction={{ base: 'column', lg: 'row' }}>
         <Box w={{ base: '100%', lg: '50%' }} mr={{ lg: '2rem', xlg: '7rem' }}>
           <Flex direction={{ base: 'column', md: 'row' }}>
-            <FormControl id="name" mb="1.75rem">
+            <FormControl mb="1.75rem">
               <FormLabel
                 color="gray.1000"
                 fontSize="1.25rem"
                 lineHeight="1.5rem"
                 fontWeight="semibold"
+                htmlFor="first_name"
               >
                 Nome
               </FormLabel>
@@ -50,14 +51,18 @@ export default function BuyerForm({
                 variant="innerSolid"
                 maxW="none"
                 placeholder="Primeiro nome do cliente"
+                name="first_name"
+                id="first_name"
               />
             </FormControl>
-            <FormControl id="name" mb="1.75rem" ml={{ base: '0', md: '1rem' }}>
+
+            <FormControl mb="1.75rem" ml={{ base: '0', md: '1rem' }}>
               <FormLabel
                 color="gray.1000"
                 fontSize="1.25rem"
                 lineHeight="1.5rem"
                 fontWeight="semibold"
+                htmlFor="last_name"
               >
                 Sobrenome
               </FormLabel>
@@ -66,11 +71,13 @@ export default function BuyerForm({
                 variant="innerSolid"
                 maxW="none"
                 placeholder="Sobrenome do cliente"
+                name="last_name"
+                id="last_name"
               />
             </FormControl>
           </Flex>
 
-          <FormControl id="doc" mb="1.75rem">
+          <FormControl mb="1.75rem">
             <FormLabel
               color="gray.1000"
               fontSize="1.25rem"
@@ -87,7 +94,7 @@ export default function BuyerForm({
             />
           </FormControl>
 
-          <FormControl id="email" mb={{ base: '1.75rem', lg: '0' }}>
+          <FormControl mb={{ base: '1.75rem', lg: '0' }}>
             <FormLabel
               color="gray.1000"
               fontSize="1.25rem"
@@ -106,7 +113,7 @@ export default function BuyerForm({
         </Box>
         <Box w={{ base: '100%', lg: '50%' }}>
           <Flex direction={{ base: 'column', lg: 'row' }}>
-            <FormControl id="street" mb="1.75rem" mr="1.375rem">
+            <FormControl mb="1.75rem" mr="1.375rem">
               <FormLabel
                 color="gray.1000"
                 fontSize="1.25rem"
@@ -124,7 +131,7 @@ export default function BuyerForm({
               />
             </FormControl>
 
-            <FormControl id="streetNumber" mb="1.75rem" maxW={{ lg: '30%' }}>
+            <FormControl mb="1.75rem" maxW={{ lg: '30%' }}>
               <FormLabel
                 color="gray.1000"
                 fontSize="1.25rem"
@@ -144,12 +151,7 @@ export default function BuyerForm({
           </Flex>
 
           <Flex direction={{ base: 'column', lg: 'row' }}>
-            <FormControl
-              id="neighborhood"
-              mb="1.75rem"
-              mr="1.375rem"
-              maxW={{ lg: '50%' }}
-            >
+            <FormControl mb="1.75rem" mr="1.375rem" maxW={{ lg: '50%' }}>
               <FormLabel
                 color="gray.1000"
                 fontSize="1.25rem"
@@ -165,7 +167,7 @@ export default function BuyerForm({
                 placeholder="Bairro"
               />
             </FormControl>
-            <FormControl id="city" mb="1.75rem" maxW={{ lg: '50%' }}>
+            <FormControl mb="1.75rem" maxW={{ lg: '50%' }}>
               <FormLabel
                 color="gray.1000"
                 fontSize="1.25rem"
@@ -185,7 +187,6 @@ export default function BuyerForm({
 
           <Flex direction={{ base: 'column', lg: 'row' }}>
             <FormControl
-              id="state"
               mr="1.375rem"
               maxW={{ lg: '50%' }}
               mb={{ base: '1.75rem', lg: '0' }}
@@ -205,7 +206,7 @@ export default function BuyerForm({
                 placeholder="Estado"
               />
             </FormControl>
-            <FormControl id="complement" maxW={{ lg: '50%' }}>
+            <FormControl maxW={{ lg: '50%' }}>
               <FormLabel
                 color="gray.1000"
                 fontSize="1.25rem"

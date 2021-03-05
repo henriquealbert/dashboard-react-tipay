@@ -9,11 +9,12 @@ export default function Friend({ data }) {
       borderColor="gray.1100"
       py="1.5rem"
       alignItems="center"
-      display={{ base: 'flex', md: 'grid' }}
+      display="grid"
       gridTemplateColumns="3rem 1fr 11.25rem"
+      gridGap="1.25rem"
     >
       <Avatar borderRadius="10px" w="48px" h="48px" />
-      <Box ml="1.375rem">
+      <Box ml="1.375rem" minW="15rem">
         <Text color="gray.500" fontSize="1.375rem" fontWeight="bold">
           {data?.first_name} {data?.last_name}
         </Text>

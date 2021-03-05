@@ -20,18 +20,18 @@ export default function Sobre() {
           alignItems="center"
         >
           <Img src="/images/logo-black.svg" mb="2.5rem" alt="Logo Tipay" />
-          <Text color="#707070" fontSize="1.25rem">
-            Francisco Rocha, 198 - Batel, Curitiba PR, 80420-130 | Atendemos em
-            todo o território nacional.
+          <Text color="#707070" textAlign="center" fontSize="1.25rem">
+            Francisco Rocha, 198 - Batel, Curitiba PR, 80420-130 <br />
+            Atendemos em todo o território nacional.
           </Text>
-          <Text color="#707070" fontSize="1rem">
+          <Text color="#707070" textAlign="center" fontSize="1rem" mt="1rem">
             CNPJ 29.358.571/0001-84 - NB Gestão de Negócios LTDA ©{' '}
             {new Date().getFullYear()}.
           </Text>
-          <Text color="#707070" fontSize="1rem">
+          <Text color="#707070" textAlign="center" fontSize="1rem">
             Todos os direitos reservados.
           </Text>
-          <Flex>
+          <Flex direction={{ base: 'column', lg: 'row' }}>
             <SocialLinks />
           </Flex>
         </Flex>

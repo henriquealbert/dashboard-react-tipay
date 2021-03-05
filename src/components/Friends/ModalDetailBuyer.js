@@ -26,7 +26,12 @@ export default function ModalDetailBuyer() {
         Detalhes
       </Button>
 
-      <Modal isOpen={isOpen} onClose={onClose} size="7xl">
+      <Modal
+        isOpen={isOpen}
+        onClose={onClose}
+        size="7xl"
+        scrollBehavior="inside"
+      >
         <ModalOverlay />
         <ModalContent p="2rem">
           <ModalHeader fontSize="1.875rem" color="gray.500" fontWeight="bold">
