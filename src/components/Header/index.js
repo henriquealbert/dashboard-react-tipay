@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import Menu from 'components/Menu';
 
-export default function Header({ perfil, data }) {
+export default function Header({ perfil }) {
   return (
     <Flex
       w={
@@ -36,7 +36,7 @@ export default function Header({ perfil, data }) {
           ml={{ base: '1rem', lg: '2rem', xxl: '4.6rem' }}
         />
       </Link>
-      <Menu data={data} />
+      <Menu />
     </Flex>
   );
 }

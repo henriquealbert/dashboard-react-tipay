@@ -1,10 +1,8 @@
 import { Spinner } from '@chakra-ui/react';
-import { useQueryClient } from 'react-query';
+import { useIsFetching } from 'react-query';
 
 export default function GlobalLoader() {
-  const queryClient = useQueryClient();
-
-  const isFetching = queryClient.isFetching();
+  const isFetching = useIsFetching();
 
   if (isFetching) {
     return <Spinner position="absolute" right="1rem" top="8rem" />;

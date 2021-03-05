@@ -14,7 +14,7 @@ export default function CurrencyInput({ placeholder, isFetching, value }) {
       prefix={'R$'}
       customInput={StyledInput}
       placeholder={placeholder}
-      isDisabled={isFetching ? true : false}
+      isDisabled={isFetching}
       name={placeholder}
     />
   );

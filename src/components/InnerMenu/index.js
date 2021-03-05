@@ -13,13 +13,13 @@ import {
   getLast30Day,
   getLast3Months
 } from 'utils/formatDate';
-import { useQueryClient } from 'react-query';
+import { useQueryClient, useIsFetching } from 'react-query';
 
 export default function InnerMenu({ pageTitle, useContext }) {
   const { printRef, pageKey, setStartDate, setEndDate } = useContext;
 
   const queryClient = useQueryClient();
-  const isFetching = queryClient.isFetching();
+  const isFetching = useIsFetching();
 
   const handleDateRange = (dates) => {
     queryClient.removeQueries([pageKey]);

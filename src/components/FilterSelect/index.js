@@ -1,5 +1,5 @@
 import { Select } from '@chakra-ui/react';
-import { useQueryClient } from 'react-query';
+import { useQueryClient, useIsFetching } from 'react-query';
 
 export default function FilterSelect({
   value,
@@ -10,7 +10,7 @@ export default function FilterSelect({
   ...props
 }) {
   const queryClient = useQueryClient();
-  const isFetching = queryClient.isFetching();
+  const isFetching = useIsFetching();
 
   const handleChange = (event) => {
     queryClient.removeQueries([pageKey]);
@@ -29,7 +29,7 @@ export default function FilterSelect({
       fontSize="1rem"
       value={value}
       onChange={handleChange}
-      isDisabled={isFetching ? true : false}
+      isDisabled={isFetching}
       cursor={isFetching ? 'not-allowed' : 'initial'}
       {...props}
     >

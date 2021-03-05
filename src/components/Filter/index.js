@@ -1,7 +1,7 @@
 import { Button, Flex, Input } from '@chakra-ui/react';
 import { SearchIcon } from '@chakra-ui/icons';
 
-import { useQueryClient } from 'react-query';
+import { useQueryClient, useIsFetching } from 'react-query';
 import { forwardRef } from 'react';
 import CurrencyInput from './CurrencyInput';
 
@@ -10,7 +10,7 @@ function Filter(
   ref
 ) {
   const queryClient = useQueryClient();
-  const isFetching = queryClient.isFetching();
+  const isFetching = useIsFetching();
 
   const handleClick = (event) => {
     event.preventDefault();
@@ -57,7 +57,7 @@ function Filter(
           color="gray.500"
           padding={{ base: '0 0 0 0.75rem', xxl: '1rem' }}
           placeholder={placeholder}
-          isDisabled={isFetching ? true : false}
+          isDisabled={isFetching}
         />
       )}
 
@@ -67,7 +67,7 @@ function Filter(
         bg="white"
         size="sm"
         h="2.625rem"
-        isDisabled={isFetching ? true : false}
+        isDisabled={isFetching}
       >
         <SearchIcon
           color="gray.1000"

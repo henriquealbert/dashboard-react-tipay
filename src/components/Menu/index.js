@@ -4,10 +4,12 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { useAuth } from 'hooks/useAuth';
+import useProfile from 'hooks/useProfile';
 
-export default function Menu({ data }) {
+export default function Menu() {
   const { handleLogout } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
+  const { data } = useProfile();
 
   return (
     <Flex position="relative" h="100%">

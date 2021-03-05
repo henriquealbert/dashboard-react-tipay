@@ -8,7 +8,7 @@ const CustomDateInput = (props, ref) => {
       ref={ref}
       variant="outline"
       padding={{ base: '0.5rem', xxl: '0.625rem 1.25rem' }}
-      disabled={props.isFetching ? true : false}
+      disabled={props.isFetching}
       cursor={props.isFetching ? 'not-allowed' : 'pointer'}
       onClick={() => {
         props.onClick();
