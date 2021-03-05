@@ -10,10 +10,9 @@ import {
 import { yupResolver } from '@hookform/resolvers/yup';
 import { updateProfileInfo } from 'api';
 import { useForm, Controller } from 'react-hook-form';
-import NumberFormat from 'react-number-format';
 import { useQueryClient } from 'react-query';
 import { fillCepOnBlur } from 'utils/fillCepOnBlur';
-
+import NumberFormat from 'react-number-format';
 import * as Yup from 'yup';
 
 const schema = Yup.object().shape({

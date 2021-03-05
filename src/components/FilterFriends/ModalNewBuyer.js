@@ -8,7 +8,7 @@ import {
   Button,
   useDisclosure
 } from '@chakra-ui/react';
-import NewClient from 'components/GerarBoletoInfo/NewClient';
+import BuyerForm from 'components/BuyerForm';
 
 export default function ModalNewBuyer() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -32,7 +32,7 @@ export default function ModalNewBuyer() {
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <NewClient padding="0" onClose={onClose} />
+            <BuyerForm padding="0" onClose={onClose} />
           </ModalBody>
         </ModalContent>
       </Modal>

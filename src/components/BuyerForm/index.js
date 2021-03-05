@@ -7,7 +7,12 @@ import {
   Button
 } from '@chakra-ui/react';
 
-export default function NewClient({ setNewClient, padding, onClose }) {
+export default function BuyerForm({
+  setNewClient,
+  padding,
+  onClose,
+  boxShadow
+}) {
   const handleClick = () => {
     if (setNewClient) {
       setNewClient(false);
@@ -19,7 +24,7 @@ export default function NewClient({ setNewClient, padding, onClose }) {
   return (
     <Box
       mt="0.75rem"
-      boxShadow="0rem 0.188rem 0.625rem #0000000A"
+      boxShadow={boxShadow}
       borderRadius="0.625rem"
       w="100%"
       bg="white"

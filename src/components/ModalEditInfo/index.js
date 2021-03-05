@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   Button,
   Modal,
@@ -11,13 +12,11 @@ import {
 } from '@chakra-ui/react';
 import EditAddress from 'components/MyProfile/InfoEditable/EditAddress';
 import EditBankAccount from 'components/MyProfile/InfoEditable/EditBankAccount';
-import { useState } from 'react';
 
 export default function ModalEditInfo({ item, data }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [isSubmiting, setSubmit] = useState(false);
 
-  // usar modal como "casca" e incluir dentro do modalbody o formulario de cada um separado. vai funcionar melhor
   return (
     <>
       <Button

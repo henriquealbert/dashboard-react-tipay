@@ -10,12 +10,12 @@ import {
 } from '@chakra-ui/react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { updateBankAccount } from 'api';
-import useBanks from 'hooks/useBanks';
 import { useForm } from 'react-hook-form';
 import { useQueryClient } from 'react-query';
 import { formatDocOnBlur } from 'utils/formatDocOnBlur';
-
 import * as Yup from 'yup';
+
+import useBanks from 'hooks/useBanks';
 
 const schema = Yup.object().shape({
   holder_name: Yup.string().required('Obrigatório.'),

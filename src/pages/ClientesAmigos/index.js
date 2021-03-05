@@ -14,8 +14,7 @@ export default function ClientesAmigos() {
       <Container>
         <PageTitle>Clientes/Amigos</PageTitle>
         <Text fontSize="1.625rem" color="gray.500" mb="2rem">
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-          nonumy
+          Sua lista de clientes/amigos. Crie, Edite, Delete ou Procure.
         </Text>
         {data && <FilterFriends data={data} />}
         {isError && <ErrorMessage message={error.message} />}

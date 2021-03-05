@@ -2,10 +2,10 @@ import { Box, Text } from '@chakra-ui/react';
 import { useState } from 'react';
 
 import GerarBoletoModal from './GerarBoletoModal';
+import BuyerForm from 'components/BuyerForm';
 import InfoBoleto from './InfoBoleto';
 import InfoClient from './InfoClient';
 import JurosMora from './JurosMora';
-import NewClient from './NewClient';
 
 export default function GerarBoletoInfo() {
   const [hasNewClient, setNewClient] = useState(false);
@@ -26,7 +26,10 @@ export default function GerarBoletoInfo() {
           Informações do cliente
         </Text>
         {hasNewClient ? (
-          <NewClient setNewClient={setNewClient} />
+          <BuyerForm
+            setNewClient={setNewClient}
+            boxShadow="0rem 0.188rem 0.625rem #0000000A"
+          />
         ) : (
           <InfoClient setNewClient={setNewClient} />
         )}
