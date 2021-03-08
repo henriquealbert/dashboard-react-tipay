@@ -16,7 +16,7 @@ import * as Yup from 'yup';
 
 import { formatDocOnBlur } from 'utils/formatDocOnBlur';
 import { fillCepOnBlur } from 'utils/fillCepOnBlur';
-import { createBuyer } from 'api';
+import { createBuyer, updateBuyer } from 'api';
 import DeleteModal from './DeleteModal';
 
 const schema = Yup.object().shape({
@@ -81,16 +81,29 @@ export default function BuyerForm({
   });
 
   const onSubmit = async (values) => {
-    const data = await createBuyer(values);
-    toast({
-      title: data?.error ? 'Erro!' : 'Sucesso!',
-      description: data?.message,
-      status: data?.error ? 'error' : 'success',
-      duration: 9000,
-      isClosable: true
-    });
-    queryClient.refetchQueries('buyers');
-    onClose();
+    if (edit) {
+      const res = await updateBuyer(data?.id, values);
+      toast({
+        title: res?.error ? 'Erro!' : 'Sucesso!',
+        description: res?.message,
+        status: res?.error ? 'error' : 'success',
+        duration: 9000,
+        isClosable: true
+      });
+      queryClient.refetchQueries(['buyers']);
+      onClose();
+    } else {
+      const res = await createBuyer(values);
+      toast({
+        title: res?.error ? 'Erro!' : 'Sucesso!',
+        description: res?.message,
+        status: res?.error ? 'error' : 'success',
+        duration: 9000,
+        isClosable: true
+      });
+      queryClient.refetchQueries(['buyers']);
+      onClose();
+    }
   };
 
   return (
@@ -126,8 +139,6 @@ export default function BuyerForm({
                 name="first_name"
                 id="first_name"
                 ref={register}
-                isReadOnly={edit}
-                cursor={edit ? 'not-allowed' : 'text'}
               />
               <FormErrorMessage color="red.300">
                 {errors.first_name && errors.first_name.message}
@@ -156,8 +167,6 @@ export default function BuyerForm({
                 name="last_name"
                 id="last_name"
                 ref={register}
-                isReadOnly={edit}
-                cursor={edit ? 'not-allowed' : 'text'}
               />
               <FormErrorMessage color="red.300">
                 {errors.last_name && errors.last_name.message}
@@ -185,8 +194,6 @@ export default function BuyerForm({
               ref={register}
               onBlur={(e) => formatDocOnBlur(e, setValue, setError)}
               maxLength="18"
-              isReadOnly={edit}
-              cursor={edit ? 'not-allowed' : 'text'}
             />
             <FormErrorMessage color="red.300">
               {errors.taxpayer_id && errors.taxpayer_id.message}
@@ -214,8 +221,6 @@ export default function BuyerForm({
               maxW="none"
               placeholder="Digite o email"
               ref={register}
-              isReadOnly={edit}
-              cursor={edit ? 'not-allowed' : 'text'}
             />
             <FormErrorMessage color="red.300">
               {errors.email && errors.email.message}
@@ -261,8 +266,6 @@ export default function BuyerForm({
                 name="postal_code"
                 id="postal_code"
                 control={control}
-                isReadOnly={edit}
-                cursor={edit ? 'not-allowed' : 'text'}
               />
               <FormErrorMessage color="red.300">
                 {errors.postal_code && errors.postal_code.message}
@@ -288,8 +291,6 @@ export default function BuyerForm({
                 placeholder="Nome da Rua"
                 w="100%"
                 ref={register}
-                isReadOnly={edit}
-                cursor={edit ? 'not-allowed' : 'text'}
               />
               <FormErrorMessage color="red.300">
                 {errors.street && errors.street.message}
@@ -322,8 +323,6 @@ export default function BuyerForm({
                 placeholder="Nº"
                 w="100%"
                 ref={register}
-                isReadOnly={edit}
-                cursor={edit ? 'not-allowed' : 'text'}
               />
               <FormErrorMessage color="red.300">
                 {errors.number && errors.number.message}
@@ -353,8 +352,6 @@ export default function BuyerForm({
                 maxW="none"
                 placeholder="Cidade"
                 ref={register}
-                isReadOnly={edit}
-                cursor={edit ? 'not-allowed' : 'text'}
               />
               <FormErrorMessage color="red.300">
                 {errors.city && errors.city.message}
@@ -383,8 +380,6 @@ export default function BuyerForm({
                 maxW="none"
                 placeholder="Estado"
                 ref={register}
-                isReadOnly={edit}
-                cursor={edit ? 'not-allowed' : 'text'}
               />
               <FormErrorMessage color="red.300">
                 {errors.state && errors.state.message}
@@ -416,8 +411,6 @@ export default function BuyerForm({
                 maxW="none"
                 placeholder="Bairro"
                 ref={register}
-                isReadOnly={edit}
-                cursor={edit ? 'not-allowed' : 'text'}
               />
               <FormErrorMessage color="red.300">
                 {errors.neighborhood && errors.neighborhood.message}
@@ -442,8 +435,6 @@ export default function BuyerForm({
                 maxW="none"
                 placeholder="Complemento"
                 ref={register}
-                isReadOnly={edit}
-                cursor={edit ? 'not-allowed' : 'text'}
               />
               <FormErrorMessage color="red.300">
                 {errors.complement && errors.complement.message}
@@ -465,7 +456,19 @@ export default function BuyerForm({
         </Button>
 
         {edit ? (
-          <DeleteModal closeDetailModal={onClose} id={data?.id} />
+          <>
+            <DeleteModal closeDetailModal={onClose} id={data?.id} />
+            <Button
+              variant="green"
+              h="4.5rem"
+              isLoading={false}
+              loadingText="Carregando..."
+              type="submit"
+              ml="1.375rem"
+            >
+              Editar Cliente
+            </Button>
+          </>
         ) : (
           <Button
             variant="green"

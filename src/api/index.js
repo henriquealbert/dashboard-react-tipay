@@ -62,6 +62,21 @@ export const createBuyer = async (data) => {
   return response.data;
 };
 
+export const updateBuyer = async (id, data) => {
+  if (id) {
+    const config = {
+      method: 'patch',
+      url: `https://api.tipay.app/v1/buyer/id=${id}.json`,
+      headers: {},
+      data: { buyer: data }
+    };
+
+    const response = await api(config);
+
+    return response.data;
+  }
+};
+
 export const deleteBuyer = async (id) => {
   const config = {
     method: 'delete',

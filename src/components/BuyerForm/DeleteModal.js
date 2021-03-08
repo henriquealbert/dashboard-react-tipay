@@ -27,7 +27,7 @@ export default function DeleteModal({ id, closeDetailModal }) {
       duration: 9000,
       isClosable: true
     });
-    queryClient.refetchQueries('buyers');
+    queryClient.removeQueries('buyers');
     onClose();
     closeDetailModal();
   };
