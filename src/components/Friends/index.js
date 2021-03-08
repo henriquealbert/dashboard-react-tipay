@@ -1,9 +1,12 @@
-import { Box, Flex } from '@chakra-ui/react';
+import { useState } from 'react';
+import { Box, Flex, Text } from '@chakra-ui/react';
 import InputFilter from 'components/InputFilter';
 import Friend from './Friend';
 import ModalNewBuyer from './ModalNewBuyer';
 
-export default function Friends({ data }) {
+export default function Friends({ initialData }) {
+  const [filteredList, setFilteredList] = useState(initialData);
+
   return (
     <Box
       bg="white"
@@ -19,16 +22,22 @@ export default function Friends({ data }) {
           mr="2rem"
           mb={{ base: '1rem', lg: '' }}
         >
-          <InputFilter />
+          <InputFilter setFilteredList={setFilteredList} />
         </Box>
         <Box w={{ base: '100%', lg: '18rem' }}>
           <ModalNewBuyer />
         </Box>
       </Flex>
       <Box mt="2rem" maxH="40rem" overflowY="auto" overflowX="auto" pb="2rem">
-        {data?.entries.map((item) => (
-          <Friend key={item?.id} data={item} />
-        ))}
+        {filteredList?.total_entries === 0 ? (
+          <Text mt="1rem">Nenhum Resultado Encontrado.</Text>
+        ) : (
+          <>
+            {filteredList?.entries?.map((item) => (
+              <Friend key={item?.id} data={item} />
+            ))}
+          </>
+        )}
       </Box>
     </Box>
   );

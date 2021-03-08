@@ -16,7 +16,7 @@ export default function ClientesAmigos() {
         <Text fontSize="1.625rem" color="gray.500" mb="2rem">
           Sua lista de clientes/amigos. Crie, Edite, Delete ou Procure.
         </Text>
-        {data && <Friends data={data} />}
+        {data && <Friends initialData={data} />}
         {isError && <ErrorMessage message={error.message} />}
         {isLoading && (
           <Skeleton

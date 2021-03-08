@@ -73,3 +73,20 @@ export const deleteBuyer = async (id) => {
 
   return response.data;
 };
+
+export const buyersFilteredList = async (filteredOption, searchTerm) => {
+  const config = {
+    method: 'post',
+    url: `v1/buyers/search/1.json`,
+    headers: {},
+    data: {
+      buyer: {
+        [filteredOption]: searchTerm
+      }
+    }
+  };
+
+  const response = await api(config);
+
+  return response.data;
+};
