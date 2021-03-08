@@ -48,3 +48,28 @@ export const updateBankAccount = async (values) => {
 
   return response.data;
 };
+
+export const createBuyer = async (data) => {
+  const config = {
+    method: 'post',
+    url: 'https://api.tipay.app/v1/buyer.json',
+    headers: {},
+    data: { buyer: data }
+  };
+
+  const response = await api(config);
+
+  return response.data;
+};
+
+export const deleteBuyer = async (id) => {
+  const config = {
+    method: 'delete',
+    url: `https://api.tipay.app/v1/buyer/id=${id}.json`,
+    headers: {}
+  };
+
+  const response = await api(config);
+
+  return response.data;
+};

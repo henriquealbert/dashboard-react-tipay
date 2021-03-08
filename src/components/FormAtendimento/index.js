@@ -42,9 +42,9 @@ export default function FormAtendimento() {
     const data = await sendMessageSupport({ lead });
 
     toast({
-      title: data.error ? 'Erro!' : 'Sucesso!',
-      description: data.message,
-      status: data.error ? 'error' : 'success',
+      title: data?.error ? 'Erro!' : 'Sucesso!',
+      description: data?.message,
+      status: data?.error ? 'error' : 'success',
       duration: 9000,
       isClosable: true
     });

@@ -7,11 +7,16 @@ export function fillCepOnBlur(event, setValue, setError) {
       type: 'manual',
       message: 'Obrigatório.'
     });
+    setError('postal_code', {
+      type: 'manual',
+      message: 'Obrigatório.'
+    });
     return;
   }
 
   // set 'loading'
   setValue('district', '...');
+  setValue('neighborhood', '...');
   setValue('street', '...');
   setValue('city', '...');
   setValue('state', '...');
@@ -21,6 +26,7 @@ export function fillCepOnBlur(event, setValue, setError) {
     .get(`https://brasilapi.com.br/api/cep/v1/${cep}`)
     .then(({ data }) => {
       setValue('district', data?.neighborhood);
+      setValue('neighborhood', data?.neighborhood);
       setValue('street', data?.street);
       setValue('city', data?.city);
       setValue('state', data?.state);

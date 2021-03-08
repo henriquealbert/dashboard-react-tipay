@@ -52,9 +52,9 @@ export default function EditAddress({ formId, data, setSubmit, onClose }) {
     setSubmit(true);
     const data = await updateProfileInfo(values);
     toast({
-      title: data.error ? 'Erro!' : 'Sucesso!',
-      description: data.message,
-      status: data.error ? 'error' : 'success',
+      title: data?.error ? 'Erro!' : 'Sucesso!',
+      description: data?.message,
+      status: data?.error ? 'error' : 'success',
       duration: 9000,
       isClosable: true
     });
@@ -91,9 +91,10 @@ export default function EditAddress({ formId, data, setSubmit, onClose }) {
                 )}
                 format="#####-###"
                 autoComplete="off"
-                placeholder="Com DDD"
+                placeholder="CEP"
               />
             }
+            defaultValue={data?.cep}
             name="cep"
             id="cep"
             control={control}

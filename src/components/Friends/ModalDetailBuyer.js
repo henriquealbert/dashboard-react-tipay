@@ -10,7 +10,7 @@ import {
 } from '@chakra-ui/react';
 import BuyerForm from 'components/BuyerForm';
 
-export default function ModalDetailBuyer() {
+export default function ModalDetailBuyer({ data }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
@@ -39,7 +39,7 @@ export default function ModalDetailBuyer() {
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <BuyerForm padding="0" onClose={onClose} edit />
+            <BuyerForm padding="0" onClose={onClose} edit data={data} />
           </ModalBody>
         </ModalContent>
       </Modal>
