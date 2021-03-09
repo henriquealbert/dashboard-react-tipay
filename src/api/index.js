@@ -105,3 +105,31 @@ export const buyersFilteredList = async (filteredOption, searchTerm) => {
 
   return response.data;
 };
+
+export const sendValidationMessage = async (email) => {
+  const config = {
+    method: 'post',
+    url: `v1/send_validation_message.json`,
+    headers: {},
+    data: email
+  };
+
+  const response = await api(config);
+
+  if (response.status === 200) {
+    return response.data;
+  }
+};
+
+export const resetPassword = async (values) => {
+  const config = {
+    method: 'post',
+    url: `v1/store/reset_password.json`,
+    headers: {},
+    data: values
+  };
+
+  const response = await api(config);
+
+  return response.data;
+};

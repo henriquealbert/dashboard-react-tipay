@@ -8,6 +8,7 @@ import {
   Input
 } from '@chakra-ui/react';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { sendValidationMessage } from 'api';
 import { useForm } from 'react-hook-form';
 import * as Yup from 'yup';
 
@@ -15,20 +16,37 @@ const schema = Yup.object().shape({
   email: Yup.string().email('Email inválido').required('Obrigatório.')
 });
 
-export default function Recover1({ setCurrentStep, onClose }) {
+export default function Recover1({
+  setCurrentStep,
+  onClose,
+  setMessage,
+  setEmail
+}) {
   const {
     register,
     handleSubmit,
     errors,
+    setError,
     formState: { isSubmitting }
   } = useForm({
     mode: 'onChange',
     resolver: yupResolver(schema)
   });
 
-  const onSubmit = async (values) => {
-    console.log(values);
-    setCurrentStep('2');
+  const onSubmit = async ({ email }) => {
+    const res = await sendValidationMessage({
+      email: email
+    });
+    if (res?.error === false) {
+      setMessage(res?.message);
+      setEmail(email);
+      setCurrentStep('2');
+    } else {
+      setError('email', {
+        type: 'manual',
+        message: 'Email não encontrado.'
+      });
+    }
   };
 
   return (

@@ -7,32 +7,74 @@ import {
   Flex,
   Button,
   FormLabel,
-  PinInput,
-  PinInputField,
-  HStack
+  useToast
 } from '@chakra-ui/react';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { resetPassword } from 'api';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useQueryClient } from 'react-query';
 import * as Yup from 'yup';
 
+import ValidationCode from './ValidationCode';
+
 const schema = Yup.object().shape({
-  email: Yup.string().email('Email inválido').required('Obrigatório.')
+  email: Yup.string().email('Email inválido').required('Obrigatório.'),
+  validation_code: Yup.string().required('Obrigatório.'),
+  password: Yup.string()
+    .min(6, 'Mínimo 6 caracteres.')
+    .required('Obrigatório.'),
+  confirm_password: Yup.string()
+    .oneOf([Yup.ref('password'), null], 'Senhas não conferem.')
+    .required('Obrigatório.')
 });
 
-export default function Recover2({ setCurrentStep }) {
+export default function Recover2({ setCurrentStep, message, email, onClose }) {
+  const toast = useToast();
+  const queryClient = useQueryClient();
+  const [pinValue, setPinValue] = useState('');
+
   const {
     register,
     handleSubmit,
     errors,
     formState: { isSubmitting }
   } = useForm({
-    mode: 'onChange'
-    // resolver: yupResolver(schema)
+    mode: 'onChange',
+    defaultValues: {
+      validation_code: '',
+      email: email,
+      password: '',
+      confirm_password: ''
+    },
+    resolver: yupResolver(schema)
   });
 
-  const onSubmit = async (values) => {
-    console.log(values);
-    setCurrentStep('2');
+  const onSubmit = async ({ email, password }) => {
+    const res = await resetPassword({
+      email,
+      password,
+      validation_code: pinValue
+    });
+    if (res?.error === false) {
+      toast({
+        title: 'Sucesso!',
+        description: res?.message,
+        status: 'success',
+        duration: 9000,
+        isClosable: true
+      });
+      queryClient.removeQueries('profile');
+      onClose();
+    } else {
+      toast({
+        title: 'Erro!',
+        description: res?.message,
+        status: 'error',
+        duration: 9000,
+        isClosable: true
+      });
+    }
   };
 
   return (
@@ -41,7 +83,7 @@ export default function Recover2({ setCurrentStep }) {
         Redefinir senha
       </Text>
       <Text as="h3" fontSize="1.125rem" fontWeight="semibold" mb="0.5rem">
-        Foi enviado um sms para o número: (xx) xxxx-6328
+        {message}
       </Text>
       <Text fontSize="1rem" mb="2rem">
         Insira o código de segurança, seu email e uma nova senha para redefinir
@@ -53,21 +95,12 @@ export default function Recover2({ setCurrentStep }) {
             <FormLabel fontWeight="bold" htmlFor="validation_code">
               Código de segurança:
             </FormLabel>
-            <HStack>
-              <PinInput
-                autoComplete="off"
-                size="lg"
-                variant="filled"
-                name="validation_code"
-                id="validation_code"
-                ref={register}
-              >
-                <PinInputField />
-                <PinInputField />
-                <PinInputField />
-                <PinInputField />
-              </PinInput>
-            </HStack>
+            <ValidationCode
+              setPinValue={setPinValue}
+              pinValue={pinValue}
+              name="validation_code"
+              id="validation_code"
+            />
             <FormErrorMessage color="red.300">
               {errors.validation_code && errors.validation_code.message}
             </FormErrorMessage>
@@ -144,9 +177,9 @@ export default function Recover2({ setCurrentStep }) {
           w="100%"
           type="submit"
           isLoading={isSubmitting}
-          loadingText="Enviando..."
+          loadingText="Carregando..."
         >
-          Enviar
+          Alterar senha
         </Button>
       </Flex>
     </Box>
