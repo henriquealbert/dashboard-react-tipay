@@ -12,6 +12,7 @@ import {
 } from '@chakra-ui/react';
 import EditAddress from 'components/MyProfile/InfoEditable/EditAddress';
 import EditBankAccount from 'components/MyProfile/InfoEditable/EditBankAccount';
+import RecoverPassword from 'components/RecoverPassword';
 
 export default function ModalEditInfo({ item, data }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -61,26 +62,40 @@ export default function ModalEditInfo({ item, data }) {
                 onClose={onClose}
               />
             ) : item?.title === 'Senha' ? (
-              'senha'
+              <RecoverPassword
+                perfil
+                formId={`${item?.title}-form`}
+                setSubmit={setSubmit}
+                onClose={onClose}
+              />
             ) : (
               ''
             )}
           </ModalBody>
 
-          <ModalFooter mb="2rem" px={{ base: '2rem', lg: '3.625rem' }}>
-            <Button variant="black" mr="2rem" maxH="3.75rem" onClick={onClose}>
-              Fechar
-            </Button>
-            <Button
-              variant="green"
-              type="submit"
-              form={`${item?.title}-form`}
-              isLoading={isSubmiting}
-              loadingText="Carregando..."
-            >
-              Salvar
-            </Button>
-          </ModalFooter>
+          {item?.title === 'Senha' ? (
+            ''
+          ) : (
+            <ModalFooter mb="2rem" px={{ base: '2rem', lg: '3.625rem' }}>
+              <Button
+                variant="black"
+                mr="2rem"
+                maxH="3.75rem"
+                onClick={onClose}
+              >
+                Fechar
+              </Button>
+              <Button
+                variant="green"
+                type="submit"
+                form={`${item?.title}-form`}
+                isLoading={isSubmiting}
+                loadingText="Carregando..."
+              >
+                Salvar
+              </Button>
+            </ModalFooter>
+          )}
         </ModalContent>
       </Modal>
     </>

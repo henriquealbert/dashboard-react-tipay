@@ -13,6 +13,7 @@ import Textarea from './components/textarea';
 import Radio from './components/radio';
 import Switch from './components/switch';
 import Select from './components/select';
+import PinInput from './components/pin-input';
 
 const customTheme = extendTheme({
   fonts: fonts,
@@ -26,7 +27,8 @@ const customTheme = extendTheme({
     Textarea: Textarea,
     Radio: Radio,
     Switch: Switch,
-    Select: Select
+    Select: Select,
+    PinInput: PinInput
   }
 });
 
