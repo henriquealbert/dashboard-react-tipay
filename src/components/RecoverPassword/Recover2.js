@@ -14,13 +14,13 @@ import { resetPassword } from 'api';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useQueryClient } from 'react-query';
+import { useHistory } from 'react-router';
 import * as Yup from 'yup';
 
 import ValidationCode from './ValidationCode';
 
 const schema = Yup.object().shape({
   email: Yup.string().email('Email inválido').required('Obrigatório.'),
-  validation_code: Yup.string().required('Obrigatório.'),
   password: Yup.string()
     .min(6, 'Mínimo 6 caracteres.')
     .required('Obrigatório.'),
@@ -32,6 +32,7 @@ const schema = Yup.object().shape({
 export default function Recover2({ setCurrentStep, message, email, onClose }) {
   const toast = useToast();
   const queryClient = useQueryClient();
+  const history = useHistory();
   const [pinValue, setPinValue] = useState('');
 
   const {
@@ -65,7 +66,11 @@ export default function Recover2({ setCurrentStep, message, email, onClose }) {
         isClosable: true
       });
       queryClient.removeQueries('profile');
-      onClose();
+      if (onClose) {
+        onClose();
+      } else {
+        history.push('/login');
+      }
     } else {
       toast({
         title: 'Erro!',
@@ -79,13 +84,25 @@ export default function Recover2({ setCurrentStep, message, email, onClose }) {
 
   return (
     <Box as="form" onSubmit={handleSubmit(onSubmit)}>
-      <Text as="h2" fontSize="1.5rem" fontWeight="bold" color="black" mb="1rem">
+      <Text
+        as="h2"
+        fontSize={onClose ? '1.5rem' : '2rem'}
+        fontWeight="bold"
+        color={onClose ? 'black' : 'white'}
+        mb="1rem"
+      >
         Redefinir senha
       </Text>
-      <Text as="h3" fontSize="1.125rem" fontWeight="semibold" mb="0.5rem">
+      <Text
+        as="h3"
+        fontSize="1.125rem"
+        color="gray.100"
+        fontWeight="semibold"
+        mb="0.5rem"
+      >
         {message}
       </Text>
-      <Text fontSize="1rem" mb="2rem">
+      <Text fontSize="1rem" mb="2rem" color="gray.100">
         Insira o código de segurança, seu email e uma nova senha para redefinir
         seu acesso:
       </Text>

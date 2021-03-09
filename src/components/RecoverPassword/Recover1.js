@@ -10,6 +10,7 @@ import {
 import { yupResolver } from '@hookform/resolvers/yup';
 import { sendValidationMessage } from 'api';
 import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
 
 const schema = Yup.object().shape({
@@ -18,9 +19,9 @@ const schema = Yup.object().shape({
 
 export default function Recover1({
   setCurrentStep,
-  onClose,
   setMessage,
-  setEmail
+  setEmail,
+  ...props
 }) {
   const {
     register,
@@ -51,10 +52,17 @@ export default function Recover1({
 
   return (
     <Box as="form" onSubmit={handleSubmit(onSubmit)}>
-      <Text as="h2" fontSize="1.5rem" fontWeight="bold" color="black">
+      <Text
+        as="h2"
+        fontSize={props.onClose ? '1.5rem' : '2rem'}
+        fontWeight="bold"
+        color={props.onClose ? 'black' : 'white'}
+      >
         Encontre sua conta
       </Text>
-      <Text mb="2rem">Insira seu email para recuperar sua conta:</Text>
+      <Text mb="2rem" color="gray.100">
+        Insira seu email para recuperar sua conta:
+      </Text>
       <Box>
         <FormControl isInvalid={errors.email}>
           <Input
@@ -71,18 +79,24 @@ export default function Recover1({
         </FormControl>
 
         <Flex my="2rem">
-          <Button
-            variant="secondary"
-            maxH="4rem"
-            w="100%"
-            mr="2rem"
-            onClick={onClose}
-          >
-            Cancelar
-          </Button>
+          {props.onClose ? (
+            <Button
+              variant="secondary"
+              maxH="4rem"
+              w="100%"
+              mr="2rem"
+              onClick={props.onClose}
+            >
+              Cancelar
+            </Button>
+          ) : (
+            <Button as={Link} to="login" variant="secondary" w="100%" mr="1rem">
+              Cancelar
+            </Button>
+          )}
           <Button
             variant="primary"
-            maxH="4rem"
+            maxH={props.onClose ? '4rem' : ''}
             w="100%"
             type="submit"
             isLoading={isSubmitting}

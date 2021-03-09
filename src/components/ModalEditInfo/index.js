@@ -62,12 +62,7 @@ export default function ModalEditInfo({ item, data }) {
                 onClose={onClose}
               />
             ) : item?.title === 'Senha' ? (
-              <RecoverPassword
-                perfil
-                formId={`${item?.title}-form`}
-                setSubmit={setSubmit}
-                onClose={onClose}
-              />
+              <RecoverPassword onClose={onClose} />
             ) : (
               ''
             )}

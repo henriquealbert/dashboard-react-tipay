@@ -34,7 +34,7 @@ export default function Login() {
             as="h1"
             color="white"
             fontWeight="bold"
-            fontSize="2.063rem"
+            fontSize="2rem"
             mb="3.125rem"
             textAlign="left"
           >
