@@ -11,7 +11,7 @@ const fetchDetails = async (transactionID) => {
 
 export function useTransaction(transactionID) {
   return useQuery(
-    ['transaction', transactionID],
+    ['Transaction', transactionID],
     () => fetchDetails(transactionID),
     { keepPreviousData: true, enabled: !!transactionID }
   );

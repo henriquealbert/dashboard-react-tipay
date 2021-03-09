@@ -13,7 +13,7 @@ export default function useTransfers(ctx) {
 
   return useQuery(
     [
-      'transfers',
+      'Transfers',
       ctx.id,
       ctx.amount,
       ctx.start_date,

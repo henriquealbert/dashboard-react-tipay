@@ -16,7 +16,7 @@ export default function useTransactions(ctx) {
 
   return useQuery(
     [
-      'transactions',
+      'Transactions',
       ctx?.identification,
       ctx?.payer,
       ctx?.value,

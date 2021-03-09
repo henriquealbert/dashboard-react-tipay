@@ -90,7 +90,7 @@ export default function BuyerForm({
         duration: 9000,
         isClosable: true
       });
-      queryClient.refetchQueries(['buyers']);
+      queryClient.refetchQueries(['Buyers']);
       onClose();
     } else {
       const res = await createBuyer(values);
@@ -101,7 +101,7 @@ export default function BuyerForm({
         duration: 9000,
         isClosable: true
       });
-      queryClient.refetchQueries(['buyers']);
+      queryClient.refetchQueries(['Buyers']);
       onClose();
     }
   };

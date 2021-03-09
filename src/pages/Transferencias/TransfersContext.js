@@ -26,7 +26,7 @@ export const TransfersProvider = ({ children }) => {
   const [end, setEnd] = useState();
 
   /************* PAGE QUERY ID *************/
-  const pageKey = 'transfers';
+  const pageKey = 'Transfers';
 
   /************* FILTERS *************/
   const identificationRef = useRef();

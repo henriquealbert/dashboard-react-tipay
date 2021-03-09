@@ -65,7 +65,7 @@ export default function Recover2({ setCurrentStep, message, email, onClose }) {
         duration: 9000,
         isClosable: true
       });
-      queryClient.removeQueries('profile');
+      queryClient.removeQueries('Profile');
       if (onClose) {
         onClose();
       } else {

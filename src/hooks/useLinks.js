@@ -13,7 +13,7 @@ export default function useLinks(ctx) {
 
   return useQuery(
     [
-      'linkQRCode',
+      'Links & QR Code',
       ctx.identification,
       ctx.description,
       ctx.amount,

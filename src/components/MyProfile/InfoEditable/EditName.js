@@ -39,7 +39,7 @@ export default function EditName({ formId, onClose, setSubmit, data }) {
       duration: 9000,
       isClosable: true
     });
-    queryClient.refetchQueries('profile');
+    queryClient.refetchQueries('Profile');
     setSubmit(false);
     onClose();
   };

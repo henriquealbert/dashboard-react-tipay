@@ -58,7 +58,7 @@ export default function EditAddress({ formId, data, setSubmit, onClose }) {
       duration: 9000,
       isClosable: true
     });
-    queryClient.refetchQueries('profile');
+    queryClient.refetchQueries('Profile');
     setSubmit(false);
     onClose();
   };

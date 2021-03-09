@@ -26,7 +26,7 @@ export default function CalendarComponent({
 
   // events color
   const events = data?.map((event) => {
-    if (event?.group_id === 'transactions') {
+    if (event?.group_id === 'Transactions') {
       event.backgroundColor = '#3B424C';
       event.borderColor = '#3B424C';
       return event;
@@ -39,18 +39,18 @@ export default function CalendarComponent({
   });
 
   const handleDateClick = (args) => {
-    queryClient.removeQueries(['calendar_ExtractDay']);
+    queryClient.removeQueries(['Calendar_ExtractDay']);
     setEventDate(args?.dateStr);
   };
 
   const handleEventClick = (args) => {
-    queryClient.removeQueries(['calendar_ExtractDay']);
+    queryClient.removeQueries(['Calendar_ExtractDay']);
     setEventDate(args?.event.startStr);
   };
 
   const handleChangeDates = () => {
-    queryClient.removeQueries(['calendar_Sold']);
-    queryClient.removeQueries(['calendar_ScheduledToReceive']);
+    queryClient.removeQueries(['Calendar_Sold']);
+    queryClient.removeQueries(['Calendar_ScheduledToReceive']);
     setCurrentStart(normalizeDateUTC(calendarApi?.view.currentStart));
     setCurrentEnd(normalizeDateUTC(calendarApi?.view.currentEnd));
   };

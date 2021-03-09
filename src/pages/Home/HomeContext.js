@@ -13,7 +13,7 @@ export const HomeProvider = ({ children }) => {
   const printRef = useRef();
 
   /************* PAGE QUERY ID *************/
-  const pageKey = 'home';
+  const pageKey = 'Statistics_Home';
 
   return (
     <HomeContext.Provider

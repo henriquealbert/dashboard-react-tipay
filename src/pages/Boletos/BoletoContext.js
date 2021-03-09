@@ -31,7 +31,7 @@ export const BoletoProvider = ({ children }) => {
   const [transactionID, setTransactionID] = useState();
 
   /************* PAGE QUERY ID *************/
-  const pageKey = 'transactions';
+  const pageKey = 'Transactions';
 
   /************* FILTERS *************/
   const identificationRef = useRef();

@@ -30,7 +30,7 @@ export const LinkProvider = ({ children }) => {
   const [transactionID, setTransactionID] = useState();
 
   /************* PAGE QUERY ID *************/
-  const pageKey = 'linkQRCode';
+  const pageKey = 'Links & QR Code';
 
   /************* FILTERS *************/
   const identificationRef = useRef();
