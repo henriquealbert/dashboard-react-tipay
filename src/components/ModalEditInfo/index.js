@@ -13,6 +13,7 @@ import {
 import EditAddress from 'components/MyProfile/InfoEditable/EditAddress';
 import EditBankAccount from 'components/MyProfile/InfoEditable/EditBankAccount';
 import RecoverPassword from 'components/RecoverPassword';
+import EditName from 'components/MyProfile/InfoEditable/EditName';
 
 export default function ModalEditInfo({ item, data }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -32,7 +33,13 @@ export default function ModalEditInfo({ item, data }) {
       <Modal
         isOpen={isOpen}
         onClose={onClose}
-        size={item?.title === 'Senha' ? '3xl' : '4xl'}
+        size={
+          item?.title === 'Senha'
+            ? '3xl'
+            : item?.title === 'Nome'
+            ? '3xl'
+            : '4xl'
+        }
       >
         <ModalOverlay />
         <ModalContent>
@@ -63,6 +70,13 @@ export default function ModalEditInfo({ item, data }) {
               />
             ) : item?.title === 'Senha' ? (
               <RecoverPassword onClose={onClose} />
+            ) : item?.title === 'Nome' ? (
+              <EditName
+                onClose={onClose}
+                formId={`${item?.title}-form`}
+                setSubmit={setSubmit}
+                data={item}
+              />
             ) : (
               ''
             )}

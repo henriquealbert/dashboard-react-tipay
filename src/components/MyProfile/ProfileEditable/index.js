@@ -1,7 +1,8 @@
-import { Flex, Box, Button, Text } from '@chakra-ui/react';
+import { Flex, Box, Text } from '@chakra-ui/react';
+import ModalEditInfo from 'components/ModalEditInfo';
 import ProfilePic from '../ProfilePic';
 
-const ProfileEditable = ({ item, buyer }) => {
+const ProfileEditable = ({ item, buyer, data }) => {
   return (
     <Flex
       direction={{ base: 'column', md: 'row' }}
@@ -31,7 +32,7 @@ const ProfileEditable = ({ item, buyer }) => {
             fontWeight="bold"
             textTransform="uppercase"
           >
-            Nome
+            {item?.title}
           </Text>
           <Text
             color="gray.900"
@@ -47,14 +48,7 @@ const ProfileEditable = ({ item, buyer }) => {
         </Box>
       </Flex>
 
-      <Button
-        variant="link"
-        fontSize="1.25rem"
-        color="brand.yellow"
-        alignSelf={{ base: 'flex-end', md: 'initial' }}
-      >
-        Editar
-      </Button>
+      <ModalEditInfo item={item} data={data} />
     </Flex>
   );
 };

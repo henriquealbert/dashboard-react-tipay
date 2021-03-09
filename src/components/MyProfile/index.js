@@ -46,6 +46,7 @@ export default function MyProfile({ data }) {
   ];
   const avatar = {
     id: 1,
+    title: 'Nome',
     name: data?.store?.name,
     img: ''
   };
@@ -62,7 +63,7 @@ export default function MyProfile({ data }) {
       mb="3.75rem"
     >
       <Box>
-        <ProfileEditable item={avatar} />
+        <ProfileEditable item={avatar} data={data} />
         <Box overflowX="auto">
           <Table>
             <Tbody>

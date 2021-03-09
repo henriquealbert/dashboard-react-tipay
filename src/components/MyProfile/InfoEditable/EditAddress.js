@@ -50,11 +50,11 @@ export default function EditAddress({ formId, data, setSubmit, onClose }) {
 
   const onSubmit = async (values) => {
     setSubmit(true);
-    const data = await updateProfileInfo(values);
+    const res = await updateProfileInfo(values);
     toast({
-      title: data?.error ? 'Erro!' : 'Sucesso!',
-      description: data?.message,
-      status: data?.error ? 'error' : 'success',
+      title: res?.error ? 'Erro!' : 'Sucesso!',
+      description: res?.message,
+      status: res?.error ? 'error' : 'success',
       duration: 9000,
       isClosable: true
     });
@@ -123,6 +123,7 @@ export default function EditAddress({ formId, data, setSubmit, onClose }) {
             {errors.street && errors.street.message}
           </FormErrorMessage>
         </FormControl>
+
         <FormControl
           w={{ md: '50%' }}
           mb={{ base: '1rem', md: '' }}
