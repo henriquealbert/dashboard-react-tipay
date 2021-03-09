@@ -50,7 +50,7 @@ export default function Menu() {
             boxShadow="0rem 0.188rem 0.375rem #00000029"
             position="absolute"
             top={{ base: '6rem', xxl: '7.375rem' }}
-            left="0"
+            left={{ base: '-4rem', lg: '0' }}
             as="nav"
           >
             <Box

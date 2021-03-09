@@ -107,8 +107,12 @@ export default function Recover2({ setCurrentStep, message, email, onClose }) {
         seu acesso:
       </Text>
       <Box my="3rem">
-        <Flex mb="1.5rem">
-          <FormControl isInvalid={errors.validation_code} mr="2rem">
+        <Flex mb="1.5rem" direction={{ base: 'column', md: 'row' }}>
+          <FormControl
+            isInvalid={errors.validation_code}
+            mr={{ md: '2rem' }}
+            mb={{ base: '1.5rem', md: '' }}
+          >
             <FormLabel fontWeight="bold" htmlFor="validation_code">
               Código de segurança:
             </FormLabel>
@@ -141,8 +145,12 @@ export default function Recover2({ setCurrentStep, message, email, onClose }) {
           </FormControl>
         </Flex>
 
-        <Flex>
-          <FormControl isInvalid={errors.password} mr="2rem">
+        <Flex direction={{ base: 'column', md: 'row' }}>
+          <FormControl
+            isInvalid={errors.password}
+            mr={{ md: '2rem' }}
+            mb={{ base: '1.5rem', md: '' }}
+          >
             <FormLabel fontWeight="bold" htmlFor="password">
               Nova senha:
             </FormLabel>
