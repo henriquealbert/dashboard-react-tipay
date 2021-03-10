@@ -15,16 +15,9 @@ import useStatisticsHome from 'hooks/useStatisticsHome';
 export default function Home() {
   const ctx = useHomeContext();
 
-  const { data } = useStatisticsHome('2020-01-01', '2020-12-31');
-
-  console.log(data);
-
+  const { data } = useStatisticsHome(ctx.headerStartDate, ctx.headerEndDate);
   // todo:
-  // sale status
-  // sales percentages
-  // sales credit
-  // sales by issuer
-  // filter start date & end date
+  // fix datepicker
 
   return (
     <Layout>
@@ -42,7 +35,7 @@ export default function Home() {
                 mt="0.5rem"
               >
                 <SalesStatus data={data?.sales_status} />
-                <SalesPercentages />
+                <SalesPercentages data={data?.general_percentages} />
               </Box>
               <Box
                 display={{ base: 'block', xxl: 'grid' }}
@@ -51,10 +44,10 @@ export default function Home() {
                 w="100%"
               >
                 <Box>
-                  <SalesCredit />
+                  <SalesCredit data={data} />
                   <SalesByHour />
                 </Box>
-                <SalesByIssuer />
+                <SalesByIssuer data={data?.card_brands} />
               </Box>
             </Box>
           )}

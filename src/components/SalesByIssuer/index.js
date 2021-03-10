@@ -1,33 +1,25 @@
 import { Box, Flex, Text } from '@chakra-ui/react';
 import { ResponsivePie } from '@nivo/pie';
+import { formatPrice } from 'utils/formatPrice';
 
-export default function SalesByIssuer() {
-  const data = [
-    {
-      id: 'Maestro',
-      label: 'Maestro',
-      value: 35,
-      color: '#FF6384'
-    },
-    {
-      id: 'Elo',
-      label: 'Elo',
-      value: 150,
-      color: '#FFCD56'
-    },
-    {
-      id: 'Mastercard',
-      label: 'Mastercard',
-      value: 108,
-      color: '#4BC0C0'
-    },
-    {
-      id: 'Visa',
-      label: 'Visa',
-      value: 45,
-      color: '#36A2EB'
+export default function SalesByIssuer({ data }) {
+  data?.map((item) => {
+    if (item.label === 'Mastercard') {
+      item.color = '#4BC0C0';
     }
-  ];
+    if (item.label === 'Visa') {
+      item.color = '#36A2EB';
+    }
+    if (item.label === 'Elo') {
+      item.color = '#FFCD56';
+    }
+    if (item.label === 'Outras') {
+      item.color = '#FF6384';
+    }
+  });
+
+  console.log(data);
+
   return (
     <Flex
       bg="white"
@@ -55,11 +47,11 @@ export default function SalesByIssuer() {
           padAngle={2}
           enableRadialLabels={false}
           enableSliceLabels={false}
-          colors={data.map((item) => item.color)}
+          colors={data?.map((item) => item.color)}
         />
       </Flex>
       <Box mt="1.5rem">
-        {data.map((item) => {
+        {data?.map((item) => {
           return (
             <Flex
               key={item.id}
@@ -73,7 +65,7 @@ export default function SalesByIssuer() {
                   w="1.5rem"
                   h="1.5rem"
                   borderRadius="50%"
-                  bg={item.color}
+                  bg={item?.color}
                   mr="1.875rem"
                 />
                 <Text
@@ -81,11 +73,11 @@ export default function SalesByIssuer() {
                   color="gray.500"
                   display="inline-block"
                 >
-                  {item.label}
+                  {item?.label}
                 </Text>
               </Flex>
               <Text fontSize="1.25rem" color="gray.500">
-                {item.value}
+                {formatPrice(item?.value)}
               </Text>
             </Flex>
           );

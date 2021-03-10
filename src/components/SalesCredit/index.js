@@ -3,7 +3,7 @@ import { Box } from '@chakra-ui/react';
 import InstallmentsSales from './InstallmentsSales';
 import TotalCreditSales from './TotalCreditSales';
 
-export default function SalesCredit() {
+export default function SalesCredit({ data }) {
   return (
     <Box
       bg="white"
@@ -16,8 +16,8 @@ export default function SalesCredit() {
       display={{ base: 'block', md: 'grid' }}
       gridTemplateColumns={{ md: '1fr 3fr' }}
     >
-      <TotalCreditSales />
-      <InstallmentsSales />
+      <TotalCreditSales data={data} />
+      <InstallmentsSales data={data?.installments} />
     </Box>
   );
 }

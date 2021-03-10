@@ -1,53 +1,7 @@
 import { Flex, Text } from '@chakra-ui/react';
 import CustomBar from '../CustomBar';
 
-export default function InstallmentsSales() {
-  const data = [
-    {
-      id: '2x',
-      value: 50
-    },
-    {
-      id: '3x',
-      value: 2
-    },
-    {
-      id: '4x',
-      value: 25
-    },
-    {
-      id: '5x',
-      value: 9
-    },
-    {
-      id: '6x',
-      value: 32
-    },
-    {
-      id: '7x',
-      value: 26
-    },
-    {
-      id: '8x',
-      value: 88
-    },
-    {
-      id: '9x',
-      value: 2
-    },
-    {
-      id: '10x',
-      value: 0
-    },
-    {
-      id: '11x',
-      value: 0
-    },
-    {
-      id: '12x',
-      value: 14
-    }
-  ];
+export default function InstallmentsSales({ data }) {
   return (
     <Flex
       pl={{ lg: '1rem', xl: '3rem' }}

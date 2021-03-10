@@ -2,7 +2,6 @@ import { Box, Flex, Text } from '@chakra-ui/react';
 import { formatPrice } from 'utils/formatPrice';
 
 export default function SalesStatus({ data }) {
-  console.log(data);
   return (
     <Box
       w="100%"

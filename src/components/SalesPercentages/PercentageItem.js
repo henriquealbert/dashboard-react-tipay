@@ -30,7 +30,7 @@ export default function PercentageItem({ value, label, color }) {
         lineHeight="4.563rem"
         color="white"
       >
-        {value}
+        {value}%
       </Text>
     </Flex>
   );

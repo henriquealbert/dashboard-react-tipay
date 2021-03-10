@@ -1,19 +1,7 @@
 import { Box, Flex, Text } from '@chakra-ui/react';
 import CustomBar from '../CustomBar';
 
-export default function TotalCreditSales() {
-  const parcelada = [
-    {
-      id: 'Parcelada',
-      value: 25
-    }
-  ];
-  const avista = [
-    {
-      id: 'À vista',
-      value: 88
-    }
-  ];
+export default function TotalCreditSales({ data }) {
   return (
     <Flex
       direction="column"
@@ -34,10 +22,10 @@ export default function TotalCreditSales() {
       </Text>
       <Flex ml={{ base: '1rem', lg: '0' }}>
         <Box height="190px" w="80px" mr={{ base: '2rem', md: '0' }}>
-          <CustomBar data={avista} color="#FF6384" />
+          <CustomBar data={data?.credit} color="#FF6384" />
         </Box>
         <Box height="190px" w="80px">
-          <CustomBar data={parcelada} color="#FF9F40" />
+          <CustomBar data={data?.credit_installment} color="#FF9F40" />
         </Box>
       </Flex>
     </Flex>

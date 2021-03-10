@@ -20,6 +20,7 @@ const Input = {
         }
       }
     },
+
     innerSolid: {
       field: {
         bg: '#F2F2F2',

@@ -1,11 +1,7 @@
 import { Box } from '@chakra-ui/react';
 import PercentageItem from './PercentageItem';
 
-export default function SalesPercentages() {
-  const debito = '31%';
-  const credito = '60%';
-  const boleto = '9%';
-
+export default function SalesPercentages({ data }) {
   return (
     <Box
       w="100%"
@@ -14,9 +10,20 @@ export default function SalesPercentages() {
       gridColumnGap={{ base: '1rem', xxl: '1.3rem' }}
       maxH={{ base: '179px', xxl: '211px' }}
     >
-      <PercentageItem value={debito} label="Débito" color="brand.yellow" />
-      <PercentageItem value={credito} label="Crédito" color="brand.waterBlue" />
-      <PercentageItem value={boleto} label="Boleto" color="brand.darkBlue" />
+      {data?.map((item) => (
+        <PercentageItem
+          key={item?.label}
+          value={item?.value}
+          label={item?.label}
+          color={
+            item?.label === 'Débito'
+              ? 'brand.yellow'
+              : item?.label === 'Crédito'
+              ? 'brand.waterBlue'
+              : 'brand.darkBlue'
+          }
+        />
+      ))}
     </Box>
   );
 }
