@@ -11,6 +11,7 @@ export const LinkProvider = ({ children }) => {
   /************* HEADER *************/
   const [headerStartDate, setHeaderStartDate] = useState(getLast3Months());
   const [headerEndDate, setHeaderEndDate] = useState(getToday());
+  const pageKeyHeader = 'Statistics_Links';
 
   /************* TABLE *************/
   const printRef = useRef();
@@ -88,7 +89,8 @@ export const LinkProvider = ({ children }) => {
         start,
         setStart,
         end,
-        setEnd
+        setEnd,
+        pageKeyHeader
       }}
     >
       {children}
