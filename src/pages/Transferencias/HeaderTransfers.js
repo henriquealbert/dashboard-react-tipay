@@ -1,7 +1,10 @@
-import { Box, Flex } from '@chakra-ui/layout';
+import {
+  Box
+  // Flex
+} from '@chakra-ui/layout';
 import { Skeleton } from '@chakra-ui/skeleton';
 import InnerMenu from 'components/InnerMenu';
-import SalesStatus from 'components/SalesStatus';
+// import SalesStatus from 'components/SalesStatus';
 
 export default function HeaderTransfers({ useContext }) {
   // const data = [];
