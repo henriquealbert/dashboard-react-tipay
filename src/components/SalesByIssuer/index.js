@@ -18,8 +18,6 @@ export default function SalesByIssuer({ data }) {
     }
   });
 
-  console.log(data);
-
   return (
     <Flex
       bg="white"

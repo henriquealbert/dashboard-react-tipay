@@ -49,9 +49,14 @@ export default function CustomDatePicker({
           Data Específica <CalendarioIcon ml="0.625rem" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent p="0" m="0" w="244px" h="241px">
+      <PopoverContent
+        p="0"
+        m="0"
+        maxW={{ base: '184px', md: '244px' }}
+        h={{ base: '182px', md: '241px' }}
+      >
         <PopoverArrow />
-        <PopoverBody p="0" m="0">
+        <PopoverBody p="0" m="0" w="100%" h="100%">
           <DatePicker
             locale="pt-BR"
             selected={startDate}

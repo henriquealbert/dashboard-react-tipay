@@ -11,19 +11,25 @@ import InnerMenu from 'components/InnerMenu';
 
 import { useHomeContext } from './HomeContext';
 import useStatisticsHome from 'hooks/useStatisticsHome';
+import ErrorMessage from 'components/ErrorMessage';
+import HomeSkeleton from './HomeSkeleton';
 
 export default function Home() {
   const ctx = useHomeContext();
 
-  const { data } = useStatisticsHome(ctx.headerStartDate, ctx.headerEndDate);
-  // todo:
-  // fix datepicker
+  const { data, isError, error, isLoading } = useStatisticsHome(
+    ctx.headerStartDate,
+    ctx.headerEndDate
+  );
 
   return (
     <Layout>
       <Container>
         <Box mb="3.25rem">
           <InnerMenu pageTitle="Home" useContext={ctx} />
+
+          {isError && <ErrorMessage message={error.message} />}
+          {isLoading && <HomeSkeleton />}
 
           {data && (
             <Box bg="gray.200" ref={ctx.printRef}>
