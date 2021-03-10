@@ -133,3 +133,28 @@ export const resetPassword = async (values) => {
 
   return response.data;
 };
+
+export const createRemoteLink = async (values) => {
+  const config = {
+    method: 'post',
+    url: `v1/link.json`,
+    headers: {},
+    data: values
+  };
+
+  const response = await api(config);
+
+  return response.data;
+};
+
+export const calculateValueReceive = async (value, installment_plan) => {
+  const config = {
+    method: 'get',
+    url: `v1/transaction/calculate/value=${value}/installment_plan=${installment_plan}/online=true.json`,
+    headers: {}
+  };
+
+  const response = await api(config);
+
+  return response.data;
+};

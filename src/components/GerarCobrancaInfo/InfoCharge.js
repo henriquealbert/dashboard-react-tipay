@@ -17,8 +17,24 @@ import {
   FormErrorMessage
 } from '@chakra-ui/react';
 import AmountInput from './AmountInput';
+import { calculateValueReceive } from 'api';
 
-export default function InfoCharge({ register, errors }) {
+export default function InfoCharge({
+  register,
+  errors,
+  setCalculatedFee,
+  calculatedFee
+}) {
+  const handleChange = async (e) => {
+    const res = await calculateValueReceive(
+      calculatedFee.value,
+      e.target.value
+    );
+    if (res) {
+      setCalculatedFee(res);
+    }
+  };
+
   return (
     <Box mt="2.25rem" w="100%">
       <Text
@@ -57,6 +73,7 @@ export default function InfoCharge({ register, errors }) {
               placeholder="Digite um valor"
               name="amount"
               required
+              setCalculatedFee={setCalculatedFee}
             />
             <FormErrorMessage color="red.300">
               {errors.amount && errors.amount.message}
@@ -82,6 +99,7 @@ export default function InfoCharge({ register, errors }) {
               w="100%"
               name="installment_plan"
               ref={register}
+              onChange={handleChange}
               required
             >
               <option value="1">À vista</option>

@@ -2,8 +2,17 @@ import { Input } from '@chakra-ui/input';
 import { forwardRef, useState } from 'react';
 import NumberFormat from 'react-number-format';
 
-const AmountInput = ({ placeholder, name, required }, ref) => {
+const AmountInput = (
+  { placeholder, name, required, setCalculatedFee },
+  ref
+) => {
   const [value, setValue] = useState('');
+
+  const handleChange = (e) => {
+    const val = Number(e.formattedValue.replace(/[^\d]/g, ''));
+    setValue(e.formattedValue);
+    setCalculatedFee((prev) => ({ ...prev, value: val }));
+  };
 
   return (
     <>
@@ -19,7 +28,7 @@ const AmountInput = ({ placeholder, name, required }, ref) => {
         placeholder={placeholder}
         name={name}
         required={required}
-        onValueChange={(e) => setValue(e.formattedValue)}
+        onValueChange={handleChange}
       />
       <input
         style={{ display: 'none' }}

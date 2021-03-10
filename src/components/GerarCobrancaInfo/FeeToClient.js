@@ -1,15 +1,34 @@
-import {
-  Box,
-  Flex,
-  Text,
-  FormControl,
-  FormLabel,
-  Switch
-} from '@chakra-ui/react';
-import { useState } from 'react';
+import { Box, Text, FormControl, FormLabel, Switch } from '@chakra-ui/react';
+import { formatPrice } from 'utils/formatPrice';
 
-export default function FeeToClient() {
-  const [hasFee, setFee] = useState(false);
+export default function FeeToClient({ hasFee, setFee, calculatedFee }) {
+  const handleChange = () => {
+    setFee(!hasFee);
+  };
+
+  const displayValue = () => {
+    if (calculatedFee.value === '') {
+      return 'R$ 0,00';
+    }
+    if (!hasFee) {
+      return formatPrice(calculatedFee.value);
+    }
+    if (hasFee) {
+      return formatPrice(calculatedFee.value_passing_fees);
+    }
+  };
+
+  const displayValueReceive = () => {
+    if (calculatedFee.value_to_receive === '') {
+      return 'R$ 0,00';
+    }
+    if (!hasFee) {
+      return formatPrice(calculatedFee.value_to_receive);
+    }
+    if (hasFee) {
+      return formatPrice(calculatedFee.value_to_receive_passing_fees);
+    }
+  };
 
   return (
     <Box>
@@ -23,48 +42,40 @@ export default function FeeToClient() {
         >
           Repassar taxa para o cliente?
         </FormLabel>
-        <Switch
-          id="juros_de_mora"
-          value={hasFee}
-          onChange={() => setFee(!hasFee)}
-        />
+        <Switch id="juros_de_mora" value={hasFee} onChange={handleChange} />
       </FormControl>
 
-      {hasFee ? (
-        <Box
-          boxShadow="0rem 0.188rem 0.625rem #0000000A"
-          borderRadius="0.625rem"
-          w="100%"
-          bg="white"
-          p={{ base: '2rem', xlg: '3rem 4.25rem' }}
-          direction={{ base: 'column', lg: 'row' }}
-        >
-          <Text fontSize="1.25rem" lineHeight="2.5rem">
-            Valor a ser cobrado:
-            <Text as="span" ml="1rem" color="black" fontWeight="bold">
-              R$ 50,00
-            </Text>
+      <Box
+        boxShadow="0rem 0.188rem 0.625rem #0000000A"
+        borderRadius="0.625rem"
+        w="100%"
+        bg="white"
+        p={{ base: '2rem', xlg: '3rem 4.25rem' }}
+        direction={{ base: 'column', lg: 'row' }}
+      >
+        <Text fontSize="1.25rem" lineHeight="2.5rem">
+          Valor a ser cobrado:
+          <Text as="span" ml="1rem" color="black" fontWeight="bold">
+            {displayValue()}
           </Text>
-          <Text fontSize="1.25rem" lineHeight="2.5rem">
-            Valor a receber:
-            <Text as="span" ml="1rem" color="black" fontWeight="bold">
-              R$ 47,00
-            </Text>
+        </Text>
+
+        <Text fontSize="1.25rem" lineHeight="2.5rem">
+          Valor a receber:
+          <Text as="span" ml="1rem" color="black" fontWeight="bold">
+            {displayValueReceive()}
           </Text>
-        </Box>
-      ) : (
-        <Flex
-          bg="white"
-          boxShadow="0rem 0.188rem 0.625rem #0000000A"
-          h="5.625rem"
-          borderRadius="0.625rem"
-          justifyContent="center"
-          alignItems="center"
-          px="4.25rem"
-        >
-          <Box h="2px" bg="#F2F2F2" w="100%" />
-        </Flex>
-      )}
+        </Text>
+
+        <Text fontSize="1.25rem" lineHeight="2.5rem">
+          Valor do antifraude:
+          <Text as="span" ml="1rem" color="black" fontWeight="bold">
+            {calculatedFee.antifraud_fee === ''
+              ? 'R$ 0,00'
+              : formatPrice(calculatedFee.antifraud_fee)}
+          </Text>
+        </Text>
+      </Box>
     </Box>
   );
 }

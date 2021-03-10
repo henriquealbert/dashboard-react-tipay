@@ -1,15 +1,22 @@
-import { Box } from '@chakra-ui/react';
+import { Box, useDisclosure } from '@chakra-ui/react';
 import { useForm } from 'react-hook-form';
 
 import FeeToClient from './FeeToClient';
 import InfoCharge from './InfoCharge';
 import ModalGenerateSale from './ModalGenerateSale';
 import { useState } from 'react';
-import api from 'api';
+import { createRemoteLink } from 'api';
 
 export default function GerarCobrancaInfo() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   const [link, setLink] = useState('');
-  const [isOpen, setOpen] = useState(false);
+  const [hasFee, setFee] = useState(false);
+  const [calculatedFee, setCalculatedFee] = useState({
+    value: '',
+    value_to_receive: '',
+    antifraud_fee: ''
+  });
 
   const {
     register,
@@ -21,11 +28,9 @@ export default function GerarCobrancaInfo() {
   });
 
   const onSubmit = async (values) => {
-    const formattedAmount = values?.amount?.replace(/[^\d]/g, '');
-
     const obj = {
       description: values.description,
-      amount: Number(formattedAmount),
+      amount: hasFee ? calculatedFee?.value_passing_fees : calculatedFee?.value,
       installment:
         values.installment_plan === '1'
           ? false
@@ -37,20 +42,31 @@ export default function GerarCobrancaInfo() {
       limit: Number(values.limit)
     };
 
-    const response = await api.post('v1/link.json', { data: obj });
-    if (response.status === 201) {
-      setLink(response.data.link);
-      setOpen(true);
+    const res = await createRemoteLink(obj);
+    if (res?.link) {
+      setLink(res?.link);
+      onOpen();
     }
   };
 
   return (
     <Box as="form" onSubmit={handleSubmit(onSubmit)}>
-      <InfoCharge register={register} errors={errors} />
-      <FeeToClient register={register} errors={errors} />
+      <InfoCharge
+        register={register}
+        errors={errors}
+        setCalculatedFee={setCalculatedFee}
+        calculatedFee={calculatedFee}
+      />
+      <FeeToClient
+        hasFee={hasFee}
+        setFee={setFee}
+        setCalculatedFee={setCalculatedFee}
+        calculatedFee={calculatedFee}
+      />
       <ModalGenerateSale
         link={link}
-        open={isOpen}
+        isOpen={isOpen}
+        onClose={onClose}
         isSubmitting={isSubmitting}
       />
     </Box>

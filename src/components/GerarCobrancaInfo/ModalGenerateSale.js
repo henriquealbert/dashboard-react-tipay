@@ -1,6 +1,5 @@
 import {
   Button,
-  useDisclosure,
   Modal,
   ModalOverlay,
   ModalContent,
@@ -13,18 +12,14 @@ import { LinkQRCodeIcon } from 'styles/icons';
 
 import InputLink from 'components/InputLink';
 import QRCodeComponent from 'components/QRCodeComponent';
+import ShareLinkButton from 'components/ShareLinkButton';
 
-export default function ModalGenerateSale({ open, isSubmitting, link }) {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-
-  const handleClick = () => {
-    if (open === false) {
-      return;
-    } else {
-      onOpen();
-    }
-  };
-
+export default function ModalGenerateSale({
+  isOpen,
+  onClose,
+  isSubmitting,
+  link
+}) {
   return (
     <>
       <Button
@@ -34,7 +29,6 @@ export default function ModalGenerateSale({ open, isSubmitting, link }) {
         fontSize="1.875rem"
         mt="3rem"
         mb="3.5rem"
-        onClick={handleClick}
         type="submit"
         isLoading={isSubmitting}
         loadingText="Gerando Link..."
@@ -78,14 +72,13 @@ export default function ModalGenerateSale({ open, isSubmitting, link }) {
             >
               Fechar
             </Button>
-            <Button
-              variant="green"
+
+            <ShareLinkButton
+              url={link}
               w={{ base: '100%', md: '50%' }}
               h="5.625rem"
               fontSize="1.875rem"
-            >
-              Compartilhar
-            </Button>
+            />
           </ModalFooter>
         </ModalContent>
       </Modal>
