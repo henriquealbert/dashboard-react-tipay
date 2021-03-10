@@ -1,17 +1,13 @@
-import { Box } from '@chakra-ui/layout';
-
 import Layout from 'components/Layout';
 import Container from 'components/Container';
 import ToolsMenu from 'components/ToolsMenu';
 import ErrorMessage from 'components/ErrorMessage';
 import TableSales from 'components/TableSales';
 import TableSalesSkeleton from 'components/TableSalesSkeleton';
-import SalesStatus from 'components/SalesStatus';
-import SalesPercentages from 'components/SalesPercentages';
-import InnerMenu from 'components/InnerMenu';
 
 import { useSalesContext } from './SalesContext';
 import useTransactions from 'hooks/useTransactions';
+import HeaderSales from './HeaderSales';
 
 export default function Vendas() {
   const ctx = useSalesContext();
@@ -21,18 +17,7 @@ export default function Vendas() {
   return (
     <Layout>
       <Container>
-        <InnerMenu pageTitle="Vendas" useContext={ctx} />
-
-        <Box
-          display={{ base: 'block', xl: 'grid' }}
-          gridTemplateColumns={{ xl: '1fr 1fr', xxl: '2fr 1fr' }}
-          gridGap={{ xl: '1.313rem' }}
-          w="100%"
-          mt="0.5rem"
-        >
-          <SalesStatus />
-          <SalesPercentages />
-        </Box>
+        <HeaderSales useContext={ctx} />
 
         <ToolsMenu
           tableID="table_sales"

@@ -18,7 +18,7 @@ import { useQueryClient, useIsFetching } from 'react-query';
 export default function InnerMenu({ pageTitle, useContext }) {
   const {
     printRef,
-    pageKey,
+    pageKeyHeader,
     setHeaderStartDate,
     setHeaderEndDate
   } = useContext;
@@ -27,7 +27,7 @@ export default function InnerMenu({ pageTitle, useContext }) {
   const isFetching = useIsFetching();
 
   const handleDateRange = (dates) => {
-    queryClient.removeQueries([pageKey]);
+    queryClient.removeQueries([pageKeyHeader]);
     const [start, end] = dates;
     setHeaderStartDate(start);
     setHeaderEndDate(end);

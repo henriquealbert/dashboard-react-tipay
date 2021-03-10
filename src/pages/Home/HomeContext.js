@@ -8,12 +8,10 @@ export const HomeProvider = ({ children }) => {
   /************* HEADER *************/
   const [headerStartDate, setHeaderStartDate] = useState(getLast3Months());
   const [headerEndDate, setHeaderEndDate] = useState(getToday());
+  const pageKeyHeader = 'Statistics_Home';
 
   /************* TABLE *************/
   const printRef = useRef();
-
-  /************* PAGE QUERY ID *************/
-  const pageKey = 'Statistics_Home';
 
   return (
     <HomeContext.Provider
@@ -23,7 +21,7 @@ export const HomeProvider = ({ children }) => {
         headerEndDate,
         setHeaderEndDate,
         printRef,
-        pageKey
+        pageKeyHeader
       }}
     >
       {children}

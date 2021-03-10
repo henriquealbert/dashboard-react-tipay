@@ -11,6 +11,7 @@ export const SalesProvider = ({ children }) => {
   /************* HEADER *************/
   const [headerStartDate, setHeaderStartDate] = useState(getLast3Months());
   const [headerEndDate, setHeaderEndDate] = useState(getToday());
+  const pageKeyHeader = 'Statistics_Transactions';
 
   /************* TABLE *************/
   const printRef = useRef();
@@ -92,7 +93,8 @@ export const SalesProvider = ({ children }) => {
         end,
         setEnd,
         payerRef,
-        amountRef
+        amountRef,
+        pageKeyHeader
       }}
     >
       {children}
