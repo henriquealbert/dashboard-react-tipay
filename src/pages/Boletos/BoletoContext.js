@@ -11,6 +11,7 @@ export const BoletoProvider = ({ children }) => {
   /************* HEADER *************/
   const [headerStartDate, setHeaderStartDate] = useState(getLast3Months());
   const [headerEndDate, setHeaderEndDate] = useState(getToday());
+  const pageKeyHeader = 'Statistics_Boletos';
 
   /************* TABLE *************/
   const printRef = useRef();
@@ -90,7 +91,8 @@ export const BoletoProvider = ({ children }) => {
         start,
         setStart,
         end,
-        setEnd
+        setEnd,
+        pageKeyHeader
       }}
     >
       {children}
