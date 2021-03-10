@@ -11,6 +11,7 @@ export const TransfersProvider = ({ children }) => {
   /************* HEADER *************/
   const [headerStartDate, setHeaderStartDate] = useState(getLast3Months());
   const [headerEndDate, setHeaderEndDate] = useState(getToday());
+  const pageKeyHeader = 'Statistics_Transfers';
 
   /************* TABLE *************/
   const printRef = useRef();
@@ -76,7 +77,8 @@ export const TransfersProvider = ({ children }) => {
         start,
         setStart,
         end,
-        setEnd
+        setEnd,
+        pageKeyHeader
       }}
     >
       {children}
