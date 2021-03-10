@@ -39,6 +39,8 @@ export default function ModalDetailSale({
 }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
+  console.log(data);
+
   return (
     <>
       <Button
@@ -91,6 +93,7 @@ export default function ModalDetailSale({
                     <Th>Valor Líquido</Th>
                     <Th>Pagamento</Th>
                     <Th>Status</Th>
+                    {data?.complement?.url && <Th>Link Boleto</Th>}
                   </Tr>
                 </Thead>
                 <Tbody>
@@ -102,18 +105,28 @@ export default function ModalDetailSale({
                     <Td>
                       {formatPaymentType(data?.transaction?.payment_type)}
                     </Td>
-                    <Td
-                      color={formatStatusColor(data?.transaction?.status)}
-                      pr="0"
-                    >
+                    <Td color={formatStatusColor(data?.transaction?.status)}>
                       {formatStatusLabel(data?.transaction?.status)}
                     </Td>
+                    {data?.complement?.url && (
+                      <Td pr="0">
+                        <Text
+                          as="a"
+                          _hover={{ textDecoration: 'underline' }}
+                          href={data?.complement?.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Abrir Link
+                        </Text>
+                      </Td>
+                    )}
                   </Tr>
                 </Tbody>
               </Table>
             </Box>
 
-            <Box mt="3.75rem" overflowX="auto">
+            <Box mt="3.5rem" overflowX="auto">
               <Text
                 fontSize={{ base: '1.5rem', xxl: '1.875rem' }}
                 color="gray.900"
@@ -162,7 +175,9 @@ export default function ModalDetailSale({
                 Estornar Venda
               </Button>
             )} */}
-            <ShareLinkButton url={data?.link} mr="1rem" />
+            {data?.complement?.url && (
+              <ShareLinkButton url={data?.complement?.url} mr="1rem" />
+            )}
             <Button
               variant="black"
               mr={3}
