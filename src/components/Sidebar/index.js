@@ -13,6 +13,7 @@ import MenuItem from './MenuItem';
 export default function Sidebar() {
   return (
     <Flex
+      as="aside"
       direction={{ base: 'row', lg: 'column' }}
       w={{ base: '100%', lg: '6.25rem', xxl: '7.5rem' }}
       h={{ lg: '100vh' }}

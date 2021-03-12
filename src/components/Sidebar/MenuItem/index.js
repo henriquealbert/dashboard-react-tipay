@@ -15,6 +15,7 @@ export default function MenuItem({ pathname, text, icon, w, h }) {
   return (
     <Link to={pathname}>
       <Flex
+        as="li"
         w={{ base: '76px', md: '100%' }}
         py={{ base: '1rem', lg: '0' }}
         direction="column"
@@ -26,11 +27,10 @@ export default function MenuItem({ pathname, text, icon, w, h }) {
           svg: { color: 'white' },
           p: { color: 'brand.100' }
         }}
-        mx={{ base: '0.35rem', lg: '' }}
+        mx={{ base: '0.35rem', lg: '0' }}
         mt="2rem"
       >
         <Flex
-          as="nav"
           bg={currentPage() ? 'brand.100' : 'gray.200'}
           w={{ base: '3.25rem', xxl: '3.75rem' }}
           h={{ base: '3.25rem', xxl: '3.75rem' }}
@@ -50,7 +50,7 @@ export default function MenuItem({ pathname, text, icon, w, h }) {
           textAlign="center"
           fontWeight={currentPage() ? 'bold' : 'normal'}
           fontSize={{ base: '0.8rem', xxl: '0.875rem' }}
-          color={currentPage() ? 'brand.100' : 'gray.700'}
+          color="brand.100"
         >
           {text}
         </Text>

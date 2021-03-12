@@ -6,6 +6,7 @@ import Menu from 'components/Menu';
 export default function Header({ perfil }) {
   return (
     <Flex
+      as="header"
       w={
         perfil
           ? {
