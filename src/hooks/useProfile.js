@@ -1,10 +1,8 @@
 import { useQuery } from 'react-query';
-import api from 'api';
+import { fetcher } from 'api/fetcher';
 
 export default function useProfile() {
-  return useQuery(
-    ['Profile'],
-    () => api.get('v1/store/profile.json').then((res) => res.data),
-    { keepPreviousData: true }
-  );
+  return useQuery(['Profile'], () => fetcher('v1/store/profile.json'), {
+    keepPreviousData: true
+  });
 }

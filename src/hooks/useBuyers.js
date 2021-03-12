@@ -1,10 +1,8 @@
 import { useQuery } from 'react-query';
-import api from 'api';
+import { fetcher } from 'api/fetcher';
 
 export default function useBuyers(page) {
-  return useQuery(
-    ['Buyers', page],
-    () => api.get(`v1/buyers/${page}.json`).then((res) => res.data),
-    { keepPreviousData: true }
-  );
+  return useQuery(['Buyers', page], () => fetcher(`v1/buyers/${page}.json`), {
+    keepPreviousData: true
+  });
 }

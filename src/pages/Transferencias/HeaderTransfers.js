@@ -1,26 +1,22 @@
-import {
-  Box
-  // Flex
-} from '@chakra-ui/layout';
+import { Box, Flex } from '@chakra-ui/layout';
 import { Skeleton } from '@chakra-ui/skeleton';
+import ErrorMessage from 'components/ErrorMessage';
 import InnerMenu from 'components/InnerMenu';
-// import SalesStatus from 'components/SalesStatus';
+import SalesStatus from 'components/SalesStatus';
+import useStatisticsTransfers from 'hooks/useStatisticsTransfers';
 
 export default function HeaderTransfers({ useContext }) {
-  // const data = [];
-  const isLoading = true;
-
-  // const { headerStartDate, headerEndDate } = useContext;
-  // const { data, isError, error, isLoading } = useStatisticsTransfers(
-  //   headerStartDate,
-  //   headerEndDate
-  // );
+  const { headerStartDate, headerEndDate } = useContext;
+  const { data, isError, error, isLoading } = useStatisticsTransfers(
+    headerStartDate,
+    headerEndDate
+  );
 
   return (
     <Box>
       <InnerMenu pageTitle="Transferências" useContext={useContext} />
 
-      {/* {isError && <ErrorMessage message={error.message} />} */}
+      {isError && <ErrorMessage message={error.message} />}
       {isLoading && (
         <Box w="100%" mt="1rem">
           <Skeleton
@@ -31,11 +27,11 @@ export default function HeaderTransfers({ useContext }) {
         </Box>
       )}
 
-      {/* {data && (
+      {data && (
         <Flex mt="1rem">
           <SalesStatus data={data?.sales_status} />
         </Flex>
-      )} */}
+      )}
     </Box>
   );
 }

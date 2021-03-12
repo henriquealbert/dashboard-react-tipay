@@ -17,7 +17,7 @@ import HomeSkeleton from './HomeSkeleton';
 export default function Home() {
   const ctx = useHomeContext();
 
-  const { data, isError, error, isLoading } = useStatisticsHome(
+  const { data, isLoading, error, isError } = useStatisticsHome(
     ctx.headerStartDate,
     ctx.headerEndDate
   );

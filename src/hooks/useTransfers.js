@@ -1,5 +1,5 @@
 import { useQuery } from 'react-query';
-import api from 'api';
+import { fetcher } from 'api/fetcher';
 
 export default function useTransfers(ctx) {
   const ID = ctx.identification ? `/id=${ctx.identification}` : '';
@@ -23,11 +23,9 @@ export default function useTransfers(ctx) {
       ctx.page
     ],
     () =>
-      api
-        .get(
-          `v1/transfers${ID}${AMOUNT}${START_DATE}${END_DATE}${STATUS}${PER_PAGE}${PAGE}.json`
-        )
-        .then((res) => res.data),
+      fetcher(
+        `v1/transfers${ID}${AMOUNT}${START_DATE}${END_DATE}${STATUS}${PER_PAGE}${PAGE}.json`
+      ),
     { keepPreviousData: true, enabled: !!ctx.page }
   );
 }

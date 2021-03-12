@@ -1,18 +1,10 @@
 import { useQuery } from 'react-query';
-import api from 'api';
-
-const fetchDetails = async (transactionID) => {
-  if (transactionID) {
-    return await api
-      .get(`v1/transaction/${transactionID}/details.json`)
-      .then((res) => res.data);
-  }
-};
+import { fetcher } from 'api/fetcher';
 
 export function useTransaction(transactionID) {
   return useQuery(
     ['Transaction', transactionID],
-    () => fetchDetails(transactionID),
+    () => fetcher(`v1/transaction/${transactionID}/details.json`),
     { keepPreviousData: true, enabled: !!transactionID }
   );
 }

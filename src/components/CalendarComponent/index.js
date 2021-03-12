@@ -26,7 +26,7 @@ export default function CalendarComponent({
 
   // events color
   const events = data?.map((event) => {
-    if (event?.group_id === 'Transactions') {
+    if (event?.group_id === 'transactions') {
       event.backgroundColor = '#3B424C';
       event.borderColor = '#3B424C';
       return event;

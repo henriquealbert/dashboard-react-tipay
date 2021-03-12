@@ -1,5 +1,5 @@
 import { useQuery } from 'react-query';
-import api from 'api';
+import { fetcher } from 'api/fetcher';
 
 export default function useTransactions(ctx) {
   const ID = ctx.identification ? `/id=${ctx.identification}` : '';
@@ -28,11 +28,9 @@ export default function useTransactions(ctx) {
       ctx?.page
     ],
     () =>
-      api
-        .get(
-          `v1/transactions${ID}${PAYER}${VALUE}${START_DATE}${END_DATE}${STATUS}${PAYMENT_TYPE}${PER_PAGE}${PAGE}.json`
-        )
-        .then((res) => res.data),
+      fetcher(
+        `v1/transactions${ID}${PAYER}${VALUE}${START_DATE}${END_DATE}${STATUS}${PAYMENT_TYPE}${PER_PAGE}${PAGE}.json`
+      ),
     { keepPreviousData: true, enabled: !!ctx.page }
   );
 }
