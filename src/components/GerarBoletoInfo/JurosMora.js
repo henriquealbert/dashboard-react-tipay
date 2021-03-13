@@ -2,20 +2,23 @@ import {
   Box,
   Flex,
   FormControl,
+  FormErrorMessage,
   FormLabel,
   Input,
   Switch
 } from '@chakra-ui/react';
 import { useState } from 'react';
+import { Controller } from 'react-hook-form';
+import NumberFormat from 'react-number-format';
 
-export default function JurosMora() {
+export default function JurosMora({ errors, control }) {
   const [hasJuros, setJuros] = useState(false);
 
   return (
     <Box>
       <FormControl display="flex" alignItems="center" my="1.375rem">
         <FormLabel
-          htmlFor="juros_de_mora"
+          htmlFor="hasJuros"
           mb="0"
           color="gray.500"
           fontWeight="bold"
@@ -24,7 +27,7 @@ export default function JurosMora() {
           Juros de mora?
         </FormLabel>
         <Switch
-          id="juros_de_mora"
+          id="hasJuros"
           value={hasJuros}
           onChange={() => setJuros(!hasJuros)}
         />
@@ -40,26 +43,46 @@ export default function JurosMora() {
           direction={{ base: 'column', md: 'row' }}
         >
           <FormControl
-            id="mora"
             mr={{ base: '2rem', xlg: '7rem' }}
             mb={{ base: '1.75rem', md: '0' }}
+            isInvalid={errors.juros_mora}
           >
             <FormLabel
               color="gray.1000"
               fontSize="1.25rem"
               lineHeight="1.5rem"
               fontWeight="semibold"
+              htmlFor="juros_mora"
             >
               Juros de mora (a.m)
             </FormLabel>
-            <Input
-              type="text"
-              variant="innerSolid"
-              placeholder="Juros de mora"
+            <Controller
+              as={
+                <NumberFormat
+                  customInput={(inputProps) => (
+                    <Input
+                      {...inputProps}
+                      variant="innerSolid"
+                      autoComplete="off"
+                    />
+                  )}
+                  displayType={'input'}
+                  allowNegative={false}
+                  placeholder="Juros de mora"
+                  format="#.##%"
+                />
+              }
+              defaultValue=""
+              name="juros_mora"
+              id="juros_mora"
+              control={control}
             />
+            <FormErrorMessage color="red.300">
+              {errors.juros_mora && errors.juros_mora.message}
+            </FormErrorMessage>
           </FormControl>
 
-          <FormControl id="multa">
+          <FormControl isInvalid={errors.multa_mora}>
             <FormLabel
               color="gray.1000"
               fontSize="1.25rem"
@@ -68,11 +91,31 @@ export default function JurosMora() {
             >
               Multa de mora
             </FormLabel>
-            <Input
-              type="text"
-              variant="innerSolid"
-              placeholder="Multa de mora"
+
+            <Controller
+              as={
+                <NumberFormat
+                  customInput={(inputProps) => (
+                    <Input
+                      {...inputProps}
+                      variant="innerSolid"
+                      autoComplete="off"
+                    />
+                  )}
+                  displayType={'input'}
+                  allowNegative={false}
+                  placeholder="Multa de mora"
+                  format="#.##%"
+                />
+              }
+              defaultValue=""
+              name="multa_mora"
+              id="multa_mora"
+              control={control}
             />
+            <FormErrorMessage color="red.300">
+              {errors.multa_mora && errors.multa_mora.message}
+            </FormErrorMessage>
           </FormControl>
         </Flex>
       ) : (

@@ -10,7 +10,7 @@ export default function Friend({
 }) {
   const handleClick = () => {
     if (boleto) {
-      setSelectedBuyer(data.id);
+      setSelectedBuyer(data);
     }
   };
 
@@ -35,12 +35,12 @@ export default function Friend({
           justifyContent="center"
           alignItems="center"
           border={
-            selectedBuyer === data?.id ? '1px solid #4EE2DE' : '1px solid'
+            selectedBuyer?.id === data?.id ? '1px solid #4EE2DE' : '1px solid'
           }
           onClick={handleClick}
-          bg={selectedBuyer === data?.id ? '#4EE2DE' : ''}
+          bg={selectedBuyer?.id === data?.id ? '#4EE2DE' : ''}
         >
-          {selectedBuyer === data?.id && <CheckIcon color="white" />}
+          {selectedBuyer?.id === data?.id && <CheckIcon color="white" />}
         </Flex>
       ) : (
         <Avatar borderRadius="10px" w="48px" h="48px" />

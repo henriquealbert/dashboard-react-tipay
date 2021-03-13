@@ -10,16 +10,18 @@ import {
 } from '@chakra-ui/react';
 import BuyerForm from 'components/BuyerForm';
 
-export default function ModalNewBuyer() {
+export default function ModalNewBuyer({ boleto }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
       <Button
         onClick={onOpen}
-        variant="green"
+        variant={boleto ? 'outline' : 'green'}
         w="100%"
         h="4.5rem"
         px="2.375rem"
+        fontSize="1.125rem"
+        maxW={boleto ? '260px' : 'none'}
       >
         Cadastrar novo cliente
       </Button>

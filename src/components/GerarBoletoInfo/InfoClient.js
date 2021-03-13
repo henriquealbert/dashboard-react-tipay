@@ -1,11 +1,11 @@
-import { Box, Flex, FormLabel, Button, Text } from '@chakra-ui/react';
+import { Box, Flex, FormLabel, Text } from '@chakra-ui/react';
 import { useState } from 'react';
 import InputFilter from 'components/InputFilter';
 import Friend from 'components/Friends/Friend';
+import ModalNewBuyer from 'components/Friends/ModalNewBuyer';
 
-export default function InfoClient({ setNewClient }) {
+export default function InfoClient({ selectedBuyer, setSelectedBuyer }) {
   const [filteredList, setFilteredList] = useState({ entries: [] });
-  const [selectedBuyer, setSelectedBuyer] = useState('');
 
   return (
     <Box
@@ -24,19 +24,13 @@ export default function InfoClient({ setNewClient }) {
       >
         Buscar cliente
       </FormLabel>
+
       <Flex direction={{ base: 'column', md: 'row' }}>
         <InputFilter setFilteredList={setFilteredList} />
-
-        <Button
-          variant="outline"
-          h="4.563rem"
-          fontSize="1.125rem"
-          onClick={() => setNewClient(true)}
-        >
-          Cadastrar novo usuário
-        </Button>
+        <ModalNewBuyer boleto />
       </Flex>
-      <Box>
+
+      <Box mt="1rem">
         {filteredList?.total_entries === 0 ? (
           <Text mt="1rem">Nenhum Resultado Encontrado.</Text>
         ) : (

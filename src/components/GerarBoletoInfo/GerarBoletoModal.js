@@ -6,14 +6,20 @@ import {
   ModalHeader,
   ModalCloseButton,
   ModalBody,
-  useDisclosure,
   Flex
 } from '@chakra-ui/react';
 import InputLink from 'components/InputLink';
 import { BoletoIcon } from 'styles/icons';
 
-export default function GerarBoletoModal() {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+export default function GerarBoletoModal({
+  formId,
+  onClose,
+  isOpen,
+  isSubmitting,
+  selectedBuyer,
+  data
+}) {
+  console.log(data);
   return (
     <>
       <Button
@@ -23,7 +29,11 @@ export default function GerarBoletoModal() {
         fontSize="1.875rem"
         mt="1rem"
         mb="3.5rem"
-        onClick={onOpen}
+        type="submit"
+        form={formId}
+        isLoading={isSubmitting}
+        loadingText="Gerando boleto..."
+        disabled={selectedBuyer === null ? true : false}
       >
         Gerar Boleto <BoletoIcon ml="1rem" w="2.813rem" h="2rem" />
       </Button>
@@ -39,11 +49,10 @@ export default function GerarBoletoModal() {
           <ModalCloseButton />
           <ModalBody>
             <Flex direction={{ base: 'column', md: 'row' }}>
-              <InputLink
-                label="Código do boleto"
-                url="00020101021226770014BR.GOV.BCB.PIX2555api.itau/pix/qr/v2/c6e24562-4248-4ff0-9f5c-1f02a585"
-              />
+              <InputLink label="Código do boleto" url={data?.barcode} />
               <Button
+                as="a"
+                href={`javascript: w=window.open('${data?.url}'); w.print(); w.close(); `}
                 variant="green"
                 w={{ base: '100%', md: '18.75rem' }}
                 h="4.938rem"
@@ -53,7 +62,7 @@ export default function GerarBoletoModal() {
                 Imprimir Boleto
               </Button>
             </Flex>
-            <p>webview pdf boleto</p>
+            <Flex></Flex>
           </ModalBody>
         </ModalContent>
       </Modal>

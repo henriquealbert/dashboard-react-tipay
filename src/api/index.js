@@ -158,3 +158,21 @@ export const calculateValueReceive = async (value, installment_plan) => {
 
   return response.data;
 };
+
+export const createBoleto = async (data) => {
+  const config = {
+    method: 'post',
+    url: 'v1/boleto.json',
+    headers: {},
+    data: data
+  };
+
+  const res = await api(config);
+
+  if (res?.status === 201) {
+    return res?.data;
+  }
+  if (!res?.status === 201) {
+    return { error: true, message: res?.response?.data?.message };
+  }
+};

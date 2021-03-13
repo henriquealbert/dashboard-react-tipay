@@ -29,29 +29,13 @@ const schema = Yup.object().shape({
   postal_code: Yup.string().required('Obrigatório.'),
   street: Yup.string().required('Obrigatório.'),
   number: Yup.string().required('Obrigatório.'),
-  complement: Yup.string().required('Obrigatório.'),
+  complement: Yup.string(),
   neighborhood: Yup.string().required('Obrigatório.'),
   city: Yup.string().required('Obrigatório.'),
   state: Yup.string().required('Obrigatório.')
 });
 
-export default function BuyerForm({
-  setNewClient,
-  padding,
-  onClose,
-  boxShadow,
-  edit,
-  data
-}) {
-  const handleCancel = () => {
-    if (setNewClient) {
-      setNewClient(false);
-    }
-    if (!setNewClient) {
-      onClose();
-    }
-  };
-
+export default function BuyerForm({ padding, onClose, boxShadow, edit, data }) {
   const toast = useToast();
   const queryClient = useQueryClient();
 
@@ -450,7 +434,7 @@ export default function BuyerForm({
           mr="1.375rem"
           h="4.5rem"
           w="13.75rem"
-          onClick={handleCancel}
+          onClick={onClose}
         >
           {edit ? 'Fechar' : 'Cancelar'}
         </Button>
