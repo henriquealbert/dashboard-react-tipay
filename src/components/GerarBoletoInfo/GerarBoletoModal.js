@@ -62,7 +62,7 @@ export default function GerarBoletoModal({
                 Imprimir Boleto
               </Button>
             </Flex>
-            <Flex></Flex>
+            <Flex>{/* adicionar boleto e testar função imprimir */}</Flex>
           </ModalBody>
         </ModalContent>
       </Modal>
