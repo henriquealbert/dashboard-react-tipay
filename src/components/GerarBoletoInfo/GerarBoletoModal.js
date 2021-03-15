@@ -72,7 +72,6 @@ export default function GerarBoletoModal({
               borderColor="gray.1100"
               borderRadius="10px"
               mt="2rem"
-              className="boletoModal"
               overflowY="auto"
               justifyContent="center"
               alignItems="center"

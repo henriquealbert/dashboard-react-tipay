@@ -428,12 +428,16 @@ export default function BuyerForm({ padding, onClose, boxShadow, edit, data }) {
         </Box>
       </Flex>
 
-      <Flex mt="2.625rem" justifyContent="flex-end">
+      <Flex
+        mt="2.625rem"
+        justifyContent="flex-end"
+        direction={{ base: 'column', md: 'row' }}
+      >
         <Button
           variant={edit ? 'black' : 'red'}
-          mr="1.375rem"
+          mr={{ md: '1.375rem' }}
           h="4.5rem"
-          w="13.75rem"
+          w={{ base: '100%', md: '13.75rem' }}
           onClick={onClose}
         >
           {edit ? 'Fechar' : 'Cancelar'}
@@ -448,7 +452,10 @@ export default function BuyerForm({ padding, onClose, boxShadow, edit, data }) {
               isLoading={false}
               loadingText="Carregando..."
               type="submit"
-              ml="1.375rem"
+              ml={{ md: '1.375rem' }}
+              mt={{ base: '1rem', md: '0' }}
+              w="100%"
+              maxW="20rem"
             >
               Editar Cliente
             </Button>
@@ -456,7 +463,8 @@ export default function BuyerForm({ padding, onClose, boxShadow, edit, data }) {
         ) : (
           <Button
             variant="green"
-            w="21rem"
+            mt={{ base: '1rem', md: '0' }}
+            w={{ base: '100%', md: '21rem' }}
             h="4.5rem"
             isLoading={false}
             loadingText="Carregando..."

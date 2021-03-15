@@ -37,8 +37,9 @@ export default function DeleteModal({ id, closeDetailModal }) {
       <Button
         variant="red"
         h="4.5rem"
-        w="13.75rem"
         onClick={() => setIsOpen(true)}
+        w={{ base: '100%', md: '13.75rem' }}
+        mt={{ base: '1rem', md: '0' }}
       >
         Deletar
       </Button>
