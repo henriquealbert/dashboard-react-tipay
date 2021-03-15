@@ -10,4 +10,34 @@ export const GlobalStyles = css`
       font-size: 16px;
     }
   }
+
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #c1c1c1;
+    opacity: 0.3;
+  }
+
+  .boletoModal {
+    ::-webkit-scrollbar {
+      width: 12px;
+    }
+
+    ::-webkit-scrollbar-track {
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background: #c1c1c1;
+      opacity: 0.3;
+    }
+  }
 `;

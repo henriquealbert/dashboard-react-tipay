@@ -6,9 +6,11 @@ import {
   ModalHeader,
   ModalCloseButton,
   ModalBody,
-  Flex
+  Flex,
+  ModalFooter
 } from '@chakra-ui/react';
 import InputLink from 'components/InputLink';
+import { Link } from 'react-router-dom';
 import { BoletoIcon } from 'styles/icons';
 
 export default function GerarBoletoModal({
@@ -19,7 +21,6 @@ export default function GerarBoletoModal({
   selectedBuyer,
   data
 }) {
-  console.log(data);
   return (
     <>
       <Button
@@ -52,7 +53,9 @@ export default function GerarBoletoModal({
               <InputLink label="Código do boleto" url={data?.barcode} />
               <Button
                 as="a"
-                href={`javascript: w=window.open('${data?.url}'); w.print(); w.close(); `}
+                href={data?.url}
+                target="_blank"
+                rel="noreferrer"
                 variant="green"
                 w={{ base: '100%', md: '18.75rem' }}
                 h="4.938rem"
@@ -62,7 +65,30 @@ export default function GerarBoletoModal({
                 Imprimir Boleto
               </Button>
             </Flex>
-            <Flex>{/* adicionar boleto e testar função imprimir */}</Flex>
+            <Flex
+              w="100%"
+              h="25rem"
+              border="1px solid"
+              borderColor="gray.1100"
+              borderRadius="10px"
+              mt="2rem"
+              className="boletoModal"
+              overflowY="auto"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <iframe
+                src={data?.url}
+                frameBorder="0"
+                width="100%"
+                height="100%"
+              />
+            </Flex>
+            <ModalFooter mt="2rem" px="0">
+              <Button as={Link} to="/boletos" variant="green" w="100%">
+                Concluir
+              </Button>
+            </ModalFooter>
           </ModalBody>
         </ModalContent>
       </Modal>
