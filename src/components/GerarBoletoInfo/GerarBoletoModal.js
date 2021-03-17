@@ -50,7 +50,7 @@ export default function GerarBoletoModal({
           <ModalCloseButton />
           <ModalBody>
             <Flex direction={{ base: 'column', md: 'row' }}>
-              <InputLink label="Código do boleto" url={data?.barcode} />
+              <InputLink label="Linha digitável" url={data?.barcode} />
               <Button
                 as="a"
                 href={data?.url}

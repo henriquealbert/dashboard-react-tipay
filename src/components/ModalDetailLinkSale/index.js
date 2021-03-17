@@ -120,7 +120,7 @@ export default function ModalDetailLinkSale({ data }) {
           </ModalBody>
 
           <ModalFooter>
-            <ShareLinkButton url={data?.link} />
+            <ShareLinkButton url={data?.link} label="Visualizar Link" />
           </ModalFooter>
         </ModalContent>
       </Modal>

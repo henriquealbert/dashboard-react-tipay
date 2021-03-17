@@ -78,6 +78,7 @@ export default function ModalGenerateSale({
               w={{ base: '100%', md: '50%' }}
               h="5.625rem"
               fontSize="1.875rem"
+              label="Visualizar Link"
             />
           </ModalFooter>
         </ModalContent>

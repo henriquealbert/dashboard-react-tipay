@@ -72,7 +72,8 @@ export default function BuyerForm({ padding, onClose, boxShadow, edit, data }) {
         description: res?.message,
         status: res?.error ? 'error' : 'success',
         duration: 9000,
-        isClosable: true
+        isClosable: true,
+        position: 'bottom-right'
       });
       queryClient.refetchQueries(['Buyers']);
       onClose();
@@ -83,7 +84,8 @@ export default function BuyerForm({ padding, onClose, boxShadow, edit, data }) {
         description: res?.message,
         status: res?.error ? 'error' : 'success',
         duration: 9000,
-        isClosable: true
+        isClosable: true,
+        position: 'bottom-right'
       });
       queryClient.refetchQueries(['Buyers']);
       onClose();

@@ -63,7 +63,8 @@ export default function Recover2({ setCurrentStep, message, email, onClose }) {
         description: res?.message,
         status: 'success',
         duration: 9000,
-        isClosable: true
+        isClosable: true,
+        position: 'bottom-right'
       });
       queryClient.removeQueries('Profile');
       if (onClose) {
@@ -77,7 +78,8 @@ export default function Recover2({ setCurrentStep, message, email, onClose }) {
         description: res?.message,
         status: 'error',
         duration: 9000,
-        isClosable: true
+        isClosable: true,
+        position: 'bottom-right'
       });
     }
   };

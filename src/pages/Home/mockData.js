@@ -1,7 +1,11 @@
-const by_hour = [
+export const by_hour = [
   {
     id: 'sales by hour',
     data: [
+      {
+        x: '00:00',
+        y: 1
+      },
       {
         x: '01:00',
         y: 1
@@ -41,12 +45,64 @@ const by_hour = [
       {
         x: '10:00',
         y: 2
+      },
+      {
+        x: '11:00',
+        y: 12
+      },
+      {
+        x: '12:00',
+        y: 0
+      },
+      {
+        x: '13:00',
+        y: 1
+      },
+      {
+        x: '14:00',
+        y: 4
+      },
+      {
+        x: '15:00',
+        y: 1
+      },
+      {
+        x: '16:00',
+        y: 2
+      },
+      {
+        x: '17:00',
+        y: 3
+      },
+      {
+        x: '18:00',
+        y: 2
+      },
+      {
+        x: '19:00',
+        y: 6
+      },
+      {
+        x: '20:00',
+        y: 10
+      },
+      {
+        x: '21:00',
+        y: 8
+      },
+      {
+        x: '22:00',
+        y: 1
+      },
+      {
+        x: '23:00',
+        y: 7
       }
     ]
   }
 ];
 
-const issuers = [
+export const issuers = [
   {
     id: 'Maestro',
     label: 'Maestro',
@@ -74,20 +130,20 @@ const issuers = [
 ];
 
 // sales by credit %
-const parcelada = [
+export const parcelada = [
   {
     id: 'Parcelada',
     value: 25
   }
 ];
-const avista = [
+export const avista = [
   {
     id: 'À vista',
     value: 88
   }
 ];
 
-const installments = [
+export const installments = [
   {
     id: '2x',
     value: 50
@@ -134,7 +190,7 @@ const installments = [
   }
 ];
 
-const percentagesBars = [
+export const percentagesBars = [
   {
     label: 'Débito',
     value: 31
@@ -149,7 +205,7 @@ const percentagesBars = [
   }
 ];
 
-const SalesStatus = [
+export const SalesStatus = [
   {
     label: 'Aprovadas',
     value: 140000

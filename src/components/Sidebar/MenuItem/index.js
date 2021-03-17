@@ -28,7 +28,7 @@ export default function MenuItem({ pathname, text, icon, w, h }) {
           p: { color: 'brand.100' }
         }}
         mx={{ base: '0.35rem', lg: '0' }}
-        mt="2rem"
+        mt={{ base: '2rem', md: '1rem', xxl: '2rem' }}
       >
         <Flex
           bg={currentPage() ? 'brand.100' : 'gray.200'}
@@ -49,7 +49,7 @@ export default function MenuItem({ pathname, text, icon, w, h }) {
           mt={{ base: '0.5rem', xxl: '0.875rem' }}
           textAlign="center"
           fontWeight={currentPage() ? 'bold' : 'normal'}
-          fontSize={{ base: '0.8rem', xxl: '0.875rem' }}
+          fontSize={{ base: '0.85rem', lg: '0.7rem', xxl: '0.875rem' }}
           color="brand.100"
         >
           {text}

@@ -46,7 +46,8 @@ export default function FormAtendimento() {
       description: data?.message,
       status: data?.error ? 'error' : 'success',
       duration: 9000,
-      isClosable: true
+      isClosable: true,
+      position: 'bottom-right'
     });
     setValue('phone', '');
     reset();

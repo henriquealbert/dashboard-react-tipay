@@ -21,7 +21,6 @@ export default function Home() {
     ctx.headerStartDate,
     ctx.headerEndDate
   );
-
   return (
     <Layout>
       <Container>
@@ -51,9 +50,9 @@ export default function Home() {
               >
                 <Box>
                   <SalesCredit data={data} />
-                  <SalesByHour />
+                  <SalesByHour data={data} />
                 </Box>
-                <SalesByIssuer data={data?.card_brands} />
+                <SalesByIssuer data={data} />
               </Box>
             </Box>
           )}

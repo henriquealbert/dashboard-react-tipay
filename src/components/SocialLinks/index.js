@@ -39,7 +39,9 @@ export default function SocialLinks() {
           rel="noreferrer"
         >
           <Img src={item.icon} alt={item.alt} mr="1rem" />
-          <Text fontSize="1rem">{item.title}</Text>
+          <Text fontSize="1rem" wordBreak="keep-all">
+            {item.title}
+          </Text>
         </Flex>
       ))}
     </>

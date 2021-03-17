@@ -42,6 +42,7 @@ export default function GerarBoletoInfo() {
         type: 'manual',
         message: 'Valor mínimo R$ 3,00'
       });
+      window.scrollTo(0, 0);
       return;
     }
     if (formattedAmount > 100000) {
@@ -49,6 +50,7 @@ export default function GerarBoletoInfo() {
         type: 'manual',
         message: 'Valor máximo R$ 1.000,00'
       });
+      window.scrollTo(0, 0);
       return;
     }
     // mora validations
@@ -63,6 +65,7 @@ export default function GerarBoletoInfo() {
         type: 'manual',
         message: 'Máximo 1% ao mês'
       });
+      window.scrollTo(0, 400);
       return;
     }
     if (multa_mora > 200) {
@@ -70,6 +73,7 @@ export default function GerarBoletoInfo() {
         type: 'manual',
         message: 'Máximo 2.00%'
       });
+      window.scrollTo(0, 400);
       return;
     }
 
@@ -79,6 +83,7 @@ export default function GerarBoletoInfo() {
           type: 'manual',
           message: 'Para ter juros o valor deve ser no mínimo de R$ 30,00'
         });
+        window.scrollTo(0, 0);
         return;
       }
     }
@@ -96,6 +101,7 @@ export default function GerarBoletoInfo() {
         type: 'manual',
         message: 'Deve ser maior ou igual a data de vencimento'
       });
+      window.scrollTo(0, 0);
       return;
     }
     if (compareAsc(parseISO(values?.expiration_date), new Date()) === -1) {
@@ -103,6 +109,7 @@ export default function GerarBoletoInfo() {
         type: 'manual',
         message: 'Deve ser maior ou igual a data de hoje'
       });
+      window.scrollTo(0, 0);
       return;
     }
 
@@ -138,7 +145,8 @@ export default function GerarBoletoInfo() {
         description: res?.message,
         status: 'error',
         duration: 9000,
-        isClosable: true
+        isClosable: true,
+        position: 'bottom-right'
       });
     } else {
       setBoletoData(res);
@@ -147,7 +155,8 @@ export default function GerarBoletoInfo() {
         description: 'Boleto criado com sucesso!',
         status: 'success',
         duration: 9000,
-        isClosable: true
+        isClosable: true,
+        position: 'bottom-right'
       });
       onOpen();
     }

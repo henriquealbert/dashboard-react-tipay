@@ -1,4 +1,4 @@
-import { Skeleton, Text } from '@chakra-ui/react';
+import { Skeleton } from '@chakra-ui/react';
 import Container from 'components/Container';
 import ErrorMessage from 'components/ErrorMessage';
 import Friends from 'components/Friends';
@@ -13,9 +13,7 @@ export default function ClientesAmigos() {
     <Layout perfil>
       <Container>
         <PageTitle>Clientes/Amigos</PageTitle>
-        <Text fontSize="1.625rem" color="gray.500" mb="2rem">
-          Sua lista de clientes/amigos. Crie, Edite, Delete ou Procure.
-        </Text>
+
         {data && <Friends initialData={data} />}
         {isError && <ErrorMessage message={error.message} />}
         {isLoading && (

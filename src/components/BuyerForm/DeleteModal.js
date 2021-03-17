@@ -25,7 +25,8 @@ export default function DeleteModal({ id, closeDetailModal }) {
       description: data?.message,
       status: data?.error ? 'error' : 'success',
       duration: 9000,
-      isClosable: true
+      isClosable: true,
+      position: 'bottom-right'
     });
     queryClient.removeQueries('Buyers');
     onClose();

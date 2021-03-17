@@ -37,7 +37,8 @@ export default function EditName({ formId, onClose, setSubmit, data }) {
       description: res?.message,
       status: res?.error ? 'error' : 'success',
       duration: 9000,
-      isClosable: true
+      isClosable: true,
+      position: 'bottom-right'
     });
     queryClient.refetchQueries('Profile');
     setSubmit(false);

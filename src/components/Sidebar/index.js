@@ -25,6 +25,7 @@ export default function Sidebar() {
       boxShadow="0rem 0.188rem 1.25rem #0000003D"
       alignItems="center"
       overflowX="auto"
+      justifyContent={{ base: 'space-between', lg: 'initial' }}
     >
       <MenuItem
         icon={HomeIcon}

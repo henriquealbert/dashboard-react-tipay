@@ -1,54 +1,16 @@
 import { Box, Flex, Text } from '@chakra-ui/react';
 import { ResponsiveLine } from '@nivo/line';
+import { by_hour } from 'pages/Home/mockData';
 
-export default function SalesByHour() {
-  const data = [
-    {
-      id: 'sales by hour',
-      data: [
-        {
-          x: '01:00',
-          y: 1
-        },
-        {
-          x: '02:00',
-          y: 12
-        },
-        {
-          x: '03:00',
-          y: 3
-        },
-        {
-          x: '04:00',
-          y: 6
-        },
-        {
-          x: '05:00',
-          y: 0
-        },
-        {
-          x: '06:00',
-          y: 4
-        },
-        {
-          x: '07:00',
-          y: 0
-        },
-        {
-          x: '08:00',
-          y: 7
-        },
-        {
-          x: '09:00',
-          y: 9
-        },
-        {
-          x: '10:00',
-          y: 2
-        }
-      ]
+export default function SalesByHour({ data }) {
+  const graphsToShow = () => {
+    if (data?.graphs_to_show?.sales_by_hour) {
+      return [data?.sales_by_hour];
     }
-  ];
+    if (!data?.graphs_to_show?.sales_by_hour) {
+      return by_hour;
+    }
+  };
 
   return (
     <Box
@@ -71,21 +33,31 @@ export default function SalesByHour() {
         Hora das Vendas
       </Text>
       <Flex position="relative" p="1rem 0">
-        <Text
-          position="absolute"
-          transform="translate(-50%, -50%)"
-          left="50%"
-          top="50%"
-          p="1rem"
-          borderRadius="0.625rem"
-          fontWeight="bold"
-          fontSize="1rem"
-          color="gray.500"
-          zIndex="2"
+        {!data?.graphs_to_show?.sales_by_hour && (
+          <Text
+            position="absolute"
+            transform="translate(-50%, -50%)"
+            left="50%"
+            top="50%"
+            p="1rem"
+            borderRadius="0.625rem"
+            fontWeight="bold"
+            fontSize="1rem"
+            color="gray.500"
+            zIndex="2"
+          >
+            Não há dados para o período selecionado
+          </Text>
+        )}
+        <Flex
+          overflowX="auto"
+          pb="1rem"
+          w="100%"
+          filter={data?.graphs_to_show?.sales_by_hour ? '' : 'blur(6px)'}
+          bg={data?.graphs_to_show?.sales_by_hour ? '' : 'gray.200'}
         >
-          Em Breve...
-        </Text>
-        <GraphicComponent data={data} />
+          <GraphicComponent data={graphsToShow()} />
+        </Flex>
       </Flex>
     </Box>
   );
@@ -94,74 +66,66 @@ export default function SalesByHour() {
 const GraphicComponent = ({ data }) => {
   return (
     <Flex
-      overflowX="auto"
-      pb={{ base: '1rem', md: '0' }}
+      h="190px"
       w="100%"
-      filter="blur(6px)"
-      bg="gray.200"
+      border="0.063rem solid"
+      borderColor="#DFDFDF"
+      borderRadius="9px"
+      minW="1000px"
     >
-      <Flex
-        h="190px"
-        w="100%"
-        border="0.063rem solid"
-        borderColor="#DFDFDF"
-        borderRadius="9px"
-        minW="650px"
-      >
-        <ResponsiveLine
-          data={data}
-          axisTop={null}
-          axisRight={null}
-          axisLeft={null}
-          pointColor="#353E48"
-          enableGridY={false}
-          theme={{
-            grid: { line: { stroke: '#DFDFDF' } }
-          }}
-          layers={[
-            'grid',
-            'markers',
-            'axes',
-            'areas',
-            'crosshair',
-            DashedLine,
-            'points',
-            'slices',
-            'mesh',
-            'legends'
-          ]}
-          margin={{ bottom: 40, left: 40, right: 40, top: 40 }}
-          enablePointLabel={true}
-          pointSize={8}
-          pointLabelYOffset={-12}
-          isInteractive={false}
-          axisBottom={{
-            // eslint-disable-next-line react/display-name
-            renderTick: (data) => {
-              return (
-                <g
-                  transform="translate(0,16)"
-                  style={{ opacity: 1 }}
-                  key={data.value}
+      <ResponsiveLine
+        data={data}
+        axisTop={null}
+        axisRight={null}
+        axisLeft={null}
+        pointColor="#353E48"
+        enableGridY={false}
+        theme={{
+          grid: { line: { stroke: '#DFDFDF' } }
+        }}
+        layers={[
+          'grid',
+          'markers',
+          'axes',
+          'areas',
+          'crosshair',
+          DashedLine,
+          'points',
+          'slices',
+          'mesh',
+          'legends'
+        ]}
+        margin={{ bottom: 40, left: 40, right: 40, top: 40 }}
+        enablePointLabel={true}
+        pointSize={8}
+        pointLabelYOffset={-12}
+        isInteractive={false}
+        axisBottom={{
+          // eslint-disable-next-line react/display-name
+          renderTick: (data) => {
+            return (
+              <g
+                transform="translate(0,16)"
+                style={{ opacity: 1 }}
+                key={data.value}
+              >
+                <text
+                  alignmentBaseline="before-edge"
+                  textAnchor="middle"
+                  transform={`translate(${data.x}, 0) rotate(0)`}
+                  style={{
+                    fill: '#606060',
+                    fontSize: 12,
+                    fontWeight: 'bold'
+                  }}
                 >
-                  <text
-                    alignmentBaseline="before-edge"
-                    textAnchor="middle"
-                    transform={`translate(${data.x}, 0) rotate(0)`}
-                    style={{
-                      fill: '#606060',
-                      fontSize: 12,
-                      fontWeight: 'bold'
-                    }}
-                  >
-                    {data.value}
-                  </text>
-                </g>
-              );
-            }
-          }}
-        />
-      </Flex>
+                  {data.value}
+                </text>
+              </g>
+            );
+          }
+        }}
+      />
     </Flex>
   );
 };

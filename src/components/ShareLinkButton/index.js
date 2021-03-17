@@ -1,34 +1,20 @@
 import { Button } from '@chakra-ui/button';
-import { CheckIcon } from '@chakra-ui/icons';
-import { useState } from 'react';
+import { SearchIcon } from '@chakra-ui/icons';
 
-export default function ShareLinkButton({ url, ...props }) {
-  const [copied, setCopy] = useState(false);
-
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(url);
-    setCopy(true);
-    setTimeout(() => {
-      setCopy(false);
-    }, 5000);
-  };
-
+export default function ShareLinkButton({ url, label, ...props }) {
   return (
     <Button
+      as="a"
+      target="_blank"
+      rel="noreferrer"
+      href={url}
       variant="green"
       w={{ base: '12rem', xxl: '17.25rem' }}
       h={{ base: '3.25rem', xxl: '4rem' }}
       fontSize={{ base: '1rem', xxl: '1.25rem' }}
-      onClick={copyToClipboard}
       {...props}
     >
-      {copied ? (
-        <>
-          Copiado! <CheckIcon ml="1rem" />
-        </>
-      ) : (
-        'Compartilhar'
-      )}
+      {label} <SearchIcon ml="0.5rem" w={4} h={4} />
     </Button>
   );
 }

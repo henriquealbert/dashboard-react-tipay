@@ -17,7 +17,7 @@ export default function SalesCredit({ data }) {
       gridTemplateColumns={{ md: '1fr 3fr' }}
     >
       <TotalCreditSales data={data} />
-      <InstallmentsSales data={data?.installments} />
+      <InstallmentsSales data={data} />
     </Box>
   );
 }

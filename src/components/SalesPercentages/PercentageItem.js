@@ -27,7 +27,7 @@ export default function PercentageItem({ value, label, color }) {
         pb="2.188rem"
         px="0.25rem"
         fontWeight="bold"
-        fontSize={{ base: '2.75rem', xxl: '3rem' }}
+        fontSize={{ base: '2.25rem', xxl: '2.5rem' }}
         lineHeight="4.563rem"
         color="white"
       >

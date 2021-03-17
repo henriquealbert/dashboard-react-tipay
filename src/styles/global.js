@@ -12,7 +12,7 @@ export const GlobalStyles = css`
   }
 
   ::-webkit-scrollbar {
-    width: 0.75rem;
+    width: 8px;
   }
 
   ::-webkit-scrollbar-track {

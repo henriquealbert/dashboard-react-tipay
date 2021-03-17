@@ -28,6 +28,7 @@ import { formatPaymentType } from 'utils/formatPaymentType';
 import { formatDateTime } from 'utils/formatDate';
 import { formatPrice } from 'utils/formatPrice';
 import ShareLinkButton from 'components/ShareLinkButton';
+import { SearchIcon } from '@chakra-ui/icons';
 
 export default function ModalDetailSale({
   id,
@@ -115,7 +116,7 @@ export default function ModalDetailSale({
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          Abrir Link
+                          Visualizar Boleto <SearchIcon w={4} h={4} />
                         </Text>
                       </Td>
                     )}
@@ -174,7 +175,11 @@ export default function ModalDetailSale({
               </Button>
             )} */}
             {data?.complement?.url && (
-              <ShareLinkButton url={data?.complement?.url} mr="1rem" />
+              <ShareLinkButton
+                url={data?.complement?.url}
+                label="Visualizar Boleto"
+                mr="1rem"
+              />
             )}
             <Button
               variant="black"

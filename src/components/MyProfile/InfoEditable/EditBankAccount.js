@@ -10,28 +10,34 @@ import {
 } from '@chakra-ui/react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { updateBankAccount } from 'api';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import { useQueryClient } from 'react-query';
 import { formatDocOnBlur } from 'utils/formatDocOnBlur';
 import * as Yup from 'yup';
 
-import useBanks from 'hooks/useBanks';
+import CustomSelect from 'components/CustomSelect';
 
 const schema = Yup.object().shape({
   holder_name: Yup.string().required('Obrigatório.'),
   cpf_cnpj: Yup.string().required('Obrigatório.'),
   bank_account_type: Yup.string().required('Obrigatório.'),
   account_number: Yup.string().required('Obrigatório.'),
-  bank_agency: Yup.string().required('Obrigatório.'),
-  bank_name: Yup.string().required('Obrigatório.')
+  bank_agency: Yup.string().required('Obrigatório.')
+  // bank_name: Yup.string().required('Obrigatório.')
 });
 
 export default function EditBankAccount({ formId, data, setSubmit, onClose }) {
-  const { data: banksData } = useBanks();
   const toast = useToast();
   const queryClient = useQueryClient();
 
-  const { register, handleSubmit, errors, setValue, setError } = useForm({
+  const {
+    register,
+    handleSubmit,
+    errors,
+    setValue,
+    setError,
+    control
+  } = useForm({
     mode: 'onChange',
     defaultValues: {
       holder_name: data?.holder_name,
@@ -44,13 +50,6 @@ export default function EditBankAccount({ formId, data, setSubmit, onClose }) {
     resolver: yupResolver(schema)
   });
 
-  const handleBankSelect = (e) => {
-    const bank_name = e.target.value.split('-')[1];
-    const bank_code = e.target.value.split('-')[0];
-    setValue('bank_name', `${bank_code}-${bank_name}`);
-    setValue('bank_code', bank_code);
-  };
-
   const onSubmit = async (values) => {
     setSubmit(true);
     const data = await updateBankAccount(values);
@@ -61,7 +60,8 @@ export default function EditBankAccount({ formId, data, setSubmit, onClose }) {
         : 'Conta bancária alterada com sucesso!',
       status: data?.error ? 'error' : 'success',
       duration: 9000,
-      isClosable: true
+      isClosable: true,
+      position: 'bottom-right'
     });
     queryClient.refetchQueries('Profile');
     setSubmit(false);
@@ -150,25 +150,17 @@ export default function EditBankAccount({ formId, data, setSubmit, onClose }) {
           <FormLabel fontWeight="bold" htmlFor="bank_name">
             Banco
           </FormLabel>
-          <Select
-            type="text"
-            variant="innerSolid"
+          <Controller
+            render={(props) => {
+              return (
+                <CustomSelect {...props} data={data} setValue={setValue} />
+              );
+            }}
+            defaultValue={data && `${data?.bank_code}-${data?.bank_name}`}
             name="bank_name"
             id="bank_name"
-            onChange={handleBankSelect}
-            ref={register}
-            defaultValue={banksData && `${data?.bank_code}-${data?.bank_name}`}
-          >
-            {banksData &&
-              banksData.map((bank) => (
-                <option
-                  value={`${bank.bank_code}-${bank.bank_name}`}
-                  key={bank.id}
-                >
-                  {bank.bank_code} - {bank.bank_name}
-                </option>
-              ))}
-          </Select>
+            control={control}
+          />
           <FormErrorMessage color="red.300">
             {errors.bank_name && errors.bank_name.message}
           </FormErrorMessage>

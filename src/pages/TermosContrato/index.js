@@ -1,4 +1,3 @@
-import { Text } from '@chakra-ui/react';
 import Container from 'components/Container';
 import Contract from 'components/Contract';
 import Layout from 'components/Layout';
@@ -9,10 +8,7 @@ export default function TermosContrato() {
     <Layout perfil>
       <Container>
         <PageTitle>Termos e Condições</PageTitle>
-        <Text fontSize="1.625rem" color="gray.500">
-          Para utilizar os serviços da Tipay, é necessário ler e concordar com
-          todos os Termos.
-        </Text>
+
         <Contract
           title="Contrato de Adesão"
           mt="2rem"
